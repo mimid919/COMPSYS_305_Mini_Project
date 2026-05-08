@@ -52,6 +52,13 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 		  red, green, blue 			: OUT std_logic);		
     END COMPONENT FLAPPY_DOLPHIN;
 
+    COMPONENT CHAR_ROM IS
+	PORT( character_address	        :	IN STD_LOGIC_VECTOR (5 DOWNTO 0);
+		  font_row, font_col	    :	IN STD_LOGIC_VECTOR (2 DOWNTO 0);
+		  clock				        : 	IN STD_LOGIC ;
+		  rom_mux_output	       	:	OUT STD_LOGIC);
+    END COMPONENT CHAR_ROM;
+
     SIGNAL CLOCK_25MHZ : STD_LOGIC;
 
     -- VGA signals used in other componants
@@ -151,6 +158,16 @@ BEGIN
         green => DOLPHIN_GREEN,
         blue => DOLPHIN_BLUE
     );
+
+    --based of lecture schematic
+    START: CHAR_ROM PORT MAP (
+        character_address => PIXEL_ROW(9 DOWNTO 4), -- just using pixel row for now, will need to change for text
+        font_row => PIXEL_ROW(3 DOWNTO 1),
+        font_col => PIXEL_COLUMN(3 DOWNTO 1),
+        clock => CLOCK_25MHZ,
+        rom_mux_output => TEXT_RED -- just outputting to red for now, will need to change for text
+    );
+
 
 	 LEDR(1) <= LEFT_CLICK;
 	 LEDR(0) <= RIGHT_CLICK;
