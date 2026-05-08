@@ -1,12 +1,28 @@
-# Ignore temporary or lock files
-*.flock
-*.tmp
-*.log
-*.exe
-*.obj
-*.pyc
-
-# Ignore editor/project-specific folders
+# Build output folders
+/output_files/
 db/
-.idea/
-.vscode/
+incremental_db/
+
+# Backup files
+*.bak
+*.bsp
+
+# Quartus project / config files
+*.qsf
+*.qpf
+*.mif
+*.cmp
+*.ppf
+*.qip
+*.sip
+*.f
+*.spd
+
+# Temporary / dump files
+c5_pin_model_dump.txt
+test.txt
+
+# Ignore user/system files
+*.log
+*.tmp
+*.swp

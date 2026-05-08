@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_level
-Fri May 08 14:37:06 2026
+Fri May 08 15:27:34 2026
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -50,14 +50,14 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri May 08 14:37:06 2026           ;
+; Analysis & Synthesis Status     ; Successful - Fri May 08 15:27:34 2026           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; top_level                                       ;
 ; Top-level Entity Name           ; top_level                                       ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
 ; Total registers                 ; 136                                             ;
-; Total pins                      ; 73                                              ;
+; Total pins                      ; 83                                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 0                                               ;
 ; Total DSP Blocks                ; 0                                               ;
@@ -170,24 +170,23 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processors 3-16        ;   0.0%      ;
+;     Processors 2-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                    ;
-+----------------------------------+-----------------+-----------------------------+----------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                   ; File Name with Absolute Path                                                                 ; Library ;
-+----------------------------------+-----------------+-----------------------------+----------------------------------------------------------------------------------------------+---------+
-; vga_sync.vhd                     ; yes             ; User VHDL File              ; C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/vga_sync.vhd       ;         ;
-; top_level.vhd                    ; yes             ; User VHDL File              ; C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd      ;         ;
-; mouse.vhd                        ; yes             ; User VHDL File              ; C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/mouse.vhd          ;         ;
-; flappy_dolphin.vhd               ; yes             ; User VHDL File              ; C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/flappy_dolphin.vhd ;         ;
-; pll.vhd                          ; yes             ; User Wizard-Generated File  ; C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/pll.vhd            ; pll     ;
-; pll/pll_0002.v                   ; yes             ; User Verilog HDL File       ; C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/pll/pll_0002.v     ; pll     ;
-; altera_pll.v                     ; yes             ; Megafunction                ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v                               ;         ;
-+----------------------------------+-----------------+-----------------------------+----------------------------------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                      ;
++----------------------------------+-----------------+-----------------------------+----------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                   ; File Name with Absolute Path                                   ; Library ;
++----------------------------------+-----------------+-----------------------------+----------------------------------------------------------------+---------+
+; vga_sync.vhd                     ; yes             ; User VHDL File              ; C:/Users/adun475/305_folder_8_5_26/vga_sync.vhd                ;         ;
+; top_level.vhd                    ; yes             ; User VHDL File              ; C:/Users/adun475/305_folder_8_5_26/top_level.vhd               ;         ;
+; mouse.vhd                        ; yes             ; User VHDL File              ; C:/Users/adun475/305_folder_8_5_26/mouse.vhd                   ;         ;
+; flappy_dolphin.vhd               ; yes             ; User VHDL File              ; C:/Users/adun475/305_folder_8_5_26/flappy_dolphin.vhd          ;         ;
+; pll.vhd                          ; yes             ; User Wizard-Generated File  ; C:/Users/adun475/305_folder_8_5_26/pll.vhd                     ; pll     ;
+; pll/pll_0002.v                   ; yes             ; User Verilog HDL File       ; C:/Users/adun475/305_folder_8_5_26/pll/pll_0002.v              ; pll     ;
+; altera_pll.v                     ; yes             ; Megafunction                ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v ;         ;
++----------------------------------+-----------------+-----------------------------+----------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -206,7 +205,7 @@ refer to the applicable agreement for further details.
 ;                                             ;                                                                            ;
 ; Dedicated logic registers                   ; 136                                                                        ;
 ;                                             ;                                                                            ;
-; I/O pins                                    ; 73                                                                         ;
+; I/O pins                                    ; 83                                                                         ;
 ;                                             ;                                                                            ;
 ; Total DSP Blocks                            ; 0                                                                          ;
 ;                                             ;                                                                            ;
@@ -215,8 +214,8 @@ refer to the applicable agreement for further details.
 ;                                             ;                                                                            ;
 ; Maximum fan-out node                        ; pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
 ; Maximum fan-out                             ; 77                                                                         ;
-; Total fan-out                               ; 1085                                                                       ;
-; Average fan-out                             ; 2.46                                                                       ;
+; Total fan-out                               ; 1095                                                                       ;
+; Average fan-out                             ; 2.38                                                                       ;
 +---------------------------------------------+----------------------------------------------------------------------------+
 
 
@@ -225,7 +224,7 @@ refer to the applicable agreement for further details.
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------+----------------+--------------+
 ; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                    ; Entity Name    ; Library Name ;
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------+----------------+--------------+
-; |top_level                         ; 156 (1)             ; 136 (0)                   ; 0                 ; 0          ; 73   ; 0            ; |top_level                                                             ; top_level      ; work         ;
+; |top_level                         ; 156 (1)             ; 136 (0)                   ; 0                 ; 0          ; 83   ; 0            ; |top_level                                                             ; top_level      ; work         ;
 ;    |MOUSE:M|                       ; 81 (81)             ; 88 (88)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|MOUSE:M                                                     ; MOUSE          ; work         ;
 ;    |VGA_SYNC:VS|                   ; 41 (41)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|VGA_SYNC:VS                                                 ; VGA_SYNC       ; work         ;
 ;    |flappy_dolphin:FD|             ; 33 (33)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|flappy_dolphin:FD                                           ; flappy_dolphin ; work         ;
@@ -616,7 +615,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     shared            ; 10                          ;
 ;         1 data inputs ; 1                           ;
 ;         2 data inputs ; 9                           ;
-; boundary_port         ; 73                          ;
+; boundary_port         ; 83                          ;
 ; generic_pll           ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.00                        ;
@@ -639,42 +638,43 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Fri May 08 14:36:43 2026
+    Info: Processing started: Fri May 08 15:27:27 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off group_27 -c top_level
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file vga_sync.vhd
-    Info (12022): Found design unit 1: VGA_SYNC-a File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/vga_sync.vhd Line: 13
-    Info (12023): Found entity 1: VGA_SYNC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/vga_sync.vhd Line: 7
+    Info (12022): Found design unit 1: VGA_SYNC-a File: C:/Users/adun475/305_folder_8_5_26/vga_sync.vhd Line: 13
+    Info (12023): Found entity 1: VGA_SYNC File: C:/Users/adun475/305_folder_8_5_26/vga_sync.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file top_level.vhd
-    Info (12022): Found design unit 1: TOP_LEVEL-BEHAVIOUR File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 17
-    Info (12023): Found entity 1: top_level File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 6
+    Info (12022): Found design unit 1: TOP_LEVEL-BEHAVIOUR File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 18
+    Info (12023): Found entity 1: top_level File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file mouse.vhd
-    Info (12022): Found design unit 1: MOUSE-behavior File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/mouse.vhd Line: 18
-    Info (12023): Found entity 1: MOUSE File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/mouse.vhd Line: 9
+    Info (12022): Found design unit 1: MOUSE-behavior File: C:/Users/adun475/305_folder_8_5_26/mouse.vhd Line: 18
+    Info (12023): Found entity 1: MOUSE File: C:/Users/adun475/305_folder_8_5_26/mouse.vhd Line: 9
 Info (12021): Found 2 design units, including 1 entities, in source file flappy_dolphin.vhd
-    Info (12022): Found design unit 1: flappy_dolphin-behavior File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/flappy_dolphin.vhd Line: 28
-    Info (12023): Found entity 1: flappy_dolphin File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/flappy_dolphin.vhd Line: 19
+    Info (12022): Found design unit 1: flappy_dolphin-behavior File: C:/Users/adun475/305_folder_8_5_26/flappy_dolphin.vhd Line: 28
+    Info (12023): Found entity 1: flappy_dolphin File: C:/Users/adun475/305_folder_8_5_26/flappy_dolphin.vhd Line: 19
 Info (12021): Found 2 design units, including 1 entities, in source file dolphin.vhd
-    Info (12022): Found design unit 1: dolphin-behavior File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/dolphin.vhd Line: 14
-    Info (12023): Found entity 1: dolphin File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/dolphin.vhd Line: 7
+    Info (12022): Found design unit 1: dolphin-behavior File: C:/Users/adun475/305_folder_8_5_26/dolphin.vhd Line: 14
+    Info (12023): Found entity 1: dolphin File: C:/Users/adun475/305_folder_8_5_26/dolphin.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file char_rom.vhd
-    Info (12022): Found design unit 1: char_rom-SYN File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/char_rom.vhd Line: 20
-    Info (12023): Found entity 1: char_rom File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/char_rom.vhd Line: 9
+    Info (12022): Found design unit 1: char_rom-SYN File: C:/Users/adun475/305_folder_8_5_26/char_rom.vhd Line: 20
+    Info (12023): Found entity 1: char_rom File: C:/Users/adun475/305_folder_8_5_26/char_rom.vhd Line: 9
 Warning (12019): Can't analyze file -- file top_level.bdf is missing
 Info (12021): Found 2 design units, including 1 entities, in source file pll.vhd
-    Info (12022): Found design unit 1: pll-rtl File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/pll.vhd Line: 20
-    Info (12023): Found entity 1: pll File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/pll.vhd Line: 11
+    Info (12022): Found design unit 1: pll-rtl File: C:/Users/adun475/305_folder_8_5_26/pll.vhd Line: 20
+    Info (12023): Found entity 1: pll File: C:/Users/adun475/305_folder_8_5_26/pll.vhd Line: 11
 Info (12021): Found 1 design units, including 1 entities, in source file pll/pll_0002.v
-    Info (12023): Found entity 1: pll_0002 File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/pll/pll_0002.v Line: 2
+    Info (12023): Found entity 1: pll_0002 File: C:/Users/adun475/305_folder_8_5_26/pll/pll_0002.v Line: 2
 Info (12127): Elaborating entity "top_level" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(62): object "RIGHT_CLICK" assigned a value but never read File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 62
-Info (12128): Elaborating entity "pll" for hierarchy "pll:clock_divider" File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 107
-Info (12128): Elaborating entity "pll_0002" for hierarchy "pll:clock_divider|pll_0002:pll_inst" File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/pll.vhd Line: 32
-Info (12128): Elaborating entity "altera_pll" for hierarchy "pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/pll/pll_0002.v Line: 85
+Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(63): object "RIGHT_CLICK" assigned a value but never read File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 63
+Warning (10873): Using initial value X (don't care) for net "LEDR[9..8]" at top_level.vhd(14) File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 14
+Info (12128): Elaborating entity "pll" for hierarchy "pll:clock_divider" File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 108
+Info (12128): Elaborating entity "pll_0002" for hierarchy "pll:clock_divider|pll_0002:pll_inst" File: C:/Users/adun475/305_folder_8_5_26/pll.vhd Line: 32
+Info (12128): Elaborating entity "altera_pll" for hierarchy "pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/adun475/305_folder_8_5_26/pll/pll_0002.v Line: 85
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
-Info (12130): Elaborated megafunction instantiation "pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/pll/pll_0002.v Line: 85
-Info (12133): Instantiated megafunction "pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i" with the following parameter: File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/pll/pll_0002.v Line: 85
+Info (12130): Elaborated megafunction instantiation "pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/adun475/305_folder_8_5_26/pll/pll_0002.v Line: 85
+Info (12133): Instantiated megafunction "pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i" with the following parameter: File: C:/Users/adun475/305_folder_8_5_26/pll/pll_0002.v Line: 85
     Info (12134): Parameter "fractional_vco_multiplier" = "false"
     Info (12134): Parameter "reference_clock_frequency" = "50.0 MHz"
     Info (12134): Parameter "operation_mode" = "direct"
@@ -735,68 +735,78 @@ Info (12133): Instantiated megafunction "pll:clock_divider|pll_0002:pll_inst|alt
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:VS" File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 114
-Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:M" File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 128
-Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/mouse.vhd Line: 25
-Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/mouse.vhd Line: 151
-Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/mouse.vhd Line: 155
-Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/mouse.vhd Line: 156
-Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/mouse.vhd Line: 157
-Info (12128): Elaborating entity "flappy_dolphin" for hierarchy "flappy_dolphin:FD" File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 139
-Info (13000): Registers with preset signals will power-up high File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/mouse.vhd Line: 146
+Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:VS" File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 115
+Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:M" File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 129
+Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: C:/Users/adun475/305_folder_8_5_26/mouse.vhd Line: 25
+Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/adun475/305_folder_8_5_26/mouse.vhd Line: 151
+Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/adun475/305_folder_8_5_26/mouse.vhd Line: 155
+Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/adun475/305_folder_8_5_26/mouse.vhd Line: 156
+Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/adun475/305_folder_8_5_26/mouse.vhd Line: 157
+Info (12128): Elaborating entity "flappy_dolphin" for hierarchy "flappy_dolphin:FD" File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 140
+Info (13000): Registers with preset signals will power-up high File: C:/Users/adun475/305_folder_8_5_26/mouse.vhd Line: 146
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "VGA_R[0]" is stuck at GND File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 11
-    Warning (13410): Pin "VGA_R[1]" is stuck at GND File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 11
-    Warning (13410): Pin "VGA_R[2]" is stuck at GND File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 11
-    Warning (13410): Pin "VGA_G[0]" is stuck at GND File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 11
-    Warning (13410): Pin "VGA_G[1]" is stuck at GND File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 11
-    Warning (13410): Pin "VGA_G[2]" is stuck at GND File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 11
-    Warning (13410): Pin "VGA_B[0]" is stuck at GND File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 11
-    Warning (13410): Pin "VGA_B[1]" is stuck at GND File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 11
-    Warning (13410): Pin "VGA_B[2]" is stuck at GND File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 11
-    Warning (13410): Pin "HEX0[0]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX0[1]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX0[2]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX0[3]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX0[4]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX0[5]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX0[6]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX1[0]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX1[1]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX1[2]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX1[3]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX1[4]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX1[5]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX1[6]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX2[0]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX2[1]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX2[2]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX2[3]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX2[4]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX2[5]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX2[6]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX3[0]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX3[1]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX3[2]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX3[3]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX3[4]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX3[5]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX4[0]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX4[1]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX4[2]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX4[3]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX4[4]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX4[5]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX4[6]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX5[0]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX5[1]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX5[2]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX5[3]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX5[4]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX5[5]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX5[6]" is stuck at VCC File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 13
+    Warning (13410): Pin "VGA_R[0]" is stuck at GND File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 11
+    Warning (13410): Pin "VGA_R[1]" is stuck at GND File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 11
+    Warning (13410): Pin "VGA_R[2]" is stuck at GND File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 11
+    Warning (13410): Pin "VGA_G[0]" is stuck at GND File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 11
+    Warning (13410): Pin "VGA_G[1]" is stuck at GND File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 11
+    Warning (13410): Pin "VGA_G[2]" is stuck at GND File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 11
+    Warning (13410): Pin "VGA_B[0]" is stuck at GND File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 11
+    Warning (13410): Pin "VGA_B[1]" is stuck at GND File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 11
+    Warning (13410): Pin "VGA_B[2]" is stuck at GND File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 11
+    Warning (13410): Pin "HEX0[0]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX0[1]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX0[2]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX0[3]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX0[4]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX0[5]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX0[6]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX1[0]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX1[1]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX1[2]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX1[3]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX1[4]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX1[5]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX1[6]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX2[0]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX2[1]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX2[2]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX2[3]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX2[4]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX2[5]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX2[6]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX3[0]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX3[1]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX3[2]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX3[3]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX3[4]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX3[5]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX4[0]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX4[1]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX4[2]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX4[3]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX4[4]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX4[5]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX4[6]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX5[0]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX5[1]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX5[2]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX5[3]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX5[4]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX5[5]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "HEX5[6]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
+    Warning (13410): Pin "LEDR[0]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 14
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 14
+    Warning (13410): Pin "LEDR[2]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 14
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 14
+    Warning (13410): Pin "LEDR[4]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 14
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 14
+    Warning (13410): Pin "LEDR[6]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 14
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 14
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 14
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 14
 Info (286030): Timing-Driven Synthesis is running
 Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK2_50 -entity DE0_CV_Default was ignored
@@ -1034,27 +1044,27 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
 Warning: RST port on the PLL is not properly connected on instance pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v Line: 748
     Info: Must be connected
 Warning (21074): Design contains 11 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 8
-    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/adun475/Downloads/ACOMPSYS305-20260508T022609Z-3-001/ACOMPSYS305/top_level.vhd Line: 9
-Info (21057): Implemented 286 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 8
+    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 9
+    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 9
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 9
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 9
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 9
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 9
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 9
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 9
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 9
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 9
+Info (21057): Implemented 296 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
-    Info (21059): Implemented 56 output pins
+    Info (21059): Implemented 66 output pins
     Info (21060): Implemented 2 bidirectional pins
     Info (21061): Implemented 212 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 304 warnings
-    Info: Peak virtual memory: 4972 megabytes
-    Info: Processing ended: Fri May 08 14:37:06 2026
-    Info: Elapsed time: 00:00:23
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 315 warnings
+    Info: Peak virtual memory: 4944 megabytes
+    Info: Processing ended: Fri May 08 15:27:34 2026
+    Info: Elapsed time: 00:00:07
     Info: Total CPU time (on all processors): 00:00:13
 
 

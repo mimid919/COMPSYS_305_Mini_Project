@@ -4,13 +4,14 @@ use  IEEE.STD_LOGIC_ARITH.all;
 use  IEEE.STD_LOGIC_UNSIGNED.all;
 
 ENTITY top_level IS
-	PORT(	CLOCK_50 : IN STD_LOGIC;
-            KEY : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-            SW : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-            PS2_CLK, PS2_DAT : INOUT STD_LOGIC;
-            VGA_R, VGA_G, VGA_B : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-            VGA_HS, VGA_VS : OUT STD_LOGIC;
-            HEX0, HEX1, HEX2, HEX3, HEX4, HEX5 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
+	PORT(	CLOCK_50                            	: IN STD_LOGIC;
+            KEY                                 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+            SW                                  : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+            PS2_CLK, PS2_DAT                    : INOUT STD_LOGIC;
+            VGA_R, VGA_G, VGA_B                 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+            VGA_HS, VGA_VS                      : OUT STD_LOGIC;
+            HEX0, HEX1, HEX2, HEX3, HEX4, HEX5  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+            LEDR                                : OUT STD_LOGIC_VECTOR(9 DOWNTO 0)
         );
 END top_level;
 
@@ -26,9 +27,9 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 	end COMPONENT pll;
 
     COMPONENT VGA_SYNC IS
-	PORT(	clock_25Mhz, red, green, blue		: IN	STD_LOGIC;
+	PORT(	clock_25Mhz, red, green, blue		                        	: IN	STD_LOGIC;
 			red_out, green_out, blue_out, horiz_sync_out, vert_sync_out	: OUT	STD_LOGIC;
-			pixel_row, pixel_column: OUT STD_LOGIC_VECTOR(9 DOWNTO 0));
+			pixel_row, pixel_column                                     : OUT STD_LOGIC_VECTOR(9 DOWNTO 0));
     END COMPONENT VGA_SYNC;
 
     COMPONENT MOUSE IS
@@ -54,19 +55,19 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
     SIGNAL CLOCK_25MHZ : STD_LOGIC;
 
     -- VGA signals used in other componants
-    SIGNAL PIXEL_ROW, PIXEL_COLUMN : STD_LOGIC_VECTOR(9 DOWNTO 0); -- pixel being chosen at present
-    SIGNAL VERT_SYNC, HORIZ_SYNC : STD_LOGIC; -- VERT for dolphin, HORIZ for pipe/background movement
+    SIGNAL PIXEL_ROW, PIXEL_COLUMN  : STD_LOGIC_VECTOR(9 DOWNTO 0); -- pixel being chosen at present
+    SIGNAL VERT_SYNC, HORIZ_SYNC    : STD_LOGIC; -- VERT for dolphin, HORIZ for pipe/background movement
 
     -- mouse component outputs so we can use them as inputs for other components 
-    SIGNAL MOUSE_ROW, MOUSE_COLUMN : STD_LOGIC_VECTOR(9 DOWNTO 0);
-    SIGNAL LEFT_CLICK, RIGHT_CLICK : STD_LOGIC;
-    SIGNAL RESET : STD_LOGIC; -- KEY[0] is active low
+    SIGNAL MOUSE_ROW, MOUSE_COLUMN  : STD_LOGIC_VECTOR(9 DOWNTO 0);
+    SIGNAL LEFT_CLICK, RIGHT_CLICK  : STD_LOGIC;
+    SIGNAL RESET                    : STD_LOGIC; -- KEY[0] is active low
 
     -- Signals for game components
-    SIGNAL DOLPHIN_RED, DOLPHIN_GREEN, DOLPHIN_BLUE : STD_LOGIC;
-    SIGNAL PIPE_RED, PIPE_GREEN, PIPE_BLUE : STD_LOGIC;
-    SIGNAL TEXT_RED, TEXT_GREEN, TEXT_BLUE : STD_LOGIC;
-    SIGNAL BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE : STD_LOGIC;
+    SIGNAL DOLPHIN_RED, DOLPHIN_GREEN, DOLPHIN_BLUE             : STD_LOGIC;
+    SIGNAL PIPE_RED, PIPE_GREEN, PIPE_BLUE                      : STD_LOGIC;
+    SIGNAL TEXT_RED, TEXT_GREEN, TEXT_BLUE                      : STD_LOGIC;
+    SIGNAL BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE    : STD_LOGIC;
 
     -- final colour outputs to VGA
     SIGNAL RED_OUT, GREEN_OUT, BLUE_OUT : STD_LOGIC; 
@@ -74,7 +75,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 
 BEGIN
 
-    -- Output selected in layer order: text, dolphin, pipe, background
+    -- Output selected in layer (priority) order: text, dolphin, pipe, background
     RED_OUT <= TEXT_RED OR DOLPHIN_RED OR PIPE_RED OR BACKGROUND_RED;
     GREEN_OUT <= TEXT_GREEN OR DOLPHIN_GREEN OR PIPE_GREEN OR BACKGROUND_GREEN;
     BLUE_OUT <= TEXT_BLUE OR DOLPHIN_BLUE OR PIPE_BLUE OR BACKGROUND_BLUE;
@@ -150,5 +151,19 @@ BEGIN
         green => DOLPHIN_GREEN,
         blue => DOLPHIN_BLUE
     );
+
+	 LEDR(0) <= '1';
+	 LEDR(1) <= '0';
+	 LEDR(2) <= '1';
+	 LEDR(3) <= '0';
+    LEDR(4) <= '1';
+	 LEDR(5) <= '0';
+    LEDR(6) <= '1';
+	 LEDR(7) <= '0';
+    
+    
+        --LEDR(0) <= not LEFT_CLICK;
+        --LEDR(1) <= not RIGHT_CLICK;
+        --LEDR(9 downto 2) <=  (others => '1');
 
 END BEHAVIOUR;
