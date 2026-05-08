@@ -1,12 +1,12 @@
 # COMPSYS_305_Mini_Project
 
-##Branches tree:##
+## Branches tree: 
         (work here)
 mimi ───────────────┐
 emma ────────────────┼──→  main (ONLY tested code)
 teammate3 ───────────┘
 
-##Daily workflow:##
+## Daily workflow:
 Before doing anything       git checkout main
                             git pull origin main
                             git checkout your-branch-name
