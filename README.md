@@ -1,10 +1,10 @@
 # COMPSYS_305_Mini_Project
 
 ## Branches tree: 
-        (work here)
+
 mimi ───────────────┐
-emma ────────────────┼──→  main (ONLY tested code)
-teammate3 ───────────┘
+emma ────────────────┼──→ main (ONLY tested code)
+soriana ───────────┘
 
 ## Daily workflow:
 Before doing anything       git checkout main
