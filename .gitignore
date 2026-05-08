@@ -1,0 +1,12 @@
+# Ignore temporary or lock files
+*.flock
+*.tmp
+*.log
+*.exe
+*.obj
+*.pyc
+
+# Ignore editor/project-specific folders
+db/
+.idea/
+.vscode/
