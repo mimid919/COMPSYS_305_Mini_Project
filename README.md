@@ -2,10 +2,10 @@
 
 
 ## Branches tree:
- mimi → development branch
- emma → development branch
- soriana → development branch
- main → ONLY tested code
+- mimi → development branch
+- emma → development branch
+- soriana → development branch
+- main → ONLY tested code
 ## Daily workflow:
 
 ### Changing your branch to your personal
