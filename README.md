@@ -28,6 +28,7 @@
 
 ### 1. Clone the repository (first time only)
 In the lab terminal:
+cd /c/Users/adun475/Documents
 git clone https://github.com/YOUR-USERNAME/COMPSYS_305_Mini_Project.git
 
 This creates a local copy of the project on the lab computer.
