@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_level
-Fri May 08 15:27:34 2026
+Fri May 08 15:58:07 2026
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -20,11 +20,10 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
  12. Inverted Register Statistics
  13. Multiplexer Restructuring Statistics (Restructuring Performed)
  14. Parameter Settings for User Entity Instance: pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i
- 15. Port Connectivity Checks: "MOUSE:M"
- 16. Port Connectivity Checks: "pll:clock_divider"
- 17. Post-Synthesis Netlist Statistics for Top Partition
- 18. Elapsed Time Per Partition
- 19. Analysis & Synthesis Messages
+ 15. Port Connectivity Checks: "pll:clock_divider"
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
 
 
 
@@ -50,13 +49,13 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri May 08 15:27:34 2026           ;
+; Analysis & Synthesis Status     ; Successful - Fri May 08 15:58:07 2026           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; top_level                                       ;
 ; Top-level Entity Name           ; top_level                                       ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 136                                             ;
+; Total registers                 ; 140                                             ;
 ; Total pins                      ; 83                                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 0                                               ;
@@ -194,16 +193,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                      ;
 +---------------------------------------------+----------------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 96                                                                         ;
+; Estimate of Logic utilization (ALMs needed) ; 97                                                                         ;
 ;                                             ;                                                                            ;
-; Combinational ALUT usage for logic          ; 156                                                                        ;
+; Combinational ALUT usage for logic          ; 158                                                                        ;
 ;     -- 7 input functions                    ; 1                                                                          ;
-;     -- 6 input functions                    ; 24                                                                         ;
-;     -- 5 input functions                    ; 26                                                                         ;
-;     -- 4 input functions                    ; 23                                                                         ;
-;     -- <=3 input functions                  ; 82                                                                         ;
+;     -- 6 input functions                    ; 23                                                                         ;
+;     -- 5 input functions                    ; 27                                                                         ;
+;     -- 4 input functions                    ; 24                                                                         ;
+;     -- <=3 input functions                  ; 83                                                                         ;
 ;                                             ;                                                                            ;
-; Dedicated logic registers                   ; 136                                                                        ;
+; Dedicated logic registers                   ; 140                                                                        ;
 ;                                             ;                                                                            ;
 ; I/O pins                                    ; 83                                                                         ;
 ;                                             ;                                                                            ;
@@ -214,8 +213,8 @@ refer to the applicable agreement for further details.
 ;                                             ;                                                                            ;
 ; Maximum fan-out node                        ; pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
 ; Maximum fan-out                             ; 77                                                                         ;
-; Total fan-out                               ; 1095                                                                       ;
-; Average fan-out                             ; 2.38                                                                       ;
+; Total fan-out                               ; 1117                                                                       ;
+; Average fan-out                             ; 2.39                                                                       ;
 +---------------------------------------------+----------------------------------------------------------------------------+
 
 
@@ -224,8 +223,8 @@ refer to the applicable agreement for further details.
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------+----------------+--------------+
 ; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                    ; Entity Name    ; Library Name ;
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------+----------------+--------------+
-; |top_level                         ; 156 (1)             ; 136 (0)                   ; 0                 ; 0          ; 83   ; 0            ; |top_level                                                             ; top_level      ; work         ;
-;    |MOUSE:M|                       ; 81 (81)             ; 88 (88)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|MOUSE:M                                                     ; MOUSE          ; work         ;
+; |top_level                         ; 158 (1)             ; 140 (0)                   ; 0                 ; 0          ; 83   ; 0            ; |top_level                                                             ; top_level      ; work         ;
+;    |MOUSE:M|                       ; 83 (83)             ; 92 (92)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|MOUSE:M                                                     ; MOUSE          ; work         ;
 ;    |VGA_SYNC:VS|                   ; 41 (41)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|VGA_SYNC:VS                                                 ; VGA_SYNC       ; work         ;
 ;    |flappy_dolphin:FD|             ; 33 (33)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|flappy_dolphin:FD                                           ; flappy_dolphin ; work         ;
 ;    |pll:clock_divider|             ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|pll:clock_divider                                           ; pll            ; pll          ;
@@ -280,12 +279,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 136   ;
+; Total registers                              ; 140   ;
 ; Number of registers using Synchronous Clear  ; 20    ;
 ; Number of registers using Synchronous Load   ; 10    ;
-; Number of registers using Asynchronous Clear ; 42    ;
+; Number of registers using Asynchronous Clear ; 44    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 98    ;
+; Number of registers using Clock Enable       ; 102   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -310,10 +309,10 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |top_level|MOUSE:M|new_cursor_row[3] ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |top_level|VGA_SYNC:VS|v_count[5]    ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |top_level|MOUSE:M|cursor_row[9]     ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |top_level|MOUSE:M|cursor_row[7]     ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |top_level|MOUSE:M|new_cursor_row[5] ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |top_level|VGA_SYNC:VS|v_count[4]    ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |top_level|MOUSE:M|cursor_row[0]     ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |top_level|MOUSE:M|cursor_row[5]     ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
 
 
@@ -564,15 +563,6 @@ Encoding Type:  One-Hot
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "MOUSE:M"                                                                                    ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port         ; Type   ; Severity ; Details                                                                             ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
-; right_button ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
 +------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "pll:clock_divider"                                                                    ;
 +--------+--------+----------+-------------------------------------------------------------------------------------+
@@ -588,30 +578,30 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 136                         ;
+; arriav_ff             ; 140                         ;
 ;     CLR               ; 9                           ;
-;     ENA               ; 45                          ;
-;     ENA CLR           ; 33                          ;
+;     ENA               ; 47                          ;
+;     ENA CLR           ; 35                          ;
 ;     ENA SCLR          ; 10                          ;
 ;     ENA SLD           ; 10                          ;
 ;     SCLR              ; 10                          ;
 ;     plain             ; 19                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 157                         ;
+; arriav_lcell_comb     ; 159                         ;
 ;     arith             ; 38                          ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 35                          ;
 ;         2 data inputs ; 2                           ;
 ;     extend            ; 1                           ;
 ;         7 data inputs ; 1                           ;
-;     normal            ; 108                         ;
+;     normal            ; 110                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 5                           ;
 ;         2 data inputs ; 11                          ;
-;         3 data inputs ; 17                          ;
-;         4 data inputs ; 23                          ;
-;         5 data inputs ; 26                          ;
-;         6 data inputs ; 24                          ;
+;         3 data inputs ; 18                          ;
+;         4 data inputs ; 24                          ;
+;         5 data inputs ; 27                          ;
+;         6 data inputs ; 23                          ;
 ;     shared            ; 10                          ;
 ;         1 data inputs ; 1                           ;
 ;         2 data inputs ; 9                           ;
@@ -619,7 +609,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; generic_pll           ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 2.04                        ;
+; Average LUT depth     ; 2.02                        ;
 +-----------------------+-----------------------------+
 
 
@@ -638,7 +628,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Fri May 08 15:27:27 2026
+    Info: Processing started: Fri May 08 15:58:00 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off group_27 -c top_level
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -660,14 +650,12 @@ Info (12021): Found 2 design units, including 1 entities, in source file dolphin
 Info (12021): Found 2 design units, including 1 entities, in source file char_rom.vhd
     Info (12022): Found design unit 1: char_rom-SYN File: C:/Users/adun475/305_folder_8_5_26/char_rom.vhd Line: 20
     Info (12023): Found entity 1: char_rom File: C:/Users/adun475/305_folder_8_5_26/char_rom.vhd Line: 9
-Warning (12019): Can't analyze file -- file top_level.bdf is missing
 Info (12021): Found 2 design units, including 1 entities, in source file pll.vhd
     Info (12022): Found design unit 1: pll-rtl File: C:/Users/adun475/305_folder_8_5_26/pll.vhd Line: 20
     Info (12023): Found entity 1: pll File: C:/Users/adun475/305_folder_8_5_26/pll.vhd Line: 11
 Info (12021): Found 1 design units, including 1 entities, in source file pll/pll_0002.v
     Info (12023): Found entity 1: pll_0002 File: C:/Users/adun475/305_folder_8_5_26/pll/pll_0002.v Line: 2
 Info (12127): Elaborating entity "top_level" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(63): object "RIGHT_CLICK" assigned a value but never read File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 63
 Warning (10873): Using initial value X (don't care) for net "LEDR[9..8]" at top_level.vhd(14) File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 14
 Info (12128): Elaborating entity "pll" for hierarchy "pll:clock_divider" File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 108
 Info (12128): Elaborating entity "pll_0002" for hierarchy "pll:clock_divider|pll_0002:pll_inst" File: C:/Users/adun475/305_folder_8_5_26/pll.vhd Line: 32
@@ -797,14 +785,12 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX5[4]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
     Warning (13410): Pin "HEX5[5]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
     Warning (13410): Pin "HEX5[6]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 13
-    Warning (13410): Pin "LEDR[0]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 14
-    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 14
-    Warning (13410): Pin "LEDR[2]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 14
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 14
     Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 14
-    Warning (13410): Pin "LEDR[4]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 14
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 14
     Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 14
     Warning (13410): Pin "LEDR[6]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 14
-    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 14
+    Warning (13410): Pin "LEDR[7]" is stuck at VCC File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 14
     Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 14
     Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 14
 Info (286030): Timing-Driven Synthesis is running
@@ -1055,16 +1041,16 @@ Warning (21074): Design contains 11 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 9
     Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 9
     Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/adun475/305_folder_8_5_26/top_level.vhd Line: 9
-Info (21057): Implemented 296 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 303 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 66 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 212 logic cells
+    Info (21061): Implemented 219 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 315 warnings
-    Info: Peak virtual memory: 4944 megabytes
-    Info: Processing ended: Fri May 08 15:27:34 2026
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 311 warnings
+    Info: Peak virtual memory: 4936 megabytes
+    Info: Processing ended: Fri May 08 15:58:07 2026
     Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:13
+    Info: Total CPU time (on all processors): 00:00:14
 
 

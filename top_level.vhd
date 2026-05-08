@@ -152,14 +152,14 @@ BEGIN
         blue => DOLPHIN_BLUE
     );
 
-	 LEDR(0) <= '1';
-	 LEDR(1) <= '0';
-	 LEDR(2) <= '1';
+	 LEDR(1) <= LEFT_CLICK;
+	 LEDR(0) <= RIGHT_CLICK;
+	 LEDR(2) <= '0';
 	 LEDR(3) <= '0';
-    LEDR(4) <= '1';
+    LEDR(4) <= '0';
 	 LEDR(5) <= '0';
     LEDR(6) <= '1';
-	 LEDR(7) <= '0';
+	 LEDR(7) <= '1';
     
     
         --LEDR(0) <= not LEFT_CLICK;
