@@ -22,3 +22,18 @@
 ### Keep syncing with main (do this if you want to update your personal branch with the tested Main code)
 - git checkout your-branch
 - git merge main
+
+
+## 🖥️ Setting up a local repository (for labs)
+
+### 1. Clone the repository (first time only)
+In the lab terminal:
+git clone https://github.com/YOUR-USERNAME/COMPSYS_305_Mini_Project.git
+
+This creates a local copy of the project on the lab computer.
+
+### 2. Go into the project folder
+cd COMPSYS_305_Mini_Project
+
+### 3. Switch to your personal branch
+git checkout your-name
