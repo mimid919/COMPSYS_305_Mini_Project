@@ -8,7 +8,7 @@
  main → ONLY tested code
 ## Daily workflow:
 
-### Before doing anything
+### Changing your branch to your personal
 - git checkout main
 - git pull origin main
 - git checkout your-branch-name
