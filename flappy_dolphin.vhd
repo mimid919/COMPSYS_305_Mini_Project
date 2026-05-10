@@ -50,19 +50,31 @@ dolphin_on <= '1' when ( ('0' & dolphin_x_pos <= '0' & pixel_column + size) and 
 
 
 ----text
-text_on <= '1' when ((conv_std_logic_vector(10,10)<pixel_row) and (pixel_row <conv_std_logic_vector(16,10)) and (pixel_column= conv_std_logic_vector(20,10))) 
+text_on <= '1' when ((conv_std_logic_vector(10,10)<=pixel_row) and (pixel_row <=conv_std_logic_vector(30,10)) and ((pixel_column>= conv_std_logic_vector(10,10)) and (pixel_column<= conv_std_logic_vector(12,10))))
 
 or 
 
-((conv_std_logic_vector(10,10)<pixel_row) and (pixel_row <conv_std_logic_vector(16,10)) and (pixel_column=conv_std_logic_vector(30,10))) 
+((conv_std_logic_vector(10,10)<=pixel_row) and (pixel_row <=conv_std_logic_vector(30,10)) and ((pixel_column>= conv_std_logic_vector(20,10)) and (pixel_column<= conv_std_logic_vector(22,10)))) 
 
 or 
 
-((conv_std_logic_vector(20,10)<pixel_column) and (pixel_column<conv_std_logic_vector(30,10)) and (pixel_row=conv_std_logic_vector(10,10))) 
+((conv_std_logic_vector(10,10)<=pixel_column) and (pixel_column<=conv_std_logic_vector(20,10)) and (pixel_row>=conv_std_logic_vector(19,10)) and (pixel_row<=conv_std_logic_vector(21,10)) ) 
 
-or  
+---start of I
+or
 
-((conv_std_logic_vector(20,10)<pixel_column) and (pixel_column<conv_std_logic_vector(30,10)) and (pixel_row=conv_std_logic_vector(16,10)));
+((conv_std_logic_vector(10,10)<=pixel_row) and (pixel_row <=conv_std_logic_vector(12,10)) and (pixel_column>= conv_std_logic_vector(23,10)) and (pixel_column<= conv_std_logic_vector(33,10)))
+
+or
+
+((conv_std_logic_vector(28,10)<=pixel_row) and (pixel_row <=conv_std_logic_vector(30,10)) and (pixel_column>= conv_std_logic_vector(23,10)) and (pixel_column <=conv_std_logic_vector(33,10)))
+
+or
+
+((conv_std_logic_vector(27,10)<=pixel_column) and (pixel_column <=conv_std_logic_vector(29,10)) and (pixel_row>= conv_std_logic_vector(12,10)) and (pixel_row<= conv_std_logic_vector(28,10)))
+
+
+else '0';
 
 
 
