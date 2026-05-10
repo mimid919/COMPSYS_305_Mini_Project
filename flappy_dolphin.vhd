@@ -33,6 +33,11 @@ SIGNAL dolphin_y_pos				: std_logic_vector(9 DOWNTO 0);
 SiGNAL dolphin_x_pos				: std_logic_vector(10 DOWNTO 0);
 -- SIGNAL dolphin_y_motion			: std_logic_vector(9 DOWNTO 0);
 
+-----text rendering
+SIGNAL text_on 						: std_logic;
+
+
+
 BEGIN           
 
 size <= CONV_STD_LOGIC_VECTOR(8,10);
@@ -44,9 +49,26 @@ dolphin_on <= '1' when ( ('0' & dolphin_x_pos <= '0' & pixel_column + size) and 
 			'0';
 
 
+----text
+text_on <= '1' when ((conv_std_logic_vector(10,10)<pixel_row) and (pixel_row <conv_std_logic_vector(16,10)) and (pixel_column= conv_std_logic_vector(20,10))) 
+
+or 
+
+((conv_std_logic_vector(10,10)<pixel_row) and (pixel_row <conv_std_logic_vector(16,10)) and (pixel_column=conv_std_logic_vector(30,10))) 
+
+or 
+
+((conv_std_logic_vector(20,10)<pixel_column) and (pixel_column<conv_std_logic_vector(30,10)) and (pixel_row=conv_std_logic_vector(10,10))) 
+
+or  
+
+((conv_std_logic_vector(20,10)<pixel_column) and (pixel_column<conv_std_logic_vector(30,10)) and (pixel_row=conv_std_logic_vector(16,10)));
+
+
+
 -- Colours for pixel data on video signal
 -- Changing the background and dolphin colour by pushbuttons
-Red <=  pb1;
+Red <= '1' when text_on='1' else pb1;
 Green <= (not pb2) and (not dolphin_on);
 Blue <=  not dolphin_on;
 
