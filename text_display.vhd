@@ -26,24 +26,64 @@ END COMPONENT char_rom;
 SIGNAL text_on : std_logic;
 SIGNAL rom_pixel : std_logic;
 
+
+SIGNAL rom_pixel_H : std_logic;
+SIGNAL rom_pixel_I : std_logic;
+
+SIGNAL row_H : std_logic_vector(9 downto 0);
+SIGNAL col_H : std_logic_vector(9 downto 0);
+SIGNAL row_I : std_logic_vector(9 downto 0);
+SIGNAL col_I : std_logic_vector(9 downto 0);
+
 Begin 
 
---displaying text
+row_H <= pixel_row - CONV_STD_LOGIC_VECTOR(100,10);
+col_H <= pixel_column - CONV_STD_LOGIC_VECTOR(200,10);
+
+row_I <= pixel_row - CONV_STD_LOGIC_VECTOR(100,10);
+col_I <= pixel_column - CONV_STD_LOGIC_VECTOR(210,10);
+
 text_on <= '1' when (
-    pixel_column >= CONV_STD_LOGIC_VECTOR(200,10) and
-    pixel_column <  CONV_STD_LOGIC_VECTOR(232,10) and
-    pixel_row    >= CONV_STD_LOGIC_VECTOR(100,10) and
-    pixel_row    <  CONV_STD_LOGIC_VECTOR(140,10) and
-    rom_pixel = '1'
+
+    -- H
+    (
+        pixel_column >= CONV_STD_LOGIC_VECTOR(200,10) and
+        pixel_column <  CONV_STD_LOGIC_VECTOR(208,10) and
+        pixel_row    >= CONV_STD_LOGIC_VECTOR(100,10) and
+        pixel_row    <  CONV_STD_LOGIC_VECTOR(108,10) and
+        rom_pixel_H = '1'
+    )
+
+    or
+
+    -- I
+    (
+        pixel_column >= CONV_STD_LOGIC_VECTOR(210,10) and
+        pixel_column <  CONV_STD_LOGIC_VECTOR(218,10) and
+        pixel_row    >= CONV_STD_LOGIC_VECTOR(100,10) and
+        pixel_row    <  CONV_STD_LOGIC_VECTOR(108,10) and
+        rom_pixel_I = '1'
+    )
+
 ) else '0';
 
-t: char_rom
+
+H_ROM: char_rom
 PORT MAP (
-    character_address => "000001",
-    font_row => pixel_row(2 downto 0),
-    font_col => pixel_column(2 downto 0),
+    character_address => "001000",
+    font_row => row_H(2 downto 0),
+		font_col => col_H(2 downto 0),
     clock => clk,
-    rom_mux_output => rom_pixel
+    rom_mux_output => rom_pixel_H
+);
+
+I_ROM: char_rom
+PORT MAP (
+    character_address => "001001",
+		font_row => row_I(2 downto 0),
+font_col => col_I(2 downto 0),
+    clock => clk,
+    rom_mux_output => rom_pixel_I
 );
 
 
