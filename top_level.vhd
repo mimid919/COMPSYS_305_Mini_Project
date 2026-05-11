@@ -66,10 +66,10 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
         count       : OUT std_logic_vector(3 DOWNTO 0));
     END COMPONENT click_counter;
 
-    COMPONENT BCD_TO_7_SEGMENT IS
+    COMPONENT BCD_to_SevenSeg IS
     PORT( BCD_digit : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
           SevenSeg_out : OUT STD_LOGIC_VECTOR(6 DOWNTO 0));
-    END COMPONENT BCD_TO_7_SEGMENT;
+    END COMPONENT BCD_to_SevenSeg;
 
     SIGNAL CLOCK_25MHZ : STD_LOGIC;
 
@@ -115,13 +115,13 @@ BEGIN
     TEXT_RED <= '0';            TEXT_GREEN <= '0';          TEXT_BLUE <= '0';
     BACKGROUND_RED <= '0';      BACKGROUND_GREEN <= '0';    BACKGROUND_BLUE <= '0';
 
-    -- -- Set HEX displays to 0 temporarily
-    -- HEX0 <= (OTHERS => '1');
-    -- HEX1 <= (OTHERS => '1');
-    -- HEX2 <= (OTHERS => '1');
-    -- HEX3 <= (OTHERS => '1');
-    -- HEX4 <= (OTHERS => '1');
-    -- HEX5 <= (OTHERS => '1');
+    -- Set HEX displays to 0 temporarily
+    --HEX0 <= (OTHERS => '1');
+    HEX1 <= (OTHERS => '1');
+    HEX2 <= (OTHERS => '1');
+    HEX3 <= (OTHERS => '1');
+    HEX4 <= (OTHERS => '1');
+    HEX5 <= (OTHERS => '1');
 
     RESET <= NOT KEY(0); -- active low reset
 
@@ -174,13 +174,13 @@ BEGIN
     );
 
     --based of lecture schematic
-    START: CHAR_ROM PORT MAP (
-        character_address => PIXEL_COLUMN(9 DOWNTO 4) & PIXEL_ROW(9 DOWNTO 4), -- top 6 bits of column and row for character address
-        font_row => PIXEL_ROW(3 DOWNTO 1),
-        font_col => PIXEL_COLUMN(3 DOWNTO 1),
-        clock => CLOCK_25MHZ,
-        rom_mux_output => TEXT_RED -- just outputting to red for now, will need to change for text
-    );
+--    START: CHAR_ROM PORT MAP (
+--        character_address => PIXEL_COLUMN(9 DOWNTO 4) & PIXEL_ROW(9 DOWNTO 4), -- top 6 bits of column and row for character address
+--        font_row => PIXEL_ROW(3 DOWNTO 1),
+--        font_col => PIXEL_COLUMN(3 DOWNTO 1),
+--        clock => CLOCK_25MHZ,
+--        rom_mux_output => TEXT_RED -- just outputting to red for now, will need to change for text
+--    );
 
     click_display: click_counter PORT MAP (
         clk => CLOCK_25MHZ,
@@ -189,7 +189,7 @@ BEGIN
         count => COUNT_VALUE -- not outputting to anything for now, will need to connect to HEX display
     );
 
-    sevenseg: BCD_TO_7_SEGMENT PORT MAP (
+    sevenseg: BCD_to_SevenSeg PORT MAP (
         BCD_digit => COUNT_VALUE,
         SevenSeg_out => HEX0
     );

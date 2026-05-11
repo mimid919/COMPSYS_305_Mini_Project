@@ -15,7 +15,7 @@ END click_counter;
 
 ARCHITECTURE behavior OF click_counter IS
 
-    SIGNAL count_int : std_logic_vector(3 DOWNTO 0) <= "0000";
+    SIGNAL count_int : std_logic_vector(3 DOWNTO 0) := "0000";
 
 BEGIN
     PROCESS (clk, reset)
