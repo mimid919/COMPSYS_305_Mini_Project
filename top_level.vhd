@@ -52,6 +52,13 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 		  red, green, blue 			: OUT std_logic);		
     END COMPONENT FLAPPY_DOLPHIN;
 
+    COMPONENT text_display IS
+	PORT
+		( clk                       : In std_logic;
+          pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
+		  red, green, blue 			: OUT std_logic);		
+END COMPONENT text_display;
+
     SIGNAL CLOCK_25MHZ : STD_LOGIC;
 
     -- VGA signals used in other componants
@@ -91,7 +98,7 @@ BEGIN
 
     -- set pipe, text and background colours to 0 temporarily
     PIPE_RED <= '0';            PIPE_GREEN <= '0';          PIPE_BLUE <= '0';
-    TEXT_RED <= '0';            TEXT_GREEN <= '0';          TEXT_BLUE <= '0';
+    --TEXT_RED <= '0';            TEXT_GREEN <= '0';          TEXT_BLUE <= '0';
     BACKGROUND_RED <= '0';      BACKGROUND_GREEN <= '0';    BACKGROUND_BLUE <= '0';
 
     -- Set HEX displays to 0 temporarily
@@ -151,6 +158,15 @@ BEGIN
         green => DOLPHIN_GREEN,
         blue => DOLPHIN_BLUE
     );
+
+    TXT: text_display PORT MAP (
+    clk => CLOCK_25MHZ,
+    pixel_row => PIXEL_ROW,
+    pixel_column => PIXEL_COLUMN,
+    red => TEXT_RED,
+    green => TEXT_GREEN,
+    blue => TEXT_BLUE
+);
 
 	 LEDR(1) <= LEFT_CLICK;
 	 LEDR(0) <= RIGHT_CLICK;
