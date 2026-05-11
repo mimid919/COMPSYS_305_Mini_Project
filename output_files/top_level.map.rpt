@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_level
-Mon May 11 14:29:43 2026
+Mon May 11 15:04:27 2026
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -20,10 +20,19 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
  12. Inverted Register Statistics
  13. Multiplexer Restructuring Statistics (Restructuring Performed)
  14. Parameter Settings for User Entity Instance: pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i
- 15. Port Connectivity Checks: "pll:clock_divider"
- 16. Post-Synthesis Netlist Statistics for Top Partition
- 17. Elapsed Time Per Partition
- 18. Analysis & Synthesis Messages
+ 15. Parameter Settings for Inferred Entity Instance: position_to_BCD:sevenseg_display|lpm_divide:Mod3
+ 16. Parameter Settings for Inferred Entity Instance: position_to_BCD:sevenseg_display|lpm_divide:Div3
+ 17. Parameter Settings for Inferred Entity Instance: position_to_BCD:sevenseg_display|lpm_divide:Mod2
+ 18. Parameter Settings for Inferred Entity Instance: position_to_BCD:sevenseg_display|lpm_divide:Div2
+ 19. Parameter Settings for Inferred Entity Instance: position_to_BCD:sevenseg_display|lpm_divide:Mod1
+ 20. Parameter Settings for Inferred Entity Instance: position_to_BCD:sevenseg_display|lpm_divide:Div1
+ 21. Parameter Settings for Inferred Entity Instance: position_to_BCD:sevenseg_display|lpm_divide:Mod0
+ 22. Parameter Settings for Inferred Entity Instance: position_to_BCD:sevenseg_display|lpm_divide:Div0
+ 23. Port Connectivity Checks: "click_counter:click_display"
+ 24. Port Connectivity Checks: "pll:clock_divider"
+ 25. Post-Synthesis Netlist Statistics for Top Partition
+ 26. Elapsed Time Per Partition
+ 27. Analysis & Synthesis Messages
 
 
 
@@ -49,13 +58,13 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon May 11 14:29:43 2026           ;
+; Analysis & Synthesis Status     ; Successful - Mon May 11 15:04:27 2026           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; top_level                                       ;
 ; Top-level Entity Name           ; top_level                                       ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 144                                             ;
+; Total registers                 ; 168                                             ;
 ; Total pins                      ; 83                                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 0                                               ;
@@ -174,68 +183,119 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                     ;
-+----------------------------------+-----------------+-----------------------------+-------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                   ; File Name with Absolute Path                                                  ; Library ;
-+----------------------------------+-----------------+-----------------------------+-------------------------------------------------------------------------------+---------+
-; click_counter.vhd                ; yes             ; User VHDL File              ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/click_counter.vhd  ;         ;
-; BCD_to_7Seg.vhd                  ; yes             ; User VHDL File              ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/BCD_to_7Seg.vhd    ;         ;
-; vga_sync.vhd                     ; yes             ; User VHDL File              ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/vga_sync.vhd       ;         ;
-; top_level.vhd                    ; yes             ; User VHDL File              ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd      ;         ;
-; mouse.vhd                        ; yes             ; User VHDL File              ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/mouse.vhd          ;         ;
-; flappy_dolphin.vhd               ; yes             ; User VHDL File              ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/flappy_dolphin.vhd ;         ;
-; pll.vhd                          ; yes             ; User Wizard-Generated File  ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/pll.vhd            ; pll     ;
-; pll/pll_0002.v                   ; yes             ; User Verilog HDL File       ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/pll/pll_0002.v     ; pll     ;
-; altera_pll.v                     ; yes             ; Megafunction                ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v                ;         ;
-+----------------------------------+-----------------+-----------------------------+-------------------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                              ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                          ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------+---------+
+; position_to_BCD.vhd              ; yes             ; User VHDL File               ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/position_to_BCD.vhd        ;         ;
+; click_counter.vhd                ; yes             ; User VHDL File               ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/click_counter.vhd          ;         ;
+; BCD_to_7Seg.vhd                  ; yes             ; User VHDL File               ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/BCD_to_7Seg.vhd            ;         ;
+; vga_sync.vhd                     ; yes             ; User VHDL File               ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/vga_sync.vhd               ;         ;
+; top_level.vhd                    ; yes             ; User VHDL File               ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd              ;         ;
+; mouse.vhd                        ; yes             ; User VHDL File               ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/mouse.vhd                  ;         ;
+; flappy_dolphin.vhd               ; yes             ; User VHDL File               ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/flappy_dolphin.vhd         ;         ;
+; pll.vhd                          ; yes             ; User Wizard-Generated File   ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/pll.vhd                    ; pll     ;
+; pll/pll_0002.v                   ; yes             ; User Verilog HDL File        ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/pll/pll_0002.v             ; pll     ;
+; altera_pll.v                     ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v                        ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_divide.tdf                      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/abs_divider.inc                     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/sign_div_unsign.inc                 ;         ;
+; aglobal181.inc                   ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/aglobal181.inc                      ;         ;
+; db/lpm_divide_u4m.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/db/lpm_divide_u4m.tdf      ;         ;
+; db/sign_div_unsign_1nh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/db/sign_div_unsign_1nh.tdf ;         ;
+; db/alt_u_div_82f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/db/alt_u_div_82f.tdf       ;         ;
+; db/lpm_divide_ebm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/db/lpm_divide_ebm.tdf      ;         ;
+; db/sign_div_unsign_klh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/db/sign_div_unsign_klh.tdf ;         ;
+; db/alt_u_div_eve.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/db/alt_u_div_eve.tdf       ;         ;
+; db/lpm_divide_hbm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/db/lpm_divide_hbm.tdf      ;         ;
+; db/sign_div_unsign_nlh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/db/sign_div_unsign_nlh.tdf ;         ;
+; db/alt_u_div_kve.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/db/alt_u_div_kve.tdf       ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                                                              ;
-+---------------------------------------------+----------------------------------------------------------------------------+
-; Resource                                    ; Usage                                                                      ;
-+---------------------------------------------+----------------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 103                                                                        ;
-;                                             ;                                                                            ;
-; Combinational ALUT usage for logic          ; 169                                                                        ;
-;     -- 7 input functions                    ; 1                                                                          ;
-;     -- 6 input functions                    ; 23                                                                         ;
-;     -- 5 input functions                    ; 28                                                                         ;
-;     -- 4 input functions                    ; 32                                                                         ;
-;     -- <=3 input functions                  ; 85                                                                         ;
-;                                             ;                                                                            ;
-; Dedicated logic registers                   ; 144                                                                        ;
-;                                             ;                                                                            ;
-; I/O pins                                    ; 83                                                                         ;
-;                                             ;                                                                            ;
-; Total DSP Blocks                            ; 0                                                                          ;
-;                                             ;                                                                            ;
-; Total PLLs                                  ; 1                                                                          ;
-;     -- PLLs                                 ; 1                                                                          ;
-;                                             ;                                                                            ;
-; Maximum fan-out node                        ; pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
-; Maximum fan-out                             ; 81                                                                         ;
-; Total fan-out                               ; 1178                                                                       ;
-; Average fan-out                             ; 2.44                                                                       ;
-+---------------------------------------------+----------------------------------------------------------------------------+
++------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                            ;
++---------------------------------------------+--------------------------+
+; Resource                                    ; Usage                    ;
++---------------------------------------------+--------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 474                      ;
+;                                             ;                          ;
+; Combinational ALUT usage for logic          ; 901                      ;
+;     -- 7 input functions                    ; 1                        ;
+;     -- 6 input functions                    ; 36                       ;
+;     -- 5 input functions                    ; 41                       ;
+;     -- 4 input functions                    ; 168                      ;
+;     -- <=3 input functions                  ; 655                      ;
+;                                             ;                          ;
+; Dedicated logic registers                   ; 168                      ;
+;                                             ;                          ;
+; I/O pins                                    ; 83                       ;
+;                                             ;                          ;
+; Total DSP Blocks                            ; 0                        ;
+;                                             ;                          ;
+; Total PLLs                                  ; 1                        ;
+;     -- PLLs                                 ; 1                        ;
+;                                             ;                          ;
+; Maximum fan-out node                        ; MOUSE:M|MOUSE_CLK_FILTER ;
+; Maximum fan-out                             ; 93                       ;
+; Total fan-out                               ; 3459                     ;
+; Average fan-out                             ; 2.79                     ;
++---------------------------------------------+--------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                   ;
-+------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------+-----------------+--------------+
-; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                    ; Entity Name     ; Library Name ;
-+------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------+-----------------+--------------+
-; |top_level                         ; 169 (1)             ; 144 (0)                   ; 0                 ; 0          ; 83   ; 0            ; |top_level                                                             ; top_level       ; work         ;
-;    |BCD_to_SevenSeg:sevenseg|      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|BCD_to_SevenSeg:sevenseg                                    ; BCD_to_SevenSeg ; work         ;
-;    |MOUSE:M|                       ; 83 (83)             ; 92 (92)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|MOUSE:M                                                     ; MOUSE           ; work         ;
-;    |VGA_SYNC:VS|                   ; 41 (41)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|VGA_SYNC:VS                                                 ; VGA_SYNC        ; work         ;
-;    |click_counter:click_display|   ; 4 (4)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|click_counter:click_display                                 ; click_counter   ; work         ;
-;    |flappy_dolphin:FD|             ; 33 (33)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|flappy_dolphin:FD                                           ; flappy_dolphin  ; work         ;
-;    |pll:clock_divider|             ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|pll:clock_divider                                           ; pll             ; pll          ;
-;       |pll_0002:pll_inst|          ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|pll:clock_divider|pll_0002:pll_inst                         ; pll_0002        ; pll          ;
-;          |altera_pll:altera_pll_i| ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i ; altera_pll      ; work         ;
-+------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------+-----------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                   ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                         ; Entity Name         ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |top_level                                ; 901 (1)             ; 168 (0)                   ; 0                 ; 0          ; 83   ; 0            ; |top_level                                                                                                                                  ; top_level           ; work         ;
+;    |BCD_to_SevenSeg:CH|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|BCD_to_SevenSeg:CH                                                                                                               ; BCD_to_SevenSeg     ; work         ;
+;    |BCD_to_SevenSeg:CO|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|BCD_to_SevenSeg:CO                                                                                                               ; BCD_to_SevenSeg     ; work         ;
+;    |BCD_to_SevenSeg:CT|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|BCD_to_SevenSeg:CT                                                                                                               ; BCD_to_SevenSeg     ; work         ;
+;    |BCD_to_SevenSeg:RH|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|BCD_to_SevenSeg:RH                                                                                                               ; BCD_to_SevenSeg     ; work         ;
+;    |BCD_to_SevenSeg:RO|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|BCD_to_SevenSeg:RO                                                                                                               ; BCD_to_SevenSeg     ; work         ;
+;    |BCD_to_SevenSeg:RT|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|BCD_to_SevenSeg:RT                                                                                                               ; BCD_to_SevenSeg     ; work         ;
+;    |MOUSE:M|                              ; 107 (107)           ; 120 (120)                 ; 0                 ; 0          ; 0    ; 0            ; |top_level|MOUSE:M                                                                                                                          ; MOUSE               ; work         ;
+;    |VGA_SYNC:VS|                          ; 41 (41)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|VGA_SYNC:VS                                                                                                                      ; VGA_SYNC            ; work         ;
+;    |flappy_dolphin:FD|                    ; 42 (42)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|flappy_dolphin:FD                                                                                                                ; flappy_dolphin      ; work         ;
+;    |pll:clock_divider|                    ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|pll:clock_divider                                                                                                                ; pll                 ; pll          ;
+;       |pll_0002:pll_inst|                 ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|pll:clock_divider|pll_0002:pll_inst                                                                                              ; pll_0002            ; pll          ;
+;          |altera_pll:altera_pll_i|        ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i                                                                      ; altera_pll          ; work         ;
+;    |position_to_BCD:sevenseg_display|     ; 668 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display                                                                                                 ; position_to_BCD     ; work         ;
+;       |lpm_divide:Div0|                   ; 60 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_hbm:auto_generated|  ; 60 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div0|lpm_divide_hbm:auto_generated                                                   ; lpm_divide_hbm      ; work         ;
+;             |sign_div_unsign_nlh:divider| ; 60 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div0|lpm_divide_hbm:auto_generated|sign_div_unsign_nlh:divider                       ; sign_div_unsign_nlh ; work         ;
+;                |alt_u_div_kve:divider|    ; 60 (60)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div0|lpm_divide_hbm:auto_generated|sign_div_unsign_nlh:divider|alt_u_div_kve:divider ; alt_u_div_kve       ; work         ;
+;       |lpm_divide:Div1|                   ; 69 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div1                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_ebm:auto_generated|  ; 69 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div1|lpm_divide_ebm:auto_generated                                                   ; lpm_divide_ebm      ; work         ;
+;             |sign_div_unsign_klh:divider| ; 69 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div1|lpm_divide_ebm:auto_generated|sign_div_unsign_klh:divider                       ; sign_div_unsign_klh ; work         ;
+;                |alt_u_div_eve:divider|    ; 69 (69)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div1|lpm_divide_ebm:auto_generated|sign_div_unsign_klh:divider|alt_u_div_eve:divider ; alt_u_div_eve       ; work         ;
+;       |lpm_divide:Div2|                   ; 60 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div2                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_hbm:auto_generated|  ; 60 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div2|lpm_divide_hbm:auto_generated                                                   ; lpm_divide_hbm      ; work         ;
+;             |sign_div_unsign_nlh:divider| ; 60 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div2|lpm_divide_hbm:auto_generated|sign_div_unsign_nlh:divider                       ; sign_div_unsign_nlh ; work         ;
+;                |alt_u_div_kve:divider|    ; 60 (60)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div2|lpm_divide_hbm:auto_generated|sign_div_unsign_nlh:divider|alt_u_div_kve:divider ; alt_u_div_kve       ; work         ;
+;       |lpm_divide:Div3|                   ; 71 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div3                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_ebm:auto_generated|  ; 71 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div3|lpm_divide_ebm:auto_generated                                                   ; lpm_divide_ebm      ; work         ;
+;             |sign_div_unsign_klh:divider| ; 71 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div3|lpm_divide_ebm:auto_generated|sign_div_unsign_klh:divider                       ; sign_div_unsign_klh ; work         ;
+;                |alt_u_div_eve:divider|    ; 71 (71)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div3|lpm_divide_ebm:auto_generated|sign_div_unsign_klh:divider|alt_u_div_eve:divider ; alt_u_div_eve       ; work         ;
+;       |lpm_divide:Mod0|                   ; 93 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_u4m:auto_generated|  ; 93 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod0|lpm_divide_u4m:auto_generated                                                   ; lpm_divide_u4m      ; work         ;
+;             |sign_div_unsign_1nh:divider| ; 93 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod0|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider                       ; sign_div_unsign_1nh ; work         ;
+;                |alt_u_div_82f:divider|    ; 93 (93)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod0|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider|alt_u_div_82f:divider ; alt_u_div_82f       ; work         ;
+;       |lpm_divide:Mod1|                   ; 110 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod1                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_u4m:auto_generated|  ; 110 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod1|lpm_divide_u4m:auto_generated                                                   ; lpm_divide_u4m      ; work         ;
+;             |sign_div_unsign_1nh:divider| ; 110 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod1|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider                       ; sign_div_unsign_1nh ; work         ;
+;                |alt_u_div_82f:divider|    ; 110 (110)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod1|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider|alt_u_div_82f:divider ; alt_u_div_82f       ; work         ;
+;       |lpm_divide:Mod2|                   ; 93 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod2                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_u4m:auto_generated|  ; 93 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod2|lpm_divide_u4m:auto_generated                                                   ; lpm_divide_u4m      ; work         ;
+;             |sign_div_unsign_1nh:divider| ; 93 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod2|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider                       ; sign_div_unsign_1nh ; work         ;
+;                |alt_u_div_82f:divider|    ; 93 (93)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod2|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider|alt_u_div_82f:divider ; alt_u_div_82f       ; work         ;
+;       |lpm_divide:Mod3|                   ; 112 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod3                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_u4m:auto_generated|  ; 112 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod3|lpm_divide_u4m:auto_generated                                                   ; lpm_divide_u4m      ; work         ;
+;             |sign_div_unsign_1nh:divider| ; 112 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod3|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider                       ; sign_div_unsign_1nh ; work         ;
+;                |alt_u_div_82f:divider|    ; 112 (112)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod3|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider|alt_u_div_82f:divider ; alt_u_div_82f       ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -284,12 +344,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 144   ;
-; Number of registers using Synchronous Clear  ; 20    ;
-; Number of registers using Synchronous Load   ; 10    ;
-; Number of registers using Asynchronous Clear ; 48    ;
+; Total registers                              ; 168   ;
+; Number of registers using Synchronous Clear  ; 28    ;
+; Number of registers using Synchronous Load   ; 20    ;
+; Number of registers using Asynchronous Clear ; 44    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 102   ;
+; Number of registers using Clock Enable       ; 130   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -309,17 +369,24 @@ Encoding Type:  One-Hot
 +----------------------------------------+---------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                          ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |top_level|MOUSE:M|new_cursor_row[1]                ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |top_level|VGA_SYNC:VS|v_count[4]                   ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |top_level|MOUSE:M|cursor_row[2]                    ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |top_level|MOUSE:M|cursor_row[7]                    ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:sevenseg|SevenSeg_out[2] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |top_level|MOUSE:M|new_cursor_column[6]       ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |top_level|VGA_SYNC:VS|v_count[4]             ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |top_level|MOUSE:M|cursor_column[5]           ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |top_level|MOUSE:M|cursor_column[6]           ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |top_level|MOUSE:M|cursor_row[9]              ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |top_level|MOUSE:M|cursor_row[7]              ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:CO|SevenSeg_out[5] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:CT|SevenSeg_out[5] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:CH|SevenSeg_out[0] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:RO|SevenSeg_out[3] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:RT|SevenSeg_out[0] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:RH|SevenSeg_out[5] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------+
@@ -569,6 +636,199 @@ Encoding Type:  One-Hot
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: position_to_BCD:sevenseg_display|lpm_divide:Mod3 ;
++------------------------+----------------+---------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                    ;
++------------------------+----------------+---------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                                 ;
+; LPM_WIDTHD             ; 10             ; Untyped                                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                 ;
+; CBXI_PARAMETER         ; lpm_divide_u4m ; Untyped                                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                          ;
++------------------------+----------------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: position_to_BCD:sevenseg_display|lpm_divide:Div3 ;
++------------------------+----------------+---------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                    ;
++------------------------+----------------+---------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                 ;
+; CBXI_PARAMETER         ; lpm_divide_ebm ; Untyped                                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                          ;
++------------------------+----------------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: position_to_BCD:sevenseg_display|lpm_divide:Mod2 ;
++------------------------+----------------+---------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                    ;
++------------------------+----------------+---------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                                 ;
+; LPM_WIDTHD             ; 10             ; Untyped                                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                 ;
+; CBXI_PARAMETER         ; lpm_divide_u4m ; Untyped                                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                          ;
++------------------------+----------------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: position_to_BCD:sevenseg_display|lpm_divide:Div2 ;
++------------------------+----------------+---------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                    ;
++------------------------+----------------+---------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                                 ;
+; LPM_WIDTHD             ; 7              ; Untyped                                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                 ;
+; CBXI_PARAMETER         ; lpm_divide_hbm ; Untyped                                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                          ;
++------------------------+----------------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: position_to_BCD:sevenseg_display|lpm_divide:Mod1 ;
++------------------------+----------------+---------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                    ;
++------------------------+----------------+---------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                                 ;
+; LPM_WIDTHD             ; 10             ; Untyped                                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                 ;
+; CBXI_PARAMETER         ; lpm_divide_u4m ; Untyped                                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                          ;
++------------------------+----------------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: position_to_BCD:sevenseg_display|lpm_divide:Div1 ;
++------------------------+----------------+---------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                    ;
++------------------------+----------------+---------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                 ;
+; CBXI_PARAMETER         ; lpm_divide_ebm ; Untyped                                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                          ;
++------------------------+----------------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: position_to_BCD:sevenseg_display|lpm_divide:Mod0 ;
++------------------------+----------------+---------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                    ;
++------------------------+----------------+---------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                                 ;
+; LPM_WIDTHD             ; 10             ; Untyped                                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                 ;
+; CBXI_PARAMETER         ; lpm_divide_u4m ; Untyped                                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                          ;
++------------------------+----------------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: position_to_BCD:sevenseg_display|lpm_divide:Div0 ;
++------------------------+----------------+---------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                    ;
++------------------------+----------------+---------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                                 ;
+; LPM_WIDTHD             ; 7              ; Untyped                                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                 ;
+; CBXI_PARAMETER         ; lpm_divide_hbm ; Untyped                                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                          ;
++------------------------+----------------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "click_counter:click_display"                                                         ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; count ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "pll:clock_divider"                                                                    ;
 +--------+--------+----------+-------------------------------------------------------------------------------------+
@@ -584,38 +844,41 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 144                         ;
-;     CLR               ; 13                          ;
-;     ENA               ; 47                          ;
+; arriav_ff             ; 168                         ;
+;     CLR               ; 9                           ;
+;     ENA               ; 57                          ;
 ;     ENA CLR           ; 35                          ;
-;     ENA SCLR          ; 10                          ;
-;     ENA SLD           ; 10                          ;
+;     ENA SCLR          ; 18                          ;
+;     ENA SLD           ; 20                          ;
 ;     SCLR              ; 10                          ;
 ;     plain             ; 19                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 170                         ;
-;     arith             ; 38                          ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 35                          ;
-;         2 data inputs ; 2                           ;
+; arriav_lcell_comb     ; 902                         ;
+;     arith             ; 413                         ;
+;         0 data inputs ; 82                          ;
+;         1 data inputs ; 80                          ;
+;         2 data inputs ; 34                          ;
+;         3 data inputs ; 141                         ;
+;         4 data inputs ; 76                          ;
 ;     extend            ; 1                           ;
 ;         7 data inputs ; 1                           ;
-;     normal            ; 121                         ;
+;     normal            ; 430                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 5                           ;
-;         2 data inputs ; 12                          ;
-;         3 data inputs ; 19                          ;
-;         4 data inputs ; 32                          ;
-;         5 data inputs ; 28                          ;
-;         6 data inputs ; 23                          ;
-;     shared            ; 10                          ;
-;         1 data inputs ; 1                           ;
+;         2 data inputs ; 156                         ;
+;         3 data inputs ; 98                          ;
+;         4 data inputs ; 92                          ;
+;         5 data inputs ; 41                          ;
+;         6 data inputs ; 36                          ;
+;     shared            ; 58                          ;
+;         0 data inputs ; 17                          ;
+;         1 data inputs ; 32                          ;
 ;         2 data inputs ; 9                           ;
 ; boundary_port         ; 83                          ;
 ; generic_pll           ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 1.99                        ;
+; Max LUT depth         ; 15.70                       ;
+; Average LUT depth     ; 9.66                        ;
 +-----------------------+-----------------------------+
 
 
@@ -624,7 +887,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -634,10 +897,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Mon May 11 14:29:36 2026
+    Info: Processing started: Mon May 11 15:04:20 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off group_27 -c top_level
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file position_to_bcd.vhd
+    Info (12022): Found design unit 1: position_to_BCD-behavior File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 20
+    Info (12023): Found entity 1: position_to_BCD File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file click_counter.vhd
     Info (12022): Found design unit 1: click_counter-behavior File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/click_counter.vhd Line: 16
     Info (12023): Found entity 1: click_counter File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/click_counter.vhd Line: 6
@@ -668,8 +934,9 @@ Info (12021): Found 2 design units, including 1 entities, in source file pll.vhd
 Info (12021): Found 1 design units, including 1 entities, in source file pll/pll_0002.v
     Info (12023): Found entity 1: pll_0002 File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/pll/pll_0002.v Line: 2
 Info (12127): Elaborating entity "top_level" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(108): object "COUNT_VALUE" assigned a value but never read File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 108
 Warning (10873): Using initial value X (don't care) for net "LEDR[9..8]" at top_level.vhd(14) File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 14
-Info (12128): Elaborating entity "pll" for hierarchy "pll:clock_divider" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 129
+Info (12128): Elaborating entity "pll" for hierarchy "pll:clock_divider" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 145
 Info (12128): Elaborating entity "pll_0002" for hierarchy "pll:clock_divider|pll_0002:pll_inst" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/pll.vhd Line: 32
 Info (12128): Elaborating entity "altera_pll" for hierarchy "pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/pll/pll_0002.v Line: 85
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
@@ -735,16 +1002,80 @@ Info (12133): Instantiated megafunction "pll:clock_divider|pll_0002:pll_inst|alt
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:VS" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 136
-Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:M" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 150
+Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:VS" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 152
+Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:M" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 166
 Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/mouse.vhd Line: 25
 Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/mouse.vhd Line: 151
 Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/mouse.vhd Line: 155
 Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/mouse.vhd Line: 156
 Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/mouse.vhd Line: 157
-Info (12128): Elaborating entity "flappy_dolphin" for hierarchy "flappy_dolphin:FD" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 161
-Info (12128): Elaborating entity "click_counter" for hierarchy "click_counter:click_display" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 185
-Info (12128): Elaborating entity "BCD_to_SevenSeg" for hierarchy "BCD_to_SevenSeg:sevenseg" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 192
+Info (12128): Elaborating entity "flappy_dolphin" for hierarchy "flappy_dolphin:FD" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 177
+Info (12128): Elaborating entity "click_counter" for hierarchy "click_counter:click_display" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 201
+Info (12128): Elaborating entity "position_to_BCD" for hierarchy "position_to_BCD:sevenseg_display" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 213
+Info (12128): Elaborating entity "BCD_to_SevenSeg" for hierarchy "BCD_to_SevenSeg:RH" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 224
+Info (278001): Inferred 8 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "position_to_BCD:sevenseg_display|Mod3" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 38
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "position_to_BCD:sevenseg_display|Div3" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 37
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "position_to_BCD:sevenseg_display|Mod2" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 37
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "position_to_BCD:sevenseg_display|Div2" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 36
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "position_to_BCD:sevenseg_display|Mod1" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 33
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "position_to_BCD:sevenseg_display|Div1" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 32
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "position_to_BCD:sevenseg_display|Mod0" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 32
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "position_to_BCD:sevenseg_display|Div0" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 31
+Info (12130): Elaborated megafunction instantiation "position_to_BCD:sevenseg_display|lpm_divide:Mod3" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 38
+Info (12133): Instantiated megafunction "position_to_BCD:sevenseg_display|lpm_divide:Mod3" with the following parameter: File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 38
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "10"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_u4m.tdf
+    Info (12023): Found entity 1: lpm_divide_u4m File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/db/lpm_divide_u4m.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_1nh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_1nh File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/db/sign_div_unsign_1nh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_82f.tdf
+    Info (12023): Found entity 1: alt_u_div_82f File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/db/alt_u_div_82f.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "position_to_BCD:sevenseg_display|lpm_divide:Div3" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 37
+Info (12133): Instantiated megafunction "position_to_BCD:sevenseg_display|lpm_divide:Div3" with the following parameter: File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 37
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ebm.tdf
+    Info (12023): Found entity 1: lpm_divide_ebm File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/db/lpm_divide_ebm.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_klh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_klh File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/db/sign_div_unsign_klh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_eve.tdf
+    Info (12023): Found entity 1: alt_u_div_eve File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/db/alt_u_div_eve.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "position_to_BCD:sevenseg_display|lpm_divide:Div2" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 36
+Info (12133): Instantiated megafunction "position_to_BCD:sevenseg_display|lpm_divide:Div2" with the following parameter: File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 36
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "7"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_hbm.tdf
+    Info (12023): Found entity 1: lpm_divide_hbm File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/db/lpm_divide_hbm.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_nlh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_nlh File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/db/sign_div_unsign_nlh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_kve.tdf
+    Info (12023): Found entity 1: alt_u_div_kve File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/db/alt_u_div_kve.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "position_to_BCD:sevenseg_display|lpm_divide:Mod1" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 33
+Info (12133): Instantiated megafunction "position_to_BCD:sevenseg_display|lpm_divide:Mod1" with the following parameter: File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 33
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "10"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12130): Elaborated megafunction instantiation "position_to_BCD:sevenseg_display|lpm_divide:Div1" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 32
+Info (12133): Instantiated megafunction "position_to_BCD:sevenseg_display|lpm_divide:Div1" with the following parameter: File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 32
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12130): Elaborated megafunction instantiation "position_to_BCD:sevenseg_display|lpm_divide:Div0" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 31
+Info (12133): Instantiated megafunction "position_to_BCD:sevenseg_display|lpm_divide:Div0" with the following parameter: File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 31
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "7"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (13000): Registers with preset signals will power-up high File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/mouse.vhd Line: 146
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
@@ -757,41 +1088,6 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "VGA_B[0]" is stuck at GND File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 11
     Warning (13410): Pin "VGA_B[1]" is stuck at GND File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 11
     Warning (13410): Pin "VGA_B[2]" is stuck at GND File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 11
-    Warning (13410): Pin "HEX1[0]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX1[1]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX1[2]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX1[3]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX1[4]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX1[5]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX1[6]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX2[0]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX2[1]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX2[2]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX2[3]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX2[4]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX2[5]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX2[6]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX3[0]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX3[1]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX3[2]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX3[3]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX3[4]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX3[5]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX4[0]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX4[1]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX4[2]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX4[3]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX4[4]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX4[5]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX4[6]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX5[0]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX5[1]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX5[2]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX5[3]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX5[4]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX5[5]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
-    Warning (13410): Pin "HEX5[6]" is stuck at VCC File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 13
     Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 14
     Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 14
     Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 14
@@ -1048,16 +1344,16 @@ Warning (21074): Design contains 11 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 9
     Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 9
     Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/top_level.vhd Line: 9
-Info (21057): Implemented 314 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1055 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 66 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 230 logic cells
+    Info (21061): Implemented 971 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 304 warnings
-    Info: Peak virtual memory: 4977 megabytes
-    Info: Processing ended: Mon May 11 14:29:43 2026
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 270 warnings
+    Info: Peak virtual memory: 4992 megabytes
+    Info: Processing ended: Mon May 11 15:04:27 2026
     Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:12
+    Info: Total CPU time (on all processors): 00:00:13
 
 
