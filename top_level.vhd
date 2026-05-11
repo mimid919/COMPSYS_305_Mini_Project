@@ -52,6 +52,39 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 		  red, green, blue 			: OUT std_logic);		
     END COMPONENT FLAPPY_DOLPHIN;
 
+    COMPONENT CHAR_ROM IS
+	PORT( character_address	        :	IN STD_LOGIC_VECTOR (5 DOWNTO 0);
+		  font_row, font_col	    :	IN STD_LOGIC_VECTOR (2 DOWNTO 0);
+		  clock				        : 	IN STD_LOGIC ;
+		  rom_mux_output	       	:	OUT STD_LOGIC);
+    END COMPONENT CHAR_ROM;
+
+    COMPONENT click_counter IS
+    PORT( clk         : IN std_logic;
+        reset       : IN std_logic;
+        left_click  : IN std_logic;
+        count       : OUT std_logic_vector(3 DOWNTO 0));
+    END COMPONENT click_counter;
+
+    COMPONENT BCD_to_SevenSeg IS
+    PORT( BCD_digit : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+          SevenSeg_out : OUT STD_LOGIC_VECTOR(6 DOWNTO 0));
+    END COMPONENT BCD_to_SevenSeg;
+
+    COMPONENT position_to_BCD IS
+	PORT
+	(
+        mouse_row          : IN std_logic_vector(9 DOWNTO 0);
+        mouse_column       : IN std_logic_vector(9 DOWNTO 0);
+        row_hundreds      : OUT std_logic_vector(3 DOWNTO 0);
+        row_tens          : OUT std_logic_vector(3 DOWNTO 0);
+        row_ones          : OUT std_logic_vector(3 DOWNTO 0);
+        column_hundreds   : OUT std_logic_vector(3 DOWNTO 0);
+        column_tens       : OUT std_logic_vector(3 DOWNTO 0);
+        column_ones       : OUT std_logic_vector(3 DOWNTO 0)
+    );
+END COMPONENT position_to_BCD;
+
     SIGNAL CLOCK_25MHZ : STD_LOGIC;
 
     -- VGA signals used in other componants
@@ -72,6 +105,10 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
     -- final colour outputs to VGA
     SIGNAL RED_OUT, GREEN_OUT, BLUE_OUT : STD_LOGIC; 
 
+    SIGNAL COUNT_VALUE : STD_LOGIC_VECTOR(3 DOWNTO 0); -- output from click counter to connect to HEX display
+
+    SIGNAL row_hundreds, row_tens, row_ones : STD_LOGIC_VECTOR(3 DOWNTO 0); -- output from position_to_BCD for mouse row
+    SIGNAL column_hundreds, column_tens, column_ones : STD_LOGIC_VECTOR(3 DOWNTO 0); -- output from position_to_BCD for mouse column
 
 BEGIN
 
@@ -95,12 +132,12 @@ BEGIN
     BACKGROUND_RED <= '0';      BACKGROUND_GREEN <= '0';    BACKGROUND_BLUE <= '0';
 
     -- Set HEX displays to 0 temporarily
-    HEX0 <= (OTHERS => '1');
-    HEX1 <= (OTHERS => '1');
-    HEX2 <= (OTHERS => '1');
-    HEX3 <= (OTHERS => '1');
-    HEX4 <= (OTHERS => '1');
-    HEX5 <= (OTHERS => '1');
+    --HEX0 <= (OTHERS => '1');
+    -- HEX1 <= (OTHERS => '1');
+    -- HEX2 <= (OTHERS => '1');
+    -- HEX3 <= (OTHERS => '1');
+    -- HEX4 <= (OTHERS => '1');
+    -- HEX5 <= (OTHERS => '1');
 
     RESET <= NOT KEY(0); -- active low reset
 
@@ -152,6 +189,63 @@ BEGIN
         blue => DOLPHIN_BLUE
     );
 
+    --based of lecture schematic
+--    START: CHAR_ROM PORT MAP (
+--        character_address => PIXEL_COLUMN(9 DOWNTO 4) & PIXEL_ROW(9 DOWNTO 4), -- top 6 bits of column and row for character address
+--        font_row => PIXEL_ROW(3 DOWNTO 1),
+--        font_col => PIXEL_COLUMN(3 DOWNTO 1),
+--        clock => CLOCK_25MHZ,
+--        rom_mux_output => TEXT_RED -- just outputting to red for now, will need to change for text
+--    );
+
+    click_display: click_counter PORT MAP (
+        clk => CLOCK_25MHZ,
+        reset => RESET,
+        left_click => LEFT_CLICK,
+        count => COUNT_VALUE -- not outputting to anything for now, will need to connect to HEX display
+    );
+
+    -- sevenseg: BCD_to_SevenSeg PORT MAP (
+    --     BCD_digit => COUNT_VALUE,
+    --     SevenSeg_out => HEX0
+    -- );
+
+    sevenseg_display : position_to_BCD PORT MAP (
+        mouse_row => MOUSE_ROW,
+        mouse_column => MOUSE_COLUMN,
+        row_hundreds => row_hundreds,
+        row_tens => row_tens,
+        row_ones => row_ones,
+        column_hundreds => column_hundreds,
+        column_tens => column_tens,
+        column_ones => column_ones
+    );
+
+    RH : BCD_to_SevenSeg PORT MAP (
+        BCD_digit => row_hundreds,
+        SevenSeg_out => HEX5
+    );
+    RT : BCD_to_SevenSeg PORT MAP (
+        BCD_digit => row_tens,
+        SevenSeg_out => HEX4
+    );
+    RO : BCD_to_SevenSeg PORT MAP (
+        BCD_digit => row_ones,
+        SevenSeg_out => HEX3
+    );
+    CH : BCD_to_SevenSeg PORT MAP (
+        BCD_digit => column_hundreds,
+        SevenSeg_out => HEX2
+    );
+    CT : BCD_to_SevenSeg PORT MAP (
+        BCD_digit => column_tens,
+        SevenSeg_out => HEX1
+    );
+    CO : BCD_to_SevenSeg PORT MAP (
+        BCD_digit => column_ones,
+        SevenSeg_out => HEX0
+    );
+
 	 LEDR(1) <= LEFT_CLICK;
 	 LEDR(0) <= RIGHT_CLICK;
 	 LEDR(2) <= '0';
@@ -160,10 +254,5 @@ BEGIN
 	 LEDR(5) <= '0';
     LEDR(6) <= '1';
 	 LEDR(7) <= '1';
-    
-    
-        --LEDR(0) <= not LEFT_CLICK;
-        --LEDR(1) <= not RIGHT_CLICK;
-        --LEDR(9 downto 2) <=  (others => '1');
 
 END BEHAVIOUR;
