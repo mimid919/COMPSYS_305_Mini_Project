@@ -71,6 +71,20 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
           SevenSeg_out : OUT STD_LOGIC_VECTOR(6 DOWNTO 0));
     END COMPONENT BCD_to_SevenSeg;
 
+    COMPONENT position_to_BCD IS
+	PORT
+	(
+        mouse_row          : IN std_logic_vector(9 DOWNTO 0);
+        mouse_column       : IN std_logic_vector(9 DOWNTO 0);
+        row_hundreds      : OUT std_logic_vector(3 DOWNTO 0);
+        row_tens          : OUT std_logic_vector(3 DOWNTO 0);
+        row_ones          : OUT std_logic_vector(3 DOWNTO 0);
+        column_hundreds   : OUT std_logic_vector(3 DOWNTO 0);
+        column_tens       : OUT std_logic_vector(3 DOWNTO 0);
+        column_ones       : OUT std_logic_vector(3 DOWNTO 0)
+    );
+END COMPONENT position_to_BCD;
+
     SIGNAL CLOCK_25MHZ : STD_LOGIC;
 
     -- VGA signals used in other componants
@@ -93,6 +107,8 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 
     SIGNAL COUNT_VALUE : STD_LOGIC_VECTOR(3 DOWNTO 0); -- output from click counter to connect to HEX display
 
+    SIGNAL row_hundreds, row_tens, row_ones : STD_LOGIC_VECTOR(3 DOWNTO 0); -- output from position_to_BCD for mouse row
+    SIGNAL column_hundreds, column_tens, column_ones : STD_LOGIC_VECTOR(3 DOWNTO 0); -- output from position_to_BCD for mouse column
 
 BEGIN
 
@@ -117,11 +133,11 @@ BEGIN
 
     -- Set HEX displays to 0 temporarily
     --HEX0 <= (OTHERS => '1');
-    HEX1 <= (OTHERS => '1');
-    HEX2 <= (OTHERS => '1');
-    HEX3 <= (OTHERS => '1');
-    HEX4 <= (OTHERS => '1');
-    HEX5 <= (OTHERS => '1');
+    -- HEX1 <= (OTHERS => '1');
+    -- HEX2 <= (OTHERS => '1');
+    -- HEX3 <= (OTHERS => '1');
+    -- HEX4 <= (OTHERS => '1');
+    -- HEX5 <= (OTHERS => '1');
 
     RESET <= NOT KEY(0); -- active low reset
 
@@ -189,11 +205,46 @@ BEGIN
         count => COUNT_VALUE -- not outputting to anything for now, will need to connect to HEX display
     );
 
-    sevenseg: BCD_to_SevenSeg PORT MAP (
-        BCD_digit => COUNT_VALUE,
-        SevenSeg_out => HEX0
+    -- sevenseg: BCD_to_SevenSeg PORT MAP (
+    --     BCD_digit => COUNT_VALUE,
+    --     SevenSeg_out => HEX0
+    -- );
+
+    sevenseg_display : position_to_BCD PORT MAP (
+        mouse_row => MOUSE_ROW,
+        mouse_column => MOUSE_COLUMN,
+        row_hundreds => row_hundreds,
+        row_tens => row_tens,
+        row_ones => row_ones,
+        column_hundreds => column_hundreds,
+        column_tens => column_tens,
+        column_ones => column_ones
     );
 
+    RH : BCD_to_SevenSeg PORT MAP (
+        BCD_digit => row_hundreds,
+        SevenSeg_out => HEX5
+    );
+    RT : BCD_to_SevenSeg PORT MAP (
+        BCD_digit => row_tens,
+        SevenSeg_out => HEX4
+    );
+    RO : BCD_to_SevenSeg PORT MAP (
+        BCD_digit => row_ones,
+        SevenSeg_out => HEX3
+    );
+    CH : BCD_to_SevenSeg PORT MAP (
+        BCD_digit => column_hundreds,
+        SevenSeg_out => HEX2
+    );
+    CT : BCD_to_SevenSeg PORT MAP (
+        BCD_digit => column_tens,
+        SevenSeg_out => HEX1
+    );
+    CO : BCD_to_SevenSeg PORT MAP (
+        BCD_digit => column_ones,
+        SevenSeg_out => HEX0
+    );
 
 	 LEDR(1) <= LEFT_CLICK;
 	 LEDR(0) <= RIGHT_CLICK;
