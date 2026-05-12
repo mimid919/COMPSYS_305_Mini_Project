@@ -1,5 +1,9 @@
 Timing Analyzer report for top_level
+<<<<<<< HEAD
 Tue May 12 14:33:53 2026
+=======
+Mon May 11 15:05:52 2026
+>>>>>>> origin/main
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -101,11 +105,16 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 24          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
+<<<<<<< HEAD
 ; Average used               ; 1.35        ;
+=======
+; Average used               ; 1.67        ;
+>>>>>>> origin/main
 ; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+<<<<<<< HEAD
 ;     Processor 2            ;   2.7%      ;
 ;     Processor 3            ;   2.6%      ;
 ;     Processor 4            ;   2.5%      ;
@@ -121,6 +130,23 @@ refer to the applicable agreement for further details.
 ;     Processor 14           ;   2.3%      ;
 ;     Processor 15           ;   2.2%      ;
 ;     Processor 16           ;   2.2%      ;
+=======
+;     Processor 2            ;   4.9%      ;
+;     Processor 3            ;   4.8%      ;
+;     Processor 4            ;   4.8%      ;
+;     Processor 5            ;   4.5%      ;
+;     Processor 6            ;   4.5%      ;
+;     Processor 7            ;   4.4%      ;
+;     Processor 8            ;   4.4%      ;
+;     Processor 9            ;   4.4%      ;
+;     Processor 10           ;   4.4%      ;
+;     Processor 11           ;   4.4%      ;
+;     Processor 12           ;   4.4%      ;
+;     Processor 13           ;   4.3%      ;
+;     Processor 14           ;   4.3%      ;
+;     Processor 15           ;   4.3%      ;
+;     Processor 16           ;   4.3%      ;
+>>>>>>> origin/main
 +----------------------------+-------------+
 
 
@@ -141,8 +167,13 @@ refer to the applicable agreement for further details.
 +------------+-----------------+-------------------------------------------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                                                    ; Note ;
 +------------+-----------------+-------------------------------------------------------------------------------+------+
+<<<<<<< HEAD
 ; 105.22 MHz ; 105.22 MHz      ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
 ; 216.73 MHz ; 216.73 MHz      ; MOUSE:M|MOUSE_CLK_FILTER                                                      ;      ;
+=======
+; 107.67 MHz ; 107.67 MHz      ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
+; 241.37 MHz ; 241.37 MHz      ; MOUSE:M|MOUSE_CLK_FILTER                                                      ;      ;
+>>>>>>> origin/main
 +------------+-----------------+-------------------------------------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -158,8 +189,13 @@ HTML report is unavailable in plain text report export.
 +-------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                         ; Slack  ; End Point TNS ;
 +-------------------------------------------------------------------------------+--------+---------------+
+<<<<<<< HEAD
 ; MOUSE:M|MOUSE_CLK_FILTER                                                      ; -7.998 ; -476.738      ;
 ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; -4.426 ; -20.472       ;
+=======
+; MOUSE:M|MOUSE_CLK_FILTER                                                      ; -8.385 ; -725.518      ;
+; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; -5.287 ; -31.298       ;
+>>>>>>> origin/main
 +-------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -168,8 +204,13 @@ HTML report is unavailable in plain text report export.
 +-------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                         ; Slack  ; End Point TNS ;
 +-------------------------------------------------------------------------------+--------+---------------+
+<<<<<<< HEAD
 ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; -2.561 ; -4.748        ;
 ; MOUSE:M|MOUSE_CLK_FILTER                                                      ; 0.087  ; 0.000         ;
+=======
+; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; -0.925 ; -0.925        ;
+; MOUSE:M|MOUSE_CLK_FILTER                                                      ; 0.760  ; 0.000         ;
+>>>>>>> origin/main
 +-------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -178,7 +219,11 @@ HTML report is unavailable in plain text report export.
 +--------------------------+--------+---------------+
 ; Clock                    ; Slack  ; End Point TNS ;
 +--------------------------+--------+---------------+
+<<<<<<< HEAD
 ; MOUSE:M|MOUSE_CLK_FILTER ; -6.841 ; -109.359      ;
+=======
+; MOUSE:M|MOUSE_CLK_FILTER ; -6.756 ; -107.993      ;
+>>>>>>> origin/main
 +--------------------------+--------+---------------+
 
 
@@ -187,7 +232,11 @@ HTML report is unavailable in plain text report export.
 +--------------------------+-------+---------------+
 ; Clock                    ; Slack ; End Point TNS ;
 +--------------------------+-------+---------------+
+<<<<<<< HEAD
 ; MOUSE:M|MOUSE_CLK_FILTER ; 5.720 ; 0.000         ;
+=======
+; MOUSE:M|MOUSE_CLK_FILTER ; 5.641 ; 0.000         ;
+>>>>>>> origin/main
 +--------------------------+-------+---------------+
 
 
@@ -196,10 +245,17 @@ HTML report is unavailable in plain text report export.
 +-------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                         ; Slack  ; End Point TNS ;
 +-------------------------------------------------------------------------------+--------+---------------+
+<<<<<<< HEAD
 ; MOUSE:M|MOUSE_CLK_FILTER                                                      ; -0.538 ; -51.225       ;
 ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; 1.666  ; 0.000         ;
 ; CLOCK_50                                                                      ; 9.949  ; 0.000         ;
 ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 18.638 ; 0.000         ;
+=======
+; MOUSE:M|MOUSE_CLK_FILTER                                                      ; -0.538 ; -74.377       ;
+; clock_divider|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; 1.666  ; 0.000         ;
+; CLOCK_50                                                                      ; 9.949  ; 0.000         ;
+; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 19.302 ; 0.000         ;
+>>>>>>> origin/main
 +-------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -214,8 +270,13 @@ No synchronizer chains to report.
 +------------+-----------------+-------------------------------------------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                                                    ; Note ;
 +------------+-----------------+-------------------------------------------------------------------------------+------+
+<<<<<<< HEAD
 ; 107.16 MHz ; 107.16 MHz      ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
 ; 219.44 MHz ; 219.44 MHz      ; MOUSE:M|MOUSE_CLK_FILTER                                                      ;      ;
+=======
+; 108.77 MHz ; 108.77 MHz      ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
+; 240.04 MHz ; 240.04 MHz      ; MOUSE:M|MOUSE_CLK_FILTER                                                      ;      ;
+>>>>>>> origin/main
 +------------+-----------------+-------------------------------------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -225,8 +286,13 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                         ; Slack  ; End Point TNS ;
 +-------------------------------------------------------------------------------+--------+---------------+
+<<<<<<< HEAD
 ; MOUSE:M|MOUSE_CLK_FILTER                                                      ; -7.873 ; -469.073      ;
 ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; -3.990 ; -17.725       ;
+=======
+; MOUSE:M|MOUSE_CLK_FILTER                                                      ; -8.401 ; -712.222      ;
+; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; -5.030 ; -28.616       ;
+>>>>>>> origin/main
 +-------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -235,8 +301,13 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                         ; Slack  ; End Point TNS ;
 +-------------------------------------------------------------------------------+--------+---------------+
+<<<<<<< HEAD
 ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; -2.789 ; -5.573        ;
 ; MOUSE:M|MOUSE_CLK_FILTER                                                      ; 0.117  ; 0.000         ;
+=======
+; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; -0.993 ; -1.014        ;
+; MOUSE:M|MOUSE_CLK_FILTER                                                      ; 0.729  ; 0.000         ;
+>>>>>>> origin/main
 +-------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -245,7 +316,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------+--------+---------------+
 ; Clock                    ; Slack  ; End Point TNS ;
 +--------------------------+--------+---------------+
+<<<<<<< HEAD
 ; MOUSE:M|MOUSE_CLK_FILTER ; -6.788 ; -108.511      ;
+=======
+; MOUSE:M|MOUSE_CLK_FILTER ; -6.708 ; -107.226      ;
+>>>>>>> origin/main
 +--------------------------+--------+---------------+
 
 
@@ -254,7 +329,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------+-------+---------------+
 ; Clock                    ; Slack ; End Point TNS ;
 +--------------------------+-------+---------------+
+<<<<<<< HEAD
 ; MOUSE:M|MOUSE_CLK_FILTER ; 5.872 ; 0.000         ;
+=======
+; MOUSE:M|MOUSE_CLK_FILTER ; 5.793 ; 0.000         ;
+>>>>>>> origin/main
 +--------------------------+-------+---------------+
 
 
@@ -263,10 +342,17 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                         ; Slack  ; End Point TNS ;
 +-------------------------------------------------------------------------------+--------+---------------+
+<<<<<<< HEAD
 ; MOUSE:M|MOUSE_CLK_FILTER                                                      ; -0.538 ; -51.074       ;
 ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; 1.666  ; 0.000         ;
 ; CLOCK_50                                                                      ; 9.980  ; 0.000         ;
 ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 18.586 ; 0.000         ;
+=======
+; MOUSE:M|MOUSE_CLK_FILTER                                                      ; -0.538 ; -72.884       ;
+; clock_divider|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; 1.666  ; 0.000         ;
+; CLOCK_50                                                                      ; 9.980  ; 0.000         ;
+; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 19.206 ; 0.000         ;
+>>>>>>> origin/main
 +-------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -281,8 +367,13 @@ No synchronizer chains to report.
 +-------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                         ; Slack  ; End Point TNS ;
 +-------------------------------------------------------------------------------+--------+---------------+
+<<<<<<< HEAD
 ; MOUSE:M|MOUSE_CLK_FILTER                                                      ; -3.939 ; -228.954      ;
 ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; -2.896 ; -14.253       ;
+=======
+; MOUSE:M|MOUSE_CLK_FILTER                                                      ; -4.183 ; -351.789      ;
+; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; -3.980 ; -21.917       ;
+>>>>>>> origin/main
 +-------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -291,8 +382,13 @@ No synchronizer chains to report.
 +-------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                         ; Slack  ; End Point TNS ;
 +-------------------------------------------------------------------------------+--------+---------------+
+<<<<<<< HEAD
 ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; -1.228 ; -2.236        ;
 ; MOUSE:M|MOUSE_CLK_FILTER                                                      ; -0.011 ; -0.011        ;
+=======
+; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; -0.420 ; -0.420        ;
+; MOUSE:M|MOUSE_CLK_FILTER                                                      ; 0.341  ; 0.000         ;
+>>>>>>> origin/main
 +-------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -301,7 +397,11 @@ No synchronizer chains to report.
 +--------------------------+--------+---------------+
 ; Clock                    ; Slack  ; End Point TNS ;
 +--------------------------+--------+---------------+
+<<<<<<< HEAD
 ; MOUSE:M|MOUSE_CLK_FILTER ; -3.294 ; -52.672       ;
+=======
+; MOUSE:M|MOUSE_CLK_FILTER ; -3.280 ; -52.447       ;
+>>>>>>> origin/main
 +--------------------------+--------+---------------+
 
 
@@ -310,7 +410,11 @@ No synchronizer chains to report.
 +--------------------------+-------+---------------+
 ; Clock                    ; Slack ; End Point TNS ;
 +--------------------------+-------+---------------+
+<<<<<<< HEAD
 ; MOUSE:M|MOUSE_CLK_FILTER ; 3.013 ; 0.000         ;
+=======
+; MOUSE:M|MOUSE_CLK_FILTER ; 2.983 ; 0.000         ;
+>>>>>>> origin/main
 +--------------------------+-------+---------------+
 
 
@@ -319,10 +423,17 @@ No synchronizer chains to report.
 +-------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                         ; Slack  ; End Point TNS ;
 +-------------------------------------------------------------------------------+--------+---------------+
+<<<<<<< HEAD
 ; MOUSE:M|MOUSE_CLK_FILTER                                                      ; 0.000  ; 0.000         ;
 ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; 1.666  ; 0.000         ;
 ; CLOCK_50                                                                      ; 9.643  ; 0.000         ;
 ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 18.898 ; 0.000         ;
+=======
+; MOUSE:M|MOUSE_CLK_FILTER                                                      ; 0.059  ; 0.000         ;
+; clock_divider|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; 1.666  ; 0.000         ;
+; CLOCK_50                                                                      ; 9.643  ; 0.000         ;
+; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 19.557 ; 0.000         ;
+>>>>>>> origin/main
 +-------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -337,8 +448,13 @@ No synchronizer chains to report.
 +-------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                         ; Slack  ; End Point TNS ;
 +-------------------------------------------------------------------------------+--------+---------------+
+<<<<<<< HEAD
 ; MOUSE:M|MOUSE_CLK_FILTER                                                      ; -3.770 ; -220.919      ;
 ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; -2.165 ; -10.385       ;
+=======
+; MOUSE:M|MOUSE_CLK_FILTER                                                      ; -4.012 ; -337.862      ;
+; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; -3.059 ; -16.947       ;
+>>>>>>> origin/main
 +-------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -347,8 +463,13 @@ No synchronizer chains to report.
 +-------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                         ; Slack  ; End Point TNS ;
 +-------------------------------------------------------------------------------+--------+---------------+
+<<<<<<< HEAD
 ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; -1.438 ; -2.845        ;
 ; MOUSE:M|MOUSE_CLK_FILTER                                                      ; -0.005 ; -0.005        ;
+=======
+; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; -0.560 ; -0.588        ;
+; MOUSE:M|MOUSE_CLK_FILTER                                                      ; 0.321  ; 0.000         ;
+>>>>>>> origin/main
 +-------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -357,7 +478,11 @@ No synchronizer chains to report.
 +--------------------------+--------+---------------+
 ; Clock                    ; Slack  ; End Point TNS ;
 +--------------------------+--------+---------------+
+<<<<<<< HEAD
 ; MOUSE:M|MOUSE_CLK_FILTER ; -3.206 ; -51.264       ;
+=======
+; MOUSE:M|MOUSE_CLK_FILTER ; -3.189 ; -50.990       ;
+>>>>>>> origin/main
 +--------------------------+--------+---------------+
 
 
@@ -366,7 +491,11 @@ No synchronizer chains to report.
 +--------------------------+-------+---------------+
 ; Clock                    ; Slack ; End Point TNS ;
 +--------------------------+-------+---------------+
+<<<<<<< HEAD
 ; MOUSE:M|MOUSE_CLK_FILTER ; 3.000 ; 0.000         ;
+=======
+; MOUSE:M|MOUSE_CLK_FILTER ; 2.975 ; 0.000         ;
+>>>>>>> origin/main
 +--------------------------+-------+---------------+
 
 
@@ -375,7 +504,11 @@ No synchronizer chains to report.
 +-------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                         ; Slack  ; End Point TNS ;
 +-------------------------------------------------------------------------------+--------+---------------+
+<<<<<<< HEAD
 ; MOUSE:M|MOUSE_CLK_FILTER                                                      ; 0.009  ; 0.000         ;
+=======
+; MOUSE:M|MOUSE_CLK_FILTER                                                      ; 0.060  ; 0.000         ;
+>>>>>>> origin/main
 ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; 1.666  ; 0.000         ;
 ; CLOCK_50                                                                      ; 9.632  ; 0.000         ;
 ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 18.897 ; 0.000         ;
@@ -393,6 +526,7 @@ No synchronizer chains to report.
 +--------------------------------------------------------------------------------+----------+--------+----------+---------+---------------------+
 ; Clock                                                                          ; Setup    ; Hold   ; Recovery ; Removal ; Minimum Pulse Width ;
 +--------------------------------------------------------------------------------+----------+--------+----------+---------+---------------------+
+<<<<<<< HEAD
 ; Worst-case Slack                                                               ; -7.998   ; -2.789 ; -6.841   ; 3.000   ; -0.538              ;
 ;  CLOCK_50                                                                      ; N/A      ; N/A    ; N/A      ; N/A     ; 9.632               ;
 ;  MOUSE:M|MOUSE_CLK_FILTER                                                      ; -7.998   ; -0.011 ; -6.841   ; 3.000   ; -0.538              ;
@@ -403,6 +537,18 @@ No synchronizer chains to report.
 ;  MOUSE:M|MOUSE_CLK_FILTER                                                      ; -476.738 ; -0.011 ; -109.359 ; 0.000   ; -51.225             ;
 ;  clock_divider|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; N/A      ; N/A    ; N/A      ; N/A     ; 0.000               ;
 ;  clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; -20.472  ; -5.573 ; N/A      ; N/A     ; 0.000               ;
+=======
+; Worst-case Slack                                                               ; -8.401   ; -0.993 ; -6.756   ; 2.975   ; -0.538              ;
+;  CLOCK_50                                                                      ; N/A      ; N/A    ; N/A      ; N/A     ; 9.632               ;
+;  MOUSE:M|MOUSE_CLK_FILTER                                                      ; -8.401   ; 0.321  ; -6.756   ; 2.975   ; -0.538              ;
+;  clock_divider|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; N/A      ; N/A    ; N/A      ; N/A     ; 1.666               ;
+;  clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; -5.287   ; -0.993 ; N/A      ; N/A     ; 19.206              ;
+; Design-wide TNS                                                                ; -756.816 ; -1.014 ; -107.993 ; 0.0     ; -74.377             ;
+;  CLOCK_50                                                                      ; N/A      ; N/A    ; N/A      ; N/A     ; 0.000               ;
+;  MOUSE:M|MOUSE_CLK_FILTER                                                      ; -725.518 ; 0.000  ; -107.993 ; 0.000   ; -74.377             ;
+;  clock_divider|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; N/A      ; N/A    ; N/A      ; N/A     ; 0.000               ;
+;  clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; -31.298  ; -1.014 ; N/A      ; N/A     ; 0.000               ;
+>>>>>>> origin/main
 +--------------------------------------------------------------------------------+----------+--------+----------+---------+---------------------+
 
 
@@ -816,10 +962,17 @@ No synchronizer chains to report.
 +-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+----------+----------+----------+----------+
 ; From Clock                                                                    ; To Clock                                                                      ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+----------+----------+----------+----------+
+<<<<<<< HEAD
 ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 1792     ; 0        ; 0        ; 0        ;
 ; MOUSE:M|MOUSE_CLK_FILTER                                                      ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 1        ; 115      ; 0        ; 0        ;
 ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; MOUSE:M|MOUSE_CLK_FILTER                                                      ; 0        ; 0        ; 64       ; 0        ;
 ; MOUSE:M|MOUSE_CLK_FILTER                                                      ; MOUSE:M|MOUSE_CLK_FILTER                                                      ; 0        ; 0        ; 0        ; 784      ;
+=======
+; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 1429     ; 0        ; 0        ; 0        ;
+; MOUSE:M|MOUSE_CLK_FILTER                                                      ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 1        ; 179      ; 0        ; 0        ;
+; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; MOUSE:M|MOUSE_CLK_FILTER                                                      ; 0        ; 0        ; 92       ; 0        ;
+; MOUSE:M|MOUSE_CLK_FILTER                                                      ; MOUSE:M|MOUSE_CLK_FILTER                                                      ; 0        ; 0        ; 0        ; 1338     ;
+>>>>>>> origin/main
 +-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -829,10 +982,17 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+----------+----------+----------+----------+
 ; From Clock                                                                    ; To Clock                                                                      ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+----------+----------+----------+----------+
+<<<<<<< HEAD
 ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 1792     ; 0        ; 0        ; 0        ;
 ; MOUSE:M|MOUSE_CLK_FILTER                                                      ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 1        ; 115      ; 0        ; 0        ;
 ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; MOUSE:M|MOUSE_CLK_FILTER                                                      ; 0        ; 0        ; 64       ; 0        ;
 ; MOUSE:M|MOUSE_CLK_FILTER                                                      ; MOUSE:M|MOUSE_CLK_FILTER                                                      ; 0        ; 0        ; 0        ; 784      ;
+=======
+; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 1429     ; 0        ; 0        ; 0        ;
+; MOUSE:M|MOUSE_CLK_FILTER                                                      ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 1        ; 179      ; 0        ; 0        ;
+; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; MOUSE:M|MOUSE_CLK_FILTER                                                      ; 0        ; 0        ; 92       ; 0        ;
+; MOUSE:M|MOUSE_CLK_FILTER                                                      ; MOUSE:M|MOUSE_CLK_FILTER                                                      ; 0        ; 0        ; 0        ; 1338     ;
+>>>>>>> origin/main
 +-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -877,9 +1037,9 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 5     ; 5    ;
-; Unconstrained Input Port Paths  ; 74    ; 74   ;
-; Unconstrained Output Ports      ; 9     ; 9    ;
-; Unconstrained Output Port Paths ; 12    ; 12   ;
+; Unconstrained Input Port Paths  ; 103   ; 103  ;
+; Unconstrained Output Ports      ; 51    ; 51   ;
+; Unconstrained Output Port Paths ; 411   ; 411  ;
 +---------------------------------+-------+------+
 
 
@@ -913,6 +1073,48 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +-------------+---------------------------------------------------------------------------------------+
 ; Output Port ; Comment                                                                               ;
 +-------------+---------------------------------------------------------------------------------------+
+; HEX0[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX0[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX0[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX0[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX0[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX0[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX0[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX1[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX1[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX1[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX1[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX1[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX1[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX1[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX2[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX2[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX2[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX2[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX2[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX2[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX2[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX3[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX3[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX3[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX3[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX3[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX3[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX3[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX4[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX4[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX4[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX4[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX4[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX4[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX4[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX5[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX5[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX5[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX5[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX5[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX5[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX5[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; LEDR[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; LEDR[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; PS2_CLK     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -943,6 +1145,48 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +-------------+---------------------------------------------------------------------------------------+
 ; Output Port ; Comment                                                                               ;
 +-------------+---------------------------------------------------------------------------------------+
+; HEX0[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX0[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX0[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX0[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX0[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX0[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX0[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX1[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX1[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX1[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX1[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX1[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX1[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX1[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX2[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX2[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX2[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX2[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX2[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX2[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX2[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX3[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX3[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX3[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX3[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX3[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX3[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX3[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX4[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX4[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX4[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX4[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX4[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX4[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX4[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX5[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX5[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX5[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX5[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX5[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX5[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; HEX5[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; LEDR[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; LEDR[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; PS2_CLK     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -961,7 +1205,11 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+<<<<<<< HEAD
     Info: Processing started: Tue May 12 14:33:49 2026
+=======
+    Info: Processing started: Mon May 11 15:05:48 2026
+>>>>>>> origin/main
 Info: Command: quartus_sta group_27 -c top_level
 Info: qsta_default_script.tcl version: #1
 Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
@@ -1218,6 +1466,7 @@ Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1100mV 85C Model
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+<<<<<<< HEAD
 Info (332146): Worst-case setup slack is -7.998
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
@@ -1243,6 +1492,33 @@ Info (332146): Worst-case minimum pulse width slack is -0.538
     Info (332119):     1.666               0.000 clock_divider|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
     Info (332119):     9.949               0.000 CLOCK_50 
     Info (332119):    18.638               0.000 clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+=======
+Info (332146): Worst-case setup slack is -8.385
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -8.385            -725.518 MOUSE:M|MOUSE_CLK_FILTER 
+    Info (332119):    -5.287             -31.298 clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case hold slack is -0.925
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.925              -0.925 clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.760               0.000 MOUSE:M|MOUSE_CLK_FILTER 
+Info (332146): Worst-case recovery slack is -6.756
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -6.756            -107.993 MOUSE:M|MOUSE_CLK_FILTER 
+Info (332146): Worst-case removal slack is 5.641
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     5.641               0.000 MOUSE:M|MOUSE_CLK_FILTER 
+Info (332146): Worst-case minimum pulse width slack is -0.538
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.538             -74.377 MOUSE:M|MOUSE_CLK_FILTER 
+    Info (332119):     1.666               0.000 clock_divider|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
+    Info (332119):     9.949               0.000 CLOCK_50 
+    Info (332119):    19.302               0.000 clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+>>>>>>> origin/main
 Info: Analyzing Slow 1100mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
@@ -1253,6 +1529,7 @@ Info (332097): The following timing edges are non-unate.  The Timing Analyzer wi
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+<<<<<<< HEAD
 Info (332146): Worst-case setup slack is -7.873
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
@@ -1278,6 +1555,33 @@ Info (332146): Worst-case minimum pulse width slack is -0.538
     Info (332119):     1.666               0.000 clock_divider|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
     Info (332119):     9.980               0.000 CLOCK_50 
     Info (332119):    18.586               0.000 clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+=======
+Info (332146): Worst-case setup slack is -8.401
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -8.401            -712.222 MOUSE:M|MOUSE_CLK_FILTER 
+    Info (332119):    -5.030             -28.616 clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case hold slack is -0.993
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.993              -1.014 clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.729               0.000 MOUSE:M|MOUSE_CLK_FILTER 
+Info (332146): Worst-case recovery slack is -6.708
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -6.708            -107.226 MOUSE:M|MOUSE_CLK_FILTER 
+Info (332146): Worst-case removal slack is 5.793
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     5.793               0.000 MOUSE:M|MOUSE_CLK_FILTER 
+Info (332146): Worst-case minimum pulse width slack is -0.538
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.538             -72.884 MOUSE:M|MOUSE_CLK_FILTER 
+    Info (332119):     1.666               0.000 clock_divider|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
+    Info (332119):     9.980               0.000 CLOCK_50 
+    Info (332119):    19.206               0.000 clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+>>>>>>> origin/main
 Info: Analyzing Fast 1100mV 85C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
@@ -1288,6 +1592,7 @@ Info (332097): The following timing edges are non-unate.  The Timing Analyzer wi
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+<<<<<<< HEAD
 Info (332146): Worst-case setup slack is -3.939
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
@@ -1313,6 +1618,33 @@ Info (332146): Worst-case minimum pulse width slack is 0.000
     Info (332119):     1.666               0.000 clock_divider|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
     Info (332119):     9.643               0.000 CLOCK_50 
     Info (332119):    18.898               0.000 clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+=======
+Info (332146): Worst-case setup slack is -4.183
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.183            -351.789 MOUSE:M|MOUSE_CLK_FILTER 
+    Info (332119):    -3.980             -21.917 clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case hold slack is -0.420
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.420              -0.420 clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.341               0.000 MOUSE:M|MOUSE_CLK_FILTER 
+Info (332146): Worst-case recovery slack is -3.280
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.280             -52.447 MOUSE:M|MOUSE_CLK_FILTER 
+Info (332146): Worst-case removal slack is 2.983
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     2.983               0.000 MOUSE:M|MOUSE_CLK_FILTER 
+Info (332146): Worst-case minimum pulse width slack is 0.059
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.059               0.000 MOUSE:M|MOUSE_CLK_FILTER 
+    Info (332119):     1.666               0.000 clock_divider|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
+    Info (332119):     9.643               0.000 CLOCK_50 
+    Info (332119):    19.557               0.000 clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+>>>>>>> origin/main
 Info: Analyzing Fast 1100mV 0C Model
 Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
     Info (332098): Cell: clock_divider|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL  from: refclkin  to: fbclk
@@ -1321,6 +1653,7 @@ Info (332097): The following timing edges are non-unate.  The Timing Analyzer wi
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+<<<<<<< HEAD
 Info (332146): Worst-case setup slack is -3.770
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
@@ -1343,15 +1676,44 @@ Info (332146): Worst-case minimum pulse width slack is 0.009
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     0.009               0.000 MOUSE:M|MOUSE_CLK_FILTER 
+=======
+Info (332146): Worst-case setup slack is -4.012
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.012            -337.862 MOUSE:M|MOUSE_CLK_FILTER 
+    Info (332119):    -3.059             -16.947 clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case hold slack is -0.560
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.560              -0.588 clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.321               0.000 MOUSE:M|MOUSE_CLK_FILTER 
+Info (332146): Worst-case recovery slack is -3.189
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.189             -50.990 MOUSE:M|MOUSE_CLK_FILTER 
+Info (332146): Worst-case removal slack is 2.975
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     2.975               0.000 MOUSE:M|MOUSE_CLK_FILTER 
+Info (332146): Worst-case minimum pulse width slack is 0.060
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.060               0.000 MOUSE:M|MOUSE_CLK_FILTER 
+>>>>>>> origin/main
     Info (332119):     1.666               0.000 clock_divider|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
     Info (332119):     9.632               0.000 CLOCK_50 
     Info (332119):    18.897               0.000 clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 237 warnings
+<<<<<<< HEAD
     Info: Peak virtual memory: 5284 megabytes
     Info: Processing ended: Tue May 12 14:33:53 2026
+=======
+    Info: Peak virtual memory: 5272 megabytes
+    Info: Processing ended: Mon May 11 15:05:52 2026
+>>>>>>> origin/main
     Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Total CPU time (on all processors): 00:00:05
 
 
