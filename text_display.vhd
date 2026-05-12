@@ -7,6 +7,8 @@ ENTITY text_display IS
 	PORT
 		( clk                       : In std_logic;
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
+          -- adding a switch for interim display, to show the etxt changing colour, can remove for real project
+            SW                                  : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
 		  red, green, blue 			: OUT std_logic);		
 END text_display;
 
@@ -63,8 +65,8 @@ row_h <= pixel_row - CONV_STD_LOGIC_VECTOR(100,10);
 col_h <= pixel_column - CONV_STD_LOGIC_VECTOR(240,10);
 
 
-
-text_on <= '1' when (
+-- only turn text on when SW[9] is on
+text_on <= '1' when SW(9) = '1' and (
 
     --P
     (
@@ -121,7 +123,7 @@ P_ROM: char_rom
 PORT MAP (
     character_address => "010000",
     font_row => row_P(2 downto 0),
-		font_col => col_P(2 downto 0),
+	font_col => col_P(2 downto 0),
     clock => clk,
     rom_mux_output => rom_pixel_P
 );
@@ -129,8 +131,8 @@ PORT MAP (
 L_ROM: char_rom
 PORT MAP (
     character_address => "001100",  
-		font_row => row_L(2 downto 0),
-font_col => col_L(2 downto 0),
+	font_row => row_L(2 downto 0),
+    font_col => col_L(2 downto 0),
     clock => clk,
     rom_mux_output => rom_pixel_L
 );
@@ -138,8 +140,8 @@ font_col => col_L(2 downto 0),
 A_ROM: char_rom
 PORT MAP (
     character_address => "000001",
-		font_row => row_A(2 downto 0),
-font_col => col_A(2 downto 0),
+	font_row => row_A(2 downto 0),
+    font_col => col_A(2 downto 0),
     clock => clk,
     rom_mux_output => rom_pixel_A
 );
@@ -147,8 +149,8 @@ font_col => col_A(2 downto 0),
 Y_ROM: char_rom   -- 01100110
 PORT MAP (
     character_address => "011001",
-		font_row => row_Y(2 downto 0),
-font_col => col_Y(2 downto 0),
+	font_row => row_Y(2 downto 0),
+    font_col => col_Y(2 downto 0),
     clock => clk,
     rom_mux_output => rom_pixel_Y
 );
@@ -156,8 +158,8 @@ font_col => col_Y(2 downto 0),
 HEART_ROM: char_rom
 PORT MAP (
     character_address => "100000",
-		font_row => row_H(4 downto 2),
-      font_col => col_H(4 downto 2),
+	font_row => row_H(4 downto 2),
+    font_col => col_H(4 downto 2),
     clock => clk,
     rom_mux_output => rom_pixel_H
 );

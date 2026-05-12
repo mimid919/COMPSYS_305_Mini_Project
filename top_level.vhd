@@ -52,14 +52,15 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 		  red, green, blue 			: OUT std_logic);		
     END COMPONENT FLAPPY_DOLPHIN;
 
-<<<<<<< HEAD
+
     COMPONENT text_display IS
 	PORT
 		( clk                       : In std_logic;
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
+            SW                                  : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
 		  red, green, blue 			: OUT std_logic);		
 END COMPONENT text_display;
-=======
+
     COMPONENT CHAR_ROM IS
 	PORT( character_address	        :	IN STD_LOGIC_VECTOR (5 DOWNTO 0);
 		  font_row, font_col	    :	IN STD_LOGIC_VECTOR (2 DOWNTO 0);
@@ -91,8 +92,8 @@ END COMPONENT text_display;
         column_tens       : OUT std_logic_vector(3 DOWNTO 0);
         column_ones       : OUT std_logic_vector(3 DOWNTO 0)
     );
-END COMPONENT position_to_BCD;
->>>>>>> origin/main
+    END COMPONENT position_to_BCD;
+
 
     SIGNAL CLOCK_25MHZ : STD_LOGIC;
 
@@ -122,9 +123,9 @@ END COMPONENT position_to_BCD;
 BEGIN
 
     -- Output selected in layer (priority) order: text, dolphin, pipe, background
-    RED_OUT <= TEXT_RED OR DOLPHIN_RED OR PIPE_RED OR BACKGROUND_RED;
-    GREEN_OUT <= TEXT_GREEN OR DOLPHIN_GREEN OR PIPE_GREEN OR BACKGROUND_GREEN;
-    BLUE_OUT <= TEXT_BLUE OR DOLPHIN_BLUE OR PIPE_BLUE OR BACKGROUND_BLUE;
+    RED_OUT     <= TEXT_RED OR DOLPHIN_RED OR PIPE_RED OR BACKGROUND_RED;
+    GREEN_OUT   <= TEXT_GREEN OR DOLPHIN_GREEN OR PIPE_GREEN OR BACKGROUND_GREEN;
+    BLUE_OUT    <= TEXT_BLUE OR DOLPHIN_BLUE OR PIPE_BLUE OR BACKGROUND_BLUE;
 
     -- Set unused bits to 0 for VGA output
     VGA_R(2 DOWNTO 0) <= "000";
@@ -140,13 +141,6 @@ BEGIN
     --TEXT_RED <= '0';            TEXT_GREEN <= '0';          TEXT_BLUE <= '0';
     BACKGROUND_RED <= '0';      BACKGROUND_GREEN <= '0';    BACKGROUND_BLUE <= '0';
 
-    -- Set HEX displays to 0 temporarily
-    --HEX0 <= (OTHERS => '1');
-    -- HEX1 <= (OTHERS => '1');
-    -- HEX2 <= (OTHERS => '1');
-    -- HEX3 <= (OTHERS => '1');
-    -- HEX4 <= (OTHERS => '1');
-    -- HEX5 <= (OTHERS => '1');
 
     RESET <= NOT KEY(0); -- active low reset
 
@@ -198,16 +192,17 @@ BEGIN
         blue => DOLPHIN_BLUE
     );
 
-<<<<<<< HEAD
+
     TXT: text_display PORT MAP (
     clk => CLOCK_25MHZ,
     pixel_row => PIXEL_ROW,
     pixel_column => PIXEL_COLUMN,
+    SW  =>   SW,
     red => TEXT_RED,
     green => TEXT_GREEN,
     blue => TEXT_BLUE
 );
-=======
+
     --based of lecture schematic
 --    START: CHAR_ROM PORT MAP (
 --        character_address => PIXEL_COLUMN(9 DOWNTO 4) & PIXEL_ROW(9 DOWNTO 4), -- top 6 bits of column and row for character address
@@ -264,7 +259,6 @@ BEGIN
         BCD_digit => column_ones,
         SevenSeg_out => HEX0
     );
->>>>>>> origin/main
 
 	 LEDR(1) <= LEFT_CLICK;
 	 LEDR(0) <= RIGHT_CLICK;
