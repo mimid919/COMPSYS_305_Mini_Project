@@ -23,7 +23,7 @@ ENTITY flappy_dolphin IS
 		  mouse_row, mouse_column 	: IN std_logic_vector(9 DOWNTO 0);
 		  left_click 				: IN std_logic;
 		  red, green, blue 			: OUT std_logic);		
-END flappy_dolphin;
+END flappy_dolphin; 
 
 
 

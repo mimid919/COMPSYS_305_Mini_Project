@@ -27,68 +27,144 @@ SIGNAL text_on : std_logic;
 SIGNAL rom_pixel : std_logic;
 
 
-SIGNAL rom_pixel_H : std_logic;
-SIGNAL rom_pixel_I : std_logic;
+SIGNAL rom_pixel_P : std_logic;
+SIGNAL rom_pixel_L : std_logic;
+SIGNAL rom_pixel_A  : std_logic;
+SIGNAL rom_pixel_Y  : std_logic;
+SIGNAL rom_pixel_H  : std_logic;
 
+
+SIGNAL row_P : std_logic_vector(9 downto 0);
+SIGNAL col_P : std_logic_vector(9 downto 0);
+SIGNAL row_L : std_logic_vector(9 downto 0);
+SIGNAL col_L : std_logic_vector(9 downto 0);
+SIGNAL row_A : std_logic_vector(9 downto 0);
+SIGNAL col_A : std_logic_vector(9 downto 0);
+SIGNAL row_Y : std_logic_vector(9 downto 0);
+SIGNAL col_Y : std_logic_vector(9 downto 0);
 SIGNAL row_H : std_logic_vector(9 downto 0);
-SIGNAL col_H : std_logic_vector(9 downto 0);
-SIGNAL row_I : std_logic_vector(9 downto 0);
-SIGNAL col_I : std_logic_vector(9 downto 0);
+SIGNAL col_h : std_logic_vector(9 downto 0);
 
 Begin 
 
-row_H <= pixel_row - CONV_STD_LOGIC_VECTOR(100,10);
-col_H <= pixel_column - CONV_STD_LOGIC_VECTOR(200,10);
+row_P <= pixel_row - CONV_STD_LOGIC_VECTOR(100,10);
+col_P <= pixel_column - CONV_STD_LOGIC_VECTOR(200,10);
 
-row_I <= pixel_row - CONV_STD_LOGIC_VECTOR(100,10);
-col_I <= pixel_column - CONV_STD_LOGIC_VECTOR(210,10);
+row_L <= pixel_row - CONV_STD_LOGIC_VECTOR(100,10);
+col_L <= pixel_column - CONV_STD_LOGIC_VECTOR(210,10);
+
+row_A <= pixel_row - CONV_STD_LOGIC_VECTOR(100,10);
+col_A <= pixel_column - CONV_STD_LOGIC_VECTOR(220,10);
+
+row_Y <= pixel_row - CONV_STD_LOGIC_VECTOR(100,10);
+col_Y <= pixel_column - CONV_STD_LOGIC_VECTOR(230,10);
+
+row_h <= pixel_row - CONV_STD_LOGIC_VECTOR(100,10);
+col_h <= pixel_column - CONV_STD_LOGIC_VECTOR(240,10);
+
+
 
 text_on <= '1' when (
 
-    -- H
+    --P
     (
         pixel_column >= CONV_STD_LOGIC_VECTOR(200,10) and
         pixel_column <  CONV_STD_LOGIC_VECTOR(208,10) and
         pixel_row    >= CONV_STD_LOGIC_VECTOR(100,10) and
         pixel_row    <  CONV_STD_LOGIC_VECTOR(108,10) and
-        rom_pixel_H = '1'
+        rom_pixel_P = '1'
     )
 
     or
 
-    -- I
+    --L
     (
         pixel_column >= CONV_STD_LOGIC_VECTOR(210,10) and
         pixel_column <  CONV_STD_LOGIC_VECTOR(218,10) and
         pixel_row    >= CONV_STD_LOGIC_VECTOR(100,10) and
         pixel_row    <  CONV_STD_LOGIC_VECTOR(108,10) and
-        rom_pixel_I = '1'
+        rom_pixel_L = '1'
     )
+or
+    --A
+    (
+        pixel_column >= CONV_STD_LOGIC_VECTOR(220,10) and
+        pixel_column <  CONV_STD_LOGIC_VECTOR(228,10) and
+        pixel_row    >= CONV_STD_LOGIC_VECTOR(100,10) and
+        pixel_row    <  CONV_STD_LOGIC_VECTOR(108,10) and
+        rom_pixel_A = '1'
+    )
+or
+     --Y
+    (
+        pixel_column >= CONV_STD_LOGIC_VECTOR(230,10) and
+        pixel_column <  CONV_STD_LOGIC_VECTOR(238,10) and
+        pixel_row    >= CONV_STD_LOGIC_VECTOR(100,10) and
+        pixel_row    <  CONV_STD_LOGIC_VECTOR(108,10) and
+        rom_pixel_Y = '1'
+    )
+or
+     --HEART
+    (
+        pixel_column >= CONV_STD_LOGIC_VECTOR(240,10) and
+        pixel_column <  CONV_STD_LOGIC_VECTOR(272,10) and
+        pixel_row    >= CONV_STD_LOGIC_VECTOR(100,10) and
+        pixel_row    <  CONV_STD_LOGIC_VECTOR(132,10) and
+        rom_pixel_H = '1'
+    )
+
 
 ) else '0';
 
 
-H_ROM: char_rom
+P_ROM: char_rom
 PORT MAP (
-    character_address => "001000",
-    font_row => row_H(2 downto 0),
-		font_col => col_H(2 downto 0),
+    character_address => "010000",
+    font_row => row_P(2 downto 0),
+		font_col => col_P(2 downto 0),
+    clock => clk,
+    rom_mux_output => rom_pixel_P
+);
+
+L_ROM: char_rom
+PORT MAP (
+    character_address => "001100",  
+		font_row => row_L(2 downto 0),
+font_col => col_L(2 downto 0),
+    clock => clk,
+    rom_mux_output => rom_pixel_L
+);
+
+A_ROM: char_rom
+PORT MAP (
+    character_address => "000001",
+		font_row => row_A(2 downto 0),
+font_col => col_A(2 downto 0),
+    clock => clk,
+    rom_mux_output => rom_pixel_A
+);
+
+Y_ROM: char_rom   -- 01100110
+PORT MAP (
+    character_address => "011001",
+		font_row => row_Y(2 downto 0),
+font_col => col_Y(2 downto 0),
+    clock => clk,
+    rom_mux_output => rom_pixel_Y
+);
+
+HEART_ROM: char_rom
+PORT MAP (
+    character_address => "100000",
+		font_row => row_H(4 downto 2),
+      font_col => col_H(4 downto 2),
     clock => clk,
     rom_mux_output => rom_pixel_H
 );
 
-I_ROM: char_rom
-PORT MAP (
-    character_address => "001001",
-		font_row => row_I(2 downto 0),
-font_col => col_I(2 downto 0),
-    clock => clk,
-    rom_mux_output => rom_pixel_I
-);
-
 
 Red   <= text_on;
-Green <= text_on;
-Blue  <= (not text_on);
+Green <= (not text_on);
+Blue  <= text_on;
 
 END behaviour;
