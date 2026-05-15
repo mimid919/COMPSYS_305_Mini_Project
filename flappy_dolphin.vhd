@@ -24,6 +24,7 @@ SIGNAL dolphin_x_pos				: std_logic_vector(9 DOWNTO 0);
 SIGNAL dolphin_y_motion				: std_logic_vector(9 DOWNTO 0);
 SIGNAL left_click_prev				: std_logic := '0'; -- to avoid holding click
 SIGNAL state						 : std_logic;
+SIGNAL prev_state					: std_logic := '0';
 
 -- increase gravity to fall faster
 CONSTANT gravity 					: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(2,10); 
@@ -54,11 +55,16 @@ BEGIN
 	process (vert_sync)
 		variable left_click_edge : std_logic;
 	begin
+		prev_state <= state;
 		if (rising_edge(vert_sync)) then
 			left_click_prev <= left_click; -- update previous left click value			
 			left_click_edge := left_click and (not left_click_prev); -- detect rising edge of left click
 
-			if (left_click_edge = '1') then
+			if (state = '1' and state_prev = '0') then
+            dolphin_y_pos <= CONV_STD_LOGIC_VECTOR(240, 10);
+            dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
+			
+			elsif (left_click_edge = '1') then
 				dolphin_y_motion <= jump;
 			else
 				dolphin_y_motion <= gravity;
