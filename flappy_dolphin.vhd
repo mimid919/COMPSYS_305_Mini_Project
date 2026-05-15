@@ -22,7 +22,8 @@ ENTITY flappy_dolphin IS
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
 		  mouse_row, mouse_column 	: IN std_logic_vector(9 DOWNTO 0);
 		  left_click 				: IN std_logic;
-		  red, green, blue 			: OUT std_logic);		
+		  red, green, blue 			: OUT std_logic
+		  dolphin_enable				: OUT std_logic);		
 END flappy_dolphin; 
 
 
@@ -63,6 +64,7 @@ dolphin_y_pos <= mouse_row;
 -- Move horiz with mouse too
 dolphin_x_pos <= mouse_column;
 
+DOLPHIN_ENABLE <= dolphin_on;
 
 -- Move_dolphin: process (vert_sync)  	
 -- begin

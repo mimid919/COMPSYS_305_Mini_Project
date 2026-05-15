@@ -49,7 +49,8 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
           mouse_row, mouse_column   : IN std_logic_vector(9 DOWNTO 0);
           left_click 				: IN std_logic;
-		  red, green, blue 			: OUT std_logic);		
+		  red, green, blue 			: OUT std_logic
+          dolphin_enable				: OUT std_logic);		
     END COMPONENT FLAPPY_DOLPHIN;
 
 
@@ -189,7 +190,8 @@ BEGIN
         left_click => LEFT_CLICK,
         red => DOLPHIN_RED,
         green => DOLPHIN_GREEN,
-        blue => DOLPHIN_BLUE
+        blue => DOLPHIN_BLUE,
+        DOLPHIN_ENABLE => OPEN -- not using for now, but will need to connect to collision counter when we add pipes
     );
 
 
