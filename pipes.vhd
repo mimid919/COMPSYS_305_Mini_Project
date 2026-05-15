@@ -11,7 +11,9 @@ ENTITY PIPES IS
 		  red, green, blue 			: OUT std_logic;
           lfsr_value				: IN std_logic_vector(7 DOWNTO 0);
           FSM_STATE                 : IN std_logic_vector(1 DOWNTO 0);
-		  pipe_enable				: OUT std_logic
+		  pipe_enable				: OUT std_logic;
+          pipe_x_1                  : OUT std_logic_vector(9 DOWNTO 0); -- for bait
+          pipe_y_1                  : OUT std_logic_vector(9 DOWNTO 0) -- for bait
           );	
 END PIPES;
 
@@ -52,6 +54,9 @@ BEGIN
     GREEN <= pipe_on AND state; -- only show green pipes during game state
     RED <= '0';
     BLUE <= '0';
+
+    pipe_x_1 <= pipe_x_pos_1;
+    pipe_y_1 <= pipe_top_height_1;
 
     PROCESS (vert_sync)
     BEGIN

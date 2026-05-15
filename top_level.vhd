@@ -68,9 +68,20 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
           fsm_state                 : IN std_logic_vector(1 DOWNTO 0);
 		  red, green, blue 			: OUT std_logic;
           lfsr_value				: IN std_logic_vector(7 DOWNTO 0);
-		  pipe_enable				: OUT std_logic
+		  pipe_enable				: OUT std_logic;
+          pipe_x_1                  : OUT std_logic_vector(9 DOWNTO 0); -- for bait
+          pipe_y_1                  : OUT std_logic_vector(9 DOWNTO 0) -- for bait
           );	
     END COMPONENT PIPES;
+
+    COMPONENT bait IS
+    PORT(  pixel_row, pixel_column	 : IN std_logic_vector(9 DOWNTO 0);
+           fsm_state                 : IN std_logic_vector(1 DOWNTO 0);
+           pipe_x_pos_1              : IN std_logic_vector(9 DOWNTO 0);
+           gap_height                : IN std_logic_vector(9 DOWNTO 0);
+           red, green, blue 		 : OUT std_logic;
+           bait_enable               : OUT std_logic);
+    END COMPONENT bait; 
 
     COMPONENT BACKGROUND IS
     PORT
@@ -140,6 +151,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
     SIGNAL PIPE_RED, PIPE_GREEN, PIPE_BLUE                      : STD_LOGIC;
     SIGNAL TEXT_RED, TEXT_GREEN, TEXT_BLUE                      : STD_LOGIC;
     SIGNAL BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE    : STD_LOGIC;
+    SIGNAL BAIT_RED, BAIT_GREEN, BAIT_BLUE                      : STD_LOGIC;
 
     -- final colour outputs to VGA
     SIGNAL RED_OUT, GREEN_OUT, BLUE_OUT : STD_LOGIC; 
@@ -153,15 +165,18 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 
     SIGNAL FSM_STATE : STD_LOGIC_VECTOR(1 DOWNTO 0); -- for controlling background colour and game state
 
+    -- bait pipe position wires
+    SIGNAL bait_pipe_x                  : std_logic_vector(9 DOWNTO 0);
+    SIGNAL bait_pipe_y                  : std_logic_vector(9 DOWNTO 0);
 BEGIN
 
 --TO BE MOVED OR DELETED {
     
     -- Output selected in layer (priority) order: text, dolphin, pipe, background
     -- MOVE TO ELEMENT LAYERING FILE
-    RED_OUT     <= TEXT_RED OR DOLPHIN_RED OR PIPE_RED OR BACKGROUND_RED;
-    GREEN_OUT   <= TEXT_GREEN OR DOLPHIN_GREEN OR PIPE_GREEN OR BACKGROUND_GREEN;
-    BLUE_OUT    <= TEXT_BLUE OR DOLPHIN_BLUE OR PIPE_BLUE OR BACKGROUND_BLUE;
+    RED_OUT     <= TEXT_RED OR DOLPHIN_RED OR BAIT_RED OR PIPE_RED OR BACKGROUND_RED;
+    GREEN_OUT   <= TEXT_GREEN OR DOLPHIN_GREEN OR BAIT_GREEN OR PIPE_GREEN OR BACKGROUND_GREEN;
+    BLUE_OUT    <= TEXT_BLUE OR DOLPHIN_BLUE OR BAIT_BLUE OR PIPE_BLUE OR BACKGROUND_BLUE;
 
     -- REPLACE WITH FSM CONTROLLING GAME STATE
     FSM_STATE <= "10" when SW(1) = '1' else -- end screen
@@ -263,7 +278,21 @@ BEGIN
         green => PIPE_GREEN,
         blue => PIPE_BLUE,
         lfsr_value => RANDOM_VALUE,
-        pipe_enable => OPEN
+        pipe_enable => OPEN,
+        pipe_x_1 => bait_pipe_x,
+        pipe_y_1 => bait_pipe_y
+    );
+
+    RANDOM_BAIT: bait PORT MAP (
+        pixel_row => PIXEL_ROW,
+        pixel_column => PIXEL_COLUMN,
+        fsm_state => FSM_STATE,
+        pipe_x_pos_1 => bait_pipe_x,
+        gap_height => bait_pipe_y,
+        red => BAIT_RED,
+        green => BAIT_GREEN,
+        blue => BAIT_BLUE,
+        bait_enable => OPEN
     );
 
     BG: BACKGROUND PORT MAP (

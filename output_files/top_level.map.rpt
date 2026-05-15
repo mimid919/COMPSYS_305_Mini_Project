@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_level
-Fri May 15 22:29:51 2026
+Fri May 15 23:35:51 2026
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -69,13 +69,14 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
  61. Port Connectivity Checks: "home_display:HOME_SCREEN_TEXT|char_rom:A_ROM"
  62. Port Connectivity Checks: "home_display:HOME_SCREEN_TEXT|char_rom:L1_ROM"
  63. Port Connectivity Checks: "home_display:HOME_SCREEN_TEXT|char_rom:F_ROM"
- 64. Port Connectivity Checks: "PIPES:PIPE_DISPLAY"
- 65. Port Connectivity Checks: "flappy_dolphin:PLAYER_CHARACTER"
- 66. Port Connectivity Checks: "lfsr:RANDOM_NUMBER"
- 67. Port Connectivity Checks: "pll:clock_divider"
- 68. Post-Synthesis Netlist Statistics for Top Partition
- 69. Elapsed Time Per Partition
- 70. Analysis & Synthesis Messages
+ 64. Port Connectivity Checks: "bait:RANDOM_BAIT"
+ 65. Port Connectivity Checks: "PIPES:PIPE_DISPLAY"
+ 66. Port Connectivity Checks: "flappy_dolphin:PLAYER_CHARACTER"
+ 67. Port Connectivity Checks: "lfsr:RANDOM_NUMBER"
+ 68. Port Connectivity Checks: "pll:clock_divider"
+ 69. Post-Synthesis Netlist Statistics for Top Partition
+ 70. Elapsed Time Per Partition
+ 71. Analysis & Synthesis Messages
 
 
 
@@ -101,7 +102,7 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri May 15 22:29:50 2026           ;
+; Analysis & Synthesis Status     ; Successful - Fri May 15 23:35:51 2026           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; top_level                                       ;
 ; Top-level Entity Name           ; top_level                                       ;
@@ -233,6 +234,7 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                                            ; Library ;
 +----------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------------------------------------+---------+
+; bait.vhd                         ; yes             ; User VHDL File                         ; C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/bait.vhd                   ;         ;
 ; home_display.vhd                 ; yes             ; User VHDL File                         ; C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/home_display.vhd           ;         ;
 ; pipes.vhd                        ; yes             ; User VHDL File                         ; C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/pipes.vhd                  ;         ;
 ; LFSR.vhd                         ; yes             ; User VHDL File                         ; C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/LFSR.vhd                   ;         ;
@@ -2158,6 +2160,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "bait:RANDOM_BAIT"                                                                          ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; bait_enable ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "PIPES:PIPE_DISPLAY"                                                                        ;
 +-------------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port        ; Type   ; Severity ; Details                                                                             ;
@@ -2250,7 +2261,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:03     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -2260,15 +2271,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Fri May 15 22:29:35 2026
+    Info: Processing started: Fri May 15 23:35:37 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off group_27 -c top_level
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file bait.vhd
+    Info (12022): Found design unit 1: bait-behaviour File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/bait.vhd Line: 15
+    Info (12023): Found entity 1: bait File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/bait.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file home_display.vhd
     Info (12022): Found design unit 1: home_display-behaviour File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/home_display.vhd Line: 14
     Info (12023): Found entity 1: home_display File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/home_display.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file pipes.vhd
-    Info (12022): Found design unit 1: PIPES-behavior File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/pipes.vhd Line: 18
+    Info (12022): Found design unit 1: PIPES-behavior File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/pipes.vhd Line: 20
     Info (12023): Found entity 1: PIPES File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/pipes.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file lfsr.vhd
     Info (12022): Found design unit 1: lfsr-behavior File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/LFSR.vhd Line: 16
@@ -2313,7 +2327,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file bcd_to_
     Info (12023): Found entity 1: BCD_to_SevenSeg File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/BCD_to_7Seg.vhd Line: 7
 Info (12127): Elaborating entity "top_level" for the top level hierarchy
 Warning (10873): Using initial value X (don't care) for net "LEDR[9..8]" at top_level.vhd(14) File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/top_level.vhd Line: 14
-Info (12128): Elaborating entity "pll" for hierarchy "pll:clock_divider" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/top_level.vhd Line: 203
+Info (12128): Elaborating entity "pll" for hierarchy "pll:clock_divider" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/top_level.vhd Line: 218
 Info (12128): Elaborating entity "pll_0002" for hierarchy "pll:clock_divider|pll_0002:pll_inst" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/pll.vhd Line: 32
 Info (12128): Elaborating entity "altera_pll" for hierarchy "pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/pll/pll_0002.v Line: 85
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
@@ -2379,19 +2393,20 @@ Info (12133): Instantiated megafunction "pll:clock_divider|pll_0002:pll_inst|alt
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:VGA_REFRESH" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/top_level.vhd Line: 210
-Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:MOUSE_CONTROLS" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/top_level.vhd Line: 224
+Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:VGA_REFRESH" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/top_level.vhd Line: 225
+Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:MOUSE_CONTROLS" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/top_level.vhd Line: 239
 Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/mouse.vhd Line: 25
 Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/mouse.vhd Line: 151
 Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/mouse.vhd Line: 155
 Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/mouse.vhd Line: 156
 Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/mouse.vhd Line: 157
-Info (12128): Elaborating entity "lfsr" for hierarchy "lfsr:RANDOM_NUMBER" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/top_level.vhd Line: 235
+Info (12128): Elaborating entity "lfsr" for hierarchy "lfsr:RANDOM_NUMBER" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/top_level.vhd Line: 250
 Warning (10492): VHDL Process Statement warning at LFSR.vhd(25): signal "INITIAL_VALUE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/LFSR.vhd Line: 25
-Info (12128): Elaborating entity "flappy_dolphin" for hierarchy "flappy_dolphin:PLAYER_CHARACTER" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/top_level.vhd Line: 243
-Info (12128): Elaborating entity "PIPES" for hierarchy "PIPES:PIPE_DISPLAY" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/top_level.vhd Line: 256
-Info (12128): Elaborating entity "BACKGROUND" for hierarchy "BACKGROUND:BG" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/top_level.vhd Line: 269
-Info (12128): Elaborating entity "home_display" for hierarchy "home_display:HOME_SCREEN_TEXT" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/top_level.vhd Line: 278
+Info (12128): Elaborating entity "flappy_dolphin" for hierarchy "flappy_dolphin:PLAYER_CHARACTER" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/top_level.vhd Line: 258
+Info (12128): Elaborating entity "PIPES" for hierarchy "PIPES:PIPE_DISPLAY" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/top_level.vhd Line: 271
+Info (12128): Elaborating entity "bait" for hierarchy "bait:RANDOM_BAIT" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/top_level.vhd Line: 286
+Info (12128): Elaborating entity "BACKGROUND" for hierarchy "BACKGROUND:BG" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/top_level.vhd Line: 298
+Info (12128): Elaborating entity "home_display" for hierarchy "home_display:HOME_SCREEN_TEXT" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/top_level.vhd Line: 307
 Info (12128): Elaborating entity "char_rom" for hierarchy "home_display:HOME_SCREEN_TEXT|char_rom:F_ROM" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/home_display.vhd Line: 150
 Info (12128): Elaborating entity "altsyncram" for hierarchy "home_display:HOME_SCREEN_TEXT|char_rom:F_ROM|altsyncram:altsyncram_component" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/char_rom.vhd Line: 51
 Info (12130): Elaborated megafunction instantiation "home_display:HOME_SCREEN_TEXT|char_rom:F_ROM|altsyncram:altsyncram_component" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/char_rom.vhd Line: 51
@@ -2413,8 +2428,8 @@ Info (12133): Instantiated megafunction "home_display:HOME_SCREEN_TEXT|char_rom:
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_d5g1.tdf
     Info (12023): Found entity 1: altsyncram_d5g1 File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_d5g1" for hierarchy "home_display:HOME_SCREEN_TEXT|char_rom:F_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "position_to_BCD" for hierarchy "position_to_BCD:sevenseg_display" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/top_level.vhd Line: 299
-Info (12128): Elaborating entity "BCD_to_SevenSeg" for hierarchy "BCD_to_SevenSeg:RH" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/top_level.vhd Line: 311
+Info (12128): Elaborating entity "position_to_BCD" for hierarchy "position_to_BCD:sevenseg_display" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/top_level.vhd Line: 328
+Info (12128): Elaborating entity "BCD_to_SevenSeg" for hierarchy "BCD_to_SevenSeg:RH" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/top_level.vhd Line: 340
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following RAM node(s):
         Warning (14320): Synthesized away node "home_display:HOME_SCREEN_TEXT|char_rom:N_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|q_a[0]" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 34
@@ -2860,8 +2875,8 @@ Info (21057): Implemented 1307 device resources after synthesis - the final reso
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 376 warnings
     Info: Peak virtual memory: 4930 megabytes
-    Info: Processing ended: Fri May 15 22:29:51 2026
-    Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:23
+    Info: Processing ended: Fri May 15 23:35:51 2026
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:22
 
 
