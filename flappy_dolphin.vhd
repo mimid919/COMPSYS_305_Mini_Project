@@ -67,17 +67,24 @@ BEGIN
 
 			elsif (left_click_edge = '1') then
 				dolphin_y_motion <= jump;
+				if dolphin_y_pos <= size then -- dolphin at top of screen
+					dolphin_y_pos <= dolphin_y_pos + gravity;
+				elsif dolphin_y_pos >= dolphin_ground then -- dolphin at bottom of screen
+					dolphin_y_pos <= dolphin_ground;
+				else
+					dolphin_y_pos <= dolphin_y_pos + dolphin_y_motion;
+				end if;
 			else
 				dolphin_y_motion <= gravity;
+				if dolphin_y_pos <= size then -- dolphin at top of screen
+					dolphin_y_pos <= dolphin_y_pos + gravity;
+				elsif dolphin_y_pos >= dolphin_ground then -- dolphin at bottom of screen
+					dolphin_y_pos <= dolphin_ground;
+				else
+					dolphin_y_pos <= dolphin_y_pos + dolphin_y_motion;
+				end if;
 			end if;
 			
-			if dolphin_y_pos <= size then -- dolphin at top of screen
-				dolphin_y_pos <= dolphin_y_pos + gravity;
-			elsif dolphin_y_pos >= dolphin_ground then -- dolphin at bottom of screen
-				dolphin_y_pos <= dolphin_ground;
-			else
-				dolphin_y_pos <= dolphin_y_pos + dolphin_y_motion;
-			end if;
 		end if;
 	end process;
 

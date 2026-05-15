@@ -197,7 +197,7 @@ BEGIN
 
 
     -- MOVE TO NEW FILE OR DELETE IF NOT USING
-	 LEDR(1) <= LEFT_CLICK;
+	 LEDR(1) <= '0';
 	 LEDR(0) <= RIGHT_CLICK;
 	 LEDR(2) <= '0';
 	 LEDR(3) <= '0';
