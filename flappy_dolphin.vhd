@@ -55,15 +55,16 @@ BEGIN
 	process (vert_sync)
 		variable left_click_edge : std_logic;
 	begin
-		prev_state <= state;
 		if (rising_edge(vert_sync)) then
+			prev_state <= state;
+
 			left_click_prev <= left_click; -- update previous left click value			
 			left_click_edge := left_click and (not left_click_prev); -- detect rising edge of left click
 
-			if (state = '1' and state_prev = '0') then
-            dolphin_y_pos <= CONV_STD_LOGIC_VECTOR(240, 10);
-            dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
-			
+			if (state = '1' and prev_state = '0') then
+				dolphin_y_pos <= CONV_STD_LOGIC_VECTOR(240, 10);
+				dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
+
 			elsif (left_click_edge = '1') then
 				dolphin_y_motion <= jump;
 			else
