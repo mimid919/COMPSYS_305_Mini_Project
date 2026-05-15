@@ -71,6 +71,14 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
           );	
     END COMPONENT PIPES;
 
+    COMPONENT BACKGROUND IS
+    PORT
+        ( CLOCK_25Mhz	            : IN std_logic;
+          pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
+		  red, green, blue 			: OUT std_logic;
+          fsm_state                 : IN std_logic_vector(1 DOWNTO 0);
+          );	
+    END COMPONENT BACKGROUND;
 
     COMPONENT text_display IS
 	PORT
@@ -134,27 +142,40 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
     SIGNAL row_hundreds, row_tens, row_ones : STD_LOGIC_VECTOR(3 DOWNTO 0); -- output from position_to_BCD for mouse row
     SIGNAL column_hundreds, column_tens, column_ones : STD_LOGIC_VECTOR(3 DOWNTO 0); -- output from position_to_BCD for mouse column
 
+    SIGNAL FSM_STATE : STD_LOGIC_VECTOR(1 DOWNTO 0); -- for controlling background colour and game state
+
 BEGIN
 
+--TO BE MOVED OR DELETED {
+    
     -- Output selected in layer (priority) order: text, dolphin, pipe, background
     -- MOVE TO ELEMENT LAYERING FILE
     RED_OUT     <= TEXT_RED OR DOLPHIN_RED OR PIPE_RED OR BACKGROUND_RED;
     GREEN_OUT   <= TEXT_GREEN OR DOLPHIN_GREEN OR PIPE_GREEN OR BACKGROUND_GREEN;
     BLUE_OUT    <= TEXT_BLUE OR DOLPHIN_BLUE OR PIPE_BLUE OR BACKGROUND_BLUE;
 
-    -- Set unused bits to 0 for VGA output
+    -- REPLACE WITH FSM CONTROLLING GAME STATE
+    FSM_STATE <= "00" when SW(0) = '0' else -- start screen
+                 "01" when SW(1) = '0' else -- game screen
+                 "10" when SW(2) = '0' else -- end screen
+                 "00"; -- default to start screen if no switches on
+
+    -- DELETE WHEN ADDING MORE COLOURS
     VGA_R(2 DOWNTO 0) <= "000";
     VGA_G(2 DOWNTO 0) <= "000";
     VGA_B(2 DOWNTO 0) <= "000";
 
-    -- Connect VGA sync signals to output
-    VGA_HS <= HORIZ_SYNC;
-    VGA_VS <= VERT_SYNC;
-
+    
     -- set pipe, text and background colours to 0 temporarily
     --PIPE_RED <= '0';            PIPE_GREEN <= '0';          PIPE_BLUE <= '0';
     --TEXT_RED <= '0';            TEXT_GREEN <= '0';          TEXT_BLUE <= '0';
-    BACKGROUND_RED <= '0';      BACKGROUND_GREEN <= '0';    BACKGROUND_BLUE <= '0';
+    --BACKGROUND_RED <= '0';      BACKGROUND_GREEN <= '0';    BACKGROUND_BLUE <= '0';
+
+--}
+
+    -- Connect VGA sync signals to output, could VGA_HS/VS go straight in instance?
+    VGA_HS <= HORIZ_SYNC;
+    VGA_VS <= VERT_SYNC;
 
     RESET <= NOT KEY(0); -- active low reset
 
@@ -225,6 +246,16 @@ BEGIN
         blue => PIPE_BLUE,
         lfsr_value => RANDOM_VALUE,
         pipe_enable => OPEN
+    );
+
+    BG: BACKGROUND PORT MAP (
+        CLOCK_25Mhz => CLOCK_25MHZ,
+        pixel_row => PIXEL_ROW,
+        pixel_column => PIXEL_COLUMN,
+        red => BACKGROUND_RED,
+        green => BACKGROUND_GREEN,
+        blue => BACKGROUND_BLUE,
+        fsm_state => FSM_STATE
     );
 
     TXT: text_display PORT MAP (
