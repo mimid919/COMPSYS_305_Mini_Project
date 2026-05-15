@@ -9,8 +9,8 @@ ENTITY flappy_dolphin IS
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
 		  left_click 				: IN std_logic;
 		  fsm_state                 : IN std_logic_vector(1 DOWNTO 0);
-		  red, green, blue 			: OUT std_logic;
-		  dolphin_enable				: OUT std_logic); -- for collisions
+		  red, green, blue 			: OUT std_logic_vector(3 DOWNTO 0);
+		  dolphin_enable			: OUT std_logic); -- for collisions
 END flappy_dolphin; 
 
 
@@ -47,9 +47,9 @@ BEGIN
 		else '0';
 
 	-- blue dolphin
-	Red <= '0';
-	Green <= '0';
-	Blue <=  dolphin_on and state;
+	Red <= "0000";
+	Green <= "0000";
+	BLUE <= "1111" when (dolphin_on = '1' and state = '1') else "0000";
 
 	process (vert_sync)
 		variable left_click_edge : std_logic;

@@ -8,7 +8,7 @@ ENTITY home_display IS
 		( clk                       : In std_logic;
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
           FSM_STATE : STD_LOGIC_VECTOR(1 DOWNTO 0);
-          red, green, blue 			: OUT std_logic);		
+          red, green, blue 			: OUT std_logic_vector(3 DOWNTO 0));		
 END home_display;
 
 architecture behaviour of home_display is
@@ -54,6 +54,10 @@ SIGNAL row_I, col_I : std_logic_vector(9 DOWNTO 0);
 SIGNAL row_N, col_N : std_logic_vector(9 DOWNTO 0);
 
 Begin 
+
+Red   <= "1111" when text_on = '1' else "0000";
+Green <= "0000";
+Blue  <= "1111" when text_on = '1' else "0000";
 
 row_F <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10);
 col_F <= pixel_column - CONV_STD_LOGIC_VECTOR(60,10);
@@ -264,10 +268,5 @@ PORT MAP (
     clock => clk,
     rom_mux_output => rom_pixel_N
 );
-
-
-Red   <= text_on;
-Green <= '0';
-Blue  <= text_on;
 
 END behaviour;

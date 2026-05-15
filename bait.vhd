@@ -8,7 +8,7 @@ ENTITY bait IS
 		  fsm_state                 : IN std_logic_vector(1 DOWNTO 0);
           pipe_x_pos_1              : IN std_logic_vector(9 DOWNTO 0);
           gap_height                : IN std_logic_vector(9 DOWNTO 0);
-		  red, green, blue 			: OUT std_logic;
+		  red, green, blue 			: OUT std_logic_vector(3 DOWNTO 0);
           bait_enable               : OUT std_logic);
 END bait; 
 
@@ -42,8 +42,8 @@ BEGIN
         pixel_row <= bait_y_pos + size)
         else '0';
     
-    red <= bait_on;
-    green <= bait_on;
-    blue <=  '0';
+    red <= "1111" when bait_on = '1' else "0000";
+    green <= "1111" when bait_on = '1' else "0000";
+    blue <=  "0000";
 
 END behaviour;

@@ -27,9 +27,11 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 	end COMPONENT pll;
 
     COMPONENT VGA_SYNC IS
-	PORT(	clock_25Mhz, red, green, blue		                        	: IN	STD_LOGIC;
-			red_out, green_out, blue_out, horiz_sync_out, vert_sync_out	: OUT	STD_LOGIC;
-			pixel_row, pixel_column                                     : OUT STD_LOGIC_VECTOR(9 DOWNTO 0));
+	PORT(	clock_25Mhz 	: IN	STD_LOGIC;
+			red, green, blue : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+			red_out, green_out, blue_out : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+			horiz_sync_out, vert_sync_out	: OUT	STD_LOGIC;
+			pixel_row, pixel_column: OUT STD_LOGIC_VECTOR(9 DOWNTO 0));
     END COMPONENT VGA_SYNC;
 
     COMPONENT MOUSE IS
@@ -56,7 +58,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
           left_click 				: IN std_logic;
           fsm_state                 : IN std_logic_vector(1 DOWNTO 0);
-		  red, green, blue 			: OUT std_logic;
+		  red, green, blue 			: OUT std_logic_vector(3 DOWNTO 0);
           dolphin_enable				: OUT std_logic);		
     END COMPONENT FLAPPY_DOLPHIN;
 
@@ -66,7 +68,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
           vert_sync		            : IN std_logic;
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
           fsm_state                 : IN std_logic_vector(1 DOWNTO 0);
-		  red, green, blue 			: OUT std_logic;
+		  red, green, blue 			: OUT std_logic_vector(3 DOWNTO 0);
           lfsr_value				: IN std_logic_vector(7 DOWNTO 0);
 		  pipe_enable				: OUT std_logic;
           pipe_x_1                  : OUT std_logic_vector(9 DOWNTO 0); -- for bait
@@ -79,14 +81,14 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
            fsm_state                 : IN std_logic_vector(1 DOWNTO 0);
            pipe_x_pos_1              : IN std_logic_vector(9 DOWNTO 0);
            gap_height                : IN std_logic_vector(9 DOWNTO 0);
-           red, green, blue 		 : OUT std_logic;
+           red, green, blue 		: OUT std_logic_vector(3 DOWNTO 0);
            bait_enable               : OUT std_logic);
     END COMPONENT bait; 
 
     COMPONENT BACKGROUND IS
     PORT
         ( pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-		  red, green, blue 			: OUT std_logic;
+		  red, green, blue 			: OUT std_logic_vector(3 DOWNTO 0);
           fsm_state                 : IN std_logic_vector(1 DOWNTO 0)
           );	
     END COMPONENT BACKGROUND;
@@ -96,7 +98,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 		( clk                       : In std_logic;
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
           FSM_STATE : STD_LOGIC_VECTOR(1 DOWNTO 0);
-          red, green, blue 			: OUT std_logic);		
+          red, green, blue 			: OUT std_logic_vector(3 DOWNTO 0));		
     END COMPONENT home_display;
 
 
@@ -147,14 +149,14 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 
     -- Signals for game components 
     -- MOVE TO ELEMENT LAYERING FILE
-    SIGNAL DOLPHIN_RED, DOLPHIN_GREEN, DOLPHIN_BLUE             : STD_LOGIC;
-    SIGNAL PIPE_RED, PIPE_GREEN, PIPE_BLUE                      : STD_LOGIC;
-    SIGNAL TEXT_RED, TEXT_GREEN, TEXT_BLUE                      : STD_LOGIC;
-    SIGNAL BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE    : STD_LOGIC;
-    SIGNAL BAIT_RED, BAIT_GREEN, BAIT_BLUE                      : STD_LOGIC;
+    SIGNAL DOLPHIN_RED, DOLPHIN_GREEN, DOLPHIN_BLUE             : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL PIPE_RED, PIPE_GREEN, PIPE_BLUE                      : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL TEXT_RED, TEXT_GREEN, TEXT_BLUE                      : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE    : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL BAIT_RED, BAIT_GREEN, BAIT_BLUE                      : STD_LOGIC_VECTOR(3 DOWNTO 0);
 
     -- final colour outputs to VGA
-    SIGNAL RED_OUT, GREEN_OUT, BLUE_OUT : STD_LOGIC; 
+    SIGNAL RED_OUT, GREEN_OUT, BLUE_OUT : STD_LOGIC_VECTOR(3 DOWNTO 0); 
 
     SIGNAL RANDOM_VALUE : STD_LOGIC_VECTOR(7 DOWNTO 0); -- output from LFSR to connect to pipes for random pipe heights
 
@@ -184,10 +186,10 @@ BEGIN
                  "01" when SW(0) = '1' else -- game screen
                  "00"; -- default to start screen if no switches on
 
-    -- DELETE WHEN ADDING MORE COLOURS
-    VGA_R(2 DOWNTO 0) <= "000";
-    VGA_G(2 DOWNTO 0) <= "000";
-    VGA_B(2 DOWNTO 0) <= "000";
+    -- -- DELETE WHEN ADDING MORE COLOURS
+    -- VGA_R(2 DOWNTO 0) <= "000";
+    -- VGA_G(2 DOWNTO 0) <= "000";
+    -- VGA_B(2 DOWNTO 0) <= "000";
 
     
     -- set pipe, text and background colours to 0 temporarily
@@ -227,9 +229,9 @@ BEGIN
         red => RED_OUT,
         green => GREEN_OUT,
         blue => BLUE_OUT,
-        red_out => VGA_R(3), -- MSB
-        green_out => VGA_G(3),
-        blue_out => VGA_B(3),
+        red_out => VGA_R,
+        green_out => VGA_G,
+        blue_out => VGA_B,
         horiz_sync_out => HORIZ_SYNC,
         vert_sync_out => VERT_SYNC,
         pixel_row => PIXEL_ROW,
@@ -303,6 +305,8 @@ BEGIN
         blue => BACKGROUND_BLUE,
         fsm_state => FSM_STATE
     );
+
+
 
     HOME_SCREEN_TEXT: home_display PORT MAP (
         clk => CLOCK_25MHZ,

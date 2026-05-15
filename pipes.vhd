@@ -8,8 +8,7 @@ ENTITY PIPES IS
         ( CLOCK_25Mhz	            : IN std_logic;
           vert_sync		            : IN std_logic;
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-		  red, green, blue 			: OUT std_logic;
-          lfsr_value				: IN std_logic_vector(7 DOWNTO 0);
+          red, green, blue 			: OUT std_logic_vector(3 DOWNTO 0);          lfsr_value				: IN std_logic_vector(7 DOWNTO 0);
           FSM_STATE                 : IN std_logic_vector(1 DOWNTO 0);
 		  pipe_enable				: OUT std_logic;
           pipe_x_1                  : OUT std_logic_vector(9 DOWNTO 0); -- for bait
@@ -51,9 +50,9 @@ BEGIN
     state <= '1' when FSM_STATE = "01" else '0'; -- only show pipes during game state
     pipe_enable <= pipe_on AND state;
 
-    GREEN <= pipe_on AND state; -- only show green pipes during game state
-    RED <= '0';
-    BLUE <= '0';
+    GREEN <= "1111" when (pipe_on = '1' and state = '1') else "0000";
+    RED <= "0000";
+    BLUE <= "0000";
 
     pipe_x_1 <= pipe_x_pos_1;
     pipe_y_1 <= pipe_top_height_1;
