@@ -5,11 +5,10 @@ USE  IEEE.STD_LOGIC_UNSIGNED.all;
 
 ENTITY BACKGROUND IS
     PORT
-        ( CLOCK_25Mhz	            : IN std_logic;
-          pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
+        ( pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
 		  red, green, blue 			: OUT std_logic;
-          fsm_state                 : IN std_logic_vector(1 DOWNTO 0);
-          );	
+          fsm_state                 : IN std_logic_vector(1 DOWNTO 0)
+          );
 END BACKGROUND;
 
 ARCHITECTURE behavior OF BACKGROUND IS
@@ -27,6 +26,10 @@ BEGIN
         ELSIF fsm_state = "10" THEN -- end screen, red
             RED <= '1';
             GREEN <= '0';
+            BLUE <= '0';
+        ELSE -- default to avoid latch
+            RED <= '0';
+            GREEN <= '1';
             BLUE <= '0';
         END IF;
     END PROCESS;

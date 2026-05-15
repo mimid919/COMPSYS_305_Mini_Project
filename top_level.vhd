@@ -73,10 +73,9 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 
     COMPONENT BACKGROUND IS
     PORT
-        ( CLOCK_25Mhz	            : IN std_logic;
-          pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
+        ( pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
 		  red, green, blue 			: OUT std_logic;
-          fsm_state                 : IN std_logic_vector(1 DOWNTO 0);
+          fsm_state                 : IN std_logic_vector(1 DOWNTO 0)
           );	
     END COMPONENT BACKGROUND;
 
@@ -155,9 +154,9 @@ BEGIN
     BLUE_OUT    <= TEXT_BLUE OR DOLPHIN_BLUE OR PIPE_BLUE OR BACKGROUND_BLUE;
 
     -- REPLACE WITH FSM CONTROLLING GAME STATE
-    FSM_STATE <= "00" when SW(0) = '0' else -- start screen
-                 "01" when SW(1) = '0' else -- game screen
-                 "10" when SW(2) = '0' else -- end screen
+    FSM_STATE <= "00" when SW(0) = '1' else -- start screen
+                 "01" when SW(1) = '1' else -- game screen
+                 "10" when SW(2) = '1' else -- end screen
                  "00"; -- default to start screen if no switches on
 
     -- DELETE WHEN ADDING MORE COLOURS
@@ -249,7 +248,6 @@ BEGIN
     );
 
     BG: BACKGROUND PORT MAP (
-        CLOCK_25Mhz => CLOCK_25MHZ,
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
         red => BACKGROUND_RED,

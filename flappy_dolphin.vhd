@@ -64,8 +64,7 @@ begin
 		end if;
 		
 		if dolphin_y_pos <= size then -- dolphin at top of screen
-			dolphin_y_motion <= gravity;
-			dolphin_y_pos <= dolphin_y_pos + dolphin_y_motion;
+			dolphin_y_pos <= dolphin_y_pos + gravity;
 		elsif dolphin_y_pos >= dolphin_ground then -- dolphin at bottom of screen
 			dolphin_y_pos <= dolphin_ground;
 		else

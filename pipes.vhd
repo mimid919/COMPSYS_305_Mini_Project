@@ -19,13 +19,13 @@ ARCHITECTURE behavior OF PIPES IS
     SIGNAL pipe_x_pos_2				: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(213, 10);
     SIGNAL pipe_x_pos_3				: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(426, 10);
 
-    SIGNAL pipe_top_height_1         : std_logic_vector(9 DOWNTO 0);
-    SIGNAL pipe_top_height_2         : std_logic_vector(9 DOWNTO 0);
-    SIGNAL pipe_top_height_3         : std_logic_vector(9 DOWNTO 0);
+    SIGNAL pipe_top_height_1         : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(200, 10); -- initial height of top pipe
+    SIGNAL pipe_top_height_2         : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(200, 10);
+    SIGNAL pipe_top_height_3         : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(200, 10);
 
-    SIGNAL pipe_bottom_height_1      : std_logic_vector(9 DOWNTO 0);
-    SIGNAL pipe_bottom_height_2      : std_logic_vector(9 DOWNTO 0);
-    SIGNAL pipe_bottom_height_3      : std_logic_vector(9 DOWNTO 0);
+    SIGNAL pipe_bottom_height_1      : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(300, 10); -- initial height of bottom pipe
+    SIGNAL pipe_bottom_height_2      : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(300, 10);
+    SIGNAL pipe_bottom_height_3      : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(300, 10);
 
     SIGNAL random_height_1           : std_logic_vector(9 DOWNTO 0);
     SIGNAL random_height_2           : std_logic_vector(9 DOWNTO 0);
