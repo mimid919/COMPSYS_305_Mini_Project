@@ -1,5 +1,5 @@
 Flow report for top_level
-Tue May 12 15:25:36 2026
+Fri May 15 22:31:21 2026
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -40,18 +40,18 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Flow Summary                                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Flow Status                     ; Successful - Tue May 12 15:25:31 2026           ;
+; Flow Status                     ; Successful - Fri May 15 22:31:11 2026           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; top_level                                       ;
 ; Top-level Entity Name           ; top_level                                       ;
 ; Family                          ; Cyclone V                                       ;
 ; Device                          ; 5CEBA4F23C7                                     ;
 ; Timing Models                   ; Final                                           ;
-; Logic utilization (in ALMs)     ; 490 / 18,480 ( 3 % )                            ;
-; Total registers                 ; 191                                             ;
+; Logic utilization (in ALMs)     ; 602 / 18,480 ( 3 % )                            ;
+; Total registers                 ; 311                                             ;
 ; Total pins                      ; 83 / 224 ( 37 % )                               ;
 ; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 320 / 3,153,920 ( < 1 % )                       ;
+; Total block memory bits         ; 0 / 3,153,920 ( 0 % )                           ;
 ; Total DSP Blocks                ; 0 / 66 ( 0 % )                                  ;
 ; Total HSSI RX PCSs              ; 0                                               ;
 ; Total HSSI PMA RX Deserializers ; 0                                               ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/12/2026 15:23:29 ;
+; Start date & time ; 05/15/2026 22:29:35 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; top_level           ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+----------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name    ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+----------------+------------+
-; COMPILER_SIGNATURE_ID               ; 224948461339869.177855620823488        ; --            ; --             ; --         ;
+; COMPILER_SIGNATURE_ID               ; 1099209329021.177884097539352          ; --            ; --             ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --             ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --             ; --         ;
 ; MISC_FILE                           ; pll.cmp                                ; --            ; --             ; --         ;
@@ -100,11 +100,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:21     ; 1.0                     ; 4998 MB             ; 00:00:13                           ;
-; Fitter               ; 00:01:36     ; 1.0                     ; 7702 MB             ; 00:07:49                           ;
-; Assembler            ; 00:00:05     ; 1.0                     ; 4840 MB             ; 00:00:02                           ;
-; Timing Analyzer      ; 00:00:05     ; 1.6                     ; 5294 MB             ; 00:00:06                           ;
-; Total                ; 00:02:07     ; --                      ; --                  ; 00:08:10                           ;
+; Analysis & Synthesis ; 00:00:15     ; 1.0                     ; 4930 MB             ; 00:00:22                           ;
+; Fitter               ; 00:01:13     ; 1.1                     ; 6837 MB             ; 00:03:22                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 4834 MB             ; 00:00:04                           ;
+; Timing Analyzer      ; 00:00:08     ; 1.6                     ; 5170 MB             ; 00:00:09                           ;
+; Total                ; 00:01:40     ; --                      ; --                  ; 00:03:57                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -113,10 +113,10 @@ refer to the applicable agreement for further details.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; EN441220         ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; EN441220         ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; EN441220         ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; EN441220         ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; EmmaDiasOmnibkX  ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; EmmaDiasOmnibkX  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; EmmaDiasOmnibkX  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; EmmaDiasOmnibkX  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 

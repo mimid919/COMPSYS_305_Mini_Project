@@ -15,11 +15,11 @@ ARCHITECTURE behavior OF BACKGROUND IS
 BEGIN
     PROCESS (pixel_row, pixel_column, fsm_state)
     BEGIN
-        IF fsm_state = "00" THEN -- start screen, white
+        IF fsm_state = "00" THEN -- start screen, white (MAGENTA TXT)
             RED <= '1';
             GREEN <= '1';
             BLUE <= '1';
-        ELSIF fsm_state = "01" THEN -- game screen, black
+        ELSIF fsm_state = "01" THEN -- game screen, black (GREEN PIPES, BLUE BALL)
             RED <= '0';
             GREEN <= '0';
             BLUE <= '0';

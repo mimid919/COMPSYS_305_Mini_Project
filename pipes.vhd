@@ -10,6 +10,7 @@ ENTITY PIPES IS
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
 		  red, green, blue 			: OUT std_logic;
           lfsr_value				: IN std_logic_vector(7 DOWNTO 0);
+          FSM_STATE                 : IN std_logic_vector(1 DOWNTO 0);
 		  pipe_enable				: OUT std_logic
           );	
 END PIPES;
@@ -33,6 +34,8 @@ ARCHITECTURE behavior OF PIPES IS
 
     SIGNAL pipe_on                    : std_logic;
 
+    SIGNAL state                 : std_logic;
+
     -- SIGNAL life_x_pos                : std_logic_vector(9 DOWNTO 0);
     -- SIGNAL life_visible             : std_logic := '0';
     -- SIGNAL life_on                  : std_logic;
@@ -43,9 +46,10 @@ BEGIN
     random_height_2 <= CONV_STD_LOGIC_VECTOR(50 + CONV_INTEGER(lfsr_value(6 DOWNTO 0) & '0'), 10);
     random_height_3 <= CONV_STD_LOGIC_VECTOR(50 + CONV_INTEGER('0' & lfsr_value(7 DOWNTO 1)), 10);
 
-    pipe_enable <= pipe_on;
+    state <= '1' when FSM_STATE = "01" else '0'; -- only show pipes during game state
+    pipe_enable <= pipe_on AND state;
 
-    GREEN <= pipe_on;
+    GREEN <= pipe_on AND state; -- only show green pipes during game state
     RED <= '0';
     BLUE <= '0';
 

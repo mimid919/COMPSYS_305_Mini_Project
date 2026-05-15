@@ -52,10 +52,10 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
     END COMPONENT lfsr;
 
     COMPONENT FLAPPY_DOLPHIN IS
-    PORT( pb1, pb2, clk, vert_sync	: IN std_logic;
+    PORT( clk, vert_sync	: IN std_logic;
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-          mouse_row, mouse_column   : IN std_logic_vector(9 DOWNTO 0);
           left_click 				: IN std_logic;
+          fsm_state                 : IN std_logic_vector(1 DOWNTO 0);
 		  red, green, blue 			: OUT std_logic;
           dolphin_enable				: OUT std_logic);		
     END COMPONENT FLAPPY_DOLPHIN;
@@ -65,6 +65,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
         ( CLOCK_25Mhz	            : IN std_logic;
           vert_sync		            : IN std_logic;
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
+          fsm_state                 : IN std_logic_vector(1 DOWNTO 0);
 		  red, green, blue 			: OUT std_logic;
           lfsr_value				: IN std_logic_vector(7 DOWNTO 0);
 		  pipe_enable				: OUT std_logic
@@ -78,6 +79,15 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
           fsm_state                 : IN std_logic_vector(1 DOWNTO 0)
           );	
     END COMPONENT BACKGROUND;
+
+    COMPONENT home_display IS
+	PORT
+		( clk                       : In std_logic;
+          pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
+          FSM_STATE : STD_LOGIC_VECTOR(1 DOWNTO 0);
+          red, green, blue 			: OUT std_logic);		
+    END COMPONENT home_display;
+
 
     COMPONENT text_display IS
 	PORT
@@ -154,9 +164,9 @@ BEGIN
     BLUE_OUT    <= TEXT_BLUE OR DOLPHIN_BLUE OR PIPE_BLUE OR BACKGROUND_BLUE;
 
     -- REPLACE WITH FSM CONTROLLING GAME STATE
-    FSM_STATE <= "00" when SW(0) = '1' else -- start screen
-                 "01" when SW(1) = '1' else -- game screen
-                 "10" when SW(2) = '1' else -- end screen
+    FSM_STATE <= "10" when SW(1) = '1' else -- end screen
+                 "00" when SW(0) = '0' else -- start screen
+                 "01" when SW(0) = '1' else -- game screen
                  "00"; -- default to start screen if no switches on
 
     -- DELETE WHEN ADDING MORE COLOURS
@@ -169,6 +179,17 @@ BEGIN
     --PIPE_RED <= '0';            PIPE_GREEN <= '0';          PIPE_BLUE <= '0';
     --TEXT_RED <= '0';            TEXT_GREEN <= '0';          TEXT_BLUE <= '0';
     --BACKGROUND_RED <= '0';      BACKGROUND_GREEN <= '0';    BACKGROUND_BLUE <= '0';
+
+
+    -- MOVE TO NEW FILE OR DELETE IF NOT USING
+	 LEDR(1) <= LEFT_CLICK;
+	 LEDR(0) <= RIGHT_CLICK;
+	 LEDR(2) <= '0';
+	 LEDR(3) <= '0';
+     LEDR(4) <= '0';
+	 LEDR(5) <= '0';
+     LEDR(6) <= '1';
+	 LEDR(7) <= '1';
 
 --}
 
@@ -211,7 +232,7 @@ BEGIN
         mouse_cursor_column => MOUSE_COLUMN
     );
 
-    lfsr PORT MAP (
+    RANDOM_NUMBER: lfsr PORT MAP (
         clk => CLOCK_25MHZ,
         reset => RESET,
         ENABLE => '1', -- always enabled for now, but could connect to game state
@@ -220,15 +241,12 @@ BEGIN
     );
 
     PLAYER_CHARACTER: FLAPPY_DOLPHIN PORT MAP (
-        pb1 => KEY(1),
-        pb2 => KEY(2),
         clk => CLOCK_25MHZ,
         vert_sync => VERT_SYNC,
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
-        mouse_row => MOUSE_ROW,
-        mouse_column => MOUSE_COLUMN,
         left_click => LEFT_CLICK,
+        fsm_state => FSM_STATE,
         red => DOLPHIN_RED,
         green => DOLPHIN_GREEN,
         blue => DOLPHIN_BLUE,
@@ -240,6 +258,7 @@ BEGIN
         vert_sync => VERT_SYNC,
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
+        fsm_state => FSM_STATE,
         red => PIPE_RED,
         green => PIPE_GREEN,
         blue => PIPE_BLUE,
@@ -256,15 +275,26 @@ BEGIN
         fsm_state => FSM_STATE
     );
 
-    TXT: text_display PORT MAP (
-    clk => CLOCK_25MHZ,
-    pixel_row => PIXEL_ROW,
-    pixel_column => PIXEL_COLUMN,
-    SW  =>   SW,
-    red => TEXT_RED,
-    green => TEXT_GREEN,
-    blue => TEXT_BLUE
-);
+    HOME_SCREEN_TEXT: home_display PORT MAP (
+        clk => CLOCK_25MHZ,
+        pixel_row => PIXEL_ROW,
+        pixel_column => PIXEL_COLUMN,
+        FSM_STATE => FSM_STATE,
+        red => TEXT_RED,
+        green => TEXT_GREEN,
+        blue => TEXT_BLUE
+    );
+
+
+--     TXT: text_display PORT MAP (
+--     clk => CLOCK_25MHZ,
+--     pixel_row => PIXEL_ROW,
+--     pixel_column => PIXEL_COLUMN,
+--     SW  =>   SW,
+--     red => TEXT_RED,
+--     green => TEXT_GREEN,
+--     blue => TEXT_BLUE
+-- );
 
     sevenseg_display : position_to_BCD PORT MAP (
         mouse_row => MOUSE_ROW,
@@ -277,6 +307,7 @@ BEGIN
         column_ones => column_ones
     );
 
+    -- mouse coordinate hex instances
     RH : BCD_to_SevenSeg PORT MAP (
         BCD_digit => row_hundreds,
         SevenSeg_out => HEX5
@@ -301,15 +332,5 @@ BEGIN
         BCD_digit => column_ones,
         SevenSeg_out => HEX0
     );
-
-    -- MOVE TO NEW FILE OR DELETE IF NOT USING
-	 LEDR(1) <= LEFT_CLICK;
-	 LEDR(0) <= RIGHT_CLICK;
-	 LEDR(2) <= '0';
-	 LEDR(3) <= '0';
-    LEDR(4) <= '0';
-	 LEDR(5) <= '0';
-    LEDR(6) <= '1';
-	 LEDR(7) <= '1';
 
 END BEHAVIOUR;
