@@ -33,6 +33,10 @@ ARCHITECTURE behavior OF PIPES IS
 
     SIGNAL pipe_on                    : std_logic;
 
+    -- SIGNAL life_x_pos                : std_logic_vector(9 DOWNTO 0);
+    -- SIGNAL life_visible             : std_logic := '0';
+    -- SIGNAL life_on                  : std_logic;
+
 BEGIN
 
     random_height_1 <= CONV_STD_LOGIC_VECTOR(50 + CONV_INTEGER(lfsr_value(7 DOWNTO 0)), 10);
