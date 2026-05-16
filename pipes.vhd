@@ -44,9 +44,9 @@ ARCHITECTURE behavior OF PIPES IS
 
 BEGIN
 
-    random_height_1 <= CONV_STD_LOGIC_VECTOR(20 + CONV_INTEGER(lfsr_value(7 DOWNTO 3) & '0'), 10);
-    random_height_2 <= CONV_STD_LOGIC_VECTOR(20 + CONV_INTEGER(lfsr_value(4 DOWNTO 0) & '0'), 10);
-    random_height_3 <= CONV_STD_LOGIC_VECTOR(20 + CONV_INTEGER('0' & lfsr_value(5 DOWNTO 1)), 10);
+    random_height_1 <= CONV_STD_LOGIC_VECTOR(125 + CONV_INTEGER(lfsr_value(7 DOWNTO 3) & '0'), 10);
+    random_height_2 <= CONV_STD_LOGIC_VECTOR(125 + CONV_INTEGER(lfsr_value(4 DOWNTO 0) & '0'), 10);
+    random_height_3 <= CONV_STD_LOGIC_VECTOR(125 + CONV_INTEGER('0' & lfsr_value(5 DOWNTO 1)), 10);
 
     state <= '1' when FSM_STATE = "01" else '0'; -- only show pipes during game state
     pipe_enable <= pipe_on AND state;
@@ -70,7 +70,7 @@ BEGIN
                 pipe_x_pos_1 <= CONV_STD_LOGIC_VECTOR(640, 10);
                 -- number between 50 and 440
                 pipe_top_height_1 <= random_height_1;
-                pipe_bottom_height_1 <= random_height_1 + CONV_STD_LOGIC_VECTOR(100, 10); -- gap size of 100
+                pipe_bottom_height_1 <= random_height_1 + 100; -- gap size of 100
             END IF;
 
             IF pipe_x_pos_2 = 0 THEN
