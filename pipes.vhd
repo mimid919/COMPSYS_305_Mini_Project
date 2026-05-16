@@ -83,19 +83,19 @@ BEGIN
     BEGIN
         pipe_on <= '0'; 
         IF (pixel_column >= pipe_x_pos_1 AND pixel_column < pipe_x_pos_1 + 50) THEN -- if within x bounds of pipe
-            IF (pixel_row < pipe_top_height_1  OR pixel_row > pipe_top_height_1 + 150) THEN -- if outside the gap
+            IF (pixel_row < pipe_top_height_1  OR pixel_row > pipe_top_height_1 + 250) THEN -- if outside the gap
                 pipe_on <= '1';
             END IF;
         END IF;
 
         IF (pixel_column >= pipe_x_pos_2 AND pixel_column < pipe_x_pos_2 + 50) THEN -- if within x bounds of pipe
-            IF (pixel_row < pipe_top_height_2  OR pixel_row > pipe_top_height_2 + 150) THEN -- if outside the gap
+            IF (pixel_row < pipe_top_height_2  OR pixel_row > pipe_top_height_2 + 250) THEN -- if outside the gap
                 pipe_on <= '1';
             END IF;
         END IF;
 
         IF (pixel_column >= pipe_x_pos_3 AND pixel_column < pipe_x_pos_3 + 50) THEN -- if within x bounds of pipe
-            IF (pixel_row < pipe_top_height_3  OR pixel_row > pipe_top_height_3 + 150) THEN -- if outside the gap
+            IF (pixel_row < pipe_top_height_3  OR pixel_row > pipe_top_height_3 + 250) THEN -- if outside the gap
                 pipe_on <= '1';
             END IF;
         END IF;

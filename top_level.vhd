@@ -83,6 +83,15 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
            bait_enable               : OUT std_logic);
     END COMPONENT bait; 
 
+    COMPONENT lives IS
+	PORT
+		( clk                       : In std_logic;
+          pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
+          FSM_STATE : STD_LOGIC_VECTOR(1 DOWNTO 0);
+          red, green, blue 			: OUT std_logic);		
+    END COMPONENT;
+
+
     COMPONENT BACKGROUND IS
     PORT
         ( pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
@@ -174,9 +183,9 @@ BEGIN
     
     -- Output selected in layer (priority) order: text, dolphin, pipe, background
     -- MOVE TO ELEMENT LAYERING FILE
-    RED_OUT     <= TEXT_RED OR DOLPHIN_RED OR BAIT_RED OR PIPE_RED OR BACKGROUND_RED;
-    GREEN_OUT   <= TEXT_GREEN OR DOLPHIN_GREEN OR BAIT_GREEN OR PIPE_GREEN OR BACKGROUND_GREEN;
-    BLUE_OUT    <= TEXT_BLUE OR DOLPHIN_BLUE OR BAIT_BLUE OR PIPE_BLUE OR BACKGROUND_BLUE;
+    RED_OUT     <= TEXT_RED OR DOLPHIN_RED OR LIVES_RED OR BAIT_RED OR PIPE_RED OR BACKGROUND_RED;
+    GREEN_OUT   <= TEXT_GREEN OR DOLPHIN_GREEN OR LIVES_GREEN OR BAIT_GREEN OR PIPE_GREEN OR BACKGROUND_GREEN;
+    BLUE_OUT    <= TEXT_BLUE OR DOLPHIN_BLUE OR LIVES_BLUE OR BAIT_BLUE OR PIPE_BLUE OR BACKGROUND_BLUE;
 
     -- REPLACE WITH FSM CONTROLLING GAME STATE
     FSM_STATE <= "10" when SW(1) = '1' else -- end screen
@@ -293,6 +302,16 @@ BEGIN
         green => BAIT_GREEN,
         blue => BAIT_BLUE,
         bait_enable => OPEN
+    );
+
+    LIFE_DISPLAY: lives PORT MAP (
+		clk => CLOCK_25MHZ,
+        pixel_row => PIXEL_ROW,
+        pixel_column => PIXEL_COLUMN,
+        FSM_STATE  => FSM_STATE,
+        red => LIVES_RED,
+        green => LIVES_GREEN,
+        blue => LIVES_BLUE
     );
 
     BG: BACKGROUND PORT MAP (
