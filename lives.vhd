@@ -7,7 +7,8 @@ ENTITY lives IS
 	PORT
 		( clk                       : In std_logic;
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-          FSM_STATE : STD_LOGIC_VECTOR(1 DOWNTO 0);
+          FSM_STATE : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+          life_one, life_two, life_three : IN STD_LOGIC; -- for enabling lives
           red, green, blue 			: OUT std_logic);		
 END lives;
 
@@ -15,11 +16,9 @@ architecture behaviour of lives is
 
     COMPONENT char_rom IS
         PORT
-        (
-            character_address	:	IN STD_LOGIC_VECTOR (5 DOWNTO 0);
+        (   character_address	:	IN STD_LOGIC_VECTOR (5 DOWNTO 0);
             font_row, font_col	:	IN STD_LOGIC_VECTOR (2 DOWNTO 0);
             clock				: 	IN STD_LOGIC;
-            life_one, life_two, life_three : IN STD_LOGIC; -- for enabling lives
             rom_mux_output		:	OUT STD_LOGIC
         );
     END COMPONENT char_rom;

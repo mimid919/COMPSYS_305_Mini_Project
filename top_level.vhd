@@ -87,7 +87,8 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 	PORT
 		( clk                       : In std_logic;
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-          FSM_STATE : STD_LOGIC_VECTOR(1 DOWNTO 0);
+          FSM_STATE : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+          life_one, life_two, life_three : IN STD_LOGIC; -- for enabling seperate lives
           red, green, blue 			: OUT std_logic);		
     END COMPONENT;
 
@@ -161,6 +162,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
     SIGNAL TEXT_RED, TEXT_GREEN, TEXT_BLUE                      : STD_LOGIC;
     SIGNAL BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE    : STD_LOGIC;
     SIGNAL BAIT_RED, BAIT_GREEN, BAIT_BLUE                      : STD_LOGIC;
+    SIGNAL LIFE_RED, LIFE_GREEN, LIFE_BLUE                      : STD_LOGIC;
 
     -- final colour outputs to VGA
     SIGNAL RED_OUT, GREEN_OUT, BLUE_OUT : STD_LOGIC; 
@@ -309,6 +311,9 @@ BEGIN
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
         FSM_STATE  => FSM_STATE,
+        life_one => '1',
+        life_two => '2',
+        life_three => '0',
         red => LIVES_RED,
         green => LIVES_GREEN,
         blue => LIVES_BLUE
