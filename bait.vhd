@@ -25,13 +25,13 @@ BEGIN
     state <= '1' when FSM_STATE = "01" else '0'; -- only show bait during game state
 
     randomiser <= gap_height(0) OR gap_height(1) OR gap_height(2);
-    
+
 	bait_enable <= bait_on and state and randomiser; -- for collisions
 
 	size <= CONV_STD_LOGIC_VECTOR(4,10);
 
 	bait_x_pos <= pipe_x_pos_1 + CONV_STD_LOGIC_VECTOR(25, 10);
-    bait_y_pos <= gap_height + CONV_STD_LOGIC_VECTOR(50, 10);
+    bait_y_pos <= gap_height + CONV_STD_LOGIC_VECTOR(100, 10);
 
     bait_on <= '1' when (
         state = '1' and

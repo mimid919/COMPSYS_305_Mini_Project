@@ -38,13 +38,13 @@ architecture behaviour of lives is
 Begin 
 
 row_heart_1 <= pixel_row - CONV_STD_LOGIC_VECTOR(20,10);
-col_heart_1 <= pixel_column - CONV_STD_LOGIC_VECTOR(20,10);
+col_heart_1 <= pixel_column - CONV_STD_LOGIC_VECTOR(5,10);
 
 row_heart_2 <= pixel_row - CONV_STD_LOGIC_VECTOR(20,10);
 col_heart_2 <= pixel_column - CONV_STD_LOGIC_VECTOR(35,10);
 
 row_heart_3 <= pixel_row - CONV_STD_LOGIC_VECTOR(20,10);
-col_heart_3 <= pixel_column - CONV_STD_LOGIC_VECTOR(50,10);
+col_heart_3 <= pixel_column - CONV_STD_LOGIC_VECTOR(70,10);
 
 
 process(pixel_row, pixel_column, FSM_STATE,
@@ -57,11 +57,11 @@ begin
 
     if FSM_STATE = "01" then 
 
-        if life_one = '1' and col_heart_1 < 8 and row_heart_1 < 8 and rom_pixel_heart_1 = '1' then
+        if life_one = '1' and col_heart_1 < 16 and row_heart_1 < 16 and rom_pixel_heart_1 = '1' then
             text_on <= '1';
-        elsif life_two = '1' and col_heart_2 < 8 and row_heart_2 < 8 and rom_pixel_heart_2 = '1' then
+        elsif life_two = '1' and col_heart_2 < 16 and row_heart_2 < 16 and rom_pixel_heart_2 = '1' then
             text_on <= '1';
-        elsif life_three = '1' and col_heart_3 < 8 and row_heart_3 < 8 and rom_pixel_heart_3 = '1' then
+        elsif life_three = '1' and col_heart_3 < 16 and row_heart_3 < 16 and rom_pixel_heart_3 = '1' then
             text_on <= '1';
         end if;
     end if;
@@ -70,8 +70,8 @@ end process;
 HEART_ROM_1: char_rom
 PORT MAP (
     character_address => "100000",
-	font_row => row_heart_1(2 downto 0),
-    font_col => col_heart_1(2 downto 0),
+	font_row => row_heart_1(3 downto 1),
+    font_col => col_heart_1(3 downto 1),
     clock => clk,
     rom_mux_output => rom_pixel_Heart_1
 );
@@ -79,8 +79,8 @@ PORT MAP (
 HEART_ROM_2: char_rom
 PORT MAP (
     character_address => "100000",
-	font_row => row_heart_2(2 downto 0),
-    font_col => col_heart_2(2 downto 0),
+	font_row => row_heart_2(3 downto 1),
+    font_col => col_heart_2(3 downto 1),
     clock => clk,
     rom_mux_output => rom_pixel_Heart_2
 );
@@ -88,8 +88,8 @@ PORT MAP (
 HEART_ROM_3: char_rom
 PORT MAP (
     character_address => "100000",
-	font_row => row_heart_3(2 downto 0),
-    font_col => col_heart_3(2 downto 0),
+	font_row => row_heart_3(3 downto 1),
+    font_col => col_heart_3(3 downto 1),
     clock => clk,
     rom_mux_output => rom_pixel_Heart_3
 );
