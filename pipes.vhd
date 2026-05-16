@@ -71,6 +71,7 @@ BEGIN
                 -- number between 50 and 440
                 pipe_top_height_1 <= random_height_1;
                 pipe_bottom_height_1 <= CONV_STD_LOGIC_VECTOR(CONV_INTEGER(random_height_1) + 100, 10); -- gap size of 100
+				END IF;
 
             IF pipe_x_pos_2 = 0 THEN
                 pipe_x_pos_2 <= CONV_STD_LOGIC_VECTOR(640, 10);
