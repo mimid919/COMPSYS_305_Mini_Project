@@ -26,10 +26,6 @@ ARCHITECTURE behavior OF PIPES IS
     SIGNAL pipe_top_height_2         : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(200, 10);
     SIGNAL pipe_top_height_3         : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(200, 10);
 
-    SIGNAL pipe_bottom_height_1      : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(300, 10); -- initial height of bottom pipe
-    SIGNAL pipe_bottom_height_2      : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(300, 10);
-    SIGNAL pipe_bottom_height_3      : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(300, 10);
-
     SIGNAL random_height_1           : std_logic_vector(9 DOWNTO 0);
     SIGNAL random_height_2           : std_logic_vector(9 DOWNTO 0);
     SIGNAL random_height_3           : std_logic_vector(9 DOWNTO 0);
@@ -37,10 +33,6 @@ ARCHITECTURE behavior OF PIPES IS
     SIGNAL pipe_on                    : std_logic;
 
     SIGNAL state                 : std_logic;
-
-    -- SIGNAL life_x_pos                : std_logic_vector(9 DOWNTO 0);
-    -- SIGNAL life_visible             : std_logic := '0';
-    -- SIGNAL life_on                  : std_logic;
 
 BEGIN
 
@@ -68,48 +60,42 @@ BEGIN
 
             IF pipe_x_pos_1 = 0 THEN
                 pipe_x_pos_1 <= CONV_STD_LOGIC_VECTOR(640, 10);
-                -- number between 50 and 440
                 pipe_top_height_1 <= random_height_1;
-                --pipe_bottom_height_1 <= CONV_STD_LOGIC_VECTOR(CONV_INTEGER(random_height_1) + 100, 10); -- gap size of 100
 				END IF;
 
             IF pipe_x_pos_2 = 0 THEN
                 pipe_x_pos_2 <= CONV_STD_LOGIC_VECTOR(640, 10);
-                -- number between 50 and 440
                 pipe_top_height_2 <= random_height_2;
-                --pipe_bottom_height_2 <= CONV_STD_LOGIC_VECTOR(CONV_INTEGER(random_height_2) + 100, 10); -- gap size of 100
             END IF;
 
             IF pipe_x_pos_3 = 0 THEN
                 pipe_x_pos_3 <= CONV_STD_LOGIC_VECTOR(640, 10);
-                -- number between 50 and 440
                 pipe_top_height_3 <= random_height_3;
-                --pipe_bottom_height_3 <= CONV_STD_LOGIC_VECTOR(CONV_INTEGER(random_height_3) + 100, 10); -- gap size of 100
             END IF;
 
         END IF; 
     END PROCESS;    
 
     PROCESS (pixel_row, pixel_column, 
-            pipe_x_pos_1, pipe_top_height_1, pipe_bottom_height_1, 
-            pipe_x_pos_2, pipe_top_height_2, pipe_bottom_height_2, 
-            pipe_x_pos_3, pipe_top_height_3, pipe_bottom_height_3)
+            pipe_x_pos_1, pipe_top_height_1, 
+            pipe_x_pos_2, pipe_top_height_2, 
+            pipe_x_pos_3, pipe_top_height_3)
     BEGIN
         pipe_on <= '0'; 
         IF (pixel_column >= pipe_x_pos_1 AND pixel_column < pipe_x_pos_1 + 50) THEN -- if within x bounds of pipe
-            IF (pixel_row < pipe_top_height_1  OR pixel_row > pipe_top_height_1 + 100) THEN -- if outside the gap
+            IF (pixel_row < pipe_top_height_1  OR pixel_row > pipe_top_height_1 + 150) THEN -- if outside the gap
                 pipe_on <= '1';
             END IF;
         END IF;
 
         IF (pixel_column >= pipe_x_pos_2 AND pixel_column < pipe_x_pos_2 + 50) THEN -- if within x bounds of pipe
-            IF (pixel_row < pipe_top_height_2  OR pixel_row > pipe_top_height_2 + 100) THEN -- if outside the gap
+            IF (pixel_row < pipe_top_height_2  OR pixel_row > pipe_top_height_2 + 150) THEN -- if outside the gap
                 pipe_on <= '1';
             END IF;
         END IF;
 
         IF (pixel_column >= pipe_x_pos_3 AND pixel_column < pipe_x_pos_3 + 50) THEN -- if within x bounds of pipe
-            IF (pixel_row < pipe_top_height_3  OR pixel_row > pipe_top_height_3 + 100) THEN -- if outside the gap
+            IF (pixel_row < pipe_top_height_3  OR pixel_row > pipe_top_height_3 + 150) THEN -- if outside the gap
                 pipe_on <= '1';
             END IF;
         END IF;
