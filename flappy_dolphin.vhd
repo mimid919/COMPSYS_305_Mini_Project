@@ -29,7 +29,7 @@ SIGNAL prev_state					: std_logic := '0';
 -- increase gravity to fall faster
 CONSTANT gravity 					: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(2,10); 
 -- for bigger jump --> 1008 (-16) or smaller jump --> 1020 (-4)
-CONSTANT jump				: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(1016, 10); -- -8 in 10 bit 2's complement
+CONSTANT jump				: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(1000, 10); -- -8 is 1016
 CONSTANT dolphin_ground 			: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(472,10); -- ground level for dolphin
 
 BEGIN           
