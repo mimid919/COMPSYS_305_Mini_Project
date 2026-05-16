@@ -74,9 +74,9 @@ BEGIN
 
 				dolphin_y_pos <=  dolphin_y_pos + dolphin_y_motion;
 
-				if dolphin_y_pos <= size then
+				if dolphin_y_pos < size then
 					dolphin_y_pos <= size;
-					dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
+					--dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
 				end if;
 
 				if dolphin_y_pos >= dolphin_ground then
@@ -84,29 +84,6 @@ BEGIN
 					dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
 				end if;
 			end if;
-			
-			-- if (state = '1' and prev_state = '0') then
-			-- 	dolphin_y_pos <= CONV_STD_LOGIC_VECTOR(240, 10);
-			-- 	dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
-			-- elsif (left_click_edge = '1') then
-			-- 	dolphin_y_motion <= jump;
-			-- 	if dolphin_y_pos <= size then -- dolphin at top of screen
-			-- 		dolphin_y_pos <= dolphin_y_pos + gravity;
-			-- 	elsif dolphin_y_pos >= dolphin_ground then -- dolphin at bottom of screen
-			-- 		dolphin_y_pos <= dolphin_ground;
-			-- 	else
-			-- 		dolphin_y_pos <= dolphin_y_pos + dolphin_y_motion;
-			-- 	end if;
-			-- else
-			-- 	dolphin_y_motion <= gravity;
-			-- 	if dolphin_y_pos <= size then -- dolphin at top of screen
-			-- 		dolphin_y_pos <= dolphin_y_pos + gravity;
-			-- 	elsif dolphin_y_pos >= dolphin_ground then -- dolphin at bottom of screen
-			-- 		dolphin_y_pos <= dolphin_ground;
-			-- 	else
-			-- 		dolphin_y_pos <= dolphin_y_pos + dolphin_y_motion;
-			-- 	end if;
-			-- end if;
 			
 		end if;
 	end process;
