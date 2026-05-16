@@ -70,21 +70,21 @@ BEGIN
                 pipe_x_pos_1 <= CONV_STD_LOGIC_VECTOR(640, 10);
                 -- number between 50 and 440
                 pipe_top_height_1 <= random_height_1;
-                pipe_bottom_height_1 <= CONV_STD_LOGIC_VECTOR(CONV_INTEGER(random_height_1) + 100, 10); -- gap size of 100
+                --pipe_bottom_height_1 <= CONV_STD_LOGIC_VECTOR(CONV_INTEGER(random_height_1) + 100, 10); -- gap size of 100
 				END IF;
 
             IF pipe_x_pos_2 = 0 THEN
                 pipe_x_pos_2 <= CONV_STD_LOGIC_VECTOR(640, 10);
                 -- number between 50 and 440
                 pipe_top_height_2 <= random_height_2;
-                pipe_bottom_height_2 <= CONV_STD_LOGIC_VECTOR(CONV_INTEGER(random_height_2) + 100, 10); -- gap size of 100
+                --pipe_bottom_height_2 <= CONV_STD_LOGIC_VECTOR(CONV_INTEGER(random_height_2) + 100, 10); -- gap size of 100
             END IF;
 
             IF pipe_x_pos_3 = 0 THEN
                 pipe_x_pos_3 <= CONV_STD_LOGIC_VECTOR(640, 10);
                 -- number between 50 and 440
                 pipe_top_height_3 <= random_height_3;
-                pipe_bottom_height_3 <= CONV_STD_LOGIC_VECTOR(CONV_INTEGER(random_height_3) + 100, 10); -- gap size of 100
+                --pipe_bottom_height_3 <= CONV_STD_LOGIC_VECTOR(CONV_INTEGER(random_height_3) + 100, 10); -- gap size of 100
             END IF;
 
         END IF; 
@@ -97,19 +97,19 @@ BEGIN
     BEGIN
         pipe_on <= '0'; 
         IF (pixel_column >= pipe_x_pos_1 AND pixel_column < pipe_x_pos_1 + 50) THEN -- if within x bounds of pipe
-            IF (pixel_row < pipe_top_height_1  OR pixel_row > pipe_bottom_height_1) THEN -- if outside the gap
+            IF (pixel_row < pipe_top_height_1  OR pixel_row > pipe_top_height_1 + 100) THEN -- if outside the gap
                 pipe_on <= '1';
             END IF;
         END IF;
 
         IF (pixel_column >= pipe_x_pos_2 AND pixel_column < pipe_x_pos_2 + 50) THEN -- if within x bounds of pipe
-            IF (pixel_row < pipe_top_height_2  OR pixel_row > pipe_bottom_height_2) THEN -- if outside the gap
+            IF (pixel_row < pipe_top_height_2  OR pixel_row > pipe_top_height_2 + 100) THEN -- if outside the gap
                 pipe_on <= '1';
             END IF;
         END IF;
 
         IF (pixel_column >= pipe_x_pos_3 AND pixel_column < pipe_x_pos_3 + 50) THEN -- if within x bounds of pipe
-            IF (pixel_row < pipe_top_height_3  OR pixel_row > pipe_bottom_height_3) THEN -- if outside the gap
+            IF (pixel_row < pipe_top_height_3  OR pixel_row > pipe_top_height_3 + 100) THEN -- if outside the gap
                 pipe_on <= '1';
             END IF;
         END IF;
