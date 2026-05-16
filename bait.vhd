@@ -24,7 +24,7 @@ BEGIN
 
     state <= '1' when FSM_STATE = "01" else '0'; -- only show bait during game state
 
-    randomiser <= gap_height(0) OR gap_height(1) OR gap_height(2);
+    randomiser <= gap_height(0);
 
 	bait_enable <= bait_on and state and randomiser; -- for collisions
 

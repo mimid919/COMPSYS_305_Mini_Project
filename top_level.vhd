@@ -162,7 +162,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
     SIGNAL TEXT_RED, TEXT_GREEN, TEXT_BLUE                      : STD_LOGIC;
     SIGNAL BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE    : STD_LOGIC;
     SIGNAL BAIT_RED, BAIT_GREEN, BAIT_BLUE                      : STD_LOGIC;
-    SIGNAL LIFE_RED, LIFE_GREEN, LIFE_BLUE                      : STD_LOGIC;
+    SIGNAL LIVES_RED, LIVES_GREEN, LIVES_BLUE                      : STD_LOGIC;
 
     -- final colour outputs to VGA
     SIGNAL RED_OUT, GREEN_OUT, BLUE_OUT : STD_LOGIC; 
@@ -312,7 +312,7 @@ BEGIN
         pixel_column => PIXEL_COLUMN,
         FSM_STATE  => FSM_STATE,
         life_one => '1',
-        life_two => '2',
+        life_two => '1',
         life_three => '0',
         red => LIVES_RED,
         green => LIVES_GREEN,
