@@ -24,6 +24,7 @@ COMPONENT char_rom IS
 END COMPONENT char_rom;
 
 SIGNAL text_on : std_logic;
+SIGNAL text_on_cycle : std_logic;
 
 SIGNAL rom_pixel_F : std_logic;
 SIGNAL rom_pixel_L1 : std_logic;
@@ -55,34 +56,44 @@ SIGNAL row_N, col_N : std_logic_vector(9 DOWNTO 0);
 
 Begin 
 
-row_F <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10);
-col_F <= pixel_column - CONV_STD_LOGIC_VECTOR(60,10);
-row_L1 <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10);
-col_L1 <= pixel_column - CONV_STD_LOGIC_VECTOR(100,10);
-row_A <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10);
-col_A <= pixel_column - CONV_STD_LOGIC_VECTOR(140,10);
-row_P1 <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10);
-col_P1 <= pixel_column - CONV_STD_LOGIC_VECTOR(180,10);
-row_P2 <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10);
-col_P2 <= pixel_column - CONV_STD_LOGIC_VECTOR(220,10);
-row_Y <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10);
-col_Y <= pixel_column - CONV_STD_LOGIC_VECTOR(260,10);
-row_D <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10);
-col_D <= pixel_column - CONV_STD_LOGIC_VECTOR(300,10);
+row_F <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10) when pixel_row  >= CONV_STD_LOGIC_VECTOR(240, 10) else (others => '1');
+col_F <= pixel_column - CONV_STD_LOGIC_VECTOR(60,10) when pixel_column >= CONV_STD_LOGIC_VECTOR(60,  10) else (others => '1');
+row_L1 <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10) when pixel_row  >= CONV_STD_LOGIC_VECTOR(240, 10) else (others => '1');
+col_L1 <= pixel_column - CONV_STD_LOGIC_VECTOR(100,10) when pixel_column >= CONV_STD_LOGIC_VECTOR(100,  10) else (others => '1');
+row_A <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10) when pixel_row  >= CONV_STD_LOGIC_VECTOR(240, 10) else (others => '1');
+col_A <= pixel_column - CONV_STD_LOGIC_VECTOR(140,10) when pixel_column >= CONV_STD_LOGIC_VECTOR(140,  10) else (others => '1');
+row_P1 <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10) when pixel_row  >= CONV_STD_LOGIC_VECTOR(240, 10) else (others => '1');
+col_P1 <= pixel_column - CONV_STD_LOGIC_VECTOR(180,10) when pixel_column >= CONV_STD_LOGIC_VECTOR(180,  10) else (others => '1');
+row_P2 <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10) when pixel_row  >= CONV_STD_LOGIC_VECTOR(240, 10) else (others => '1');
+col_P2 <= pixel_column - CONV_STD_LOGIC_VECTOR(220,10) when pixel_column >= CONV_STD_LOGIC_VECTOR(220,  10) else (others => '1');
+row_Y <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10) when pixel_row  >= CONV_STD_LOGIC_VECTOR(240, 10) else (others => '1');
+col_Y <= pixel_column - CONV_STD_LOGIC_VECTOR(260,10) when pixel_column >= CONV_STD_LOGIC_VECTOR(260,  10) else (others => '1');
+row_D <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10) when pixel_row  >= CONV_STD_LOGIC_VECTOR(240, 10) else (others => '1');
+col_D <= pixel_column - CONV_STD_LOGIC_VECTOR(300,10) when pixel_column >= CONV_STD_LOGIC_VECTOR(300, 10) else (others => '1');
+--halfway
+row_O <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10) when pixel_row  >= CONV_STD_LOGIC_VECTOR(240, 10) else (others => '1');
+col_O <= pixel_column - CONV_STD_LOGIC_VECTOR(340,10) when pixel_column >= CONV_STD_LOGIC_VECTOR(340, 10) else (others => '1');
+row_L2 <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10) when pixel_row  >= CONV_STD_LOGIC_VECTOR(240, 10) else (others => '1');
+col_L2 <= pixel_column - CONV_STD_LOGIC_VECTOR(380,10) when pixel_column >= CONV_STD_LOGIC_VECTOR(380, 10) else (others => '1');
+row_P3 <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10) when pixel_row  >= CONV_STD_LOGIC_VECTOR(240, 10) else (others => '1');
+col_P3 <= pixel_column - CONV_STD_LOGIC_VECTOR(420,10) when pixel_column >= CONV_STD_LOGIC_VECTOR(420, 10) else (others => '1');
+row_H <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10) when pixel_row  >= CONV_STD_LOGIC_VECTOR(240, 10) else (others => '1');
+col_H <= pixel_column - CONV_STD_LOGIC_VECTOR(460,10) when pixel_column >= CONV_STD_LOGIC_VECTOR(460, 10) else (others => '1');
+row_I <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10) when pixel_row  >= CONV_STD_LOGIC_VECTOR(240, 10) else (others => '1');
+col_I <= pixel_column - CONV_STD_LOGIC_VECTOR(500,10) when pixel_column >= CONV_STD_LOGIC_VECTOR(500, 10) else (others => '1');
+row_N <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10) when pixel_row  >= CONV_STD_LOGIC_VECTOR(240, 10) else (others => '1');
+col_N <= pixel_column - CONV_STD_LOGIC_VECTOR(540,10) when pixel_column >= CONV_STD_LOGIC_VECTOR(540, 10) else (others => '1');
 
-row_O <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10);
-col_O <= pixel_column - CONV_STD_LOGIC_VECTOR(340,10);
-row_L2 <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10);
-col_L2 <= pixel_column - CONV_STD_LOGIC_VECTOR(380,10);
-row_P3 <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10);
-col_P3 <= pixel_column - CONV_STD_LOGIC_VECTOR(420,10);
-row_H <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10);
-col_H <= pixel_column - CONV_STD_LOGIC_VECTOR(460,10);
-row_I <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10);
-col_I <= pixel_column - CONV_STD_LOGIC_VECTOR(500,10);
-row_N <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10);
-col_N <= pixel_column - CONV_STD_LOGIC_VECTOR(540,10);
+Red   <= text_on_cycle;
+Green <= '0';
+Blue  <= text_on_cycle;
 
+process(clk)
+begin
+    if(rising_edge(clk)) then
+        text_on_cycle <= text_on;
+    end if;
+end process;
 
 process(pixel_row, pixel_column, FSM_STATE,
             row_F, col_F, rom_pixel_F,
@@ -264,10 +275,5 @@ PORT MAP (
     clock => clk,
     rom_mux_output => rom_pixel_N
 );
-
-
-Red   <= text_on;
-Green <= '0';
-Blue  <= text_on;
 
 END behaviour;

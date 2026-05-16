@@ -21,7 +21,7 @@ SIGNAL dolphin_on					: std_logic;
 SIGNAL size 						: std_logic_vector(9 DOWNTO 0);  
 SIGNAL dolphin_y_pos				: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(240,10); -- start on the ground
 SIGNAL dolphin_x_pos				: std_logic_vector(9 DOWNTO 0);
-SIGNAL dolphin_y_motion				: std_logic_vector(9 DOWNTO 0);
+SIGNAL dolphin_y_motion				: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(0, 10);
 SIGNAL left_click_prev				: std_logic := '0'; -- to avoid holding click
 SIGNAL state						 : std_logic;
 SIGNAL prev_state					: std_logic := '0';
@@ -29,7 +29,7 @@ SIGNAL prev_state					: std_logic := '0';
 -- increase gravity to fall faster
 CONSTANT gravity 					: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(2,10); 
 -- for bigger jump --> 1008 (-16) or smaller jump --> 1020 (-4)
-CONSTANT jump				: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(1000, 10); -- -8 is 1016
+CONSTANT jump				: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(960, 10); -- -8 is 1016
 CONSTANT dolphin_ground 			: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(472,10); -- ground level for dolphin
 
 BEGIN           
@@ -65,25 +65,48 @@ BEGIN
 				dolphin_y_pos <= CONV_STD_LOGIC_VECTOR(240, 10);
 				dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
 
-			elsif (left_click_edge = '1') then
-				dolphin_y_motion <= jump;
-				if dolphin_y_pos <= size then -- dolphin at top of screen
-					dolphin_y_pos <= dolphin_y_pos + gravity;
-				elsif dolphin_y_pos >= dolphin_ground then -- dolphin at bottom of screen
-					dolphin_y_pos <= dolphin_ground;
-				else
-					dolphin_y_pos <= dolphin_y_pos + dolphin_y_motion;
-				end if;
 			else
-				dolphin_y_motion <= gravity;
-				if dolphin_y_pos <= size then -- dolphin at top of screen
-					dolphin_y_pos <= dolphin_y_pos + gravity;
-				elsif dolphin_y_pos >= dolphin_ground then -- dolphin at bottom of screen
+				if (left_click_edge = '1') then
+					dolphin_y_motion <= jump;
+				else 
+					dolphin_y_motion <= dolphin_y_motion + gravity;
+				end if;
+
+				dolphin_y_pos <=  dolphin_y_pos + dolphin_y_motion;
+
+				if dolphin_y_pos <= size then
+					dolphin_y_pos <= size;
+					dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
+				end if;
+
+				if dolphin_y_pos >= dolphin_ground then
 					dolphin_y_pos <= dolphin_ground;
-				else
-					dolphin_y_pos <= dolphin_y_pos + dolphin_y_motion;
+					dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
 				end if;
 			end if;
+			
+			-- if (state = '1' and prev_state = '0') then
+			-- 	dolphin_y_pos <= CONV_STD_LOGIC_VECTOR(240, 10);
+			-- 	dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
+			-- elsif (left_click_edge = '1') then
+			-- 	dolphin_y_motion <= jump;
+			-- 	if dolphin_y_pos <= size then -- dolphin at top of screen
+			-- 		dolphin_y_pos <= dolphin_y_pos + gravity;
+			-- 	elsif dolphin_y_pos >= dolphin_ground then -- dolphin at bottom of screen
+			-- 		dolphin_y_pos <= dolphin_ground;
+			-- 	else
+			-- 		dolphin_y_pos <= dolphin_y_pos + dolphin_y_motion;
+			-- 	end if;
+			-- else
+			-- 	dolphin_y_motion <= gravity;
+			-- 	if dolphin_y_pos <= size then -- dolphin at top of screen
+			-- 		dolphin_y_pos <= dolphin_y_pos + gravity;
+			-- 	elsif dolphin_y_pos >= dolphin_ground then -- dolphin at bottom of screen
+			-- 		dolphin_y_pos <= dolphin_ground;
+			-- 	else
+			-- 		dolphin_y_pos <= dolphin_y_pos + dolphin_y_motion;
+			-- 	end if;
+			-- end if;
 			
 		end if;
 	end process;
