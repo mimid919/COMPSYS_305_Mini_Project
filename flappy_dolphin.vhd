@@ -3,6 +3,14 @@ USE IEEE.STD_LOGIC_1164.all;
 USE  IEEE.STD_LOGIC_ARITH.all;
 USE  IEEE.STD_LOGIC_UNSIGNED.all;
 
+-- Sets dolphin visibility to 8x8 square around fixed x and click-dependant y position
+-- When fsm_state changes to '01' dolphin is initialised to verticle center of screen
+-- dolphin_enable outputs '1' when dolphin is visible so can be used for collisions
+-- dolphin_y_motion is made up of jumps or accumulating gravity (fall gets faster)
+-- dolphin_y_motion is added to dolphin_y_position, refreshing each Vert_sync frame
+-- set conditions for bouncing down from ceiling 
+-- no dolphin movement after touching ground (could add change of state instead)
+
 ENTITY flappy_dolphin IS
 	PORT
 		( clk, vert_sync	: IN std_logic;
@@ -12,8 +20,6 @@ ENTITY flappy_dolphin IS
 		  red, green, blue 			: OUT std_logic;
 		  dolphin_enable				: OUT std_logic); -- for collisions
 END flappy_dolphin; 
-
-
 
 architecture behavior of flappy_dolphin is
 
@@ -41,6 +47,7 @@ BEGIN
 
 	dolphin_x_pos <= CONV_STD_LOGIC_VECTOR(50,10);
 
+	-- sets dolphin visibility to 8x8 square
 	dolphin_on <= '1' when (
 		(dolphin_y_pos >= size) and
 		(pixel_column >= dolphin_x_pos - size) and (pixel_column <= dolphin_x_pos + size) and

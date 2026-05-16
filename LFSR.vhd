@@ -3,6 +3,9 @@ USE  IEEE.STD_LOGIC_1164.all;
 USE  IEEE.STD_LOGIC_ARITH.all;
 USE  IEEE.STD_LOGIC_UNSIGNED.all;
 
+-- Generates random number between 1 - 255 (8 bits)
+-- Uses Galois method from lectures, tap bits at 1, 2, 3, 7
+
 ENTITY lfsr IS
     PORT
         ( clk                       : In std_logic;

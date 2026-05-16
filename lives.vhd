@@ -3,6 +3,9 @@ USE IEEE.STD_LOGIC_1164.all;
 USE  IEEE.STD_LOGIC_ARITH.all;
 USE  IEEE.STD_LOGIC_UNSIGNED.all;
 
+-- Displays three hearts (as text) in top left of screen during state '01'
+-- Each heart has a seperate enable (life_one - three) which can be set to '0' when a life is lost
+
 ENTITY lives IS
 	PORT
 		( clk                       : In std_logic;

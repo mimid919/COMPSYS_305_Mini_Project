@@ -3,6 +3,10 @@ USE IEEE.STD_LOGIC_1164.all;
 USE  IEEE.STD_LOGIC_ARITH.all;
 USE  IEEE.STD_LOGIC_UNSIGNED.all;
 
+-- Displays text for initial state '00'
+-- Letter rows and columns are set
+-- Process checks which pixel is being drawn and if it is where a letter is mapped it will display
+
 ENTITY home_display IS
 	PORT
 		( clk                       : In std_logic;

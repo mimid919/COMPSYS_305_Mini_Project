@@ -3,6 +3,12 @@ USE  IEEE.STD_LOGIC_1164.all;
 USE  IEEE.STD_LOGIC_ARITH.all;
 USE  IEEE.STD_LOGIC_UNSIGNED.all;
 
+-- Creates bait between every third pipe during state '01'
+-- Visibility is randomised so bait does not appear in a pattern (randomisation needs work) 
+-- Uses gap_height of pipe_1 to determine bait height
+-- Uses x position of pipe_1 to determine horizontal movement
+-- bait_enable outputs '1' if bait is visible so this can be used for collisions
+
 ENTITY bait IS
    PORT(  pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
 		  fsm_state                 : IN std_logic_vector(1 DOWNTO 0);

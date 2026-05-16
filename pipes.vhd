@@ -3,6 +3,12 @@ USE  IEEE.STD_LOGIC_1164.all;
 USE  IEEE.STD_LOGIC_ARITH.all;
 USE  IEEE.STD_LOGIC_UNSIGNED.all;
 
+-- 3 pipes equadistant are visible during state '01'
+-- pipe_enable can be used for collisions
+-- Pipes move [NUMBER] pixels left during each screen refresh (vert_sync)
+-- Pipe gap height is determined by LFSR
+-- Draws pipe shape around x and y position, in rows less than top_height and above gap
+
 ENTITY PIPES IS
     PORT
         ( CLOCK_25Mhz	            : IN std_logic;
