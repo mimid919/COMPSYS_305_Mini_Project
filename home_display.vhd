@@ -96,12 +96,16 @@ Blue  <= text_on;
             pixel_column <  CONV_STD_LOGIC_VECTOR(272,10) and
             rom_pixel_L1 = '1')
 
+            or
+
         --L
         (   pixel_row    >= CONV_STD_LOGIC_VECTOR(100,10) and
             pixel_row    <  CONV_STD_LOGIC_VECTOR(132,10) and
             pixel_column >= CONV_STD_LOGIC_VECTOR(240,10) and
             pixel_column <  CONV_STD_LOGIC_VECTOR(272,10) and
             rom_pixel_A = '1')
+
+            or
 
         -- A
         (   pixel_row    >= CONV_STD_LOGIC_VECTOR(140,10) and
