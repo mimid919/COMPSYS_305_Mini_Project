@@ -18,12 +18,12 @@ ENTITY flappy_dolphin IS
 		  left_click 				: IN std_logic;
 		  fsm_state                 : IN std_logic_vector(1 DOWNTO 0);
 		  red, green, blue 			: OUT std_logic;
-		  dolphin_enable				: OUT std_logic); -- for collisions
+		  dolphin_on				: OUT std_logic;
+		  dolphin_enable			: OUT std_logic); -- for collisions
 END flappy_dolphin; 
 
 architecture behavior of flappy_dolphin is
 
-SIGNAL dolphin_on					: std_logic;
 SIGNAL size 						: std_logic_vector(9 DOWNTO 0);  
 SIGNAL dolphin_y_pos				: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(240,10); -- start on the ground
 SIGNAL dolphin_x_pos				: std_logic_vector(9 DOWNTO 0);
@@ -41,23 +41,31 @@ CONSTANT dolphin_ground 			: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECT
 BEGIN           
   	state <= '1' when FSM_STATE = "01" else '0'; -- only show pipes during game state
 
-	dolphin_enable <= dolphin_on and state; -- for collisions
-
 	size <= CONV_STD_LOGIC_VECTOR(8,10);
 
 	dolphin_x_pos <= CONV_STD_LOGIC_VECTOR(50,10);
 
 	-- sets dolphin visibility to 8x8 square
 	dolphin_on <= '1' when (
-		(dolphin_y_pos >= size) and
-		(pixel_column >= dolphin_x_pos - size) and (pixel_column <= dolphin_x_pos + size) and
-		(pixel_row >= dolphin_y_pos - size) and (pixel_row <= dolphin_y_pos + size))
-		else '0';
+	(state = '1') and
+	(dolphin_y_pos >= size) and
+	(pixel_column >= dolphin_x_pos - size) and 
+	(pixel_column <= dolphin_x_pos + size) and
+	(pixel_row >= dolphin_y_pos - size) and 
+	(pixel_row <= dolphin_y_pos + size)
+) else '0';
 
-	-- blue dolphin
-	Red <= '0';
-	Green <= '0';
-	Blue <=  dolphin_on and state;
+-- temporary dolphin colour
+red   <= '0';
+green <= '0';
+blue <= '1' when (
+    (state = '1') and
+    (dolphin_y_pos >= size) and
+    (pixel_column >= dolphin_x_pos - size) and 
+    (pixel_column <= dolphin_x_pos + size) and
+    (pixel_row >= dolphin_y_pos - size) and 
+    (pixel_row <= dolphin_y_pos + size)
+) else '0';
 
 	process (vert_sync)
 		variable left_click_edge : std_logic;

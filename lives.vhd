@@ -12,7 +12,8 @@ ENTITY lives IS
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
           FSM_STATE : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
           life_one, life_two, life_three : IN STD_LOGIC; -- for enabling lives
-          red, green, blue 			: OUT std_logic);		
+          red, green, blue 			: OUT std_logic;
+          live_on                   : out std_logic);		
 END lives;
 
 architecture behaviour of lives is
@@ -26,7 +27,7 @@ architecture behaviour of lives is
         );
     END COMPONENT char_rom;
 
-    SIGNAL text_on : std_logic;
+    SIGNAL lives_visible : std_logic;
 
     SIGNAL rom_pixel_heart_1 : std_logic;
     SIGNAL rom_pixel_heart_2 : std_logic;
@@ -55,16 +56,16 @@ process(pixel_row, pixel_column, FSM_STATE,
             row_heart_3, col_heart_3, rom_pixel_heart_3,
             life_one, life_two, life_three)
 begin
-    text_on <= '0';
+    lives_visible <= '0';
 
     if FSM_STATE = "01" then 
 
         if life_one = '1' and col_heart_1 < 16 and row_heart_1 < 16 and rom_pixel_heart_1 = '1' then
-            text_on <= '1';
+            lives_visible <= '1';
         elsif life_two = '1' and col_heart_2 < 16 and row_heart_2 < 16 and rom_pixel_heart_2 = '1' then
-            text_on <= '1';
+            lives_visible <= '1';
         elsif life_three = '1' and col_heart_3 < 16 and row_heart_3 < 16 and rom_pixel_heart_3 = '1' then
-            text_on <= '1';
+            lives_visible <= '1';
         end if;
     end if;
 end process;
@@ -96,7 +97,8 @@ PORT MAP (
     rom_mux_output => rom_pixel_Heart_3
 );
 
-Red   <= text_on;
+live_on <= lives_visible;
+Red   <= lives_visible;
 Green <= '0';
 Blue  <= '0';
 

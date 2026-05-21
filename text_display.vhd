@@ -9,7 +9,8 @@ ENTITY text_display IS
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
           -- adding a switch for interim display, to show the etxt changing colour, can remove for real project
             SW                                  : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-		  red, green, blue 			: OUT std_logic);		
+		  red, green, blue 			: OUT std_logic;
+          text_on   : out std_logic);		
 END text_display;
 
 architecture behaviour of text_display is
@@ -24,9 +25,8 @@ COMPONENT char_rom IS
 	);
 END COMPONENT char_rom;
 
-
-SIGNAL text_on : std_logic;
 SIGNAL rom_pixel : std_logic;
+SIGNAL text_visible : std_logic;
 
 
 SIGNAL rom_pixel_P : std_logic;
@@ -66,7 +66,7 @@ col_h <= pixel_column - CONV_STD_LOGIC_VECTOR(240,10);
 
 
 -- only turn text on when SW[9] is on
-text_on <= '1' when SW(9) = '1' and (
+text_visible <= '1' when SW(9) = '1' and (
 
     --P
     (
@@ -164,9 +164,9 @@ PORT MAP (
     rom_mux_output => rom_pixel_H
 );
 
-
-Red   <= text_on;
-Green <= (not text_on);
-Blue  <= text_on;
+text_on <= text_visible;
+Red   <= text_visible;
+Green <= '0';
+Blue  <= text_visible;
 
 END behaviour;

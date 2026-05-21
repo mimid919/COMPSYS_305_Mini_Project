@@ -56,7 +56,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
           left_click 				: IN std_logic;
           fsm_state                 : IN std_logic_vector(1 DOWNTO 0);
-		  red, green, blue 			: OUT std_logic;
+		  dolphin_on  			: OUT std_logic;
           dolphin_enable				: OUT std_logic);		
     END COMPONENT FLAPPY_DOLPHIN;
 
@@ -67,6 +67,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
           fsm_state                 : IN std_logic_vector(1 DOWNTO 0);
 		  red, green, blue 			: OUT std_logic;
+          pipe_on                   : OUT std_logic;
           lfsr_value				: IN std_logic_vector(7 DOWNTO 0);
 		  pipe_enable				: OUT std_logic;
           pipe_x_1                  : OUT std_logic_vector(9 DOWNTO 0); -- for bait
@@ -80,6 +81,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
            pipe_x_pos_1              : IN std_logic_vector(9 DOWNTO 0);
            gap_height                : IN std_logic_vector(9 DOWNTO 0);
            red, green, blue 		 : OUT std_logic;
+           bait_on                   : OUT std_logic;
            bait_enable               : OUT std_logic);
     END COMPONENT bait; 
 
@@ -89,7 +91,8 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
           FSM_STATE : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
           life_one, life_two, life_three : IN STD_LOGIC; -- for enabling seperate lives
-          red, green, blue 			: OUT std_logic);		
+          red, green, blue 			: OUT std_logic;
+          live_on                   : out std_logic);	
     END COMPONENT;
 
 
@@ -115,7 +118,8 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 		( clk                       : In std_logic;
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
             SW                                  : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-		  red, green, blue 			: OUT std_logic);		
+		  red, green, blue 			: OUT std_logic;
+          text_on   : out std_logic);		
     END COMPONENT text_display;
 
     COMPONENT CHAR_ROM IS
@@ -142,7 +146,22 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
         column_tens       : OUT std_logic_vector(3 DOWNTO 0);
         column_ones       : OUT std_logic_vector(3 DOWNTO 0)
     );
-    END COMPONENT position_to_BCD;
+     END COMPONENT position_to_BCD;
+
+    COMPONENT layer IS
+    PORT (
+        BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE : IN std_logic;
+        PIPE_RED, PIPE_GREEN, PIPE_BLUE : IN std_logic;
+        PIPE_ON : IN std_logic;
+        BAIT_RED, BAIT_GREEN, BAIT_BLUE : IN std_logic;
+        BAIT_ON : IN std_logic;
+        DOLPHIN_ON : IN std_logic;
+        LIVES_RED, LIVES_GREEN, LIVES_BLUE : IN std_logic;
+        LIVES_ON : IN std_logic;
+        TEXT_RED, TEXT_GREEN, TEXT_BLUE : IN std_logic;
+        RED_OUT, GREEN_OUT, BLUE_OUT : OUT std_logic
+    );
+END COMPONENT;
 
     SIGNAL CLOCK_25MHZ : STD_LOGIC;
 
@@ -157,12 +176,16 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 
     -- Signals for game components 
     -- MOVE TO ELEMENT LAYERING FILE
-    SIGNAL DOLPHIN_RED, DOLPHIN_GREEN, DOLPHIN_BLUE             : STD_LOGIC;
+    SIGNAL DOLPHIN_RED, DOLPHIN_GREEN, DOLPHIN_BLUE : STD_LOGIC;
+    SIGNAL DOLPHIN_ON          : STD_LOGIC;
     SIGNAL PIPE_RED, PIPE_GREEN, PIPE_BLUE                      : STD_LOGIC;
+    SIGNAL PIPE_ON : STD_LOGIC;
     SIGNAL TEXT_RED, TEXT_GREEN, TEXT_BLUE                      : STD_LOGIC;
+    SIGNAL TEXT_ON                                              : std_logic;
     SIGNAL BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE    : STD_LOGIC;
     SIGNAL BAIT_RED, BAIT_GREEN, BAIT_BLUE                      : STD_LOGIC;
     SIGNAL LIVES_RED, LIVES_GREEN, LIVES_BLUE                      : STD_LOGIC;
+    SIGNAL LIVES_ON                                              : STD_LOGIC;
 
     -- final colour outputs to VGA
     SIGNAL RED_OUT, GREEN_OUT, BLUE_OUT : STD_LOGIC; 
@@ -177,17 +200,10 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
     SIGNAL FSM_STATE : STD_LOGIC_VECTOR(1 DOWNTO 0); -- for controlling background colour and game state
 
     -- bait pipe position wires
+    SIGNAL BAIT_ON                     : std_logic;
     SIGNAL bait_pipe_x                  : std_logic_vector(9 DOWNTO 0);
     SIGNAL bait_pipe_y                  : std_logic_vector(9 DOWNTO 0);
 BEGIN
-
---TO BE MOVED OR DELETED {
-    
-    -- Output selected in layer (priority) order: text, dolphin, pipe, background
-    -- MOVE TO ELEMENT LAYERING FILE
-    RED_OUT     <= TEXT_RED OR DOLPHIN_RED OR LIVES_RED OR BAIT_RED OR PIPE_RED OR BACKGROUND_RED;
-    GREEN_OUT   <= TEXT_GREEN OR DOLPHIN_GREEN OR LIVES_GREEN OR BAIT_GREEN OR PIPE_GREEN OR BACKGROUND_GREEN;
-    BLUE_OUT    <= TEXT_BLUE OR DOLPHIN_BLUE OR LIVES_BLUE OR BAIT_BLUE OR PIPE_BLUE OR BACKGROUND_BLUE;
 
     -- REPLACE WITH FSM CONTROLLING GAME STATE
     FSM_STATE <= "10" when SW(1) = '1' else -- end screen
@@ -217,7 +233,6 @@ BEGIN
      LEDR(6) <= '1';
 	 LEDR(7) <= '1';
 
---}
 
     -- Connect VGA sync signals to output, could VGA_HS/VS go straight in instance?
     VGA_HS <= HORIZ_SYNC;
@@ -273,10 +288,9 @@ BEGIN
         pixel_column => PIXEL_COLUMN,
         left_click => LEFT_CLICK,
         fsm_state => FSM_STATE,
-        red => DOLPHIN_RED,
-        green => DOLPHIN_GREEN,
-        blue => DOLPHIN_BLUE,
-        DOLPHIN_ENABLE => OPEN -- not using for now, but will need to connect to collision counter when we add pipes
+
+        dolphin_on => DOLPHIN_ON,
+        dolphin_enable => OPEN
     );
 
     PIPE_DISPLAY: PIPES PORT MAP (
@@ -285,6 +299,7 @@ BEGIN
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
         fsm_state => FSM_STATE,
+        pipe_on => PIPE_ON,
         red => PIPE_RED,
         green => PIPE_GREEN,
         blue => PIPE_BLUE,
@@ -303,6 +318,7 @@ BEGIN
         red => BAIT_RED,
         green => BAIT_GREEN,
         blue => BAIT_BLUE,
+        bait_on => BAIT_ON,
         bait_enable => OPEN
     );
 
@@ -314,6 +330,7 @@ BEGIN
         life_one => '1',
         life_two => '1',
         life_three => '0',
+        live_on => LIVES_ON,
         red => LIVES_RED,
         green => LIVES_GREEN,
         blue => LIVES_BLUE
@@ -339,15 +356,16 @@ BEGIN
     );
 
 
---     TXT: text_display PORT MAP (
---     clk => CLOCK_25MHZ,
---     pixel_row => PIXEL_ROW,
---     pixel_column => PIXEL_COLUMN,
---     SW  =>   SW,
---     red => TEXT_RED,
---     green => TEXT_GREEN,
---     blue => TEXT_BLUE
--- );
+      --  TXT: text_display PORT MAP (
+    --clk => CLOCK_25MHZ,
+   -- pixel_row => PIXEL_ROW,
+       -- pixel_column => PIXEL_COLUMN,
+        --SW  =>   SW,
+   -- red => TEXT_RED,
+    --green => TEXT_GREEN,
+        --blue => TEXT_BLUE,
+        --text_on => TEXT_ON
+  --  );
 
     sevenseg_display : position_to_BCD PORT MAP (
         mouse_row => MOUSE_ROW,
@@ -359,6 +377,31 @@ BEGIN
         column_tens => column_tens,
         column_ones => column_ones
     );
+
+    LAYER_RENDERER: layer PORT MAP (
+    BACKGROUND_RED => BACKGROUND_RED,
+    BACKGROUND_GREEN => BACKGROUND_GREEN,
+    BACKGROUND_BLUE => BACKGROUND_BLUE,
+    PIPE_RED => PIPE_RED,
+    PIPE_GREEN => PIPE_GREEN,
+    PIPE_BLUE => PIPE_BLUE,
+    PIPE_ON => PIPE_ON,
+    BAIT_RED => BAIT_RED,
+    BAIT_GREEN => BAIT_GREEN,
+    BAIT_BLUE => BAIT_BLUE,
+    BAIT_ON => BAIT_ON,
+    DOLPHIN_ON => DOLPHIN_ON,
+    LIVES_RED => LIVES_RED,
+    LIVES_GREEN => LIVES_GREEN,
+    LIVES_BLUE => LIVES_BLUE,
+    LIVES_ON => LIVES_ON,
+    TEXT_RED => TEXT_RED,
+    TEXT_GREEN => TEXT_GREEN,
+    TEXT_BLUE => TEXT_BLUE,
+    RED_OUT => RED_OUT,
+    GREEN_OUT => GREEN_OUT,
+    BLUE_OUT => BLUE_OUT
+);
 
     -- mouse coordinate hex instances
     RH : BCD_to_SevenSeg PORT MAP (

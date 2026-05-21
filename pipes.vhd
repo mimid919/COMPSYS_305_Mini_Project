@@ -17,6 +17,7 @@ ENTITY PIPES IS
 		  red, green, blue 			: OUT std_logic;
           lfsr_value				: IN std_logic_vector(7 DOWNTO 0);
           FSM_STATE                 : IN std_logic_vector(1 DOWNTO 0);
+          pipe_on                 : OUT std_logic;
 		  pipe_enable				: OUT std_logic;
           pipe_x_1                  : OUT std_logic_vector(9 DOWNTO 0); -- for bait
           pipe_y_1                  : OUT std_logic_vector(9 DOWNTO 0) -- for bait
@@ -36,9 +37,9 @@ ARCHITECTURE behavior OF PIPES IS
     SIGNAL random_height_2           : std_logic_vector(9 DOWNTO 0);
     SIGNAL random_height_3           : std_logic_vector(9 DOWNTO 0);
 
-    SIGNAL pipe_on                    : std_logic;
-
     SIGNAL state                 : std_logic;
+
+    SIGNAL pipe_visible : std_logic;
 
 BEGIN
 
@@ -47,11 +48,12 @@ BEGIN
     random_height_3 <= CONV_STD_LOGIC_VECTOR(125 + CONV_INTEGER('0' & lfsr_value(5 DOWNTO 1)), 10);
 
     state <= '1' when FSM_STATE = "01" else '0'; -- only show pipes during game state
-    pipe_enable <= pipe_on AND state;
+    pipe_on <= pipe_visible and state;
+    pipe_enable <= pipe_visible and state;
 
-    GREEN <= pipe_on AND state; -- only show green pipes during game state
-    RED <= '0';
-    BLUE <= '0';
+    red   <= '0';
+    green <= pipe_visible and state;
+    blue  <= '0';   
 
     pipe_x_1 <= pipe_x_pos_1;
     pipe_y_1 <= pipe_top_height_1;
@@ -87,22 +89,22 @@ BEGIN
             pipe_x_pos_2, pipe_top_height_2, 
             pipe_x_pos_3, pipe_top_height_3)
     BEGIN
-        pipe_on <= '0'; 
+        pipe_visible <= '0'; 
         IF (pixel_column >= pipe_x_pos_1 AND pixel_column < pipe_x_pos_1 + 50) THEN -- if within x bounds of pipe
             IF (pixel_row < pipe_top_height_1  OR pixel_row > pipe_top_height_1 + 200) THEN -- if outside the gap
-                pipe_on <= '1';
+                pipe_visible <= '1';
             END IF;
         END IF;
 
         IF (pixel_column >= pipe_x_pos_2 AND pixel_column < pipe_x_pos_2 + 50) THEN -- if within x bounds of pipe
             IF (pixel_row < pipe_top_height_2  OR pixel_row > pipe_top_height_2 + 200) THEN -- if outside the gap
-                pipe_on <= '1';
+               pipe_visible <= '1';
             END IF;
         END IF;
 
         IF (pixel_column >= pipe_x_pos_3 AND pixel_column < pipe_x_pos_3 + 50) THEN -- if within x bounds of pipe
             IF (pixel_row < pipe_top_height_3  OR pixel_row > pipe_top_height_3 + 200) THEN -- if outside the gap
-                pipe_on <= '1';
+                pipe_visible <= '1';
             END IF;
         END IF;
 
