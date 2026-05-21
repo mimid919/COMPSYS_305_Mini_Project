@@ -20,8 +20,8 @@
 
 
 ### Keep syncing with main (do this if you want to update your personal branch with the tested Main code)
-- git checkout your-branch
-- git merge main
+- git checkout main
+- git pull origin main
 
 
 # 🖥️ Setting up a local repository (for labs)
