@@ -10,7 +10,7 @@ ENTITY lives IS
 	PORT
 		( clk                       : In std_logic;
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-          FSM_STATE : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+          Game_state_signal : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
           life_one, life_two, life_three : IN STD_LOGIC; -- for enabling lives
           red, green, blue 			: OUT std_logic;
           live_on                   : out std_logic);		
@@ -50,7 +50,7 @@ row_heart_3 <= pixel_row - CONV_STD_LOGIC_VECTOR(20,10);
 col_heart_3 <= pixel_column - CONV_STD_LOGIC_VECTOR(70,10);
 
 
-process(pixel_row, pixel_column, FSM_STATE,
+process(pixel_row, pixel_column, Game_state_signal,
             row_heart_1, col_heart_1, rom_pixel_heart_1,
             row_heart_2, col_heart_2, rom_pixel_heart_2,
             row_heart_3, col_heart_3, rom_pixel_heart_3,
@@ -58,7 +58,7 @@ process(pixel_row, pixel_column, FSM_STATE,
 begin
     lives_visible <= '0';
 
-    if FSM_STATE = "01" then 
+    if Game_state_signal = "01" then 
 
         if life_one = '1' and col_heart_1 < 16 and row_heart_1 < 16 and rom_pixel_heart_1 = '1' then
             lives_visible <= '1';

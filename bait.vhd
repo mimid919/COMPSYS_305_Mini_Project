@@ -11,7 +11,7 @@ USE  IEEE.STD_LOGIC_UNSIGNED.all;
 
 ENTITY bait IS
    PORT(  pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-		  fsm_state                 : IN std_logic_vector(1 DOWNTO 0);
+		  Game_state_signal                 : IN std_logic_vector(1 DOWNTO 0);
           pipe_x_pos_1              : IN std_logic_vector(9 DOWNTO 0);
           gap_height                : IN std_logic_vector(9 DOWNTO 0);
 		  red, green, blue 			: OUT std_logic;
@@ -29,7 +29,7 @@ ARCHITECTURE behaviour of bait is
 
 BEGIN
 
-    state <= '1' when FSM_STATE = "01" else '0'; -- only show bait during game state
+    state <= '1' when Game_state_signal = "01" else '0'; -- only show bait during game state
 
     randomiser <= gap_height(0);
 

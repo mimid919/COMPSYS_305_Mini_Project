@@ -4,7 +4,7 @@ USE  IEEE.STD_LOGIC_ARITH.all;
 USE  IEEE.STD_LOGIC_UNSIGNED.all;
 
 -- Sets dolphin visibility to 8x8 square around fixed x and click-dependant y position
--- When fsm_state changes to '01' dolphin is initialised to verticle center of screen
+-- When Game_state_signal changes to '01' dolphin is initialised to verticle center of screen
 -- dolphin_enable outputs '1' when dolphin is visible so can be used for collisions
 -- dolphin_y_motion is made up of jumps or accumulating gravity (fall gets faster)
 -- dolphin_y_motion is added to dolphin_y_position, refreshing each Vert_sync frame
@@ -18,7 +18,7 @@ ENTITY flappy_dolphin IS
 		  dolphin_x_pos_out : OUT std_logic_vector(9 DOWNTO 0);
 		dolphin_y_pos_out : OUT std_logic_vector(9 DOWNTO 0);
 		  left_click 				: IN std_logic;
-		  fsm_state                 : IN std_logic_vector(1 DOWNTO 0);
+		  Game_state_signal                 : IN std_logic_vector(1 DOWNTO 0);
 		  red, green, blue 			: OUT std_logic;
 		  dolphin_on				: OUT std_logic;
 		  dolphin_enable			: OUT std_logic); -- for collisions
@@ -45,7 +45,7 @@ BEGIN
 dolphin_x_pos_out <= dolphin_x_pos;
 dolphin_y_pos_out <= dolphin_y_pos;
 
-  	state <= '1' when FSM_STATE = "01" else '0'; -- only show pipes during game state
+  	state <= '1' when Game_state_signal = "01" else '0'; -- only show pipes during game state
 
 	size <= CONV_STD_LOGIC_VECTOR(8,10);
 

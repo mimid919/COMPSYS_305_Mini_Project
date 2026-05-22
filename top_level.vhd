@@ -16,169 +16,211 @@ ENTITY top_level IS
 END top_level;
 
 ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
-
-    COMPONENT pll is
-		port (
-			refclk   : in  std_logic := '0'; --  refclk.clk
-			rst      : in  std_logic := '0'; --   reset.reset
-			outclk_0 : out std_logic;        -- outclk0.clk
-			locked   : out std_logic         --  locked.export
-		);
-	end COMPONENT pll;
-
-    COMPONENT VGA_SYNC IS
-	PORT(	clock_25Mhz, red, green, blue		                        	: IN	STD_LOGIC;
-			red_out, green_out, blue_out, horiz_sync_out, vert_sync_out	: OUT	STD_LOGIC;
-			pixel_row, pixel_column                                     : OUT STD_LOGIC_VECTOR(9 DOWNTO 0));
-    END COMPONENT VGA_SYNC;
-
-    COMPONENT MOUSE IS
-    PORT(	clock_25Mhz, reset 		    : IN std_logic;
-            mouse_data					: INOUT std_logic;
-            mouse_clk 					: INOUT std_logic;
-            left_button, right_button	: OUT std_logic;
-            mouse_cursor_row 			: OUT std_logic_vector(9 DOWNTO 0); 
-            mouse_cursor_column 		: OUT std_logic_vector(9 DOWNTO 0));       	
-    END COMPONENT MOUSE;
-
-    COMPONENT lfsr IS
-    PORT
-        ( clk                       : In std_logic;
-          reset                     : In std_logic;
-          ENABLE                    : In std_logic;
-          INITIAL_VALUE             : IN std_logic_vector(7 DOWNTO 0); -- must be non-zero
-          lfsr_VALUES                : OUT std_logic_vector(7 DOWNTO 0)
-          );
-    END COMPONENT lfsr;
-
-    COMPONENT FLAPPY_DOLPHIN IS
-    PORT( clk, vert_sync	: IN std_logic;
-          pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-          dolphin_x_pos_out : OUT std_logic_vector(9 DOWNTO 0);
-          dolphin_y_pos_out : OUT std_logic_vector(9 DOWNTO 0);
-          left_click 				: IN std_logic;
-          fsm_state                 : IN std_logic_vector(1 DOWNTO 0);
-		  dolphin_on  			: OUT std_logic;
-          dolphin_enable				: OUT std_logic);		
-    END COMPONENT FLAPPY_DOLPHIN;
-
-    COMPONENT  PIPES IS
-    PORT
-        ( CLOCK_25Mhz	            : IN std_logic;
-          vert_sync		            : IN std_logic;
-          pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-          fsm_state                 : IN std_logic_vector(1 DOWNTO 0);
-		  red, green, blue 			: OUT std_logic;
-          pipe_on                   : OUT std_logic;
-          lfsr_value				: IN std_logic_vector(7 DOWNTO 0);
-		  pipe_enable				: OUT std_logic;
-          pipe_x_1                  : OUT std_logic_vector(9 DOWNTO 0); -- for bait
-          pipe_y_1                  : OUT std_logic_vector(9 DOWNTO 0) -- for bait
-          );	
-    END COMPONENT PIPES;
-
-    COMPONENT bait IS
-    PORT(  pixel_row, pixel_column	 : IN std_logic_vector(9 DOWNTO 0);
-           fsm_state                 : IN std_logic_vector(1 DOWNTO 0);
-           pipe_x_pos_1              : IN std_logic_vector(9 DOWNTO 0);
-           gap_height                : IN std_logic_vector(9 DOWNTO 0);
-           red, green, blue 		 : OUT std_logic;
-           bait_on                   : OUT std_logic;
-           bait_enable               : OUT std_logic);
-    END COMPONENT bait; 
-
-    COMPONENT lives IS
-	PORT
-		( clk                       : In std_logic;
-          pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-          FSM_STATE : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-          life_one, life_two, life_three : IN STD_LOGIC; -- for enabling seperate lives
-          red, green, blue 			: OUT std_logic;
-          live_on                   : out std_logic);	
-    END COMPONENT;
-
-
+------------------------------------ COMPONENT DECLARATION START ------------------------------------
     COMPONENT BACKGROUND IS
     PORT
-        ( pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-		  red, green, blue 			: OUT std_logic;
-          fsm_state                 : IN std_logic_vector(1 DOWNTO 0)
-          );	
+        ( pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
+        red, green, blue        : OUT std_logic;
+        Game_state_signal               : IN std_logic_vector(1 DOWNTO 0)
+        );
     END COMPONENT BACKGROUND;
 
-    COMPONENT home_display IS
-	PORT
-		( clk                       : In std_logic;
-          pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-          FSM_STATE : STD_LOGIC_VECTOR(1 DOWNTO 0);
-          red, green, blue 			: OUT std_logic);		
-    END COMPONENT home_display;
+    COMPONENT BAIT IS
+    PORT
+        ( pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
+        Game_state_signal               : IN std_logic_vector(1 DOWNTO 0);
+        pipe_x_pos_1           : IN std_logic_vector(9 DOWNTO 0);
+        gap_height             : IN std_logic_vector(9 DOWNTO 0);
+        red, green, blue       : OUT std_logic;
+        bait_on                : OUT std_logic;
+        bait_enable           : OUT std_logic
+        );
+    END COMPONENT BAIT;
 
-
-    COMPONENT text_display IS
-	PORT
-		( clk                       : In std_logic;
-          pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-            SW                                  : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-		  red, green, blue 			: OUT std_logic;
-          text_on   : out std_logic);		
-    END COMPONENT text_display;
+    COMPONENT BCD_TO_SEVENSEG IS
+    PORT
+        ( BCD_digit     : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+        SevenSeg_out  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
+        );
+    END COMPONENT BCD_TO_SEVENSEG;
 
     COMPONENT CHAR_ROM IS
-	PORT( character_address	        :	IN STD_LOGIC_VECTOR (5 DOWNTO 0);
-		  font_row, font_col	    :	IN STD_LOGIC_VECTOR (2 DOWNTO 0);
-		  clock				        : 	IN STD_LOGIC ;
-		  rom_mux_output	       	:	OUT STD_LOGIC);
+    PORT
+        ( character_address : IN STD_LOGIC_VECTOR (5 DOWNTO 0);
+        font_row         : IN STD_LOGIC_VECTOR (2 DOWNTO 0);
+        font_col         : IN STD_LOGIC_VECTOR (2 DOWNTO 0);
+        clock            : IN STD_LOGIC;
+        rom_mux_output   : OUT STD_LOGIC
+        );
     END COMPONENT CHAR_ROM;
 
-    COMPONENT BCD_to_SevenSeg IS
-    PORT( BCD_digit : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-          SevenSeg_out : OUT STD_LOGIC_VECTOR(6 DOWNTO 0));
-    END COMPONENT BCD_to_SevenSeg;
+    COMPONENT DOLPHIN_SPRITE IS
+    PORT
+        ( clk                     : IN std_logic;
+        pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
+        dolphin_x_pos          : IN std_logic_vector(9 DOWNTO 0);
+        dolphin_y_pos          : IN std_logic_vector(9 DOWNTO 0);
+        red, green, blue       : OUT std_logic;
+        dolphin_on             : OUT std_logic
+        );
+    END COMPONENT DOLPHIN_SPRITE;
 
-    COMPONENT position_to_BCD IS
-	PORT
-	(
-        mouse_row          : IN std_logic_vector(9 DOWNTO 0);
-        mouse_column       : IN std_logic_vector(9 DOWNTO 0);
-        row_hundreds      : OUT std_logic_vector(3 DOWNTO 0);
-        row_tens          : OUT std_logic_vector(3 DOWNTO 0);
-        row_ones          : OUT std_logic_vector(3 DOWNTO 0);
-        column_hundreds   : OUT std_logic_vector(3 DOWNTO 0);
-        column_tens       : OUT std_logic_vector(3 DOWNTO 0);
-        column_ones       : OUT std_logic_vector(3 DOWNTO 0)
-    );
-     END COMPONENT position_to_BCD;
+    COMPONENT FLAPPY_DOLPHIN IS
+    PORT
+        ( clk, vert_sync        : IN std_logic;
+        pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
+        dolphin_x_pos_out     : OUT std_logic_vector(9 DOWNTO 0);
+        dolphin_y_pos_out     : OUT std_logic_vector(9 DOWNTO 0);
+        left_click            : IN std_logic;
+        Game_state_signal             : IN std_logic_vector(1 DOWNTO 0);
+        dolphin_on            : OUT std_logic;
+        dolphin_enable        : OUT std_logic
+        );
+    END COMPONENT FLAPPY_DOLPHIN;
 
-    COMPONENT layer IS
+    COMPONENT FSM IS
     PORT (
-        BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE : IN std_logic;
+            CLK              : in STD_LOGIC;
+            Reset            : in STD_LOGIC;   -- key[0]
+            Start            : in STD_LOGIC;   -- key[1]
+            Pause_IN         : in STD_LOGIC;   -- SW[9]  cant be a push button because need a permanent state
+            Mode             : in STD_LOGIC;   -- SW[0], user selects either TRAINING OR GAME
+            Life             : in STD_LOGIC;   -- logic high
+            Timer            : in STD_LOGIC;   -- SW[1] NEEDS CHANGING TO USE AN ACTUAL TIMER
+           
+            Win              : out STD_LOGIC;  -- logic high
+            Termination      : out STD_LOGIC;  -- logic high
+            Pause_OUT        : out STD_LOGIC;  -- logic high
+            Game_State       : out STD_LOGIC_VECTOR(1 downto 0)        
+        );
+    END COMPONENT FSM;
+
+    COMPONENT HOME_DISPLAY IS
+    PORT
+        ( clk                 : IN std_logic;
+        pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
+        Game_state_signal           : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+        red, green, blue    : OUT std_logic
+        );
+    END COMPONENT HOME_DISPLAY;
+
+    COMPONENT LAYER IS
+    PORT
+        ( BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE : IN std_logic;
         PIPE_RED, PIPE_GREEN, PIPE_BLUE : IN std_logic;
-        PIPE_ON : IN std_logic;
+        PIPE_ON              : IN std_logic;
         BAIT_RED, BAIT_GREEN, BAIT_BLUE : IN std_logic;
-        BAIT_ON : IN std_logic;
+        BAIT_ON              : IN std_logic;
         SPRITE_RED, SPRITE_GREEN, SPRITE_BLUE : IN std_logic;
-        SPRITE_ON : IN std_logic;
+        SPRITE_ON           : IN std_logic;
         LIVES_RED, LIVES_GREEN, LIVES_BLUE : IN std_logic;
-        LIVES_ON : IN std_logic;
+        LIVES_ON            : IN std_logic;
         TEXT_RED, TEXT_GREEN, TEXT_BLUE : IN std_logic;
         RED_OUT, GREEN_OUT, BLUE_OUT : OUT std_logic
-    );
-END COMPONENT;
+        );
+    END COMPONENT LAYER;
 
-    COMPONENT dolphin_sprite is
-    PORT (
-        clk                     : IN std_logic;
+    COMPONENT LFSR IS
+    PORT
+        ( clk              : IN std_logic;
+        reset            : IN std_logic;
+        ENABLE           : IN std_logic;
+        INITIAL_VALUE    : IN std_logic_vector(7 DOWNTO 0);
+        lfsr_VALUES      : OUT std_logic_vector(7 DOWNTO 0)
+        );
+    END COMPONENT LFSR;
+
+    COMPONENT LIVES IS
+    PORT
+        ( clk                       : IN std_logic;
+        pixel_row, pixel_column   : IN std_logic_vector(9 DOWNTO 0);
+        Game_state_signal                 : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+        life_one, life_two, life_three : IN STD_LOGIC;
+        red, green, blue         : OUT std_logic;
+        live_on                  : OUT std_logic
+        );
+    END COMPONENT LIVES;
+
+    COMPONENT MOUSE IS
+    PORT
+        ( clock_25Mhz, reset       : IN std_logic;
+        mouse_data              : INOUT std_logic;
+        mouse_clk               : INOUT std_logic;
+        left_button, right_button : OUT std_logic;
+        mouse_cursor_row        : OUT std_logic_vector(9 DOWNTO 0);
+        mouse_cursor_column     : OUT std_logic_vector(9 DOWNTO 0)
+        );
+    END COMPONENT MOUSE;
+
+    COMPONENT PIPES IS
+    PORT
+        ( CLOCK_25Mhz            : IN std_logic;
+        vert_sync             : IN std_logic;
         pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
-        dolphin_x_pos           : IN std_logic_vector(9 DOWNTO 0);
-        dolphin_y_pos           : IN std_logic_vector(9 DOWNTO 0);
+        Game_state_signal             : IN std_logic_vector(1 DOWNTO 0);
+        red, green, blue      : OUT std_logic;
+        pipe_on               : OUT std_logic;
+        lfsr_value            : IN std_logic_vector(7 DOWNTO 0);
+        pipe_enable           : OUT std_logic;
+        pipe_x_1              : OUT std_logic_vector(9 DOWNTO 0);
+        pipe_y_1              : OUT std_logic_vector(9 DOWNTO 0)
+        );
+    END COMPONENT PIPES;
 
-        red, green, blue        : OUT std_logic;
-        dolphin_on              : OUT std_logic
-    );
-END COMPONENT;
+    COMPONENT PLL IS
+    PORT
+        ( refclk   : IN std_logic := '0';
+        rst      : IN std_logic := '0';
+        outclk_0 : OUT std_logic;
+        locked   : OUT std_logic
+        );
+    END COMPONENT PLL;
+
+    COMPONENT POSITION_TO_BCD IS
+    PORT
+        ( mouse_row        : IN std_logic_vector(9 DOWNTO 0);
+        mouse_column     : IN std_logic_vector(9 DOWNTO 0);
+        row_hundreds     : OUT std_logic_vector(3 DOWNTO 0);
+        row_tens         : OUT std_logic_vector(3 DOWNTO 0);
+        row_ones         : OUT std_logic_vector(3 DOWNTO 0);
+        column_hundreds  : OUT std_logic_vector(3 DOWNTO 0);
+        column_tens      : OUT std_logic_vector(3 DOWNTO 0);
+        column_ones      : OUT std_logic_vector(3 DOWNTO 0)
+        );
+    END COMPONENT POSITION_TO_BCD;
+
+    COMPONENT TEXT_DISPLAY IS
+    PORT
+        ( clk                 : IN std_logic;
+        pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
+        SW                  : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+        red, green, blue    : OUT std_logic;
+        text_on             : OUT std_logic
+        );
+    END COMPONENT TEXT_DISPLAY;
+
+    COMPONENT VGA_SYNC IS
+    PORT
+        ( clock_25Mhz, red, green, blue : IN STD_LOGIC;
+        red_out, green_out, blue_out, horiz_sync_out, vert_sync_out : OUT STD_LOGIC;
+        pixel_row, pixel_column : OUT STD_LOGIC_VECTOR(9 DOWNTO 0)
+        );
+    END COMPONENT VGA_SYNC;
+------------------------------------ COMPONENT DECLARATION START ------------------------------------
+
+
+
 
     SIGNAL CLOCK_25MHZ : STD_LOGIC;
+
+    ----    FSM SIGNALS ---
+    SIGNAL Life_signal              : STD_LOGIC := '1';
+    SIGNAL Win_signal               : STD_LOGIC;
+    SIGNAL Termination_signal       : STD_LOGIC;
+    SIGNAL Pause_out_signal         : STD_LOGIC;
+    SIGNAL Game_state_signal        : STD_LOGIC_VECTOR(1 downto 0);  -- used to be called "Game_state_signal"
+
+   
 
     -- VGA signals used in other componants
     SIGNAL PIXEL_ROW, PIXEL_COLUMN  : STD_LOGIC_VECTOR(9 DOWNTO 0); -- pixel being chosen at present
@@ -212,7 +254,6 @@ END COMPONENT;
     SIGNAL row_hundreds, row_tens, row_ones : STD_LOGIC_VECTOR(3 DOWNTO 0); -- output from position_to_BCD for mouse row
     SIGNAL column_hundreds, column_tens, column_ones : STD_LOGIC_VECTOR(3 DOWNTO 0); -- output from position_to_BCD for mouse column
 
-    SIGNAL FSM_STATE : STD_LOGIC_VECTOR(1 DOWNTO 0); -- for controlling background colour and game state
 
     -- bait pipe position wires
     SIGNAL BAIT_ON                     : std_logic;
@@ -230,33 +271,11 @@ END COMPONENT;
 
 BEGIN
 
-    -- REPLACE WITH FSM CONTROLLING GAME STATE
-    FSM_STATE <= "10" when SW(1) = '1' else -- end screen
-                 "00" when SW(0) = '0' else -- start screen
-                 "01" when SW(0) = '1' else -- game screen
-                 "00"; -- default to start screen if no switches on
 
     -- DELETE WHEN ADDING MORE COLOURS
     VGA_R(2 DOWNTO 0) <= "000";
     VGA_G(2 DOWNTO 0) <= "000";
     VGA_B(2 DOWNTO 0) <= "000";
-
-    
-    -- set pipe, text and background colours to 0 temporarily
-    --PIPE_RED <= '0';            PIPE_GREEN <= '0';          PIPE_BLUE <= '0';
-    --TEXT_RED <= '0';            TEXT_GREEN <= '0';          TEXT_BLUE <= '0';
-    --BACKGROUND_RED <= '0';      BACKGROUND_GREEN <= '0';    BACKGROUND_BLUE <= '0';
-
-
-    -- MOVE TO NEW FILE OR DELETE IF NOT USING
-	 LEDR(1) <= '0';
-	 LEDR(0) <= RIGHT_CLICK;
-	 LEDR(2) <= '0';
-	 LEDR(3) <= '0';
-     LEDR(4) <= '0';
-	 LEDR(5) <= '0';
-     LEDR(6) <= '1';
-	 LEDR(7) <= '1';
 
 
     -- Connect VGA sync signals to output, could VGA_HS/VS go straight in instance?
@@ -265,26 +284,128 @@ BEGIN
 
     RESET <= NOT KEY(0); -- active low reset
 
-    -- Divide 50MHz clock to get 25MHz clock for VGA
-    clock_divider : pll port map  (
-			refclk   => CLOCK_50,
-			rst      =>  '0',--   reset.reset
-			outclk_0 =>    CLOCK_25MHZ,     -- outclk0.clk
-			locked   =>      OPEN     --  locked.export
-		);
+    -- REPLACE WITH FSM CONTROLLING GAME STATE
+    -- Game_state_signal <= "10" when SW(1) = '1' else -- end screen
+    --              "00" when SW(0) = '0' else -- start screen
+    --              "01" when SW(0) = '1' else -- game screen
+    --              "00"; -- default to start screen if no switches on
 
-    VGA_REFRESH: VGA_SYNC PORT MAP (
-        clock_25Mhz => CLOCK_25MHZ,
-        red => RED_OUT,
-        green => GREEN_OUT,
-        blue => BLUE_OUT,
-        red_out => VGA_R(3), -- MSB
-        green_out => VGA_G(3),
-        blue_out => VGA_B(3),
-        horiz_sync_out => HORIZ_SYNC,
-        vert_sync_out => VERT_SYNC,
+
+
+
+
+
+------------------------------------ PORT MAP DECLARATION START ------------------------------------
+
+    BG: BACKGROUND PORT MAP (
         pixel_row => PIXEL_ROW,
-        pixel_column => PIXEL_COLUMN
+        pixel_column => PIXEL_COLUMN,
+        red => BACKGROUND_RED,
+        green => BACKGROUND_GREEN,
+        blue => BACKGROUND_BLUE,
+        Game_state_signal => Game_state_signal
+    );
+
+    CH : BCD_TO_SEVENSEG PORT MAP (
+        BCD_digit => column_hundreds,
+        SevenSeg_out => HEX2
+    );
+
+    CO : BCD_TO_SEVENSEG PORT MAP (
+        BCD_digit => column_ones,
+        SevenSeg_out => HEX0
+    );
+
+    CT : BCD_TO_SEVENSEG PORT MAP (
+        BCD_digit => column_tens,
+        SevenSeg_out => HEX1
+    );
+
+    clock_divider : PLL PORT MAP (
+        refclk   => CLOCK_50,
+        rst      => '0',
+        outclk_0 => CLOCK_25MHZ,
+        locked   => OPEN
+    );
+
+    DOLPHIN_SPRITE_INST : DOLPHIN_SPRITE PORT MAP (
+        clk => CLOCK_25MHZ,
+        pixel_row => PIXEL_ROW,
+        pixel_column => PIXEL_COLUMN,
+        dolphin_x_pos => DOLPHIN_X_POS,
+        dolphin_y_pos => DOLPHIN_Y_POS,
+        red => SPRITE_RED,
+        green => SPRITE_GREEN,
+        blue => SPRITE_BLUE,
+        dolphin_on => SPRITE_ON
+    );
+
+    HOME_SCREEN_TEXT: HOME_DISPLAY PORT MAP (
+        clk => CLOCK_25MHZ,
+        pixel_row => PIXEL_ROW,
+        pixel_column => PIXEL_COLUMN,
+        Game_state_signal => Game_state_signal,
+        red => TEXT_RED,
+        green => TEXT_GREEN,
+        blue => TEXT_BLUE
+
+    );
+
+    FINITE_STATE_MACHINE : FSM PORT MAP(
+        CLK             => CLOCK_50,
+        Reset           => RESET,  -- declared above before port map declarations
+        Start           => NOT KEY(1),
+        Pause_IN        => SW(9), -- different to original fsm diagram
+        Mode            => SW(0),
+        Life            => Life_signal,
+        Timer           => SW(1),
+       
+        Win             => Win_signal,
+        Termination     => Termination_signal,
+        Pause_OUT       => Pause_out_signal,
+        Game_State      => Game_state_signal
+    );
+
+    LAYER_RENDERER: LAYER PORT MAP (
+        BACKGROUND_RED => BACKGROUND_RED,
+        BACKGROUND_GREEN => BACKGROUND_GREEN,
+        BACKGROUND_BLUE => BACKGROUND_BLUE,
+        PIPE_RED => PIPE_RED,
+        PIPE_GREEN => PIPE_GREEN,
+        PIPE_BLUE => PIPE_BLUE,
+        PIPE_ON => PIPE_ON,
+        BAIT_RED => BAIT_RED,
+        BAIT_GREEN => BAIT_GREEN,
+        BAIT_BLUE => BAIT_BLUE,
+        BAIT_ON => BAIT_ON,
+        SPRITE_RED => SPRITE_RED,
+        SPRITE_GREEN => SPRITE_GREEN,
+        SPRITE_BLUE => SPRITE_BLUE,
+        SPRITE_ON => SPRITE_ON,
+        LIVES_RED => LIVES_RED,
+        LIVES_GREEN => LIVES_GREEN,
+        LIVES_BLUE => LIVES_BLUE,
+        LIVES_ON => LIVES_ON,
+        TEXT_RED => TEXT_RED,
+        TEXT_GREEN => TEXT_GREEN,
+        TEXT_BLUE => TEXT_BLUE,
+        RED_OUT => RED_OUT,
+        GREEN_OUT => GREEN_OUT,
+        BLUE_OUT => BLUE_OUT
+    );
+
+    LIFE_DISPLAY: LIVES PORT MAP (
+        clk => CLOCK_25MHZ,
+        pixel_row => PIXEL_ROW,
+        pixel_column => PIXEL_COLUMN,
+        Game_state_signal => Game_state_signal,
+        life_one => '1',
+        life_two => '1',
+        life_three => '0',
+        live_on => LIVES_ON,
+        red => LIVES_RED,
+        green => LIVES_GREEN,
+        blue => LIVES_BLUE
     );
 
     MOUSE_CONTROLS: MOUSE PORT MAP (
@@ -298,33 +419,12 @@ BEGIN
         mouse_cursor_column => MOUSE_COLUMN
     );
 
-    RANDOM_NUMBER: lfsr PORT MAP (
-        clk => CLOCK_25MHZ,
-        reset => RESET,
-        ENABLE => '1', -- always enabled for now, but could connect to game state
-        INITIAL_VALUE => "10101010", -- must be non-zero
-        lfsr_VALUES => RANDOM_VALUE
-    );
-
-    PLAYER_CHARACTER: FLAPPY_DOLPHIN PORT MAP (
-        clk => CLOCK_25MHZ,
-        vert_sync => VERT_SYNC,
-        pixel_row => PIXEL_ROW,
-        pixel_column => PIXEL_COLUMN,
-        left_click => LEFT_CLICK,
-        fsm_state => FSM_STATE,
-        dolphin_x_pos_out => DOLPHIN_X_POS,
-        dolphin_y_pos_out => DOLPHIN_Y_POS,
-        dolphin_on => DOLPHIN_ON,
-        dolphin_enable => OPEN
-    );
-
     PIPE_DISPLAY: PIPES PORT MAP (
         CLOCK_25Mhz => CLOCK_25MHZ,
         vert_sync => VERT_SYNC,
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
-        fsm_state => FSM_STATE,
+        Game_state_signal => Game_state_signal,
         pipe_on => PIPE_ON,
         red => PIPE_RED,
         green => PIPE_GREEN,
@@ -335,10 +435,38 @@ BEGIN
         pipe_y_1 => bait_pipe_y
     );
 
-    RANDOM_BAIT: bait PORT MAP (
+    PLAYER_CHARACTER: FLAPPY_DOLPHIN PORT MAP (
+        clk => CLOCK_25MHZ,
+        vert_sync => VERT_SYNC,
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
-        fsm_state => FSM_STATE,
+        left_click => LEFT_CLICK,
+        Game_state_signal => Game_state_signal,
+        dolphin_x_pos_out => DOLPHIN_X_POS,
+        dolphin_y_pos_out => DOLPHIN_Y_POS,
+        dolphin_on => DOLPHIN_ON,
+        dolphin_enable => OPEN
+    );
+
+    RH : BCD_TO_SEVENSEG PORT MAP (
+        BCD_digit => row_hundreds,
+        SevenSeg_out => HEX5
+    );
+
+    RT : BCD_TO_SEVENSEG PORT MAP (
+        BCD_digit => row_tens,
+        SevenSeg_out => HEX4
+    );
+
+    RO : BCD_TO_SEVENSEG PORT MAP (
+        BCD_digit => row_ones,
+        SevenSeg_out => HEX3
+    );
+
+    RANDOM_BAIT: BAIT PORT MAP (
+        pixel_row => PIXEL_ROW,
+        pixel_column => PIXEL_COLUMN,
+        Game_state_signal => Game_state_signal,
         pipe_x_pos_1 => bait_pipe_x,
         gap_height => bait_pipe_y,
         red => BAIT_RED,
@@ -348,52 +476,15 @@ BEGIN
         bait_enable => OPEN
     );
 
-    LIFE_DISPLAY: lives PORT MAP (
-		clk => CLOCK_25MHZ,
-        pixel_row => PIXEL_ROW,
-        pixel_column => PIXEL_COLUMN,
-        FSM_STATE  => FSM_STATE,
-        life_one => '1',
-        life_two => '1',
-        life_three => '0',
-        live_on => LIVES_ON,
-        red => LIVES_RED,
-        green => LIVES_GREEN,
-        blue => LIVES_BLUE
-    );
-
-    BG: BACKGROUND PORT MAP (
-        pixel_row => PIXEL_ROW,
-        pixel_column => PIXEL_COLUMN,
-        red => BACKGROUND_RED,
-        green => BACKGROUND_GREEN,
-        blue => BACKGROUND_BLUE,
-        fsm_state => FSM_STATE
-    );
-
-    HOME_SCREEN_TEXT: home_display PORT MAP (
+    RANDOM_NUMBER: LFSR PORT MAP (
         clk => CLOCK_25MHZ,
-        pixel_row => PIXEL_ROW,
-        pixel_column => PIXEL_COLUMN,
-        FSM_STATE => FSM_STATE,
-        red => TEXT_RED,
-        green => TEXT_GREEN,
-        blue => TEXT_BLUE
+        reset => RESET,
+        ENABLE => '1',
+        INITIAL_VALUE => "10101010",
+        lfsr_VALUES => RANDOM_VALUE
     );
 
-
-      --  TXT: text_display PORT MAP (
-    --clk => CLOCK_25MHZ,
-   -- pixel_row => PIXEL_ROW,
-       -- pixel_column => PIXEL_COLUMN,
-        --SW  =>   SW,
-   -- red => TEXT_RED,
-    --green => TEXT_GREEN,
-        --blue => TEXT_BLUE,
-        --text_on => TEXT_ON
-  --  );
-
-    sevenseg_display : position_to_BCD PORT MAP (
+    sevenseg_display : POSITION_TO_BCD PORT MAP (
         mouse_row => MOUSE_ROW,
         mouse_column => MOUSE_COLUMN,
         row_hundreds => row_hundreds,
@@ -404,70 +495,21 @@ BEGIN
         column_ones => column_ones
     );
 
-    LAYER_RENDERER: layer PORT MAP (
-    BACKGROUND_RED => BACKGROUND_RED,
-    BACKGROUND_GREEN => BACKGROUND_GREEN,
-    BACKGROUND_BLUE => BACKGROUND_BLUE,
-    PIPE_RED => PIPE_RED,
-    PIPE_GREEN => PIPE_GREEN,
-    PIPE_BLUE => PIPE_BLUE,
-    PIPE_ON => PIPE_ON,
-    BAIT_RED => BAIT_RED,
-    BAIT_GREEN => BAIT_GREEN,
-    BAIT_BLUE => BAIT_BLUE,
-    BAIT_ON => BAIT_ON,
-    SPRITE_RED => SPRITE_RED,
-    SPRITE_GREEN => SPRITE_GREEN,
-    SPRITE_BLUE => SPRITE_BLUE,
-    SPRITE_ON => SPRITE_ON,
-    LIVES_RED => LIVES_RED,
-    LIVES_GREEN => LIVES_GREEN,
-    LIVES_BLUE => LIVES_BLUE,
-    LIVES_ON => LIVES_ON,
-    TEXT_RED => TEXT_RED,
-    TEXT_GREEN => TEXT_GREEN,
-    TEXT_BLUE => TEXT_BLUE,
-    RED_OUT => RED_OUT,
-    GREEN_OUT => GREEN_OUT,
-    BLUE_OUT => BLUE_OUT
-);
 
-DOLPHIN_SPRITE_INST : dolphin_sprite PORT MAP (
-    clk => CLOCK_25MHZ,                   
+    VGA_REFRESH: VGA_SYNC PORT MAP (
+        clock_25Mhz => CLOCK_25MHZ,
+        red => RED_OUT,
+        green => GREEN_OUT,
+        blue => BLUE_OUT,
+        red_out => VGA_R(3),
+        green_out => VGA_G(3),
+        blue_out => VGA_B(3),
+        horiz_sync_out => HORIZ_SYNC,
+        vert_sync_out => VERT_SYNC,
         pixel_row => PIXEL_ROW,
-        pixel_column =>  PIXEL_COLUMN,
-        dolphin_x_pos   => DOLPHIN_X_POS,      
-        dolphin_y_pos      => DOLPHIN_Y_POS,    
-        red => SPRITE_RED,
-        green => SPRITE_GREEN,
-        blue => SPRITE_BLUE,
-        dolphin_on  => SPRITE_ON
-);
+        pixel_column => PIXEL_COLUMN
+    );
+ ------------------------------------ PORT MAP DECLARATION END ------------------------------------
 
-    -- mouse coordinate hex instances
-    RH : BCD_to_SevenSeg PORT MAP (
-        BCD_digit => row_hundreds,
-        SevenSeg_out => HEX5
-    );
-    RT : BCD_to_SevenSeg PORT MAP (
-        BCD_digit => row_tens,
-        SevenSeg_out => HEX4
-    );
-    RO : BCD_to_SevenSeg PORT MAP (
-        BCD_digit => row_ones,
-        SevenSeg_out => HEX3
-    );
-    CH : BCD_to_SevenSeg PORT MAP (
-        BCD_digit => column_hundreds,
-        SevenSeg_out => HEX2
-    );
-    CT : BCD_to_SevenSeg PORT MAP (
-        BCD_digit => column_tens,
-        SevenSeg_out => HEX1
-    );
-    CO : BCD_to_SevenSeg PORT MAP (
-        BCD_digit => column_ones,
-        SevenSeg_out => HEX0
-    );
 
 END BEHAVIOUR;

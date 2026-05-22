@@ -11,7 +11,7 @@ ENTITY home_display IS
 	PORT
 		( clk                       : In std_logic;
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-          FSM_STATE : STD_LOGIC_VECTOR(1 DOWNTO 0);
+          Game_state_signal : STD_LOGIC_VECTOR(1 DOWNTO 0);
           red, green, blue 			: OUT std_logic);		
 END home_display;
 
@@ -88,7 +88,7 @@ row_N <= pixel_row - CONV_STD_LOGIC_VECTOR(240,10);
 col_N <= pixel_column - CONV_STD_LOGIC_VECTOR(540,10);
 
 
-process(pixel_row, pixel_column, FSM_STATE,
+process(pixel_row, pixel_column, Game_state_signal,
             row_F, col_F, rom_pixel_F,
             row_L1, col_L1, rom_pixel_L1,
             row_A, col_A, rom_pixel_A,
@@ -106,7 +106,7 @@ process(pixel_row, pixel_column, FSM_STATE,
 begin
     text_on <= '0';
 
-    if FSM_STATE = "00" then -- start screen
+    if Game_state_signal = "00" then -- start screen
         if col_F < 32 and row_F < 32 and rom_pixel_F = '1' then
             text_on <= '1';
         elsif
