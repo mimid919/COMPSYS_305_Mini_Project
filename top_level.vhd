@@ -432,7 +432,7 @@ BEGIN
     BLUE_OUT => BLUE_OUT
 );
 
-DOLPHIN_SPRITE : dolphin_sprite PORT MAP (
+DOLPHIN_SPRITE_INST : dolphin_sprite PORT MAP (
     clk => CLOCK_25MHZ,                   
         pixel_row => PIXEL_ROW,
         pixel_column =>  PIXEL_COLUMN,

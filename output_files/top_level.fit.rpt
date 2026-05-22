@@ -1,6 +1,6 @@
 Fitter report for top_level
-Sat May 16 15:41:37 2026
-Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+Fri May 22 14:15:17 2026
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
 ---------------------
@@ -63,30 +63,30 @@ refer to the applicable agreement for further details.
 
 
 
-+-----------------------------------------------------------------------------------+
-; Fitter Summary                                                                    ;
-+---------------------------------+-------------------------------------------------+
-; Fitter Status                   ; Successful - Sat May 16 15:41:37 2026           ;
-; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
-; Revision Name                   ; top_level                                       ;
-; Top-level Entity Name           ; top_level                                       ;
-; Family                          ; Cyclone V                                       ;
-; Device                          ; 5CEBA4F23C7                                     ;
-; Timing Models                   ; Final                                           ;
-; Logic utilization (in ALMs)     ; 747 / 18,480 ( 4 % )                            ;
-; Total registers                 ; 283                                             ;
-; Total pins                      ; 83 / 224 ( 37 % )                               ;
-; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 960 / 3,153,920 ( < 1 % )                       ;
-; Total RAM Blocks                ; 4 / 308 ( 1 % )                                 ;
-; Total DSP Blocks                ; 0 / 66 ( 0 % )                                  ;
-; Total HSSI RX PCSs              ; 0                                               ;
-; Total HSSI PMA RX Deserializers ; 0                                               ;
-; Total HSSI TX PCSs              ; 0                                               ;
-; Total HSSI PMA TX Serializers   ; 0                                               ;
-; Total PLLs                      ; 1 / 4 ( 25 % )                                  ;
-; Total DLLs                      ; 0 / 4 ( 0 % )                                   ;
-+---------------------------------+-------------------------------------------------+
++-------------------------------------------------------------------------------+
+; Fitter Summary                                                                ;
++---------------------------------+---------------------------------------------+
+; Fitter Status                   ; Successful - Fri May 22 14:15:17 2026       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; top_level                                   ;
+; Top-level Entity Name           ; top_level                                   ;
+; Family                          ; Cyclone V                                   ;
+; Device                          ; 5CEBA4F23C7                                 ;
+; Timing Models                   ; Final                                       ;
+; Logic utilization (in ALMs)     ; 747 / 18,480 ( 4 % )                        ;
+; Total registers                 ; 291                                         ;
+; Total pins                      ; 83 / 224 ( 37 % )                           ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 1,728 / 3,153,920 ( < 1 % )                 ;
+; Total RAM Blocks                ; 5 / 308 ( 2 % )                             ;
+; Total DSP Blocks                ; 0 / 66 ( 0 % )                              ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 1 / 4 ( 25 % )                              ;
+; Total DLLs                      ; 0 / 4 ( 0 % )                               ;
++---------------------------------+---------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -156,26 +156,26 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 24          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
-; Average used               ; 1.06        ;
+; Average used               ; 1.05        ;
 ; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.5%      ;
-;     Processor 3            ;   0.5%      ;
-;     Processor 4            ;   0.5%      ;
-;     Processor 5            ;   0.4%      ;
-;     Processor 6            ;   0.4%      ;
-;     Processor 7            ;   0.4%      ;
-;     Processor 8            ;   0.4%      ;
-;     Processor 9            ;   0.4%      ;
-;     Processor 10           ;   0.4%      ;
-;     Processor 11           ;   0.4%      ;
-;     Processor 12           ;   0.4%      ;
-;     Processor 13           ;   0.4%      ;
-;     Processor 14           ;   0.4%      ;
-;     Processor 15           ;   0.4%      ;
-;     Processor 16           ;   0.4%      ;
+;     Processor 2            ;   0.4%      ;
+;     Processor 3            ;   0.4%      ;
+;     Processor 4            ;   0.4%      ;
+;     Processor 5            ;   0.3%      ;
+;     Processor 6            ;   0.3%      ;
+;     Processor 7            ;   0.3%      ;
+;     Processor 8            ;   0.3%      ;
+;     Processor 9            ;   0.3%      ;
+;     Processor 10           ;   0.3%      ;
+;     Processor 11           ;   0.3%      ;
+;     Processor 12           ;   0.3%      ;
+;     Processor 13           ;   0.3%      ;
+;     Processor 14           ;   0.3%      ;
+;     Processor 15           ;   0.3%      ;
+;     Processor 16           ;   0.3%      ;
 +----------------------------+-------------+
 
 
@@ -185,39 +185,47 @@ refer to the applicable agreement for further details.
 ; Node                                                                               ; Action     ; Operation                                         ; Reason                     ; Node Port ; Node Port Name ; Destination Node                                      ; Destination Port ; Destination Port Name ;
 +------------------------------------------------------------------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+-------------------------------------------------------+------------------+-----------------------+
 ; pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0]~CLKENA0 ; Created    ; Placement                                         ; Fitter Periphery Placement ;           ;                ;                                                       ;                  ;                       ;
-; MOUSE:MOUSE_CONTROLS|filter[2]                                                     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MOUSE:MOUSE_CONTROLS|filter[2]~DUPLICATE              ;                  ;                       ;
-; MOUSE:MOUSE_CONTROLS|filter[5]                                                     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MOUSE:MOUSE_CONTROLS|filter[5]~DUPLICATE              ;                  ;                       ;
-; MOUSE:MOUSE_CONTROLS|inhibit_wait_count[10]                                        ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MOUSE:MOUSE_CONTROLS|inhibit_wait_count[10]~DUPLICATE ;                  ;                       ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_1[1]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_1[1]~DUPLICATE          ;                  ;                       ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_1[3]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_1[3]~DUPLICATE          ;                  ;                       ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_1[5]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_1[5]~DUPLICATE          ;                  ;                       ;
+; MOUSE:MOUSE_CONTROLS|inhibit_wait_count[11]                                        ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MOUSE:MOUSE_CONTROLS|inhibit_wait_count[11]~DUPLICATE ;                  ;                       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_1[0]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_1[0]~DUPLICATE          ;                  ;                       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_1[4]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_1[4]~DUPLICATE          ;                  ;                       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_1[8]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_1[8]~DUPLICATE          ;                  ;                       ;
 ; PIPES:PIPE_DISPLAY|pipe_x_pos_1[9]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_1[9]~DUPLICATE          ;                  ;                       ;
 ; PIPES:PIPE_DISPLAY|pipe_x_pos_2[0]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_2[0]~DUPLICATE          ;                  ;                       ;
 ; PIPES:PIPE_DISPLAY|pipe_x_pos_2[1]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_2[1]~DUPLICATE          ;                  ;                       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_2[2]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_2[2]~DUPLICATE          ;                  ;                       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_2[3]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_2[3]~DUPLICATE          ;                  ;                       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_2[4]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_2[4]~DUPLICATE          ;                  ;                       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_2[5]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_2[5]~DUPLICATE          ;                  ;                       ;
 ; PIPES:PIPE_DISPLAY|pipe_x_pos_2[6]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_2[6]~DUPLICATE          ;                  ;                       ;
 ; PIPES:PIPE_DISPLAY|pipe_x_pos_2[7]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_2[7]~DUPLICATE          ;                  ;                       ;
 ; PIPES:PIPE_DISPLAY|pipe_x_pos_2[8]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_2[8]~DUPLICATE          ;                  ;                       ;
 ; PIPES:PIPE_DISPLAY|pipe_x_pos_2[9]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_2[9]~DUPLICATE          ;                  ;                       ;
 ; PIPES:PIPE_DISPLAY|pipe_x_pos_3[0]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_3[0]~DUPLICATE          ;                  ;                       ;
 ; PIPES:PIPE_DISPLAY|pipe_x_pos_3[1]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_3[1]~DUPLICATE          ;                  ;                       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_3[2]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_3[2]~DUPLICATE          ;                  ;                       ;
 ; PIPES:PIPE_DISPLAY|pipe_x_pos_3[3]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_3[3]~DUPLICATE          ;                  ;                       ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_3[4]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_3[4]~DUPLICATE          ;                  ;                       ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_3[5]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_3[5]~DUPLICATE          ;                  ;                       ;
 ; PIPES:PIPE_DISPLAY|pipe_x_pos_3[6]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_3[6]~DUPLICATE          ;                  ;                       ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_3[7]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_3[7]~DUPLICATE          ;                  ;                       ;
 ; PIPES:PIPE_DISPLAY|pipe_x_pos_3[9]                                                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; PIPES:PIPE_DISPLAY|pipe_x_pos_3[9]~DUPLICATE          ;                  ;                       ;
+; VGA_SYNC:VGA_REFRESH|h_count[0]                                                    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:VGA_REFRESH|h_count[0]~DUPLICATE             ;                  ;                       ;
 ; VGA_SYNC:VGA_REFRESH|h_count[2]                                                    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:VGA_REFRESH|h_count[2]~DUPLICATE             ;                  ;                       ;
+; VGA_SYNC:VGA_REFRESH|h_count[3]                                                    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:VGA_REFRESH|h_count[3]~DUPLICATE             ;                  ;                       ;
+; VGA_SYNC:VGA_REFRESH|h_count[4]                                                    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:VGA_REFRESH|h_count[4]~DUPLICATE             ;                  ;                       ;
 ; VGA_SYNC:VGA_REFRESH|h_count[7]                                                    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:VGA_REFRESH|h_count[7]~DUPLICATE             ;                  ;                       ;
-; VGA_SYNC:VGA_REFRESH|pixel_column[1]                                               ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:VGA_REFRESH|pixel_column[1]~DUPLICATE        ;                  ;                       ;
-; VGA_SYNC:VGA_REFRESH|pixel_column[4]                                               ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:VGA_REFRESH|pixel_column[4]~DUPLICATE        ;                  ;                       ;
+; VGA_SYNC:VGA_REFRESH|h_count[8]                                                    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:VGA_REFRESH|h_count[8]~DUPLICATE             ;                  ;                       ;
+; VGA_SYNC:VGA_REFRESH|pixel_column[2]                                               ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:VGA_REFRESH|pixel_column[2]~DUPLICATE        ;                  ;                       ;
+; VGA_SYNC:VGA_REFRESH|pixel_column[3]                                               ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:VGA_REFRESH|pixel_column[3]~DUPLICATE        ;                  ;                       ;
+; VGA_SYNC:VGA_REFRESH|pixel_column[5]                                               ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:VGA_REFRESH|pixel_column[5]~DUPLICATE        ;                  ;                       ;
+; VGA_SYNC:VGA_REFRESH|pixel_column[7]                                               ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:VGA_REFRESH|pixel_column[7]~DUPLICATE        ;                  ;                       ;
 ; VGA_SYNC:VGA_REFRESH|pixel_row[0]                                                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:VGA_REFRESH|pixel_row[0]~DUPLICATE           ;                  ;                       ;
-; VGA_SYNC:VGA_REFRESH|pixel_row[2]                                                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:VGA_REFRESH|pixel_row[2]~DUPLICATE           ;                  ;                       ;
-; VGA_SYNC:VGA_REFRESH|pixel_row[6]                                                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:VGA_REFRESH|pixel_row[6]~DUPLICATE           ;                  ;                       ;
+; VGA_SYNC:VGA_REFRESH|pixel_row[4]                                                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:VGA_REFRESH|pixel_row[4]~DUPLICATE           ;                  ;                       ;
+; VGA_SYNC:VGA_REFRESH|v_count[1]                                                    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:VGA_REFRESH|v_count[1]~DUPLICATE             ;                  ;                       ;
+; VGA_SYNC:VGA_REFRESH|v_count[2]                                                    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:VGA_REFRESH|v_count[2]~DUPLICATE             ;                  ;                       ;
 ; VGA_SYNC:VGA_REFRESH|v_count[4]                                                    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:VGA_REFRESH|v_count[4]~DUPLICATE             ;                  ;                       ;
+; VGA_SYNC:VGA_REFRESH|v_count[6]                                                    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:VGA_REFRESH|v_count[6]~DUPLICATE             ;                  ;                       ;
 ; lfsr:RANDOM_NUMBER|lfsr_reg[1]                                                     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; lfsr:RANDOM_NUMBER|lfsr_reg[1]~DUPLICATE              ;                  ;                       ;
-; lfsr:RANDOM_NUMBER|lfsr_reg[3]                                                     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; lfsr:RANDOM_NUMBER|lfsr_reg[3]~DUPLICATE              ;                  ;                       ;
+; lfsr:RANDOM_NUMBER|lfsr_reg[2]                                                     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; lfsr:RANDOM_NUMBER|lfsr_reg[2]~DUPLICATE              ;                  ;                       ;
 ; lfsr:RANDOM_NUMBER|lfsr_reg[4]                                                     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; lfsr:RANDOM_NUMBER|lfsr_reg[4]~DUPLICATE              ;                  ;                       ;
-; lfsr:RANDOM_NUMBER|lfsr_reg[5]                                                     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; lfsr:RANDOM_NUMBER|lfsr_reg[5]~DUPLICATE              ;                  ;                       ;
+; lfsr:RANDOM_NUMBER|lfsr_reg[6]                                                     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; lfsr:RANDOM_NUMBER|lfsr_reg[6]~DUPLICATE              ;                  ;                       ;
 ; lfsr:RANDOM_NUMBER|lfsr_reg[7]                                                     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; lfsr:RANDOM_NUMBER|lfsr_reg[7]~DUPLICATE              ;                  ;                       ;
 +------------------------------------------------------------------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+-------------------------------------------------------+------------------+-----------------------+
 
@@ -359,8 +367,8 @@ refer to the applicable agreement for further details.
 ; Type                ; Total [A + B]       ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+---------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                     ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 1919 ) ; 0.00 % ( 0 / 1919 )        ; 0.00 % ( 0 / 1919 )      ;
-;     -- Achieved     ; 0.00 % ( 0 / 1919 ) ; 0.00 % ( 0 / 1919 )        ; 0.00 % ( 0 / 1919 )      ;
+;     -- Requested    ; 0.00 % ( 0 / 1921 ) ; 0.00 % ( 0 / 1921 )        ; 0.00 % ( 0 / 1921 )      ;
+;     -- Achieved     ; 0.00 % ( 0 / 1921 ) ; 0.00 % ( 0 / 1921 )        ; 0.00 % ( 0 / 1921 )      ;
 ;                     ;                     ;                            ;                          ;
 ; Routing (by net)    ;                     ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )    ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -383,7 +391,7 @@ refer to the applicable agreement for further details.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 1912 )   ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 1914 )   ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 7 )      ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -391,7 +399,7 @@ refer to the applicable agreement for further details.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in C:/Users/edia026/305/COMPSYS_305_Mini_Project/output_files/top_level.pin.
+The pin-out file can be found in C:/Users/User/Desktop/COMPSYS_305_Mini_Project/output_files/top_level.pin.
 
 
 +---------------------------------------------------------------------------------------------+
@@ -401,12 +409,12 @@ The pin-out file can be found in C:/Users/edia026/305/COMPSYS_305_Mini_Project/o
 +-------------------------------------------------------------+-----------------------+-------+
 ; Logic utilization (ALMs needed / total ALMs on device)      ; 747 / 18,480          ; 4 %   ;
 ; ALMs needed [=A-B+C]                                        ; 747                   ;       ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 786 / 18,480          ; 4 %   ;
-;         [a] ALMs used for LUT logic and registers           ; 88                    ;       ;
-;         [b] ALMs used for LUT logic                         ; 662                   ;       ;
-;         [c] ALMs used for registers                         ; 36                    ;       ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 796 / 18,480          ; 4 %   ;
+;         [a] ALMs used for LUT logic and registers           ; 82                    ;       ;
+;         [b] ALMs used for LUT logic                         ; 671                   ;       ;
+;         [c] ALMs used for registers                         ; 43                    ;       ;
 ;         [d] ALMs used for memory (up to half of total ALMs) ; 0                     ;       ;
-;     [B] Estimate of ALMs recoverable by dense packing       ; 39 / 18,480           ; < 1 % ;
+;     [B] Estimate of ALMs recoverable by dense packing       ; 49 / 18,480           ; < 1 % ;
 ;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 0 / 18,480            ; 0 %   ;
 ;         [a] Due to location constrained logic               ; 0                     ;       ;
 ;         [b] Due to LAB-wide signal conflicts                ; 0                     ;       ;
@@ -415,35 +423,35 @@ The pin-out file can be found in C:/Users/edia026/305/COMPSYS_305_Mini_Project/o
 ;                                                             ;                       ;       ;
 ; Difficulty packing design                                   ; Low                   ;       ;
 ;                                                             ;                       ;       ;
-; Total LABs:  partially or completely used                   ; 97 / 1,848            ; 5 %   ;
-;     -- Logic LABs                                           ; 97                    ;       ;
+; Total LABs:  partially or completely used                   ; 99 / 1,848            ; 5 %   ;
+;     -- Logic LABs                                           ; 99                    ;       ;
 ;     -- Memory LABs (up to half of total LABs)               ; 0                     ;       ;
 ;                                                             ;                       ;       ;
-; Combinational ALUT usage for logic                          ; 1,380                 ;       ;
+; Combinational ALUT usage for logic                          ; 1,379                 ;       ;
 ;     -- 7 input functions                                    ; 31                    ;       ;
-;     -- 6 input functions                                    ; 95                    ;       ;
-;     -- 5 input functions                                    ; 102                   ;       ;
-;     -- 4 input functions                                    ; 197                   ;       ;
+;     -- 6 input functions                                    ; 98                    ;       ;
+;     -- 5 input functions                                    ; 99                    ;       ;
+;     -- 4 input functions                                    ; 196                   ;       ;
 ;     -- <=3 input functions                                  ; 955                   ;       ;
-; Combinational ALUT usage for route-throughs                 ; 20                    ;       ;
+; Combinational ALUT usage for route-throughs                 ; 22                    ;       ;
 ;                                                             ;                       ;       ;
-; Dedicated logic registers                                   ; 283                   ;       ;
+; Dedicated logic registers                                   ; 291                   ;       ;
 ;     -- By type:                                             ;                       ;       ;
-;         -- Primary logic registers                          ; 247 / 36,960          ; < 1 % ;
-;         -- Secondary logic registers                        ; 36 / 36,960           ; < 1 % ;
+;         -- Primary logic registers                          ; 249 / 36,960          ; < 1 % ;
+;         -- Secondary logic registers                        ; 42 / 36,960           ; < 1 % ;
 ;     -- By function:                                         ;                       ;       ;
 ;         -- Design implementation registers                  ; 249                   ;       ;
-;         -- Routing optimization registers                   ; 34                    ;       ;
+;         -- Routing optimization registers                   ; 42                    ;       ;
 ;                                                             ;                       ;       ;
 ; Virtual pins                                                ; 0                     ;       ;
 ; I/O pins                                                    ; 83 / 224              ; 37 %  ;
 ;     -- Clock pins                                           ; 4 / 9                 ; 44 %  ;
 ;     -- Dedicated input pins                                 ; 0 / 11                ; 0 %   ;
 ;                                                             ;                       ;       ;
-; M10K blocks                                                 ; 4 / 308               ; 1 %   ;
+; M10K blocks                                                 ; 5 / 308               ; 2 %   ;
 ; Total MLAB memory bits                                      ; 0                     ;       ;
-; Total block memory bits                                     ; 960 / 3,153,920       ; < 1 % ;
-; Total block memory implementation bits                      ; 40,960 / 3,153,920    ; 1 %   ;
+; Total block memory bits                                     ; 1,728 / 3,153,920     ; < 1 % ;
+; Total block memory implementation bits                      ; 51,200 / 3,153,920    ; 2 %   ;
 ;                                                             ;                       ;       ;
 ; Total DSP Blocks                                            ; 0 / 66                ; 0 %   ;
 ;                                                             ;                       ;       ;
@@ -459,12 +467,12 @@ The pin-out file can be found in C:/Users/edia026/305/COMPSYS_305_Mini_Project/o
 ; Remote update blocks                                        ; 0 / 1                 ; 0 %   ;
 ; Oscillator blocks                                           ; 0 / 1                 ; 0 %   ;
 ; Impedance control blocks                                    ; 0 / 3                 ; 0 %   ;
-; Average interconnect usage (total/H/V)                      ; 1.9% / 2.0% / 1.7%    ;       ;
-; Peak interconnect usage (total/H/V)                         ; 14.1% / 14.4% / 13.0% ;       ;
-; Maximum fan-out                                             ; 103                   ;       ;
-; Highest non-global fan-out                                  ; 93                    ;       ;
-; Total fan-out                                               ; 5289                  ;       ;
-; Average fan-out                                             ; 2.84                  ;       ;
+; Average interconnect usage (total/H/V)                      ; 1.9% / 2.0% / 1.6%    ;       ;
+; Peak interconnect usage (total/H/V)                         ; 16.0% / 16.7% / 13.6% ;       ;
+; Maximum fan-out                                             ; 110                   ;       ;
+; Highest non-global fan-out                                  ; 95                    ;       ;
+; Total fan-out                                               ; 5336                  ;       ;
+; Average fan-out                                             ; 2.85                  ;       ;
 +-------------------------------------------------------------+-----------------------+-------+
 
 
@@ -475,12 +483,12 @@ The pin-out file can be found in C:/Users/edia026/305/COMPSYS_305_Mini_Project/o
 +-------------------------------------------------------------+-----------------------+--------------------------------+
 ; Logic utilization (ALMs needed / total ALMs on device)      ; 747 / 18480 ( 4 % )   ; 0 / 18480 ( 0 % )              ;
 ; ALMs needed [=A-B+C]                                        ; 747                   ; 0                              ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 786 / 18480 ( 4 % )   ; 0 / 18480 ( 0 % )              ;
-;         [a] ALMs used for LUT logic and registers           ; 88                    ; 0                              ;
-;         [b] ALMs used for LUT logic                         ; 662                   ; 0                              ;
-;         [c] ALMs used for registers                         ; 36                    ; 0                              ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 796 / 18480 ( 4 % )   ; 0 / 18480 ( 0 % )              ;
+;         [a] ALMs used for LUT logic and registers           ; 82                    ; 0                              ;
+;         [b] ALMs used for LUT logic                         ; 671                   ; 0                              ;
+;         [c] ALMs used for registers                         ; 43                    ; 0                              ;
 ;         [d] ALMs used for memory (up to half of total ALMs) ; 0                     ; 0                              ;
-;     [B] Estimate of ALMs recoverable by dense packing       ; 39 / 18480 ( < 1 % )  ; 0 / 18480 ( 0 % )              ;
+;     [B] Estimate of ALMs recoverable by dense packing       ; 49 / 18480 ( < 1 % )  ; 0 / 18480 ( 0 % )              ;
 ;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 0 / 18480 ( 0 % )     ; 0 / 18480 ( 0 % )              ;
 ;         [a] Due to location constrained logic               ; 0                     ; 0                              ;
 ;         [b] Due to LAB-wide signal conflicts                ; 0                     ; 0                              ;
@@ -489,36 +497,36 @@ The pin-out file can be found in C:/Users/edia026/305/COMPSYS_305_Mini_Project/o
 ;                                                             ;                       ;                                ;
 ; Difficulty packing design                                   ; Low                   ; Low                            ;
 ;                                                             ;                       ;                                ;
-; Total LABs:  partially or completely used                   ; 97 / 1848 ( 5 % )     ; 0 / 1848 ( 0 % )               ;
-;     -- Logic LABs                                           ; 97                    ; 0                              ;
+; Total LABs:  partially or completely used                   ; 99 / 1848 ( 5 % )     ; 0 / 1848 ( 0 % )               ;
+;     -- Logic LABs                                           ; 99                    ; 0                              ;
 ;     -- Memory LABs (up to half of total LABs)               ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
-; Combinational ALUT usage for logic                          ; 1380                  ; 0                              ;
+; Combinational ALUT usage for logic                          ; 1379                  ; 0                              ;
 ;     -- 7 input functions                                    ; 31                    ; 0                              ;
-;     -- 6 input functions                                    ; 95                    ; 0                              ;
-;     -- 5 input functions                                    ; 102                   ; 0                              ;
-;     -- 4 input functions                                    ; 197                   ; 0                              ;
+;     -- 6 input functions                                    ; 98                    ; 0                              ;
+;     -- 5 input functions                                    ; 99                    ; 0                              ;
+;     -- 4 input functions                                    ; 196                   ; 0                              ;
 ;     -- <=3 input functions                                  ; 955                   ; 0                              ;
-; Combinational ALUT usage for route-throughs                 ; 20                    ; 0                              ;
+; Combinational ALUT usage for route-throughs                 ; 22                    ; 0                              ;
 ; Memory ALUT usage                                           ; 0                     ; 0                              ;
 ;     -- 64-address deep                                      ; 0                     ; 0                              ;
 ;     -- 32-address deep                                      ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; Dedicated logic registers                                   ; 0                     ; 0                              ;
 ;     -- By type:                                             ;                       ;                                ;
-;         -- Primary logic registers                          ; 247 / 36960 ( < 1 % ) ; 0 / 36960 ( 0 % )              ;
-;         -- Secondary logic registers                        ; 36 / 36960 ( < 1 % )  ; 0 / 36960 ( 0 % )              ;
+;         -- Primary logic registers                          ; 249 / 36960 ( < 1 % ) ; 0 / 36960 ( 0 % )              ;
+;         -- Secondary logic registers                        ; 42 / 36960 ( < 1 % )  ; 0 / 36960 ( 0 % )              ;
 ;     -- By function:                                         ;                       ;                                ;
 ;         -- Design implementation registers                  ; 249                   ; 0                              ;
-;         -- Routing optimization registers                   ; 34                    ; 0                              ;
+;         -- Routing optimization registers                   ; 42                    ; 0                              ;
 ;                                                             ;                       ;                                ;
 ;                                                             ;                       ;                                ;
 ; Virtual pins                                                ; 0                     ; 0                              ;
 ; I/O pins                                                    ; 82                    ; 1                              ;
 ; I/O registers                                               ; 0                     ; 0                              ;
-; Total block memory bits                                     ; 960                   ; 0                              ;
-; Total block memory implementation bits                      ; 40960                 ; 0                              ;
-; M10K block                                                  ; 4 / 308 ( 1 % )       ; 0 / 308 ( 0 % )                ;
+; Total block memory bits                                     ; 1728                  ; 0                              ;
+; Total block memory implementation bits                      ; 51200                 ; 0                              ;
+; M10K block                                                  ; 5 / 308 ( 1 % )       ; 0 / 308 ( 0 % )                ;
 ; Clock enable block                                          ; 0 / 104 ( 0 % )       ; 1 / 104 ( < 1 % )              ;
 ; Fractional PLL                                              ; 0 / 4 ( 0 % )         ; 1 / 4 ( 25 % )                 ;
 ; PLL Output Counter                                          ; 0 / 36 ( 0 % )        ; 1 / 36 ( 2 % )                 ;
@@ -526,18 +534,18 @@ The pin-out file can be found in C:/Users/edia026/305/COMPSYS_305_Mini_Project/o
 ; PLL Reference Clock Select Block                            ; 0 / 4 ( 0 % )         ; 1 / 4 ( 25 % )                 ;
 ;                                                             ;                       ;                                ;
 ; Connections                                                 ;                       ;                                ;
-;     -- Input Connections                                    ; 105                   ; 0                              ;
-;     -- Registered Input Connections                         ; 99                    ; 0                              ;
-;     -- Output Connections                                   ; 2                     ; 103                            ;
+;     -- Input Connections                                    ; 112                   ; 0                              ;
+;     -- Registered Input Connections                         ; 105                   ; 0                              ;
+;     -- Output Connections                                   ; 2                     ; 110                            ;
 ;     -- Registered Output Connections                        ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; Internal Connections                                        ;                       ;                                ;
-;     -- Total Connections                                    ; 5428                  ; 135                            ;
-;     -- Registered Connections                               ; 1731                  ; 0                              ;
+;     -- Total Connections                                    ; 5480                  ; 142                            ;
+;     -- Registered Connections                               ; 1746                  ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; External Connections                                        ;                       ;                                ;
-;     -- Top                                                  ; 4                     ; 103                            ;
-;     -- hard_block:auto_generated_inst                       ; 103                   ; 0                              ;
+;     -- Top                                                  ; 4                     ; 110                            ;
+;     -- hard_block:auto_generated_inst                       ; 110                   ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; Partition Interface                                         ;                       ;                                ;
 ;     -- Input Ports                                          ; 15                    ; 1                              ;
@@ -570,8 +578,8 @@ The pin-out file can be found in C:/Users/edia026/305/COMPSYS_305_Mini_Project/o
 ; KEY[1]   ; W9    ; 3A       ; 11           ; 0            ; 34           ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
 ; KEY[2]   ; M7    ; 3A       ; 14           ; 0            ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
 ; KEY[3]   ; M6    ; 3A       ; 14           ; 0            ; 17           ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
-; SW[0]    ; U13   ; 4A       ; 33           ; 0            ; 40           ; 12                    ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
-; SW[1]    ; V13   ; 4A       ; 33           ; 0            ; 57           ; 12                    ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
+; SW[0]    ; U13   ; 4A       ; 33           ; 0            ; 40           ; 14                    ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
+; SW[1]    ; V13   ; 4A       ; 33           ; 0            ; 57           ; 15                    ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
 ; SW[2]    ; T13   ; 4A       ; 34           ; 0            ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
 ; SW[3]    ; T12   ; 4A       ; 34           ; 0            ; 17           ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
 ; SW[4]    ; AA15  ; 4A       ; 36           ; 0            ; 34           ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
@@ -1320,20 +1328,24 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +----------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                   ; ALMs needed [=A-B+C] ; [A] ALMs used in final placement ; [B] Estimate of ALMs recoverable by dense packing ; [C] Estimate of ALMs unavailable ; ALMs used for memory ; Combinational ALUTs ; Dedicated Logic Registers ; I/O Registers ; Block Memory Bits ; M10Ks ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                         ; Entity Name         ; Library Name ;
 +----------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |top_level                                   ; 747.0 (0.5)          ; 785.5 (0.5)                      ; 38.5 (0.0)                                        ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1380 (1)            ; 283 (0)                   ; 0 (0)         ; 960               ; 4     ; 0          ; 83   ; 0            ; |top_level                                                                                                                                  ; top_level           ; work         ;
-;    |BACKGROUND:BG|                           ; 0.3 (0.3)            ; 0.5 (0.5)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|BACKGROUND:BG                                                                                                                    ; BACKGROUND          ; work         ;
+; |top_level                                   ; 746.5 (0.5)          ; 795.5 (0.5)                      ; 49.0 (0.0)                                        ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1379 (1)            ; 291 (0)                   ; 0 (0)         ; 1728              ; 5     ; 0          ; 83   ; 0            ; |top_level                                                                                                                                  ; top_level           ; work         ;
+;    |BACKGROUND:BG|                           ; 0.3 (0.3)            ; 0.3 (0.3)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|BACKGROUND:BG                                                                                                                    ; BACKGROUND          ; work         ;
 ;    |BCD_to_SevenSeg:CH|                      ; 3.5 (3.5)            ; 3.5 (3.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|BCD_to_SevenSeg:CH                                                                                                               ; BCD_to_SevenSeg     ; work         ;
 ;    |BCD_to_SevenSeg:CO|                      ; 3.5 (3.5)            ; 3.5 (3.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|BCD_to_SevenSeg:CO                                                                                                               ; BCD_to_SevenSeg     ; work         ;
 ;    |BCD_to_SevenSeg:CT|                      ; 3.5 (3.5)            ; 3.5 (3.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|BCD_to_SevenSeg:CT                                                                                                               ; BCD_to_SevenSeg     ; work         ;
 ;    |BCD_to_SevenSeg:RH|                      ; 3.5 (3.5)            ; 3.5 (3.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|BCD_to_SevenSeg:RH                                                                                                               ; BCD_to_SevenSeg     ; work         ;
 ;    |BCD_to_SevenSeg:RO|                      ; 3.5 (3.5)            ; 3.5 (3.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|BCD_to_SevenSeg:RO                                                                                                               ; BCD_to_SevenSeg     ; work         ;
 ;    |BCD_to_SevenSeg:RT|                      ; 3.5 (3.5)            ; 3.5 (3.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|BCD_to_SevenSeg:RT                                                                                                               ; BCD_to_SevenSeg     ; work         ;
-;    |MOUSE:MOUSE_CONTROLS|                    ; 58.5 (58.5)          ; 80.4 (80.4)                      ; 21.9 (21.9)                                       ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 108 (108)           ; 123 (123)                 ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|MOUSE:MOUSE_CONTROLS                                                                                                             ; MOUSE               ; work         ;
-;    |PIPES:PIPE_DISPLAY|                      ; 94.6 (94.6)          ; 106.2 (106.2)                    ; 11.6 (11.6)                                       ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 166 (166)           ; 70 (70)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|PIPES:PIPE_DISPLAY                                                                                                               ; PIPES               ; work         ;
-;    |VGA_SYNC:VGA_REFRESH|                    ; 37.2 (37.2)          ; 40.1 (40.1)                      ; 2.9 (2.9)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 53 (53)             ; 56 (56)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|VGA_SYNC:VGA_REFRESH                                                                                                             ; VGA_SYNC            ; work         ;
-;    |bait:RANDOM_BAIT|                        ; 51.8 (51.8)          ; 52.8 (52.8)                      ; 0.9 (0.9)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 89 (89)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|bait:RANDOM_BAIT                                                                                                                 ; bait                ; work         ;
-;    |flappy_dolphin:PLAYER_CHARACTER|         ; 38.5 (38.5)          ; 38.5 (38.5)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 68 (68)             ; 22 (22)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|flappy_dolphin:PLAYER_CHARACTER                                                                                                  ; flappy_dolphin      ; work         ;
-;    |home_display:HOME_SCREEN_TEXT|           ; 91.2 (65.2)          ; 93.7 (67.7)                      ; 2.5 (2.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 147 (121)           ; 0 (0)                     ; 0 (0)         ; 832               ; 3     ; 0          ; 0    ; 0            ; |top_level|home_display:HOME_SCREEN_TEXT                                                                                                    ; home_display        ; work         ;
+;    |MOUSE:MOUSE_CONTROLS|                    ; 58.5 (58.5)          ; 84.3 (84.3)                      ; 25.8 (25.8)                                       ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 108 (108)           ; 121 (121)                 ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|MOUSE:MOUSE_CONTROLS                                                                                                             ; MOUSE               ; work         ;
+;    |PIPES:PIPE_DISPLAY|                      ; 92.8 (92.8)          ; 106.4 (106.4)                    ; 13.6 (13.6)                                       ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 162 (162)           ; 72 (72)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|PIPES:PIPE_DISPLAY                                                                                                               ; PIPES               ; work         ;
+;    |VGA_SYNC:VGA_REFRESH|                    ; 30.2 (30.2)          ; 33.3 (33.3)                      ; 3.2 (3.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 45 (45)             ; 64 (64)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|VGA_SYNC:VGA_REFRESH                                                                                                             ; VGA_SYNC            ; work         ;
+;    |bait:RANDOM_BAIT|                        ; 46.7 (46.7)          ; 46.7 (46.7)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 84 (84)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|bait:RANDOM_BAIT                                                                                                                 ; bait                ; work         ;
+;    |dolphin_sprite:DOLPHIN_SPRITE_INST|      ; 17.0 (17.0)          ; 17.0 (17.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 27 (27)             ; 0 (0)                     ; 0 (0)         ; 768               ; 1     ; 0          ; 0    ; 0            ; |top_level|dolphin_sprite:DOLPHIN_SPRITE_INST                                                                                               ; dolphin_sprite      ; work         ;
+;       |sprite_rom:DOLPHIN_ROM|               ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 768               ; 1     ; 0          ; 0    ; 0            ; |top_level|dolphin_sprite:DOLPHIN_SPRITE_INST|sprite_rom:DOLPHIN_ROM                                                                        ; sprite_rom          ; work         ;
+;          |altsyncram:ROM|                    ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 768               ; 1     ; 0          ; 0    ; 0            ; |top_level|dolphin_sprite:DOLPHIN_SPRITE_INST|sprite_rom:DOLPHIN_ROM|altsyncram:ROM                                                         ; altsyncram          ; work         ;
+;             |altsyncram_6nu3:auto_generated| ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 768               ; 1     ; 0          ; 0    ; 0            ; |top_level|dolphin_sprite:DOLPHIN_SPRITE_INST|sprite_rom:DOLPHIN_ROM|altsyncram:ROM|altsyncram_6nu3:auto_generated                          ; altsyncram_6nu3     ; work         ;
+;    |flappy_dolphin:PLAYER_CHARACTER|         ; 25.8 (25.8)          ; 26.3 (26.3)                      ; 0.5 (0.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 45 (45)             ; 22 (22)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|flappy_dolphin:PLAYER_CHARACTER                                                                                                  ; flappy_dolphin      ; work         ;
+;    |home_display:HOME_SCREEN_TEXT|           ; 91.2 (65.2)          ; 96.2 (70.2)                      ; 5.0 (5.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 150 (124)           ; 0 (0)                     ; 0 (0)         ; 832               ; 3     ; 0          ; 0    ; 0            ; |top_level|home_display:HOME_SCREEN_TEXT                                                                                                    ; home_display        ; work         ;
 ;       |char_rom:A_ROM|                       ; 2.0 (2.0)            ; 2.0 (2.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 2 (2)               ; 0 (0)                     ; 0 (0)         ; 64                ; 2     ; 0          ; 0    ; 0            ; |top_level|home_display:HOME_SCREEN_TEXT|char_rom:A_ROM                                                                                     ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 64                ; 2     ; 0          ; 0    ; 0            ; |top_level|home_display:HOME_SCREEN_TEXT|char_rom:A_ROM|altsyncram:altsyncram_component                                                     ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 64                ; 2     ; 0          ; 0    ; 0            ; |top_level|home_display:HOME_SCREEN_TEXT|char_rom:A_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated                      ; altsyncram_d5g1     ; work         ;
@@ -1373,9 +1385,10 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;       |char_rom:Y_ROM|                       ; 2.0 (2.0)            ; 2.0 (2.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 2 (2)               ; 0 (0)                     ; 0 (0)         ; 64                ; 0     ; 0          ; 0    ; 0            ; |top_level|home_display:HOME_SCREEN_TEXT|char_rom:Y_ROM                                                                                     ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 64                ; 0     ; 0          ; 0    ; 0            ; |top_level|home_display:HOME_SCREEN_TEXT|char_rom:Y_ROM|altsyncram:altsyncram_component                                                     ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 64                ; 0     ; 0          ; 0    ; 0            ; |top_level|home_display:HOME_SCREEN_TEXT|char_rom:Y_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated                      ; altsyncram_d5g1     ; work         ;
-;    |lfsr:RANDOM_NUMBER|                      ; 3.2 (3.2)            ; 3.4 (3.4)                        ; 0.3 (0.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 6 (6)               ; 12 (12)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|lfsr:RANDOM_NUMBER                                                                                                               ; lfsr                ; work         ;
-;    |lives:LIFE_DISPLAY|                      ; 15.8 (12.0)          ; 15.8 (12.5)                      ; 0.0 (0.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 31 (27)             ; 0 (0)                     ; 0 (0)         ; 128               ; 1     ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY                                                                                                               ; lives               ; work         ;
-;       |char_rom:HEART_ROM_1|                 ; 1.3 (1.3)            ; 1.3 (1.3)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 2 (2)               ; 0 (0)                     ; 0 (0)         ; 64                ; 1     ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY|char_rom:HEART_ROM_1                                                                                          ; char_rom            ; work         ;
+;    |layer:LAYER_RENDERER|                    ; 2.0 (2.0)            ; 3.0 (3.0)                        ; 1.0 (1.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 3 (3)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|layer:LAYER_RENDERER                                                                                                             ; layer               ; work         ;
+;    |lfsr:RANDOM_NUMBER|                      ; 3.4 (3.4)            ; 3.4 (3.4)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 6 (6)               ; 12 (12)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|lfsr:RANDOM_NUMBER                                                                                                               ; lfsr                ; work         ;
+;    |lives:LIFE_DISPLAY|                      ; 21.3 (17.3)          ; 23.0 (19.0)                      ; 1.7 (1.7)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 37 (33)             ; 0 (0)                     ; 0 (0)         ; 128               ; 1     ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY                                                                                                               ; lives               ; work         ;
+;       |char_rom:HEART_ROM_1|                 ; 2.0 (2.0)            ; 2.0 (2.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 2 (2)               ; 0 (0)                     ; 0 (0)         ; 64                ; 1     ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY|char_rom:HEART_ROM_1                                                                                          ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 64                ; 1     ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY|char_rom:HEART_ROM_1|altsyncram:altsyncram_component                                                          ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 64                ; 1     ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY|char_rom:HEART_ROM_1|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated                           ; altsyncram_d5g1     ; work         ;
 ;       |char_rom:HEART_ROM_2|                 ; 2.0 (2.0)            ; 2.0 (2.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 2 (2)               ; 0 (0)                     ; 0 (0)         ; 64                ; 0     ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY|char_rom:HEART_ROM_2                                                                                          ; char_rom            ; work         ;
@@ -1384,7 +1397,7 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;    |pll:clock_divider|                       ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|pll:clock_divider                                                                                                                ; pll                 ; pll          ;
 ;       |pll_0002:pll_inst|                    ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|pll:clock_divider|pll_0002:pll_inst                                                                                              ; pll_0002            ; pll          ;
 ;          |altera_pll:altera_pll_i|           ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i                                                                      ; altera_pll          ; work         ;
-;    |position_to_BCD:sevenseg_display|        ; 332.6 (0.0)          ; 332.6 (0.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 668 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display                                                                                                 ; position_to_BCD     ; work         ;
+;    |position_to_BCD:sevenseg_display|        ; 334.0 (0.0)          ; 334.0 (0.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 668 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display                                                                                                 ; position_to_BCD     ; work         ;
 ;       |lpm_divide:Div0|                      ; 30.0 (0.0)           ; 30.0 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 60 (0)              ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
 ;          |lpm_divide_hbm:auto_generated|     ; 30.0 (0.0)           ; 30.0 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 60 (0)              ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div0|lpm_divide_hbm:auto_generated                                                   ; lpm_divide_hbm      ; work         ;
 ;             |sign_div_unsign_nlh:divider|    ; 30.0 (0.0)           ; 30.0 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 60 (0)              ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div0|lpm_divide_hbm:auto_generated|sign_div_unsign_nlh:divider                       ; sign_div_unsign_nlh ; work         ;
@@ -1405,10 +1418,10 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;          |lpm_divide_u4m:auto_generated|     ; 46.5 (0.0)           ; 46.5 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 93 (0)              ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod0|lpm_divide_u4m:auto_generated                                                   ; lpm_divide_u4m      ; work         ;
 ;             |sign_div_unsign_1nh:divider|    ; 46.5 (0.0)           ; 46.5 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 93 (0)              ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod0|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider                       ; sign_div_unsign_1nh ; work         ;
 ;                |alt_u_div_82f:divider|       ; 46.5 (46.5)          ; 46.5 (46.5)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 93 (93)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod0|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider|alt_u_div_82f:divider ; alt_u_div_82f       ; work         ;
-;       |lpm_divide:Mod1|                      ; 53.6 (0.0)           ; 53.6 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 110 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod1                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_u4m:auto_generated|     ; 53.6 (0.0)           ; 53.6 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 110 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod1|lpm_divide_u4m:auto_generated                                                   ; lpm_divide_u4m      ; work         ;
-;             |sign_div_unsign_1nh:divider|    ; 53.6 (0.0)           ; 53.6 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 110 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod1|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider                       ; sign_div_unsign_1nh ; work         ;
-;                |alt_u_div_82f:divider|       ; 53.6 (53.6)          ; 53.6 (53.6)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 110 (110)           ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod1|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider|alt_u_div_82f:divider ; alt_u_div_82f       ; work         ;
+;       |lpm_divide:Mod1|                      ; 55.0 (0.0)           ; 55.0 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 110 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod1                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_u4m:auto_generated|     ; 55.0 (0.0)           ; 55.0 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 110 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod1|lpm_divide_u4m:auto_generated                                                   ; lpm_divide_u4m      ; work         ;
+;             |sign_div_unsign_1nh:divider|    ; 55.0 (0.0)           ; 55.0 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 110 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod1|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider                       ; sign_div_unsign_1nh ; work         ;
+;                |alt_u_div_82f:divider|       ; 55.0 (55.0)          ; 55.0 (55.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 110 (110)           ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod1|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider|alt_u_div_82f:divider ; alt_u_div_82f       ; work         ;
 ;       |lpm_divide:Mod2|                      ; 46.5 (0.0)           ; 46.5 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 93 (0)              ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod2                                                                                 ; lpm_divide          ; work         ;
 ;          |lpm_divide_u4m:auto_generated|     ; 46.5 (0.0)           ; 46.5 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 93 (0)              ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod2|lpm_divide_u4m:auto_generated                                                   ; lpm_divide_u4m      ; work         ;
 ;             |sign_div_unsign_1nh:divider|    ; 46.5 (0.0)           ; 46.5 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 93 (0)              ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod2|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider                       ; sign_div_unsign_1nh ; work         ;
@@ -1529,37 +1542,42 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SW[8]                                                        ;                   ;         ;
 ; SW[9]                                                        ;                   ;         ;
 ; PS2_CLK                                                      ;                   ;         ;
-;      - MOUSE:MOUSE_CONTROLS|filter[0]                        ; 1                 ; 0       ;
+;      - MOUSE:MOUSE_CONTROLS|filter[0]~feeder                 ; 1                 ; 0       ;
 ; PS2_DAT                                                      ;                   ;         ;
 ;      - MOUSE:MOUSE_CONTROLS|READ_CHAR~0                      ; 1                 ; 0       ;
 ;      - MOUSE:MOUSE_CONTROLS|iready_set~0                     ; 1                 ; 0       ;
 ;      - MOUSE:MOUSE_CONTROLS|SHIFTIN[8]~feeder                ; 1                 ; 0       ;
 ; SW[1]                                                        ;                   ;         ;
-;      - VGA_SYNC:VGA_REFRESH|red_out~4                        ; 1                 ; 0       ;
-;      - bait:RANDOM_BAIT|green~2                              ; 1                 ; 0       ;
+;      - bait:RANDOM_BAIT|bait_enable~2                        ; 1                 ; 0       ;
+;      - VGA_SYNC:VGA_REFRESH|red_out~0                        ; 1                 ; 0       ;
+;      - lives:LIFE_DISPLAY|live_on~2                          ; 1                 ; 0       ;
+;      - bait:RANDOM_BAIT|bait_enable~5                        ; 1                 ; 0       ;
+;      - layer:LAYER_RENDERER|GREEN_OUT~2                      ; 1                 ; 0       ;
 ;      - BACKGROUND:BG|Equal1~0                                ; 1                 ; 0       ;
-;      - bait:RANDOM_BAIT|green~5                              ; 1                 ; 0       ;
-;      - VGA_SYNC:VGA_REFRESH|blue_out~3                       ; 1                 ; 0       ;
-;      - VGA_SYNC:VGA_REFRESH|blue_out~6                       ; 1                 ; 0       ;
 ;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos~3       ; 1                 ; 0       ;
-;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos~4       ; 1                 ; 0       ;
-;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos~5       ; 1                 ; 0       ;
-;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos~6       ; 1                 ; 0       ;
-;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos~8       ; 1                 ; 0       ;
-;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_motion[9]~1 ; 1                 ; 0       ;
+;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos~7       ; 1                 ; 0       ;
+;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos~9       ; 1                 ; 0       ;
+;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos~10      ; 1                 ; 0       ;
+;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos~11      ; 1                 ; 0       ;
+;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos~12      ; 1                 ; 0       ;
+;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos~13      ; 1                 ; 0       ;
+;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_motion[8]~1 ; 1                 ; 0       ;
+;      - home_display:HOME_SCREEN_TEXT|blue~2                  ; 1                 ; 0       ;
 ; SW[0]                                                        ;                   ;         ;
-;      - VGA_SYNC:VGA_REFRESH|red_out~2                        ; 1                 ; 0       ;
-;      - bait:RANDOM_BAIT|green~2                              ; 1                 ; 0       ;
-;      - VGA_SYNC:VGA_REFRESH|blue_out~0                       ; 1                 ; 0       ;
+;      - bait:RANDOM_BAIT|bait_enable~2                        ; 1                 ; 0       ;
+;      - lives:LIFE_DISPLAY|live_on~2                          ; 1                 ; 0       ;
+;      - bait:RANDOM_BAIT|bait_enable~5                        ; 1                 ; 0       ;
+;      - layer:LAYER_RENDERER|GREEN_OUT~1                      ; 1                 ; 0       ;
 ;      - BACKGROUND:BG|Equal1~0                                ; 1                 ; 0       ;
-;      - bait:RANDOM_BAIT|green~5                              ; 1                 ; 0       ;
-;      - VGA_SYNC:VGA_REFRESH|blue_out~3                       ; 1                 ; 0       ;
 ;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos~3       ; 1                 ; 0       ;
-;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos~4       ; 1                 ; 0       ;
-;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos~5       ; 1                 ; 0       ;
-;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos~6       ; 1                 ; 0       ;
-;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos~8       ; 1                 ; 0       ;
-;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_motion[9]~1 ; 1                 ; 0       ;
+;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos~7       ; 1                 ; 0       ;
+;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos~9       ; 1                 ; 0       ;
+;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos~10      ; 1                 ; 0       ;
+;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos~11      ; 1                 ; 0       ;
+;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos~12      ; 1                 ; 0       ;
+;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos~13      ; 1                 ; 0       ;
+;      - flappy_dolphin:PLAYER_CHARACTER|dolphin_y_motion[8]~1 ; 1                 ; 0       ;
+;      - home_display:HOME_SCREEN_TEXT|blue~1                  ; 1                 ; 0       ;
 ; KEY[0]                                                       ;                   ;         ;
 ;      - MOUSE:MOUSE_CONTROLS|right_button                     ; 1                 ; 0       ;
 ;      - MOUSE:MOUSE_CONTROLS|PACKET_COUNT[0]                  ; 1                 ; 0       ;
@@ -1578,7 +1596,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - lfsr:RANDOM_NUMBER|lfsr_reg[6]                        ; 1                 ; 0       ;
 ;      - lfsr:RANDOM_NUMBER|lfsr_reg[2]                        ; 1                 ; 0       ;
 ;      - lfsr:RANDOM_NUMBER|lfsr_reg[1]                        ; 1                 ; 0       ;
-;      - MOUSE:MOUSE_CONTROLS|new_cursor_column[9]~1           ; 1                 ; 0       ;
+;      - MOUSE:MOUSE_CONTROLS|new_cursor_column[9]~0           ; 1                 ; 0       ;
 ;      - MOUSE:MOUSE_CONTROLS|mouse_state.LOAD_COMMAND2        ; 1                 ; 0       ;
 ;      - MOUSE:MOUSE_CONTROLS|PACKET_CHAR1[1]~1                ; 1                 ; 0       ;
 ;      - MOUSE:MOUSE_CONTROLS|mouse_state.INHIBIT_TRANS        ; 1                 ; 0       ;
@@ -1603,12 +1621,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - MOUSE:MOUSE_CONTROLS|inhibit_wait_count[2]            ; 1                 ; 0       ;
 ;      - MOUSE:MOUSE_CONTROLS|inhibit_wait_count[0]            ; 1                 ; 0       ;
 ;      - MOUSE:MOUSE_CONTROLS|inhibit_wait_count[1]            ; 1                 ; 0       ;
-;      - lfsr:RANDOM_NUMBER|lfsr_reg[5]~DUPLICATE              ; 1                 ; 0       ;
 ;      - lfsr:RANDOM_NUMBER|lfsr_reg[4]~DUPLICATE              ; 1                 ; 0       ;
-;      - lfsr:RANDOM_NUMBER|lfsr_reg[3]~DUPLICATE              ; 1                 ; 0       ;
 ;      - lfsr:RANDOM_NUMBER|lfsr_reg[7]~DUPLICATE              ; 1                 ; 0       ;
+;      - lfsr:RANDOM_NUMBER|lfsr_reg[6]~DUPLICATE              ; 1                 ; 0       ;
+;      - lfsr:RANDOM_NUMBER|lfsr_reg[2]~DUPLICATE              ; 1                 ; 0       ;
 ;      - lfsr:RANDOM_NUMBER|lfsr_reg[1]~DUPLICATE              ; 1                 ; 0       ;
-;      - MOUSE:MOUSE_CONTROLS|inhibit_wait_count[10]~DUPLICATE ; 1                 ; 0       ;
+;      - MOUSE:MOUSE_CONTROLS|inhibit_wait_count[11]~DUPLICATE ; 1                 ; 0       ;
 ; CLOCK_50                                                     ;                   ;         ;
 +--------------------------------------------------------------+-------------------+---------+
 
@@ -1619,35 +1637,35 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Name                                                                       ; Location                  ; Fan-Out ; Usage                     ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +----------------------------------------------------------------------------+---------------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
 ; KEY[0]                                                                     ; PIN_U7                    ; 48      ; Async. clear              ; no     ; --                   ; --               ; --                        ;
-; MOUSE:MOUSE_CONTROLS|Equal4~0                                              ; LABCELL_X36_Y7_N12        ; 22      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
-; MOUSE:MOUSE_CONTROLS|INCNT[3]~1                                            ; LABCELL_X36_Y7_N51        ; 4       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER                                      ; FF_X36_Y7_N29             ; 93      ; Clock                     ; no     ; --                   ; --               ; --                        ;
-; MOUSE:MOUSE_CONTROLS|MOUSE_DATA_BUF~0                                      ; LABCELL_X36_Y6_N27        ; 10      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; MOUSE:MOUSE_CONTROLS|PACKET_CHAR1[1]~1                                     ; LABCELL_X36_Y6_N3         ; 2       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; MOUSE:MOUSE_CONTROLS|PACKET_CHAR2[7]~0                                     ; LABCELL_X36_Y7_N9         ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; MOUSE:MOUSE_CONTROLS|PACKET_CHAR3[7]~0                                     ; LABCELL_X36_Y7_N21        ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; MOUSE:MOUSE_CONTROLS|PACKET_COUNT[1]~0                                     ; LABCELL_X36_Y7_N39        ; 2       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; MOUSE:MOUSE_CONTROLS|SHIFTIN[1]~0                                          ; LABCELL_X36_Y7_N0         ; 9       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; MOUSE:MOUSE_CONTROLS|WideOr4                                               ; MLABCELL_X37_Y6_N39       ; 1       ; Output enable             ; no     ; --                   ; --               ; --                        ;
-; MOUSE:MOUSE_CONTROLS|cursor_column[1]~1                                    ; LABCELL_X36_Y5_N39        ; 8       ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
-; MOUSE:MOUSE_CONTROLS|cursor_column[9]~2                                    ; LABCELL_X36_Y7_N36        ; 19      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; MOUSE:MOUSE_CONTROLS|mouse_state.INHIBIT_TRANS                             ; FF_X37_Y6_N44             ; 18      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; MOUSE:MOUSE_CONTROLS|mouse_state.WAIT_OUTPUT_READY                         ; FF_X36_Y7_N53             ; 17      ; Output enable             ; no     ; --                   ; --               ; --                        ;
-; MOUSE:MOUSE_CONTROLS|new_cursor_column[9]~1                                ; LABCELL_X36_Y7_N15        ; 20      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; MOUSE:MOUSE_CONTROLS|output_ready~0                                        ; LABCELL_X36_Y6_N18        ; 5       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; MOUSE:MOUSE_CONTROLS|right_button~0                                        ; LABCELL_X36_Y7_N3         ; 2       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; MOUSE:MOUSE_CONTROLS|send_data                                             ; FF_X37_Y6_N59             ; 17      ; Async. clear              ; no     ; --                   ; --               ; --                        ;
-; PIPES:PIPE_DISPLAY|Equal1~0                                                ; LABCELL_X31_Y18_N6        ; 19      ; Clock enable, Sync. clear ; no     ; --                   ; --               ; --                        ;
-; PIPES:PIPE_DISPLAY|Equal2~2                                                ; LABCELL_X31_Y15_N51       ; 7       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; PIPES:PIPE_DISPLAY|Equal3~2                                                ; LABCELL_X29_Y16_N42       ; 7       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; VGA_SYNC:VGA_REFRESH|Equal0~1                                              ; LABCELL_X25_Y15_N33       ; 12      ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
-; VGA_SYNC:VGA_REFRESH|LessThan6~0                                           ; LABCELL_X24_Y15_N27       ; 13      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; VGA_SYNC:VGA_REFRESH|LessThan7~0                                           ; LABCELL_X32_Y16_N45       ; 13      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; VGA_SYNC:VGA_REFRESH|process_0~7                                           ; LABCELL_X31_Y15_N48       ; 11      ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
-; VGA_SYNC:VGA_REFRESH|v_count[2]~0                                          ; LABCELL_X31_Y15_N3        ; 11      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; VGA_SYNC:VGA_REFRESH|vert_sync_out                                         ; FF_X31_Y13_N35            ; 93      ; Clock                     ; no     ; --                   ; --               ; --                        ;
-; flappy_dolphin:PLAYER_CHARACTER|dolphin_y_motion[9]~1                      ; LABCELL_X31_Y13_N39       ; 10      ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
-; pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ; PLLOUTPUTCOUNTER_X0_Y0_N1 ; 103     ; Clock                     ; yes    ; Global Clock         ; GCLK3            ; --                        ;
+; MOUSE:MOUSE_CONTROLS|Equal4~0                                              ; LABCELL_X36_Y4_N33        ; 22      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
+; MOUSE:MOUSE_CONTROLS|INCNT[3]~1                                            ; LABCELL_X36_Y4_N45        ; 4       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER                                      ; FF_X36_Y5_N5              ; 93      ; Clock                     ; no     ; --                   ; --               ; --                        ;
+; MOUSE:MOUSE_CONTROLS|MOUSE_DATA_BUF~0                                      ; MLABCELL_X37_Y4_N39       ; 10      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; MOUSE:MOUSE_CONTROLS|PACKET_CHAR1[1]~1                                     ; LABCELL_X35_Y4_N39        ; 2       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; MOUSE:MOUSE_CONTROLS|PACKET_CHAR2[7]~0                                     ; LABCELL_X35_Y4_N51        ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; MOUSE:MOUSE_CONTROLS|PACKET_CHAR3[7]~0                                     ; LABCELL_X36_Y4_N30        ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; MOUSE:MOUSE_CONTROLS|PACKET_COUNT[1]~0                                     ; LABCELL_X36_Y4_N48        ; 2       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; MOUSE:MOUSE_CONTROLS|SHIFTIN[1]~0                                          ; LABCELL_X36_Y4_N36        ; 9       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; MOUSE:MOUSE_CONTROLS|WideOr4                                               ; LABCELL_X36_Y4_N15        ; 1       ; Output enable             ; no     ; --                   ; --               ; --                        ;
+; MOUSE:MOUSE_CONTROLS|cursor_column[0]~1                                    ; LABCELL_X35_Y5_N27        ; 8       ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
+; MOUSE:MOUSE_CONTROLS|cursor_column[9]~2                                    ; LABCELL_X36_Y4_N6         ; 19      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; MOUSE:MOUSE_CONTROLS|mouse_state.INHIBIT_TRANS                             ; FF_X19_Y5_N50             ; 18      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; MOUSE:MOUSE_CONTROLS|mouse_state.WAIT_OUTPUT_READY                         ; FF_X36_Y4_N2              ; 17      ; Output enable             ; no     ; --                   ; --               ; --                        ;
+; MOUSE:MOUSE_CONTROLS|new_cursor_column[9]~0                                ; LABCELL_X36_Y5_N12        ; 20      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; MOUSE:MOUSE_CONTROLS|output_ready~0                                        ; MLABCELL_X37_Y4_N24       ; 5       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; MOUSE:MOUSE_CONTROLS|right_button~0                                        ; LABCELL_X36_Y4_N54        ; 2       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; MOUSE:MOUSE_CONTROLS|send_data                                             ; FF_X36_Y4_N29             ; 17      ; Async. clear              ; no     ; --                   ; --               ; --                        ;
+; PIPES:PIPE_DISPLAY|Equal1~0                                                ; MLABCELL_X28_Y8_N21       ; 19      ; Clock enable, Sync. clear ; no     ; --                   ; --               ; --                        ;
+; PIPES:PIPE_DISPLAY|Equal2~2                                                ; MLABCELL_X23_Y5_N27       ; 7       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; PIPES:PIPE_DISPLAY|Equal3~2                                                ; LABCELL_X25_Y7_N6         ; 7       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; VGA_SYNC:VGA_REFRESH|Equal0~1                                              ; MLABCELL_X28_Y5_N3        ; 16      ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
+; VGA_SYNC:VGA_REFRESH|LessThan6~0                                           ; LABCELL_X26_Y6_N3         ; 15      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; VGA_SYNC:VGA_REFRESH|LessThan7~0                                           ; LABCELL_X25_Y9_N39        ; 12      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; VGA_SYNC:VGA_REFRESH|process_0~7                                           ; LABCELL_X25_Y9_N30        ; 14      ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
+; VGA_SYNC:VGA_REFRESH|v_count[3]~0                                          ; LABCELL_X25_Y9_N33        ; 14      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; VGA_SYNC:VGA_REFRESH|vert_sync_out                                         ; FF_X28_Y5_N29             ; 95      ; Clock                     ; no     ; --                   ; --               ; --                        ;
+; flappy_dolphin:PLAYER_CHARACTER|dolphin_y_motion[8]~1                      ; MLABCELL_X42_Y5_N54       ; 10      ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
+; pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ; PLLOUTPUTCOUNTER_X0_Y0_N1 ; 110     ; Clock                     ; yes    ; Global Clock         ; GCLK3            ; --                        ;
 +----------------------------------------------------------------------------+---------------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
 
 
@@ -1656,31 +1674,32 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------------------------------------+---------------------------+---------+----------------------+------------------+---------------------------+
 ; Name                                                                       ; Location                  ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +----------------------------------------------------------------------------+---------------------------+---------+----------------------+------------------+---------------------------+
-; pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ; PLLOUTPUTCOUNTER_X0_Y0_N1 ; 103     ; Global Clock         ; GCLK3            ; --                        ;
+; pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ; PLLOUTPUTCOUNTER_X0_Y0_N1 ; 110     ; Global Clock         ; GCLK3            ; --                        ;
 +----------------------------------------------------------------------------+---------------------------+---------+----------------------+------------------+---------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fitter RAM Summary                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ;
-+-------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+-------------+-------+------------+----------------------------------+----------------------+-----------------+-----------------+----------+------------------------+------------------------+
-; Name                                                                                                                    ; Type ; Mode ; Clock Mode   ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Port A Input Registers ; Port A Output Registers ; Port B Input Registers ; Port B Output Registers ; Size ; Implementation Port A Depth ; Implementation Port A Width ; Implementation Port B Depth ; Implementation Port B Width ; Implementation Bits ; M10K blocks ; MLABs ; MIF        ; Location                         ; Mixed Width RDW Mode ; Port A RDW Mode ; Port B RDW Mode ; ECC Mode ; ECC Pipeline Registers ; Fits in MLABs          ;
-+-------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+-------------+-------+------------+----------------------------------+----------------------+-----------------+-----------------+----------+------------------------+------------------------+
-; home_display:HOME_SCREEN_TEXT|char_rom:A_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM  ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif ; M10K_X22_Y14_N0, M10K_X22_Y15_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
-; home_display:HOME_SCREEN_TEXT|char_rom:D_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM  ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif ; M10K_X22_Y14_N0, M10K_X30_Y14_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
-; home_display:HOME_SCREEN_TEXT|char_rom:F_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM  ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif ; M10K_X22_Y14_N0, M10K_X22_Y15_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
-; home_display:HOME_SCREEN_TEXT|char_rom:H_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM  ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif ; M10K_X22_Y14_N0, M10K_X30_Y14_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
-; home_display:HOME_SCREEN_TEXT|char_rom:I_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM  ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif ; M10K_X22_Y14_N0, M10K_X30_Y14_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
-; home_display:HOME_SCREEN_TEXT|char_rom:L1_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif ; M10K_X22_Y14_N0, M10K_X22_Y15_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
-; home_display:HOME_SCREEN_TEXT|char_rom:L2_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif ; M10K_X22_Y14_N0, M10K_X30_Y14_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
-; home_display:HOME_SCREEN_TEXT|char_rom:N_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM  ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif ; M10K_X22_Y14_N0, M10K_X30_Y14_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
-; home_display:HOME_SCREEN_TEXT|char_rom:O_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM  ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif ; M10K_X22_Y14_N0, M10K_X30_Y14_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
-; home_display:HOME_SCREEN_TEXT|char_rom:P1_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif ; M10K_X30_Y14_N0, M10K_X22_Y15_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
-; home_display:HOME_SCREEN_TEXT|char_rom:P2_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif ; M10K_X30_Y14_N0, M10K_X22_Y15_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
-; home_display:HOME_SCREEN_TEXT|char_rom:P3_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif ; M10K_X22_Y14_N0, M10K_X30_Y14_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
-; home_display:HOME_SCREEN_TEXT|char_rom:Y_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM  ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif ; M10K_X30_Y14_N0, M10K_X22_Y15_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
-; lives:LIFE_DISPLAY|char_rom:HEART_ROM_1|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM       ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 1           ; 0     ; tcgrom.mif ; M10K_X30_Y16_N0                  ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
-; lives:LIFE_DISPLAY|char_rom:HEART_ROM_2|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM       ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 1           ; 0     ; tcgrom.mif ; M10K_X30_Y16_N0                  ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
-+-------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+-------------+-------+------------+----------------------------------+----------------------+-----------------+-----------------+----------+------------------------+------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter RAM Summary                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;
++-------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+-------------+-------+--------------------+--------------------------------+----------------------+-----------------+-----------------+----------+------------------------+------------------------+
+; Name                                                                                                                    ; Type ; Mode ; Clock Mode   ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Port A Input Registers ; Port A Output Registers ; Port B Input Registers ; Port B Output Registers ; Size ; Implementation Port A Depth ; Implementation Port A Width ; Implementation Port B Depth ; Implementation Port B Width ; Implementation Bits ; M10K blocks ; MLABs ; MIF                ; Location                       ; Mixed Width RDW Mode ; Port A RDW Mode ; Port B RDW Mode ; ECC Mode ; ECC Pipeline Registers ; Fits in MLABs          ;
++-------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+-------------+-------+--------------------+--------------------------------+----------------------+-----------------+-----------------+----------+------------------------+------------------------+
+; dolphin_sprite:DOLPHIN_SPRITE_INST|sprite_rom:DOLPHIN_ROM|altsyncram:ROM|altsyncram_6nu3:auto_generated|ALTSYNCRAM      ; AUTO ; ROM  ; Single Clock ; 256          ; 3            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 768  ; 256                         ; 3                           ; --                          ; --                          ; 768                 ; 1           ; 0     ; dolphin_sprite.mif ; M10K_X30_Y5_N0                 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
+; home_display:HOME_SCREEN_TEXT|char_rom:A_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM  ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif         ; M10K_X30_Y6_N0, M10K_X30_Y4_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
+; home_display:HOME_SCREEN_TEXT|char_rom:D_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM  ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif         ; M10K_X30_Y6_N0, M10K_X22_Y6_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
+; home_display:HOME_SCREEN_TEXT|char_rom:F_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM  ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif         ; M10K_X30_Y6_N0, M10K_X30_Y4_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
+; home_display:HOME_SCREEN_TEXT|char_rom:H_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM  ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif         ; M10K_X30_Y6_N0, M10K_X22_Y6_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
+; home_display:HOME_SCREEN_TEXT|char_rom:I_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM  ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif         ; M10K_X30_Y6_N0, M10K_X22_Y6_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
+; home_display:HOME_SCREEN_TEXT|char_rom:L1_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif         ; M10K_X30_Y6_N0, M10K_X30_Y4_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
+; home_display:HOME_SCREEN_TEXT|char_rom:L2_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif         ; M10K_X30_Y6_N0, M10K_X22_Y6_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
+; home_display:HOME_SCREEN_TEXT|char_rom:N_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM  ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif         ; M10K_X30_Y6_N0, M10K_X22_Y6_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
+; home_display:HOME_SCREEN_TEXT|char_rom:O_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM  ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif         ; M10K_X30_Y6_N0, M10K_X22_Y6_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
+; home_display:HOME_SCREEN_TEXT|char_rom:P1_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif         ; M10K_X22_Y6_N0, M10K_X30_Y4_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
+; home_display:HOME_SCREEN_TEXT|char_rom:P2_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif         ; M10K_X22_Y6_N0, M10K_X30_Y4_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
+; home_display:HOME_SCREEN_TEXT|char_rom:P3_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif         ; M10K_X30_Y6_N0, M10K_X22_Y6_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
+; home_display:HOME_SCREEN_TEXT|char_rom:Y_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM  ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 2           ; 0     ; tcgrom.mif         ; M10K_X22_Y6_N0, M10K_X30_Y4_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
+; lives:LIFE_DISPLAY|char_rom:HEART_ROM_1|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM       ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 1           ; 0     ; tcgrom.mif         ; M10K_X22_Y7_N0                 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
+; lives:LIFE_DISPLAY|char_rom:HEART_ROM_2|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM       ; AUTO ; ROM  ; Single Clock ; 512          ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 4096 ; 8                           ; 8                           ; --                          ; --                          ; 64                  ; 1           ; 0     ; tcgrom.mif         ; M10K_X22_Y7_N0                 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Unsupported Depth ;
++-------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+-------------+-------+--------------------+--------------------------------+----------------------+-----------------+-----------------+----------+------------------------+------------------------+
 Note: Fitter may spread logical memories into multiple blocks to improve timing. The actual required RAM blocks can be found in the Fitter Resource Usage section.
 
 
@@ -1689,22 +1708,22 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 +------------------------------+-------------------------+
 ; Routing Resource Type        ; Usage                   ;
 +------------------------------+-------------------------+
-; Block interconnects          ; 2,162 / 140,056 ( 2 % ) ;
-; C12 interconnects            ; 46 / 6,048 ( < 1 % )    ;
-; C2 interconnects             ; 841 / 54,648 ( 2 % )    ;
-; C4 interconnects             ; 545 / 25,920 ( 2 % )    ;
+; Block interconnects          ; 2,198 / 140,056 ( 2 % ) ;
+; C12 interconnects            ; 40 / 6,048 ( < 1 % )    ;
+; C2 interconnects             ; 853 / 54,648 ( 2 % )    ;
+; C4 interconnects             ; 537 / 25,920 ( 2 % )    ;
 ; DQS bus muxes                ; 0 / 17 ( 0 % )          ;
 ; DQS-18 I/O buses             ; 0 / 17 ( 0 % )          ;
 ; DQS-9 I/O buses              ; 0 / 17 ( 0 % )          ;
-; Direct links                 ; 253 / 140,056 ( < 1 % ) ;
+; Direct links                 ; 295 / 140,056 ( < 1 % ) ;
 ; Global clocks                ; 1 / 16 ( 6 % )          ;
-; Local interconnects          ; 392 / 36,960 ( 1 % )    ;
+; Local interconnects          ; 404 / 36,960 ( 1 % )    ;
 ; Quadrant clocks              ; 0 / 88 ( 0 % )          ;
-; R14 interconnects            ; 314 / 5,984 ( 5 % )     ;
-; R14/C12 interconnect drivers ; 350 / 9,504 ( 4 % )     ;
-; R3 interconnects             ; 1,291 / 60,192 ( 2 % )  ;
-; R6 interconnects             ; 1,637 / 127,072 ( 1 % ) ;
-; Spine clocks                 ; 2 / 120 ( 2 % )         ;
+; R14 interconnects            ; 331 / 5,984 ( 6 % )     ;
+; R14/C12 interconnect drivers ; 358 / 9,504 ( 4 % )     ;
+; R3 interconnects             ; 1,268 / 60,192 ( 2 % )  ;
+; R6 interconnects             ; 1,640 / 127,072 ( 1 % ) ;
+; Spine clocks                 ; 3 / 120 ( 3 % )         ;
 ; Wire stub REs                ; 0 / 7,344 ( 0 % )       ;
 +------------------------------+-------------------------+
 
@@ -1902,122 +1921,122 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 +------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+-------------------+
 ; Source Clock(s)                                                                                                  ; Destination Clock(s)                                                          ; Delay Added in ns ;
 +------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+-------------------+
-; VGA_SYNC:VGA_REFRESH|vert_sync_out                                                                               ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 493.4             ;
-; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER                                                                            ; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER                                         ; 186.4             ;
-; VGA_SYNC:VGA_REFRESH|vert_sync_out                                                                               ; VGA_SYNC:VGA_REFRESH|vert_sync_out                                            ; 151.7             ;
-; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk,VGA_SYNC:VGA_REFRESH|vert_sync_out ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 113.0             ;
-; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk                                    ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 13.5              ;
+; VGA_SYNC:VGA_REFRESH|vert_sync_out                                                                               ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 421.3             ;
+; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER                                                                            ; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER                                         ; 173.1             ;
+; VGA_SYNC:VGA_REFRESH|vert_sync_out                                                                               ; VGA_SYNC:VGA_REFRESH|vert_sync_out                                            ; 161.3             ;
+; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk,VGA_SYNC:VGA_REFRESH|vert_sync_out ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 133.9             ;
+; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER                                                                            ; clock_divider|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 16.5              ;
 +------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
 This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
 
 
-+-----------------------------------------------------------------------------------------------------------------------------+
-; Estimated Delay Added for Hold Timing Details                                                                               ;
-+----------------------------------------------------+----------------------------------------------------+-------------------+
-; Source Register                                    ; Destination Register                               ; Delay Added in ns ;
-+----------------------------------------------------+----------------------------------------------------+-------------------+
-; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER              ; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER              ; 8.538             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_1[0]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 7.025             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_1[1]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 6.741             ;
-; flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos[5]   ; VGA_SYNC:VGA_REFRESH|blue_out                      ; 6.701             ;
-; flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos[3]   ; VGA_SYNC:VGA_REFRESH|blue_out                      ; 6.687             ;
-; flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos[8]   ; VGA_SYNC:VGA_REFRESH|blue_out                      ; 6.684             ;
-; MOUSE:MOUSE_CONTROLS|iready_set                    ; MOUSE:MOUSE_CONTROLS|mouse_state.INPUT_PACKETS     ; 6.635             ;
-; flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos[9]   ; VGA_SYNC:VGA_REFRESH|blue_out                      ; 6.535             ;
-; flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos[7]   ; VGA_SYNC:VGA_REFRESH|blue_out                      ; 6.513             ;
-; flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos[2]   ; VGA_SYNC:VGA_REFRESH|blue_out                      ; 6.449             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_1[7]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 6.446             ;
-; flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos[4]   ; VGA_SYNC:VGA_REFRESH|blue_out                      ; 6.438             ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_1[5]            ; VGA_SYNC:VGA_REFRESH|green_out                     ; 6.411             ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_1[3]            ; VGA_SYNC:VGA_REFRESH|green_out                     ; 6.391             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_1[6]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 6.374             ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_1[6]            ; VGA_SYNC:VGA_REFRESH|green_out                     ; 6.361             ;
-; flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos[6]   ; VGA_SYNC:VGA_REFRESH|blue_out                      ; 6.315             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_1[2]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 6.225             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_1[5]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 6.224             ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_1[7]            ; VGA_SYNC:VGA_REFRESH|green_out                     ; 6.200             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_1[4]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 6.167             ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_1[0]            ; VGA_SYNC:VGA_REFRESH|red_out                       ; 6.159             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_1[3]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 6.110             ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_1[4]            ; VGA_SYNC:VGA_REFRESH|green_out                     ; 6.090             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_1[8]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 6.086             ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_1[2]            ; VGA_SYNC:VGA_REFRESH|green_out                     ; 6.060             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_1[9]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.926             ;
-; MOUSE:MOUSE_CONTROLS|output_ready                  ; MOUSE:MOUSE_CONTROLS|mouse_state.WAIT_CMD_ACK      ; 5.921             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_2[9]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.811             ;
-; flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos[1]   ; VGA_SYNC:VGA_REFRESH|blue_out                      ; 5.794             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_3[7]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.791             ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_2[7]            ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.752             ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_2[3]            ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.737             ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_2[6]            ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.724             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_3[9]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.715             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_2[1]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.712             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_2[7]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.678             ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_2[5]            ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.678             ;
-; flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos[0]   ; VGA_SYNC:VGA_REFRESH|blue_out                      ; 5.671             ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_1[1]            ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.618             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_3[8]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.603             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_3[6]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.600             ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_2[4]            ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.598             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_2[8]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.591             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_3[5]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.532             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_2[5]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.467             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_2[6]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.439             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_2[2]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.437             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_3[1]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.420             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_3[4]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.336             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_3[3]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.332             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_2[0]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.280             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_3[0]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.262             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_2[4]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.190             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_2[3]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.174             ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_3[2]                 ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.132             ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_2[2]            ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.069             ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_2[0]            ; VGA_SYNC:VGA_REFRESH|green_out                     ; 5.006             ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_3[5]            ; VGA_SYNC:VGA_REFRESH|green_out                     ; 4.974             ;
-; VGA_SYNC:VGA_REFRESH|pixel_row[0]                  ; VGA_SYNC:VGA_REFRESH|blue_out                      ; 4.956             ;
-; VGA_SYNC:VGA_REFRESH|pixel_row[1]                  ; VGA_SYNC:VGA_REFRESH|blue_out                      ; 4.956             ;
-; VGA_SYNC:VGA_REFRESH|pixel_row[2]                  ; VGA_SYNC:VGA_REFRESH|blue_out                      ; 4.956             ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_3[6]            ; VGA_SYNC:VGA_REFRESH|green_out                     ; 4.909             ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_3[4]            ; VGA_SYNC:VGA_REFRESH|green_out                     ; 4.864             ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_3[3]            ; VGA_SYNC:VGA_REFRESH|green_out                     ; 4.856             ;
-; VGA_SYNC:VGA_REFRESH|pixel_column[1]               ; VGA_SYNC:VGA_REFRESH|green_out                     ; 4.665             ;
-; VGA_SYNC:VGA_REFRESH|pixel_column[0]               ; VGA_SYNC:VGA_REFRESH|green_out                     ; 4.665             ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_3[2]            ; VGA_SYNC:VGA_REFRESH|green_out                     ; 4.602             ;
-; VGA_SYNC:VGA_REFRESH|pixel_row[5]                  ; VGA_SYNC:VGA_REFRESH|green_out                     ; 4.525             ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_3[1]            ; VGA_SYNC:VGA_REFRESH|green_out                     ; 4.491             ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_3[0]            ; VGA_SYNC:VGA_REFRESH|green_out                     ; 4.375             ;
-; MOUSE:MOUSE_CONTROLS|filter[5]                     ; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER              ; 4.269             ;
-; MOUSE:MOUSE_CONTROLS|filter[6]                     ; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER              ; 4.269             ;
-; MOUSE:MOUSE_CONTROLS|filter[7]                     ; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER              ; 4.269             ;
-; MOUSE:MOUSE_CONTROLS|filter[0]                     ; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER              ; 4.269             ;
-; MOUSE:MOUSE_CONTROLS|filter[1]                     ; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER              ; 4.269             ;
-; MOUSE:MOUSE_CONTROLS|filter[2]                     ; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER              ; 4.269             ;
-; MOUSE:MOUSE_CONTROLS|filter[3]                     ; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER              ; 4.269             ;
-; MOUSE:MOUSE_CONTROLS|filter[4]                     ; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER              ; 4.269             ;
-; VGA_SYNC:VGA_REFRESH|pixel_column[2]               ; VGA_SYNC:VGA_REFRESH|green_out                     ; 4.230             ;
-; VGA_SYNC:VGA_REFRESH|pixel_row[4]                  ; VGA_SYNC:VGA_REFRESH|blue_out                      ; 4.048             ;
-; VGA_SYNC:VGA_REFRESH|pixel_row[3]                  ; VGA_SYNC:VGA_REFRESH|blue_out                      ; 4.048             ;
-; VGA_SYNC:VGA_REFRESH|pixel_column[9]               ; VGA_SYNC:VGA_REFRESH|green_out                     ; 3.917             ;
-; VGA_SYNC:VGA_REFRESH|pixel_column[3]               ; VGA_SYNC:VGA_REFRESH|green_out                     ; 3.744             ;
-; VGA_SYNC:VGA_REFRESH|pixel_column[4]               ; VGA_SYNC:VGA_REFRESH|green_out                     ; 3.684             ;
-; SW[1]                                              ; VGA_SYNC:VGA_REFRESH|blue_out                      ; 3.443             ;
-; SW[0]                                              ; VGA_SYNC:VGA_REFRESH|blue_out                      ; 3.443             ;
-; VGA_SYNC:VGA_REFRESH|pixel_column[8]               ; VGA_SYNC:VGA_REFRESH|blue_out                      ; 3.443             ;
-; VGA_SYNC:VGA_REFRESH|pixel_column[7]               ; VGA_SYNC:VGA_REFRESH|blue_out                      ; 3.443             ;
-; VGA_SYNC:VGA_REFRESH|pixel_column[6]               ; VGA_SYNC:VGA_REFRESH|blue_out                      ; 3.443             ;
-; VGA_SYNC:VGA_REFRESH|pixel_column[5]               ; VGA_SYNC:VGA_REFRESH|blue_out                      ; 3.443             ;
-; MOUSE:MOUSE_CONTROLS|mouse_state.WAIT_CMD_ACK      ; MOUSE:MOUSE_CONTROLS|mouse_state.INPUT_PACKETS     ; 3.318             ;
-; MOUSE:MOUSE_CONTROLS|mouse_state.INPUT_PACKETS     ; MOUSE:MOUSE_CONTROLS|mouse_state.INPUT_PACKETS     ; 3.318             ;
-; VGA_SYNC:VGA_REFRESH|pixel_row[8]                  ; VGA_SYNC:VGA_REFRESH|green_out                     ; 3.035             ;
-; VGA_SYNC:VGA_REFRESH|pixel_row[7]                  ; VGA_SYNC:VGA_REFRESH|green_out                     ; 3.035             ;
-; VGA_SYNC:VGA_REFRESH|pixel_row[6]                  ; VGA_SYNC:VGA_REFRESH|green_out                     ; 3.035             ;
-; MOUSE:MOUSE_CONTROLS|mouse_state.WAIT_OUTPUT_READY ; MOUSE:MOUSE_CONTROLS|mouse_state.WAIT_CMD_ACK      ; 2.976             ;
-; MOUSE:MOUSE_CONTROLS|mouse_state.LOAD_COMMAND2     ; MOUSE:MOUSE_CONTROLS|mouse_state.WAIT_OUTPUT_READY ; 2.680             ;
-; MOUSE:MOUSE_CONTROLS|PACKET_CHAR2[1]               ; MOUSE:MOUSE_CONTROLS|new_cursor_column[6]          ; 1.706             ;
-; MOUSE:MOUSE_CONTROLS|PACKET_CHAR2[4]               ; MOUSE:MOUSE_CONTROLS|new_cursor_column[6]          ; 1.705             ;
-+----------------------------------------------------+----------------------------------------------------+-------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Details                                                                                                                                                                                                                                                         ;
++-----------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+-------------------+
+; Source Register                                                                                                                         ; Destination Register                                                                                                                    ; Delay Added in ns ;
++-----------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+-------------------+
+; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER                                                                                                   ; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER                                                                                                   ; 7.578             ;
+; MOUSE:MOUSE_CONTROLS|output_ready                                                                                                       ; MOUSE:MOUSE_CONTROLS|mouse_state.WAIT_OUTPUT_READY                                                                                      ; 7.260             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_1[0]                                                                                                      ; VGA_SYNC:VGA_REFRESH|red_out                                                                                                            ; 6.722             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_3[9]                                                                                                      ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 6.674             ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_1[3]                                                                                                 ; VGA_SYNC:VGA_REFRESH|red_out                                                                                                            ; 6.604             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_1[4]                                                                                                      ; VGA_SYNC:VGA_REFRESH|red_out                                                                                                            ; 6.562             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_3[8]                                                                                                      ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 6.550             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_1[3]                                                                                                      ; VGA_SYNC:VGA_REFRESH|red_out                                                                                                            ; 6.513             ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_1[6]                                                                                                 ; VGA_SYNC:VGA_REFRESH|red_out                                                                                                            ; 6.502             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_1[2]                                                                                                      ; VGA_SYNC:VGA_REFRESH|red_out                                                                                                            ; 6.499             ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_1[7]                                                                                                 ; VGA_SYNC:VGA_REFRESH|red_out                                                                                                            ; 6.486             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_3[7]                                                                                                      ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 6.470             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_3[6]                                                                                                      ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 6.450             ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_1[0]                                                                                                 ; VGA_SYNC:VGA_REFRESH|red_out                                                                                                            ; 6.449             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_3[5]                                                                                                      ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 6.379             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_1[1]                                                                                                      ; VGA_SYNC:VGA_REFRESH|red_out                                                                                                            ; 6.322             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_1[8]                                                                                                      ; VGA_SYNC:VGA_REFRESH|red_out                                                                                                            ; 6.291             ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_1[5]                                                                                                 ; VGA_SYNC:VGA_REFRESH|red_out                                                                                                            ; 6.173             ;
+; flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos[1]                                                                                        ; dolphin_sprite:DOLPHIN_SPRITE_INST|sprite_rom:DOLPHIN_ROM|altsyncram:ROM|altsyncram_6nu3:auto_generated|ram_block1a2~porta_address_reg0 ; 6.163             ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_2[7]                                                                                                 ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 6.162             ;
+; flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos[0]                                                                                        ; dolphin_sprite:DOLPHIN_SPRITE_INST|sprite_rom:DOLPHIN_ROM|altsyncram:ROM|altsyncram_6nu3:auto_generated|ram_block1a2~porta_address_reg0 ; 6.151             ;
+; flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos[8]                                                                                        ; VGA_SYNC:VGA_REFRESH|blue_out                                                                                                           ; 6.133             ;
+; flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos[2]                                                                                        ; dolphin_sprite:DOLPHIN_SPRITE_INST|sprite_rom:DOLPHIN_ROM|altsyncram:ROM|altsyncram_6nu3:auto_generated|ram_block1a2~porta_address_reg0 ; 6.125             ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_1[4]                                                                                                 ; VGA_SYNC:VGA_REFRESH|red_out                                                                                                            ; 6.119             ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_1[2]                                                                                                 ; VGA_SYNC:VGA_REFRESH|red_out                                                                                                            ; 6.119             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_3[1]                                                                                                      ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 6.107             ;
+; flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos[3]                                                                                        ; dolphin_sprite:DOLPHIN_SPRITE_INST|sprite_rom:DOLPHIN_ROM|altsyncram:ROM|altsyncram_6nu3:auto_generated|ram_block1a2~porta_address_reg0 ; 6.101             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_3[4]                                                                                                      ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 6.072             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_3[3]                                                                                                      ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 6.037             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_3[2]                                                                                                      ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 6.017             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_2[9]                                                                                                      ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 6.014             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_1[5]                                                                                                      ; VGA_SYNC:VGA_REFRESH|red_out                                                                                                            ; 5.985             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_1[6]                                                                                                      ; VGA_SYNC:VGA_REFRESH|red_out                                                                                                            ; 5.985             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_2[7]                                                                                                      ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 5.979             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_1[7]                                                                                                      ; VGA_SYNC:VGA_REFRESH|red_out                                                                                                            ; 5.970             ;
+; flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos[7]                                                                                        ; VGA_SYNC:VGA_REFRESH|blue_out                                                                                                           ; 5.947             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_1[9]                                                                                                      ; VGA_SYNC:VGA_REFRESH|red_out                                                                                                            ; 5.942             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_3[0]                                                                                                      ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 5.941             ;
+; MOUSE:MOUSE_CONTROLS|iready_set                                                                                                         ; MOUSE:MOUSE_CONTROLS|mouse_state.INPUT_PACKETS                                                                                          ; 5.936             ;
+; flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos[6]                                                                                        ; VGA_SYNC:VGA_REFRESH|blue_out                                                                                                           ; 5.920             ;
+; flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos[4]                                                                                        ; VGA_SYNC:VGA_REFRESH|blue_out                                                                                                           ; 5.912             ;
+; flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos[5]                                                                                        ; VGA_SYNC:VGA_REFRESH|blue_out                                                                                                           ; 5.846             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_2[6]                                                                                                      ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 5.810             ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_1[1]                                                                                                 ; VGA_SYNC:VGA_REFRESH|red_out                                                                                                            ; 5.804             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_2[8]                                                                                                      ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 5.780             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_2[5]                                                                                                      ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 5.739             ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_2[5]                                                                                                 ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 5.725             ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_2[6]                                                                                                 ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 5.716             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_2[1]                                                                                                      ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 5.703             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_2[4]                                                                                                      ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 5.685             ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_2[3]                                                                                                 ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 5.677             ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_2[4]                                                                                                 ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 5.651             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_2[3]                                                                                                      ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 5.575             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_2[2]                                                                                                      ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 5.473             ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_2[0]                                                                                                 ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 5.454             ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_2[0]                                                                                                      ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 5.313             ;
+; VGA_SYNC:VGA_REFRESH|pixel_row[0]                                                                                                       ; VGA_SYNC:VGA_REFRESH|red_out                                                                                                            ; 5.308             ;
+; VGA_SYNC:VGA_REFRESH|pixel_row[1]                                                                                                       ; VGA_SYNC:VGA_REFRESH|red_out                                                                                                            ; 5.308             ;
+; VGA_SYNC:VGA_REFRESH|pixel_row[2]                                                                                                       ; VGA_SYNC:VGA_REFRESH|red_out                                                                                                            ; 5.308             ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_2[2]                                                                                                 ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 5.282             ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_3[5]                                                                                                 ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 5.255             ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_3[6]                                                                                                 ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 5.144             ;
+; VGA_SYNC:VGA_REFRESH|pixel_column[0]                                                                                                    ; VGA_SYNC:VGA_REFRESH|red_out                                                                                                            ; 5.050             ;
+; VGA_SYNC:VGA_REFRESH|pixel_column[1]                                                                                                    ; VGA_SYNC:VGA_REFRESH|red_out                                                                                                            ; 5.050             ;
+; flappy_dolphin:PLAYER_CHARACTER|dolphin_y_pos[9]                                                                                        ; VGA_SYNC:VGA_REFRESH|blue_out                                                                                                           ; 5.043             ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_3[3]                                                                                                 ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 5.031             ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_3[4]                                                                                                 ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 5.006             ;
+; VGA_SYNC:VGA_REFRESH|pixel_row[8]                                                                                                       ; VGA_SYNC:VGA_REFRESH|blue_out                                                                                                           ; 4.930             ;
+; VGA_SYNC:VGA_REFRESH|pixel_row[7]                                                                                                       ; VGA_SYNC:VGA_REFRESH|blue_out                                                                                                           ; 4.930             ;
+; VGA_SYNC:VGA_REFRESH|pixel_row[6]                                                                                                       ; VGA_SYNC:VGA_REFRESH|blue_out                                                                                                           ; 4.930             ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_3[2]                                                                                                 ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 4.778             ;
+; VGA_SYNC:VGA_REFRESH|pixel_column[2]                                                                                                    ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 4.738             ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_3[1]                                                                                                 ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 4.716             ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_3[0]                                                                                                 ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 4.668             ;
+; VGA_SYNC:VGA_REFRESH|pixel_row[5]                                                                                                       ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 4.668             ;
+; VGA_SYNC:VGA_REFRESH|pixel_column[9]                                                                                                    ; VGA_SYNC:VGA_REFRESH|blue_out                                                                                                           ; 4.418             ;
+; VGA_SYNC:VGA_REFRESH|pixel_column[8]                                                                                                    ; VGA_SYNC:VGA_REFRESH|blue_out                                                                                                           ; 4.418             ;
+; VGA_SYNC:VGA_REFRESH|pixel_column[7]                                                                                                    ; VGA_SYNC:VGA_REFRESH|blue_out                                                                                                           ; 4.418             ;
+; VGA_SYNC:VGA_REFRESH|pixel_column[3]                                                                                                    ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 4.352             ;
+; VGA_SYNC:VGA_REFRESH|pixel_column[4]                                                                                                    ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 4.262             ;
+; VGA_SYNC:VGA_REFRESH|pixel_row[4]                                                                                                       ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 4.200             ;
+; VGA_SYNC:VGA_REFRESH|pixel_row[3]                                                                                                       ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 4.200             ;
+; VGA_SYNC:VGA_REFRESH|pixel_column[6]                                                                                                    ; VGA_SYNC:VGA_REFRESH|blue_out                                                                                                           ; 3.793             ;
+; VGA_SYNC:VGA_REFRESH|pixel_column[5]                                                                                                    ; VGA_SYNC:VGA_REFRESH|blue_out                                                                                                           ; 3.793             ;
+; dolphin_sprite:DOLPHIN_SPRITE_INST|sprite_rom:DOLPHIN_ROM|altsyncram:ROM|altsyncram_6nu3:auto_generated|ram_block1a1~porta_address_reg0 ; VGA_SYNC:VGA_REFRESH|blue_out                                                                                                           ; 3.793             ;
+; dolphin_sprite:DOLPHIN_SPRITE_INST|sprite_rom:DOLPHIN_ROM|altsyncram:ROM|altsyncram_6nu3:auto_generated|ram_block1a0~porta_address_reg0 ; VGA_SYNC:VGA_REFRESH|blue_out                                                                                                           ; 3.793             ;
+; dolphin_sprite:DOLPHIN_SPRITE_INST|sprite_rom:DOLPHIN_ROM|altsyncram:ROM|altsyncram_6nu3:auto_generated|ram_block1a2~porta_address_reg0 ; VGA_SYNC:VGA_REFRESH|blue_out                                                                                                           ; 3.793             ;
+; MOUSE:MOUSE_CONTROLS|filter[5]                                                                                                          ; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER                                                                                                   ; 3.789             ;
+; MOUSE:MOUSE_CONTROLS|filter[6]                                                                                                          ; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER                                                                                                   ; 3.789             ;
+; MOUSE:MOUSE_CONTROLS|filter[7]                                                                                                          ; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER                                                                                                   ; 3.789             ;
+; MOUSE:MOUSE_CONTROLS|filter[0]                                                                                                          ; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER                                                                                                   ; 3.789             ;
+; MOUSE:MOUSE_CONTROLS|filter[1]                                                                                                          ; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER                                                                                                   ; 3.789             ;
+; MOUSE:MOUSE_CONTROLS|filter[2]                                                                                                          ; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER                                                                                                   ; 3.789             ;
+; MOUSE:MOUSE_CONTROLS|filter[3]                                                                                                          ; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER                                                                                                   ; 3.789             ;
+; MOUSE:MOUSE_CONTROLS|filter[4]                                                                                                          ; MOUSE:MOUSE_CONTROLS|MOUSE_CLK_FILTER                                                                                                   ; 3.789             ;
+; MOUSE:MOUSE_CONTROLS|mouse_state.WAIT_CMD_ACK                                                                                           ; MOUSE:MOUSE_CONTROLS|mouse_state.INPUT_PACKETS                                                                                          ; 2.968             ;
+; MOUSE:MOUSE_CONTROLS|mouse_state.INPUT_PACKETS                                                                                          ; MOUSE:MOUSE_CONTROLS|mouse_state.INPUT_PACKETS                                                                                          ; 2.968             ;
+; MOUSE:MOUSE_CONTROLS|mouse_state.WAIT_OUTPUT_READY                                                                                      ; MOUSE:MOUSE_CONTROLS|mouse_state.WAIT_CMD_ACK                                                                                           ; 2.958             ;
+; SW[1]                                                                                                                                   ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 2.687             ;
+; SW[0]                                                                                                                                   ; VGA_SYNC:VGA_REFRESH|green_out                                                                                                          ; 2.687             ;
++-----------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+-------------------+
 Note: This table only shows the top 100 path(s) that have the largest delay added for hold.
 
 
@@ -2025,19 +2044,20 @@ Note: This table only shows the top 100 path(s) that have the largest delay adde
 ; Fitter Messages ;
 +-----------------+
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
 Info (119006): Selected device 5CEBA4F23C7 for design "top_level"
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
-Warning: RST port on the PLL is not properly connected on instance pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v Line: 748
+Warning: RST port on the PLL is not properly connected on instance pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altera_pll.v Line: 748
     Info: Must be connected
 Warning (21300): LOCKED port on the PLL is not properly connected on instance "pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i|general[0].gpll". The LOCKED port on the PLL should be connected when the FBOUTCLK port is connected. Although it is unnecessary to connect the LOCKED signal, any logic driven off of an output clock of the PLL will not know when the PLL is locked and ready.
 Info (171003): Fitter is performing an Auto Fit compilation, which may decrease Fitter effort to reduce compilation time
+Warning (292013): Feature LogicLock is only available with a valid subscription license. You can purchase a software subscription to gain full access to this feature.
 Warning (15714): Some pins have incomplete I/O assignments. Refer to the I/O Assignment Warnings report for details
 Info (176045): Design uses memory blocks. Violating setup or hold times of memory block address registers for either read or write operations could cause memory contents to be corrupted. Make sure that all memory block address registers meet the setup and hold time requirements.
 Info (184020): Starting Fitter periphery placement operations
 Info (11178): Promoted 1 clock (1 global)
-    Info (11162): pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0]~CLKENA0 with 203 fanout uses global clock CLKCTRL_G3
+    Info (11162): pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0]~CLKENA0 with 206 fanout uses global clock CLKCTRL_G3
 Info (184021): Fitter periphery placement operations ending: elapsed time is 00:00:00
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'top_level.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332144): No user constrained generated clocks found in the design
@@ -2176,37 +2196,37 @@ Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "SD_DATA[1]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "SD_DATA[2]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "SD_DATA[3]" is assigned to location or region, but does not exist in design
-Info (11798): Fitter preparation operations ending: elapsed time is 00:00:03
+Info (11798): Fitter preparation operations ending: elapsed time is 00:00:04
 Info (170189): Fitter placement preparation operations beginning
 Info (14951): The Fitter is using Advanced Physical Optimization.
-Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:29
+Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:39
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
 Info (170192): Fitter placement operations ending: elapsed time is 00:00:02
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 1% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 13% of the available device resources in the region that extends from location X22_Y11 to location X32_Y22
+    Info (170196): Router estimated peak interconnect usage is 15% of the available device resources in the region that extends from location X22_Y0 to location X32_Y10
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:09
-Info (11888): Total time spent on timing analysis during the Fitter is 1.31 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:14
+Info (11888): Total time spent on timing analysis during the Fitter is 1.42 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:03
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
-Info (144001): Generated suppressed messages file C:/Users/edia026/305/COMPSYS_305_Mini_Project/output_files/top_level.fit.smsg
-Info: Quartus Prime Fitter was successful. 0 errors, 130 warnings
-    Info: Peak virtual memory: 7711 megabytes
-    Info: Processing ended: Sat May 16 15:41:38 2026
-    Info: Elapsed time: 00:01:22
-    Info: Total CPU time (on all processors): 00:09:57
+Info (144001): Generated suppressed messages file C:/Users/User/Desktop/COMPSYS_305_Mini_Project/output_files/top_level.fit.smsg
+Info: Quartus Prime Fitter was successful. 0 errors, 131 warnings
+    Info: Peak virtual memory: 7614 megabytes
+    Info: Processing ended: Fri May 22 14:15:17 2026
+    Info: Elapsed time: 00:02:05
+    Info: Total CPU time (on all processors): 00:13:08
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in C:/Users/edia026/305/COMPSYS_305_Mini_Project/output_files/top_level.fit.smsg.
+The suppressed messages can be found in C:/Users/User/Desktop/COMPSYS_305_Mini_Project/output_files/top_level.fit.smsg.
 
 

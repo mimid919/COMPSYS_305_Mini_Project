@@ -5,6 +5,7 @@ USE  IEEE.STD_LOGIC_UNSIGNED.all;
 
 LIBRARY altera_mf;
 USE altera_mf.all;
+USE altera_mf.altera_mf_components.ALL;
 
 ENTITY sprite_rom IS
 	PORT
