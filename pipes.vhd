@@ -11,17 +11,17 @@ USE  IEEE.STD_LOGIC_UNSIGNED.all;
 
 ENTITY PIPES IS
     PORT
-        ( CLOCK_25Mhz	            : IN std_logic;
-          vert_sync		            : IN std_logic;
-          pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-				red, green, blue 			: OUT std_logic;
-          lfsr_value				: IN std_logic_vector(7 DOWNTO 0);
-          Game_state_signal                 : IN std_logic_vector(1 DOWNTO 0);
-          pipe_on                 : OUT std_logic;
-				pipe_enable				: OUT std_logic;
-          pipe_x_1                  : OUT std_logic_vector(9 DOWNTO 0); -- for bait
-          pipe_y_1                  : OUT std_logic_vector(9 DOWNTO 0) -- for bait
-          );	
+            ( CLOCK_25Mhz	            : IN std_logic;
+            vert_sync		            : IN std_logic;
+            pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
+            red, green, blue 			: OUT std_logic;
+            lfsr_value				: IN std_logic_vector(7 DOWNTO 0);
+            Game_state_signal                 : IN std_logic_vector(1 DOWNTO 0);
+            pipe_on                 : OUT std_logic;
+            pipe_enable				: OUT std_logic;
+            pipe_x_1                  : OUT std_logic_vector(9 DOWNTO 0); -- for bait
+            pipe_y_1                  : OUT std_logic_vector(9 DOWNTO 0) -- for bait
+            );	
 END PIPES;
 
 ARCHITECTURE behavior OF PIPES IS

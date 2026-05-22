@@ -1,0 +1,1 @@
+-- only takes in termiantion and win, so enabel it when termianion is 1 and win is 0

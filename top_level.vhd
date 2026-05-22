@@ -19,9 +19,12 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 ------------------------------------ COMPONENT DECLARATION START ------------------------------------
     COMPONENT BACKGROUND IS
     PORT
-        ( pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
-        red, green, blue        : OUT std_logic;
-        Game_state_signal               : IN std_logic_vector(1 DOWNTO 0)
+        (pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
+                Win                     : IN STD_LOGIC;  -- logic high
+                Termination             : IN STD_LOGIC;  -- logic high
+                Pause_OUT               : IN STD_LOGIC;  -- logic high
+                Game_state_signal       : IN std_logic_vector(1 DOWNTO 0);
+                red, green, blue 	    : OUT std_logic
         );
     END COMPONENT BACKGROUND;
 
@@ -284,15 +287,7 @@ BEGIN
 
     RESET <= NOT KEY(0); -- active low reset
 
-    -- REPLACE WITH FSM CONTROLLING GAME STATE
-    -- Game_state_signal <= "10" when SW(1) = '1' else -- end screen
-    --              "00" when SW(0) = '0' else -- start screen
-    --              "01" when SW(0) = '1' else -- game screen
-    --              "00"; -- default to start screen if no switches on
-
-
-
-
+    -- need to change the lifes in the other components to the fsm life
 
 
 ------------------------------------ PORT MAP DECLARATION START ------------------------------------
@@ -303,8 +298,13 @@ BEGIN
         red => BACKGROUND_RED,
         green => BACKGROUND_GREEN,
         blue => BACKGROUND_BLUE,
-        Game_state_signal => Game_state_signal
+        Win             => Win_signal,
+        Termination     => Termination_signal,
+        Pause_OUT       => Pause_out_signal,
+        Game_state_signal      => Game_state_signal
     );
+
+
 
     CH : BCD_TO_SEVENSEG PORT MAP (
         BCD_digit => column_hundreds,
@@ -357,7 +357,7 @@ BEGIN
         Start           => NOT KEY(1),
         Pause_IN        => SW(9), -- different to original fsm diagram
         Mode            => SW(0),
-        Life            => Life_signal,
+        Life            => Life_signal, 
         Timer           => SW(1),
        
         Win             => Win_signal,

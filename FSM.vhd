@@ -70,7 +70,7 @@ begin
                 Pause_OUT           <= '0';
                 Game_State          <= "11";
             when Game_Over =>
-                Win                 <= '0';
+                Win                 <= '0';   -- game over needs termination and win 
                 Termination         <= '1';
                 Pause_OUT           <= '0';
                 Game_State          <= "11";

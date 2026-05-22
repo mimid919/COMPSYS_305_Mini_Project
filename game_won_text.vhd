@@ -1,0 +1,1 @@
+-- put the text in here fore the game over, and it takes in an input of win and only enables when win = 1
