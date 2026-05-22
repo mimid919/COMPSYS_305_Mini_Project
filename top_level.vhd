@@ -24,6 +24,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
                 Termination             : IN STD_LOGIC;  -- logic high
                 Pause_OUT               : IN STD_LOGIC;  -- logic high
                 Game_state_signal       : IN std_logic_vector(1 DOWNTO 0);
+                clock                   : IN STD_LOGIC;
                 red, green, blue 	    : OUT std_logic_vector(3 DOWNTO 0)
         );
     END COMPONENT BACKGROUND;
@@ -285,13 +286,14 @@ BEGIN
     BG: BACKGROUND PORT MAP (
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
-        red => BACKGROUND_RED,
-        green => BACKGROUND_GREEN,
-        blue => BACKGROUND_BLUE,
         Win             => Win_signal,
         Termination     => Termination_signal,
         Pause_OUT       => Pause_out_signal,
-        Game_state_signal      => Game_state_signal
+        Game_state_signal      => Game_state_signal,
+        clock => CLOCK_25MHZ,
+        red => BACKGROUND_RED,
+        green => BACKGROUND_GREEN,
+        blue => BACKGROUND_BLUE
     );
 
 
