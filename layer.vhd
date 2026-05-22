@@ -10,7 +10,8 @@ ENTITY layer IS
             PIPE_ON                            : IN STD_LOGIC;
             BAIT_RED,BAIT_GREEN,BAIT_BLUE   : in std_logic;
             BAIT_ON                         : IN STD_LOGIC;
-            DOLPHIN_ON                      : in std_logic;
+            SPRITE_RED, SPRITE_GREEN, SPRITE_BLUE : IN std_logic;
+            SPRITE_ON : IN std_logic;
             LIVES_RED,LIVES_GREEN,LIVES_BLUE: in std_logic;
             LIVES_ON                        : IN STD_LOGIC;
             TEXT_RED,TEXT_GREEN,TEXT_BLUE   : in std_logic;
@@ -25,7 +26,7 @@ BEGIN
 process(
     TEXT_RED, TEXT_GREEN, TEXT_BLUE,
     LIVES_RED, LIVES_GREEN, LIVES_BLUE,
-    DOLPHIN_ON,
+    SPRITE_RED, SPRITE_GREEN, SPRITE_BLUE, SPRITE_ON,
     BAIT_RED, BAIT_GREEN, BAIT_BLUE,
     PIPE_ON,BAIT_ON,LIVES_ON,
     PIPE_RED, PIPE_GREEN, PIPE_BLUE,
@@ -53,11 +54,11 @@ begin
     end if;
 
     -- dolphin
-    if (DOLPHIN_ON = '1') then
-        RED_OUT   <= '0';
-        GREEN_OUT <= '0';
-        BLUE_OUT  <= '1';
-    end if;
+    if (SPRITE_ON = '1') then
+    RED_OUT   <= SPRITE_RED;
+    GREEN_OUT <= SPRITE_GREEN;
+    BLUE_OUT  <= SPRITE_BLUE;
+end if;
 
     -- lives
     if (LIVES_ON = '1') then

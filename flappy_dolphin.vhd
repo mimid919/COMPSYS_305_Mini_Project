@@ -15,6 +15,8 @@ ENTITY flappy_dolphin IS
 	PORT
 		( clk, vert_sync	: IN std_logic;
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
+		  dolphin_x_pos_out : OUT std_logic_vector(9 DOWNTO 0);
+		dolphin_y_pos_out : OUT std_logic_vector(9 DOWNTO 0);
 		  left_click 				: IN std_logic;
 		  fsm_state                 : IN std_logic_vector(1 DOWNTO 0);
 		  red, green, blue 			: OUT std_logic;
@@ -38,7 +40,11 @@ CONSTANT gravity 					: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(1,
 CONSTANT jump				: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(1010, 10); -- -8 is 1016
 CONSTANT dolphin_ground 			: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(472,10); -- ground level for dolphin
 
-BEGIN           
+BEGIN   
+
+dolphin_x_pos_out <= dolphin_x_pos;
+dolphin_y_pos_out <= dolphin_y_pos;
+
   	state <= '1' when FSM_STATE = "01" else '0'; -- only show pipes during game state
 
 	size <= CONV_STD_LOGIC_VECTOR(8,10);

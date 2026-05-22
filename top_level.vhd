@@ -54,6 +54,8 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
     COMPONENT FLAPPY_DOLPHIN IS
     PORT( clk, vert_sync	: IN std_logic;
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
+          dolphin_x_pos_out : OUT std_logic_vector(9 DOWNTO 0);
+          dolphin_y_pos_out : OUT std_logic_vector(9 DOWNTO 0);
           left_click 				: IN std_logic;
           fsm_state                 : IN std_logic_vector(1 DOWNTO 0);
 		  dolphin_on  			: OUT std_logic;
@@ -155,11 +157,24 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
         PIPE_ON : IN std_logic;
         BAIT_RED, BAIT_GREEN, BAIT_BLUE : IN std_logic;
         BAIT_ON : IN std_logic;
-        DOLPHIN_ON : IN std_logic;
+        SPRITE_RED, SPRITE_GREEN, SPRITE_BLUE : IN std_logic;
+        SPRITE_ON : IN std_logic;
         LIVES_RED, LIVES_GREEN, LIVES_BLUE : IN std_logic;
         LIVES_ON : IN std_logic;
         TEXT_RED, TEXT_GREEN, TEXT_BLUE : IN std_logic;
         RED_OUT, GREEN_OUT, BLUE_OUT : OUT std_logic
+    );
+END COMPONENT;
+
+    COMPONENT dolphin_sprite is
+    PORT (
+        clk                     : IN std_logic;
+        pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
+        dolphin_x_pos           : IN std_logic_vector(9 DOWNTO 0);
+        dolphin_y_pos           : IN std_logic_vector(9 DOWNTO 0);
+
+        red, green, blue        : OUT std_logic;
+        dolphin_on              : OUT std_logic
     );
 END COMPONENT;
 
@@ -203,6 +218,16 @@ END COMPONENT;
     SIGNAL BAIT_ON                     : std_logic;
     SIGNAL bait_pipe_x                  : std_logic_vector(9 DOWNTO 0);
     SIGNAL bait_pipe_y                  : std_logic_vector(9 DOWNTO 0);
+    
+    -- DOLPHIN SPRITE
+    SIGNAL SPRITE_ON : STD_LOGIC;
+    SIGNAL DOLPHIN_X_POS : std_logic_vector(9 downto 0);
+    SIGNAL DOLPHIN_Y_POS : std_logic_vector(9 downto 0);
+    SIGNAL SPRITE_RED : std_logic;
+    SIGNAL SPRITE_GREEN : std_logic;
+    SIGNAL SPRITE_BLUE : std_logic;
+
+
 BEGIN
 
     -- REPLACE WITH FSM CONTROLLING GAME STATE
@@ -288,7 +313,8 @@ BEGIN
         pixel_column => PIXEL_COLUMN,
         left_click => LEFT_CLICK,
         fsm_state => FSM_STATE,
-
+        dolphin_x_pos_out => DOLPHIN_X_POS,
+        dolphin_y_pos_out => DOLPHIN_Y_POS,
         dolphin_on => DOLPHIN_ON,
         dolphin_enable => OPEN
     );
@@ -390,7 +416,10 @@ BEGIN
     BAIT_GREEN => BAIT_GREEN,
     BAIT_BLUE => BAIT_BLUE,
     BAIT_ON => BAIT_ON,
-    DOLPHIN_ON => DOLPHIN_ON,
+    SPRITE_RED => SPRITE_RED,
+    SPRITE_GREEN => SPRITE_GREEN,
+    SPRITE_BLUE => SPRITE_BLUE,
+    SPRITE_ON => SPRITE_ON,
     LIVES_RED => LIVES_RED,
     LIVES_GREEN => LIVES_GREEN,
     LIVES_BLUE => LIVES_BLUE,
@@ -401,6 +430,18 @@ BEGIN
     RED_OUT => RED_OUT,
     GREEN_OUT => GREEN_OUT,
     BLUE_OUT => BLUE_OUT
+);
+
+DOLPHIN_SPRITE : dolphin_sprite PORT MAP (
+    clk => CLOCK_25MHZ,                   
+        pixel_row => PIXEL_ROW,
+        pixel_column =>  PIXEL_COLUMN,
+        dolphin_x_pos   => DOLPHIN_X_POS,      
+        dolphin_y_pos      => DOLPHIN_Y_POS,    
+        red => SPRITE_RED,
+        green => SPRITE_GREEN,
+        blue => SPRITE_BLUE,
+        dolphin_on  => SPRITE_ON
 );
 
     -- mouse coordinate hex instances
