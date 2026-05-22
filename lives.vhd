@@ -12,7 +12,7 @@ ENTITY lives IS
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
           Game_state_signal : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
           life_one, life_two, life_three : IN STD_LOGIC; -- for enabling lives
-          red, green, blue 			: OUT std_logic;
+          red, green, blue 			: OUT std_logic_VECTOR(3 DOWNTO 0);
           live_on                   : out std_logic);		
 END lives;
 
@@ -98,8 +98,8 @@ PORT MAP (
 );
 
 live_on <= lives_visible;
-Red   <= lives_visible;
-Green <= '0';
-Blue  <= '0';
+Red   <= "1000" when lives_visible = '1' else "0000";
+Green <= "0000";
+Blue  <= "0000";
 
 END behaviour;

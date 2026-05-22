@@ -14,7 +14,7 @@ ENTITY bait IS
 		  Game_state_signal                 : IN std_logic_vector(1 DOWNTO 0);
           pipe_x_pos_1              : IN std_logic_vector(9 DOWNTO 0);
           gap_height                : IN std_logic_vector(9 DOWNTO 0);
-		  red, green, blue 			: OUT std_logic;
+		  red, green, blue 			: OUT std_logic_vector(3 DOWNTO 0);
           bait_on                   : OUT std_logic;
           bait_enable               : OUT std_logic);
 END bait; 
@@ -51,8 +51,8 @@ BEGIN
 ) else '0';
 
 bait_on <= bait_visible;
-red   <= bait_visible;
-green <= bait_visible;
-blue  <= '0';
+red   <= "1000" when bait_visible = '1' else "0000";
+green <= "1000" when bait_visible = '1' else "0000";
+blue  <= "0000";
 
 END behaviour;

@@ -10,7 +10,7 @@ ENTITY dolphin_sprite IS
         dolphin_x_pos           : IN std_logic_vector(9 DOWNTO 0);
         dolphin_y_pos           : IN std_logic_vector(9 DOWNTO 0);
 
-        red, green, blue        : OUT std_logic;
+        red, green, blue        : OUT std_logic_vector(3 DOWNTO 0);
         dolphin_on              : OUT std_logic
     );
 END dolphin_sprite;
@@ -51,10 +51,10 @@ BEGIN
         q       => sprite_rgb
     );
 
-    dolphin_on <= '1' when (inside = '1' and sprite_rgb /= "111") else '0';
+    dolphin_on <= '1' when (inside = '1') else '0';
 
-    red   <= sprite_rgb(2) when (inside = '1' and sprite_rgb /= "111") else '0';
-    green <= sprite_rgb(1) when (inside = '1' and sprite_rgb /= "111") else '0';
-    blue  <= sprite_rgb(0) when (inside = '1' and sprite_rgb /= "111") else '0';
+    red   <= (sprite_rgb(2) & "000") when (inside = '1') else "0000";
+    green <= (sprite_rgb(1) & "000") when (inside = '1') else "0000";
+    blue  <= (sprite_rgb(0) & "000") when (inside = '1') else "0000";
 
 END behaviour;

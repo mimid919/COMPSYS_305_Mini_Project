@@ -12,7 +12,7 @@ ENTITY home_display IS
 		( clk                       : In std_logic;
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
           Game_state_signal : STD_LOGIC_VECTOR(1 DOWNTO 0);
-          red, green, blue 			: OUT std_logic);		
+          red, green, blue 			: OUT std_logic_vector(3 DOWNTO 0));		
 END home_display;
 
 architecture behaviour of home_display is
@@ -270,8 +270,8 @@ PORT MAP (
 );
 
 
-Red   <= text_on;
-Green <= '0';
-Blue  <= text_on;
+Red   <= "1000" when text_on = '1' else "0000";
+Green <= "0000";
+Blue  <= "1000" when text_on = '1' else "0000";
 
 END behaviour;

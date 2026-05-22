@@ -14,7 +14,7 @@ ENTITY PIPES IS
             ( CLOCK_25Mhz	            : IN std_logic;
             vert_sync		            : IN std_logic;
             pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-            red, green, blue 			: OUT std_logic;
+            red, green, blue 			: OUT std_logic_vector(3 DOWNTO 0);
             lfsr_value				: IN std_logic_vector(7 DOWNTO 0);
             Game_state_signal                 : IN std_logic_vector(1 DOWNTO 0);
             pipe_on                 : OUT std_logic;
@@ -51,9 +51,9 @@ BEGIN
     pipe_on <= pipe_visible and state;
     pipe_enable <= pipe_visible and state;
 
-    red   <= '0';
-    green <= pipe_visible and state;
-    blue  <= '0';   
+    red   <= "0000";
+    green <= "1000" when (pipe_visible = '1' and state = '1') else "0000";
+    blue  <= "0000";   
 
     pipe_x_1 <= pipe_x_pos_1;
     pipe_y_1 <= pipe_top_height_1;
