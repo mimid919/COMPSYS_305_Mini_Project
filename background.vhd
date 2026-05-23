@@ -53,15 +53,15 @@ BEGIN
         -------------------------- GAME WON  --------------------------
             --  black background, green text
         ELSIF Win = '1'  THEN 
-            RED <= "0000";
-            GREEN <= "0000";
-            BLUE <= "0000";
+            RED <= "0001";
+            GREEN <= "0001";
+            BLUE <= "0001";
         -------------------------- GAME OVER  --------------------------
             --  black background, red text
         ELSIF Win = '0' and Termination ='1' THEN 
-            RED <= "0000";
-            GREEN <= "0000";
-            BLUE <= "0000";
+            RED <= "0001";
+            GREEN <= "0001";
+            BLUE <= "0001";
        -------------------------- TRAINING & GAME MODE  --------------------------
             -- game screen, scaled sunset background image
         ELSIF Game_state_signal = "01" OR Game_state_signal = "11" THEN 

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_level
-Sat May 23 19:25:27 2026
+Sat May 23 19:35:25 2026
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -177,7 +177,7 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat May 23 19:25:27 2026           ;
+; Analysis & Synthesis Status     ; Successful - Sat May 23 19:35:25 2026           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; top_level                                       ;
 ; Top-level Entity Name           ; top_level                                       ;
@@ -297,13 +297,14 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
 ;     Processor 6            ;   0.0%      ;
 ;     Processor 7            ;   0.0%      ;
-;     Processors 8-16        ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
+;     Processors 9-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -378,14 +379,14 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                      ;
 +---------------------------------------------+----------------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 1108                                                                       ;
+; Estimate of Logic utilization (ALMs needed) ; 1120                                                                       ;
 ;                                             ;                                                                            ;
-; Combinational ALUT usage for logic          ; 2026                                                                       ;
-;     -- 7 input functions                    ; 11                                                                         ;
-;     -- 6 input functions                    ; 171                                                                        ;
-;     -- 5 input functions                    ; 136                                                                        ;
-;     -- 4 input functions                    ; 297                                                                        ;
-;     -- <=3 input functions                  ; 1411                                                                       ;
+; Combinational ALUT usage for logic          ; 2030                                                                       ;
+;     -- 7 input functions                    ; 12                                                                         ;
+;     -- 6 input functions                    ; 190                                                                        ;
+;     -- 5 input functions                    ; 104                                                                        ;
+;     -- 4 input functions                    ; 304                                                                        ;
+;     -- <=3 input functions                  ; 1420                                                                       ;
 ;                                             ;                                                                            ;
 ; Dedicated logic registers                   ; 264                                                                        ;
 ;                                             ;                                                                            ;
@@ -400,8 +401,8 @@ refer to the applicable agreement for further details.
 ;                                             ;                                                                            ;
 ; Maximum fan-out node                        ; pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
 ; Maximum fan-out                             ; 296                                                                        ;
-; Total fan-out                               ; 8920                                                                       ;
-; Average fan-out                             ; 3.35                                                                       ;
+; Total fan-out                               ; 8943                                                                       ;
+; Average fan-out                             ; 3.36                                                                       ;
 +---------------------------------------------+----------------------------------------------------------------------------+
 
 
@@ -410,8 +411,8 @@ refer to the applicable agreement for further details.
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                               ; Entity Name         ; Library Name ;
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |top_level                                   ; 2026 (1)            ; 264 (0)                   ; 418912            ; 0          ; 83   ; 0            ; |top_level                                                                                                                                        ; top_level           ; work         ;
-;    |BACKGROUND:BG|                           ; 556 (93)            ; 3 (0)                     ; 405600            ; 0          ; 0    ; 0            ; |top_level|BACKGROUND:BG                                                                                                                          ; BACKGROUND          ; work         ;
+; |top_level                                   ; 2030 (1)            ; 264 (0)                   ; 418912            ; 0          ; 83   ; 0            ; |top_level                                                                                                                                        ; top_level           ; work         ;
+;    |BACKGROUND:BG|                           ; 557 (94)            ; 3 (0)                     ; 405600            ; 0          ; 0    ; 0            ; |top_level|BACKGROUND:BG                                                                                                                          ; BACKGROUND          ; work         ;
 ;       |lpm_divide:Div0|                      ; 215 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|BACKGROUND:BG|lpm_divide:Div0                                                                                                          ; lpm_divide          ; work         ;
 ;          |lpm_divide_rbm:auto_generated|     ; 215 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|BACKGROUND:BG|lpm_divide:Div0|lpm_divide_rbm:auto_generated                                                                            ; lpm_divide_rbm      ; work         ;
 ;             |sign_div_unsign_1mh:divider|    ; 215 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|BACKGROUND:BG|lpm_divide:Div0|lpm_divide_rbm:auto_generated|sign_div_unsign_1mh:divider                                                ; sign_div_unsign_1mh ; work         ;
@@ -432,60 +433,60 @@ refer to the applicable agreement for further details.
 ;    |BCD_to_SevenSeg:RO|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|BCD_to_SevenSeg:RO                                                                                                                     ; BCD_to_SevenSeg     ; work         ;
 ;    |BCD_to_SevenSeg:RT|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|BCD_to_SevenSeg:RT                                                                                                                     ; BCD_to_SevenSeg     ; work         ;
 ;    |FSM:FINITE_STATE_MACHINE|                ; 7 (7)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|FSM:FINITE_STATE_MACHINE                                                                                                               ; FSM                 ; work         ;
-;    |HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|      ; 181 (153)           ; 0 (0)                     ; 896               ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT                                                                                                     ; HOME_DISPLAY_TEXT   ; work         ;
-;       |char_rom:\GEN_CHARS:0:CHAR_ROM_INST|  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:0:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
+;    |HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|      ; 205 (163)           ; 0 (0)                     ; 896               ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT                                                                                                     ; HOME_DISPLAY_TEXT   ; work         ;
+;       |char_rom:\GEN_CHARS:0:CHAR_ROM_INST|  ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:0:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:0:CHAR_ROM_INST|altsyncram:altsyncram_component                                 ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:0:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated  ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:10:CHAR_ROM_INST| ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:10:CHAR_ROM_INST                                                                ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:10:CHAR_ROM_INST| ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:10:CHAR_ROM_INST                                                                ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:10:CHAR_ROM_INST|altsyncram:altsyncram_component                                ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:10:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:11:CHAR_ROM_INST| ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:11:CHAR_ROM_INST                                                                ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:11:CHAR_ROM_INST| ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:11:CHAR_ROM_INST                                                                ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:11:CHAR_ROM_INST|altsyncram:altsyncram_component                                ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:11:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:12:CHAR_ROM_INST| ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:12:CHAR_ROM_INST                                                                ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:12:CHAR_ROM_INST| ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:12:CHAR_ROM_INST                                                                ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:12:CHAR_ROM_INST|altsyncram:altsyncram_component                                ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:12:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:13:CHAR_ROM_INST| ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:13:CHAR_ROM_INST                                                                ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:13:CHAR_ROM_INST| ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:13:CHAR_ROM_INST                                                                ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:13:CHAR_ROM_INST|altsyncram:altsyncram_component                                ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:13:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:1:CHAR_ROM_INST|  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:1:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:1:CHAR_ROM_INST|  ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:1:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:1:CHAR_ROM_INST|altsyncram:altsyncram_component                                 ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:1:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated  ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:2:CHAR_ROM_INST|  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:2:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:2:CHAR_ROM_INST|  ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:2:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:2:CHAR_ROM_INST|altsyncram:altsyncram_component                                 ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:2:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated  ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:3:CHAR_ROM_INST|  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:3:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:3:CHAR_ROM_INST|  ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:3:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:3:CHAR_ROM_INST|altsyncram:altsyncram_component                                 ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:3:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated  ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:4:CHAR_ROM_INST|  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:4:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:4:CHAR_ROM_INST|  ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:4:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:4:CHAR_ROM_INST|altsyncram:altsyncram_component                                 ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:4:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated  ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:5:CHAR_ROM_INST|  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:5:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:5:CHAR_ROM_INST|  ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:5:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:5:CHAR_ROM_INST|altsyncram:altsyncram_component                                 ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:5:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated  ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:6:CHAR_ROM_INST|  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:6:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:6:CHAR_ROM_INST|  ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:6:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:6:CHAR_ROM_INST|altsyncram:altsyncram_component                                 ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:6:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated  ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:7:CHAR_ROM_INST|  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:7:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:7:CHAR_ROM_INST|  ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:7:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:7:CHAR_ROM_INST|altsyncram:altsyncram_component                                 ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:7:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated  ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:8:CHAR_ROM_INST|  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:8:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:8:CHAR_ROM_INST|  ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:8:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:8:CHAR_ROM_INST|altsyncram:altsyncram_component                                 ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:8:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated  ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:9:CHAR_ROM_INST|  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:9:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:9:CHAR_ROM_INST|  ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:9:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:9:CHAR_ROM_INST|altsyncram:altsyncram_component                                 ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:9:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated  ; altsyncram_d5g1     ; work         ;
 ;    |MOUSE:MOUSE_CONTROLS|                    ; 109 (109)           ; 118 (118)                 ; 0                 ; 0          ; 0    ; 0            ; |top_level|MOUSE:MOUSE_CONTROLS                                                                                                                   ; MOUSE               ; work         ;
-;    |PIPES:PIPE_DISPLAY|                      ; 192 (192)           ; 52 (52)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|PIPES:PIPE_DISPLAY                                                                                                                     ; PIPES               ; work         ;
+;    |PIPES:PIPE_DISPLAY|                      ; 177 (177)           ; 52 (52)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|PIPES:PIPE_DISPLAY                                                                                                                     ; PIPES               ; work         ;
 ;    |VGA_SYNC:VGA_REFRESH|                    ; 72 (72)             ; 57 (57)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|VGA_SYNC:VGA_REFRESH                                                                                                                   ; VGA_SYNC            ; work         ;
-;    |bait:RANDOM_BAIT|                        ; 85 (85)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|bait:RANDOM_BAIT                                                                                                                       ; bait                ; work         ;
+;    |bait:RANDOM_BAIT|                        ; 78 (78)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|bait:RANDOM_BAIT                                                                                                                       ; bait                ; work         ;
 ;    |dolphin_movement:PLAYER_CHARACTER|       ; 44 (44)             ; 22 (22)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|dolphin_movement:PLAYER_CHARACTER                                                                                                      ; dolphin_movement    ; work         ;
 ;    |dolphin_visual:DOLPHIN_SPRITE_INST|      ; 26 (26)             ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |top_level|dolphin_visual:DOLPHIN_SPRITE_INST                                                                                                     ; dolphin_visual      ; work         ;
 ;       |dolphin_rom:DOLPHIN|                  ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |top_level|dolphin_visual:DOLPHIN_SPRITE_INST|dolphin_rom:DOLPHIN                                                                                 ; dolphin_rom         ; work         ;
 ;          |altsyncram:ROM|                    ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |top_level|dolphin_visual:DOLPHIN_SPRITE_INST|dolphin_rom:DOLPHIN|altsyncram:ROM                                                                  ; altsyncram          ; work         ;
 ;             |altsyncram_j3u3:auto_generated| ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |top_level|dolphin_visual:DOLPHIN_SPRITE_INST|dolphin_rom:DOLPHIN|altsyncram:ROM|altsyncram_j3u3:auto_generated                                   ; altsyncram_j3u3     ; work         ;
 ;    |lfsr:RANDOM_NUMBER|                      ; 6 (6)               ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|lfsr:RANDOM_NUMBER                                                                                                                     ; lfsr                ; work         ;
-;    |lives:LIFE_DISPLAY|                      ; 37 (33)             ; 0 (0)                     ; 128               ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY                                                                                                                     ; lives               ; work         ;
+;    |lives:LIFE_DISPLAY|                      ; 38 (34)             ; 0 (0)                     ; 128               ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY                                                                                                                     ; lives               ; work         ;
 ;       |char_rom:HEART_ROM_1|                 ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY|char_rom:HEART_ROM_1                                                                                                ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY|char_rom:HEART_ROM_1|altsyncram:altsyncram_component                                                                ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY|char_rom:HEART_ROM_1|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated                                 ; altsyncram_d5g1     ; work         ;
@@ -691,14 +692,14 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; PIPES:PIPE_DISPLAY|pipe_x_pos_2[6]                 ; 4       ;
 ; PIPES:PIPE_DISPLAY|pipe_x_pos_2[4]                 ; 12      ;
 ; PIPES:PIPE_DISPLAY|pipe_x_pos_2[2]                 ; 4       ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_2[0]                 ; 5       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_2[0]                 ; 4       ;
 ; PIPES:PIPE_DISPLAY|pipe_top_height_2[7]            ; 3       ;
 ; PIPES:PIPE_DISPLAY|pipe_top_height_2[6]            ; 4       ;
 ; PIPES:PIPE_DISPLAY|pipe_top_height_2[3]            ; 7       ;
 ; PIPES:PIPE_DISPLAY|pipe_top_height_1[7]            ; 7       ;
 ; PIPES:PIPE_DISPLAY|pipe_top_height_1[6]            ; 7       ;
 ; PIPES:PIPE_DISPLAY|pipe_top_height_1[3]            ; 17      ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_3[1]                 ; 6       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_3[1]                 ; 5       ;
 ; PIPES:PIPE_DISPLAY|pipe_x_pos_3[8]                 ; 4       ;
 ; PIPES:PIPE_DISPLAY|pipe_x_pos_3[7]                 ; 5       ;
 ; PIPES:PIPE_DISPLAY|pipe_x_pos_3[5]                 ; 12      ;
@@ -4647,23 +4648,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     SCLR              ; 40                          ;
 ;     plain             ; 59                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 2026                        ;
+; arriav_lcell_comb     ; 2030                        ;
 ;     arith             ; 893                         ;
 ;         0 data inputs ; 134                         ;
 ;         1 data inputs ; 302                         ;
 ;         2 data inputs ; 77                          ;
 ;         3 data inputs ; 237                         ;
 ;         4 data inputs ; 143                         ;
-;     extend            ; 11                          ;
-;         7 data inputs ; 11                          ;
-;     normal            ; 1014                        ;
+;     extend            ; 12                          ;
+;         7 data inputs ; 12                          ;
+;     normal            ; 1017                        ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 17                          ;
-;         2 data inputs ; 330                         ;
-;         3 data inputs ; 205                         ;
-;         4 data inputs ; 154                         ;
-;         5 data inputs ; 136                         ;
-;         6 data inputs ; 171                         ;
+;         2 data inputs ; 323                         ;
+;         3 data inputs ; 221                         ;
+;         4 data inputs ; 161                         ;
+;         5 data inputs ; 104                         ;
+;         6 data inputs ; 190                         ;
 ;     shared            ; 108                         ;
 ;         0 data inputs ; 20                          ;
 ;         1 data inputs ; 64                          ;
@@ -4674,7 +4675,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; stratixv_ram_block    ; 200                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 24.40                       ;
-; Average LUT depth     ; 11.30                       ;
+; Average LUT depth     ; 11.24                       ;
 +-----------------------+-----------------------------+
 
 
@@ -4693,7 +4694,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Sat May 23 19:25:03 2026
+    Info: Processing started: Sat May 23 19:35:13 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off group_27 -c top_level
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -5290,20 +5291,20 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 14
     Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 14
 Info (286030): Timing-Driven Synthesis is running
-Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:8:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:6:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
+Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:8:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:13:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:10:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:12:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
+Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:4:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:9:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:11:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
-Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:4:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
-Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:3:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:0:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:1:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
-Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:7:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
+Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:3:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:2:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:5:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
+Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:7:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "lives:LIFE_DISPLAY|char_rom:HEART_ROM_1|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "lives:LIFE_DISPLAY|char_rom:HEART_ROM_2|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
@@ -5549,17 +5550,17 @@ Warning (21074): Design contains 7 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 9
     Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 9
     Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 9
-Info (21057): Implemented 2391 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2395 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 66 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 2107 logic cells
+    Info (21061): Implemented 2111 logic cells
     Info (21064): Implemented 200 RAM segments
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 423 warnings
-    Info: Peak virtual memory: 5032 megabytes
-    Info: Processing ended: Sat May 23 19:25:27 2026
-    Info: Elapsed time: 00:00:24
-    Info: Total CPU time (on all processors): 00:00:16
+    Info: Peak virtual memory: 5028 megabytes
+    Info: Processing ended: Sat May 23 19:35:25 2026
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:17
 
 
