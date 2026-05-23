@@ -57,10 +57,17 @@ BEGIN
             GREEN <= "0000";
             BLUE <= "0000";
             -- GAME_WON
-        ELSIF Win = '1' and Termination ='1' and Pause_OUT = '0' and Game_state_signal = "11" THEN 
+            --  black backgrounf, green text
+        ELSIF Win = '1'  THEN 
             RED <= "0000";
             GREEN <= "0000";
-            BLUE <= "1000";
+            BLUE <= "0000";
+            -- GAME_OVER
+            --  black background, red text
+        ELSIF Win = '0' and Termination ='1' and Pause_OUT = '0' and Game_state_signal = "11" THEN 
+            RED <= "0000";
+            GREEN <= "0000";
+            BLUE <= "0000";
         ELSE -- default to avoid latch
             RED <= "0000";
             GREEN <= "1000";

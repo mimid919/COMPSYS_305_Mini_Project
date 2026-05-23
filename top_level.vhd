@@ -4,7 +4,7 @@ use  IEEE.STD_LOGIC_ARITH.all;
 use  IEEE.STD_LOGIC_UNSIGNED.all;
 
 ENTITY top_level IS
-	PORT(	CLOCK_50                            : IN STD_LOGIC;
+	PORT(	CLOCK_50                            	: IN STD_LOGIC;
             KEY                                 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
             SW                                  : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
             PS2_CLK, PS2_DAT                    : INOUT STD_LOGIC;
@@ -70,7 +70,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
     );
     END COMPONENT dolphin_visual;
 
-    COMPONENT FLAPPY_DOLPHIN IS -- HOW IS THIS WORKING WITHOUT RGB IN DECLARATION (RGB ARE OUTPUTS IN ENTITY)
+    COMPONENT DOLPHIN_MOVEMENT IS -- HOW IS THIS WORKING WITHOUT RGB IN DECLARATION (RGB ARE OUTPUTS IN ENTITY)
     PORT
         ( clk, vert_sync        : IN std_logic;
         pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
@@ -81,7 +81,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
         dolphin_on            : OUT std_logic;
         dolphin_enable        : OUT std_logic
         );
-    END COMPONENT FLAPPY_DOLPHIN;
+    END COMPONENT DOLPHIN_MOVEMENT;
 
     COMPONENT FSM IS
     PORT (
@@ -429,7 +429,7 @@ BEGIN
         pipe_y_1 => bait_pipe_y
     );
 
-    PLAYER_CHARACTER: FLAPPY_DOLPHIN PORT MAP (
+    PLAYER_CHARACTER: DOLPHIN_MOVEMENT PORT MAP (
         clk => CLOCK_25MHZ,
         vert_sync => VERT_SYNC,
         pixel_row => PIXEL_ROW,
