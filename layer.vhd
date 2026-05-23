@@ -6,15 +6,15 @@ USE  IEEE.STD_LOGIC_UNSIGNED.all;
 ENTITY layer IS
 	PORT
 		(BACKGROUND_RED,BACKGROUND_GREEN,BACKGROUND_BLUE: in std_logic_vector(3 downto 0);
-            PIPE_RED,PIPE_GREEN, PIPE_BLUE  : in std_logic_vector(3 DOWNTO 0);
-            PIPE_ON                            : IN STD_LOGIC;
-            BAIT_RED,BAIT_GREEN,BAIT_BLUE   : in std_logic_vector(3 DOWNTO 0);
-            BAIT_ON                         : IN STD_LOGIC;
-            SPRITE_RED, SPRITE_GREEN, SPRITE_BLUE : IN std_logic_vector(3 DOWNTO 0);
-            SPRITE_ON : IN std_logic;
-            LIVES_RED,LIVES_GREEN,LIVES_BLUE: in std_logic_vector(3 DOWNTO 0);
-            LIVES_ON                        : IN STD_LOGIC;
-            TEXT_RED,TEXT_GREEN,TEXT_BLUE   : in std_logic_vector(3 DOWNTO 0);
+            PIPE_RED,PIPE_GREEN, PIPE_BLUE  				: in std_logic_vector(3 DOWNTO 0);
+            PIPE_ON                            			: IN STD_LOGIC;
+            BAIT_RED,BAIT_GREEN,BAIT_BLUE   				: in std_logic_vector(3 DOWNTO 0);
+            BAIT_ON                         				: IN STD_LOGIC;
+            SPRITE_RED, SPRITE_GREEN, SPRITE_BLUE 		: IN std_logic_vector(3 DOWNTO 0);
+            SPRITE_ON 											: IN std_logic;
+            LIVES_RED,LIVES_GREEN,LIVES_BLUE				: in std_logic_vector(3 DOWNTO 0);
+            LIVES_ON                        				: IN STD_LOGIC;
+            TEXT_RED,TEXT_GREEN,TEXT_BLUE   				: in std_logic_vector(3 DOWNTO 0);
             RED_OUT,GREEN_OUT,BLUE_OUT      : OUT STD_LOGIC_vector(3 DOWNTO 0));
 
 END layer;

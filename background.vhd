@@ -32,6 +32,7 @@ ARCHITECTURE behavior OF BACKGROUND IS
     constant TARGET_WIDTH : integer := 640;
     constant TARGET_HEIGHT : integer := 480;
 
+
     SIGNAL rom_address : STD_LOGIC_VECTOR(15 DOWNTO 0);
     SIGNAL sunset_pixel : STD_LOGIC_VECTOR (11 DOWNTO 0);
 BEGIN
@@ -39,12 +40,31 @@ BEGIN
     VARIABLE row_i : integer;
     VARIABLE col_i : integer;
     VARIABLE img_addr : integer;
-    BEGIN
-        IF Game_state_signal = "00" THEN -- start screen, black (MAGENTA TXT)
+    BEGIN -- In order of Priority THIS WHOLE PROCESS NEEDS CHANGING AS WE IMPLEMENT TIMER ETC
+        -------------------------- PAUSE  --------------------------
+        IF Pause_OUT = '1' THEN
+            -- add later 
+        -------------------------- GAME WON  --------------------------
+            --  black background, green text
+        ELSIF Win = '1'  THEN 
             RED <= "0000";
             GREEN <= "0000";
             BLUE <= "0000";
-        ELSIF Game_state_signal = "01" THEN -- game screen, scaled sunset background image
+        -------------------------- GAME OVER  --------------------------
+            --  black background, red text
+        ELSIF Win = '0' and Termination ='1' THEN 
+            RED <= "0000";
+            GREEN <= "0000";
+            BLUE <= "0000";
+        -------------------------- HOME SCREEN  --------------------------
+            -- purple background (blue TXT)
+        ELSIF Game_state_signal = "00"  THEN 
+            RED <= "0101";
+            GREEN <= "0000";
+            BLUE <= "0110";
+        -------------------------- TRAINING & GAME MODE  --------------------------
+            -- game screen, scaled sunset background image
+        ELSIF Game_state_signal = "01" OR Game_state_signal = "11" THEN 
             row_i := (CONV_INTEGER(pixel_row) * SOURCE_HEIGHT) / TARGET_HEIGHT;
             col_i := (CONV_INTEGER(pixel_column) * SOURCE_WIDTH) / TARGET_WIDTH;
             img_addr := row_i * SOURCE_WIDTH + col_i;
@@ -52,25 +72,10 @@ BEGIN
             RED <= sunset_pixel(11 DOWNTO 8);
             GREEN <= sunset_pixel(7 DOWNTO 4);
             BLUE <= sunset_pixel(3 DOWNTO 0);
-        ELSIF Game_state_signal = "10" THEN -- end screen, red
+        -------------------------- DEFAULT MODE -> RED SCREEN BECASUE ITS AN ERROR --------------------------
+        ELSE -- default to avoid latch
             RED <= "1000";
             GREEN <= "0000";
-            BLUE <= "0000";
-            -- GAME_WON
-            --  black backgrounf, green text
-        ELSIF Win = '1'  THEN 
-            RED <= "0000";
-            GREEN <= "0000";
-            BLUE <= "0000";
-            -- GAME_OVER
-            --  black background, red text
-        ELSIF Win = '0' and Termination ='1' and Pause_OUT = '0' and Game_state_signal = "11" THEN 
-            RED <= "0000";
-            GREEN <= "0000";
-            BLUE <= "0000";
-        ELSE -- default to avoid latch
-            RED <= "0000";
-            GREEN <= "1000";
             BLUE <= "0000";
         END IF;
     END PROCESS;

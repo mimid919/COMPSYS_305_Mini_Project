@@ -100,14 +100,23 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
         );
     END COMPONENT FSM;
 
-    COMPONENT HOME_DISPLAY IS
+    COMPONENT GAME_WON_TEXT IS
+        PORT
+            ( clk                   : IN std_logic;
+            pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
+            Win                     : IN std_logic;
+            red, green, blue        : OUT std_logic_vector(3 DOWNTO 0)
+            );
+    END COMPONENT GAME_WON_TEXT;
+
+    COMPONENT HOME_DISPLAY_TEXT IS
     PORT
         ( clk                 : IN std_logic;
         pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
         Game_state_signal           : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
         red, green, blue    : OUT std_logic_vector(3 DOWNTO 0)
         );
-    END COMPONENT HOME_DISPLAY;
+    END COMPONENT HOME_DISPLAY_TEXT;
 
     COMPONENT LAYER IS
     PORT
@@ -211,11 +220,13 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
     ----    FSM SIGNALS ---
     SIGNAL Life_signal              : STD_LOGIC := '1';
     SIGNAL Win_signal               : STD_LOGIC;
-    SIGNAL Termination_signal       : STD_LOGIC;
-    SIGNAL Pause_out_signal         : STD_LOGIC;
-    SIGNAL Game_state_signal        : STD_LOGIC_VECTOR(1 downto 0);  -- used to be called "Game_state_signal"
+    SIGNAL Termination_signal       : STD_LOGIC := '0';
+    SIGNAL Pause_out_signal         : STD_LOGIC := '0';
+    SIGNAL Game_state_signal        : STD_LOGIC_VECTOR(1 downto 0) := "00";  -- used to be called "Game_state_signal"
+    
+    -- test it by using a switch so we can actually see the game won page
+    SIGNAL win_test : std_logic;
 
-   
 
     -- VGA signals used in other componants
     SIGNAL PIXEL_ROW, PIXEL_COLUMN  : STD_LOGIC_VECTOR(9 DOWNTO 0); -- pixel being chosen at present
@@ -233,6 +244,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
     SIGNAL PIPE_RED, PIPE_GREEN, PIPE_BLUE: STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL PIPE_ON : STD_LOGIC;
     SIGNAL TEXT_RED, TEXT_GREEN, TEXT_BLUE : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL GAME_WON_TEXT_RED, GAME_WON_TEXT_GREEN, GAME_WON_TEXT_BLUE : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL TEXT_ON                                              : std_logic;
     SIGNAL BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE: STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL BAIT_RED, BAIT_GREEN, BAIT_BLUE  : STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -267,10 +279,6 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 BEGIN
 
 
-    -- DELETE WHEN ADDING MORE COLOURS
-    -- VGA_R(2 DOWNTO 0) <= "000";
-    -- VGA_G(2 DOWNTO 0) <= "000";
-    -- VGA_B(2 DOWNTO 0) <= "000";
 
 
     -- Connect VGA sync signals to output, could VGA_HS/VS go straight in instance?
@@ -278,8 +286,12 @@ BEGIN
     VGA_VS <= VERT_SYNC;
 
     RESET <= NOT KEY(0); -- active low reset
+    -- testing game_won_text by making win high
+     win_test  <= SW(8);
+
 
     -- need to change the lifes in the other components to the fsm life
+
 
 
 ------------------------------------ PORT MAP DECLARATION START ------------------------------------
@@ -287,7 +299,7 @@ BEGIN
     BG: BACKGROUND PORT MAP (
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
-        Win             => Win_signal,
+        Win             => win_test,
         Termination     => Termination_signal,
         Pause_OUT       => Pause_out_signal,
         Game_state_signal      => Game_state_signal,
@@ -334,7 +346,18 @@ BEGIN
         dolphin_on => SPRITE_ON
     );
 
-    HOME_SCREEN_TEXT: HOME_DISPLAY PORT MAP (
+    GAME_WON_TEXT_INSTANCE: GAME_WON_TEXT PORT MAP (
+        clk => CLOCK_25MHZ,
+        pixel_row => PIXEL_ROW,
+        pixel_column => PIXEL_COLUMN,
+        win => win_test,
+        red => GAME_WON_TEXT_RED,
+        green => GAME_WON_TEXT_GREEN,
+        blue => GAME_WON_TEXT_BLUE
+
+    );
+
+    HOME_SCREEN_TEXT: HOME_DISPLAY_TEXT PORT MAP (
         clk => CLOCK_25MHZ,
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
@@ -353,8 +376,8 @@ BEGIN
         Mode            => SW(0),
         Life            => Life_signal, 
         Timer           => SW(1),
-       
-        Win             => Win_signal,
+       -- outputs
+        Win             => win_signal,
         Termination     => Termination_signal,
         Pause_OUT       => Pause_out_signal,
         Game_State      => Game_state_signal
