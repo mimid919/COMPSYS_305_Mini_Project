@@ -62,7 +62,7 @@ BEGIN
             RED <= "0000";
             GREEN <= "0000";
             BLUE <= "0000";
-        -------------------------- TRAINING & GAME MODE  --------------------------
+       -------------------------- TRAINING & GAME MODE  --------------------------
             -- game screen, scaled sunset background image
         ELSIF Game_state_signal = "01" OR Game_state_signal = "11" THEN 
             row_i := (CONV_INTEGER(pixel_row) * SOURCE_HEIGHT) / TARGET_HEIGHT;

@@ -108,10 +108,10 @@ BEGIN
     END PROCESS;
 
     ----------------------------------------------------------------------------
-    -- Output colors GREEN TEXT 
+    -- Output colors green TEXT 
     ----------------------------------------------------------------------------
     red   <= "0000";
-    green <= "1000" WHEN text_on = '1' ELSE "0000";
+    green  <= "1000";
     blue  <= "0000";
 
 END behaviour;
