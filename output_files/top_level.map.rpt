@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_level
-Sat May 23 17:39:15 2026
+Sat May 23 17:53:08 2026
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -140,20 +140,18 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 132. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:2:CHAR_ROM_INST"
 133. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:1:CHAR_ROM_INST"
 134. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST"
-135. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE"
-136. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:7:CHAR_ROM_INST"
-137. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:6:CHAR_ROM_INST"
-138. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:5:CHAR_ROM_INST"
-139. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:4:CHAR_ROM_INST"
-140. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:3:CHAR_ROM_INST"
-141. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:2:CHAR_ROM_INST"
-142. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:1:CHAR_ROM_INST"
-143. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST"
-144. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE"
-145. Port Connectivity Checks: "pll:clock_divider"
-146. Post-Synthesis Netlist Statistics for Top Partition
-147. Elapsed Time Per Partition
-148. Analysis & Synthesis Messages
+135. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:7:CHAR_ROM_INST"
+136. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:6:CHAR_ROM_INST"
+137. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:5:CHAR_ROM_INST"
+138. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:4:CHAR_ROM_INST"
+139. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:3:CHAR_ROM_INST"
+140. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:2:CHAR_ROM_INST"
+141. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:1:CHAR_ROM_INST"
+142. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST"
+143. Port Connectivity Checks: "pll:clock_divider"
+144. Post-Synthesis Netlist Statistics for Top Partition
+145. Elapsed Time Per Partition
+146. Analysis & Synthesis Messages
 
 
 
@@ -179,7 +177,7 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat May 23 17:39:15 2026           ;
+; Analysis & Synthesis Status     ; Successful - Sat May 23 17:53:08 2026           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; top_level                                       ;
 ; Top-level Entity Name           ; top_level                                       ;
@@ -4518,17 +4516,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------+-------+----------+-----------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE"                                              ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; Port  ; Type   ; Severity ; Details                                                                             ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; red   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; green ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; blue  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-
-
 +------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:7:CHAR_ROM_INST" ;
 +-------------------------+-------+----------+---------------------------------------------------------+
@@ -4617,17 +4604,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------+-------+----------+---------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE"                                                ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; Port  ; Type   ; Severity ; Details                                                                             ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; red   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; green ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; blue  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-
-
 +------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "pll:clock_divider"                                                                    ;
 +--------+--------+----------+-------------------------------------------------------------------------------------+
@@ -4698,7 +4674,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Sat May 23 17:38:46 2026
+    Info: Processing started: Sat May 23 17:52:57 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off group_27 -c top_level
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -4727,8 +4703,8 @@ Info (12021): Found 2 design units, including 1 entities, in source file lives.v
     Info (12022): Found design unit 1: lives-behaviour File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/lives.vhd Line: 19
     Info (12023): Found entity 1: lives File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/lives.vhd Line: 9
 Info (12021): Found 2 design units, including 1 entities, in source file layer.vhd
-    Info (12022): Found design unit 1: layer-behaviour File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/layer.vhd Line: 22
-    Info (12023): Found entity 1: layer File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/layer.vhd Line: 6
+    Info (12022): Found design unit 1: LAYER-behaviour File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/layer.vhd Line: 25
+    Info (12023): Found entity 1: LAYER File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/layer.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file collision_detector.vhd
     Info (12022): Found design unit 1: COLLISION_DETECTOR-behavior File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/collision_detector.vhd Line: 13
     Info (12023): Found entity 1: COLLISION_DETECTOR File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/collision_detector.vhd Line: 6
@@ -4770,18 +4746,12 @@ Info (12021): Found 2 design units, including 1 entities, in source file bcd_to_
     Info (12023): Found entity 1: BCD_to_SevenSeg File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/BCD_to_7Seg.vhd Line: 7
 Info (12127): Elaborating entity "top_level" for the top level hierarchy
 Warning (10541): VHDL Signal Declaration warning at top_level.vhd(14): used implicit default value for signal "LEDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 14
-Warning (10540): VHDL Signal Declaration warning at top_level.vhd(231): used explicit default value for signal "Life_signal" because signal was never assigned a value File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 231
-Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(232): object "Win_signal" assigned a value but never read File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 232
-Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(233): object "Termination_signal" assigned a value but never read File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 233
-Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(248): object "RIGHT_CLICK" assigned a value but never read File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 248
-Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(254): object "DOLPHIN_ON" assigned a value but never read File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 254
-Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(258): object "GAME_WON_TEXT_RED" assigned a value but never read File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 258
-Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(258): object "GAME_WON_TEXT_GREEN" assigned a value but never read File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 258
-Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(258): object "GAME_WON_TEXT_BLUE" assigned a value but never read File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 258
-Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(259): object "GAME_OVER_TEXT_RED" assigned a value but never read File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 259
-Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(259): object "GAME_OVER_TEXT_GREEN" assigned a value but never read File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 259
-Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(259): object "GAME_OVER_TEXT_BLUE" assigned a value but never read File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 259
-Info (12128): Elaborating entity "BACKGROUND" for hierarchy "BACKGROUND:BG" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 312
+Warning (10540): VHDL Signal Declaration warning at top_level.vhd(233): used explicit default value for signal "Life_signal" because signal was never assigned a value File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 233
+Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(234): object "Win_signal" assigned a value but never read File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 234
+Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(235): object "Termination_signal" assigned a value but never read File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 235
+Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(250): object "RIGHT_CLICK" assigned a value but never read File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 250
+Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(256): object "DOLPHIN_ON" assigned a value but never read File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 256
+Info (12128): Elaborating entity "BACKGROUND" for hierarchy "BACKGROUND:BG" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 314
 Warning (10492): VHDL Process Statement warning at background.vhd(72): signal "sunset_pixel" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/background.vhd Line: 72
 Warning (10492): VHDL Process Statement warning at background.vhd(73): signal "sunset_pixel" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/background.vhd Line: 73
 Warning (10492): VHDL Process Statement warning at background.vhd(74): signal "sunset_pixel" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/background.vhd Line: 74
@@ -4880,8 +4850,8 @@ Info (12128): Elaborating entity "decode_31a" for hierarchy "BACKGROUND:BG|sunse
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_5hb.tdf
     Info (12023): Found entity 1: mux_5hb File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/db/mux_5hb.tdf Line: 22
 Info (12128): Elaborating entity "mux_5hb" for hierarchy "BACKGROUND:BG|sunset_rom:SUNSET_BACKGROUND|altsyncram:ROM|altsyncram_43u3:auto_generated|mux_5hb:mux2" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/db/altsyncram_43u3.tdf Line: 40
-Info (12128): Elaborating entity "BCD_to_SevenSeg" for hierarchy "BCD_to_SevenSeg:CH" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 327
-Info (12128): Elaborating entity "pll" for hierarchy "pll:clock_divider" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 342
+Info (12128): Elaborating entity "BCD_to_SevenSeg" for hierarchy "BCD_to_SevenSeg:CH" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 330
+Info (12128): Elaborating entity "pll" for hierarchy "pll:clock_divider" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 345
 Info (12128): Elaborating entity "pll_0002" for hierarchy "pll:clock_divider|pll_0002:pll_inst" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/pll.vhd Line: 32
 Info (12128): Elaborating entity "altera_pll" for hierarchy "pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/pll/pll_0002.v Line: 85
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
@@ -4947,7 +4917,7 @@ Info (12133): Instantiated megafunction "pll:clock_divider|pll_0002:pll_inst|alt
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "dolphin_visual" for hierarchy "dolphin_visual:DOLPHIN_SPRITE_INST" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 349
+Info (12128): Elaborating entity "dolphin_visual" for hierarchy "dolphin_visual:DOLPHIN_SPRITE_INST" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 352
 Info (12128): Elaborating entity "dolphin_rom" for hierarchy "dolphin_visual:DOLPHIN_SPRITE_INST|dolphin_rom:DOLPHIN" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/dolphin_visual.vhd Line: 47
 Info (12128): Elaborating entity "altsyncram" for hierarchy "dolphin_visual:DOLPHIN_SPRITE_INST|dolphin_rom:DOLPHIN|altsyncram:ROM" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/dolphin_rom.vhd Line: 23
 Info (12130): Elaborated megafunction instantiation "dolphin_visual:DOLPHIN_SPRITE_INST|dolphin_rom:DOLPHIN|altsyncram:ROM" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/dolphin_rom.vhd Line: 23
@@ -5005,7 +4975,7 @@ Info (12133): Instantiated megafunction "dolphin_visual:DOLPHIN_SPRITE_INST|dolp
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_j3u3.tdf
     Info (12023): Found entity 1: altsyncram_j3u3 File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/db/altsyncram_j3u3.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_j3u3" for hierarchy "dolphin_visual:DOLPHIN_SPRITE_INST|dolphin_rom:DOLPHIN|altsyncram:ROM|altsyncram_j3u3:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "GAME_WON_TEXT" for hierarchy "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 362
+Info (12128): Elaborating entity "GAME_WON_TEXT" for hierarchy "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 365
 Info (12128): Elaborating entity "char_rom" for hierarchy "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/game_won_text.vhd Line: 73
 Info (12128): Elaborating entity "altsyncram" for hierarchy "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST|altsyncram:altsyncram_component" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/char_rom.vhd Line: 51
 Info (12130): Elaborated megafunction instantiation "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST|altsyncram:altsyncram_component" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/char_rom.vhd Line: 51
@@ -5027,29 +4997,29 @@ Info (12133): Instantiated megafunction "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|ch
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_d5g1.tdf
     Info (12023): Found entity 1: altsyncram_d5g1 File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_d5g1" for hierarchy "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "GAME_OVER_TEXT" for hierarchy "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 373
+Info (12128): Elaborating entity "GAME_OVER_TEXT" for hierarchy "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 376
 Warning (10492): VHDL Process Statement warning at game_over_text.vhd(95): signal "termination" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/game_over_text.vhd Line: 95
 Warning (12125): Using design file home_display_text.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
     Info (12022): Found design unit 1: HOME_DISPLAY_TEXT-behaviour File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/home_display_text.vhd Line: 16
     Info (12023): Found entity 1: HOME_DISPLAY_TEXT File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/home_display_text.vhd Line: 7
-Info (12128): Elaborating entity "HOME_DISPLAY_TEXT" for hierarchy "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 385
-Info (12128): Elaborating entity "FSM" for hierarchy "FSM:FINITE_STATE_MACHINE" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 396
-Info (12128): Elaborating entity "layer" for hierarchy "layer:LAYER_RENDERER" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 411
-Info (12128): Elaborating entity "lives" for hierarchy "lives:LIFE_DISPLAY" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 439
-Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:MOUSE_CONTROLS" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 453
+Info (12128): Elaborating entity "HOME_DISPLAY_TEXT" for hierarchy "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 388
+Info (12128): Elaborating entity "FSM" for hierarchy "FSM:FINITE_STATE_MACHINE" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 399
+Info (12128): Elaborating entity "LAYER" for hierarchy "LAYER:LAYER_RENDERER" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 414
+Info (12128): Elaborating entity "lives" for hierarchy "lives:LIFE_DISPLAY" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 451
+Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:MOUSE_CONTROLS" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 465
 Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/mouse.vhd Line: 25
 Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/mouse.vhd Line: 151
 Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/mouse.vhd Line: 155
 Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/mouse.vhd Line: 156
 Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/mouse.vhd Line: 157
-Info (12128): Elaborating entity "PIPES" for hierarchy "PIPES:PIPE_DISPLAY" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 464
-Info (12128): Elaborating entity "dolphin_movement" for hierarchy "dolphin_movement:PLAYER_CHARACTER" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 480
+Info (12128): Elaborating entity "PIPES" for hierarchy "PIPES:PIPE_DISPLAY" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 476
+Info (12128): Elaborating entity "dolphin_movement" for hierarchy "dolphin_movement:PLAYER_CHARACTER" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 492
 Warning (10541): VHDL Signal Declaration warning at dolphin_movement.vhd(23): used implicit default value for signal "dolphin_enable" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/dolphin_movement.vhd Line: 23
-Info (12128): Elaborating entity "bait" for hierarchy "bait:RANDOM_BAIT" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 508
-Info (12128): Elaborating entity "lfsr" for hierarchy "lfsr:RANDOM_NUMBER" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 521
+Info (12128): Elaborating entity "bait" for hierarchy "bait:RANDOM_BAIT" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 520
+Info (12128): Elaborating entity "lfsr" for hierarchy "lfsr:RANDOM_NUMBER" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 533
 Warning (10492): VHDL Process Statement warning at LFSR.vhd(28): signal "INITIAL_VALUE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/LFSR.vhd Line: 28
-Info (12128): Elaborating entity "position_to_BCD" for hierarchy "position_to_BCD:sevenseg_display" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 529
-Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:VGA_REFRESH" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 541
+Info (12128): Elaborating entity "position_to_BCD" for hierarchy "position_to_BCD:sevenseg_display" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 541
+Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:VGA_REFRESH" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/top_level.vhd Line: 553
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following RAM node(s):
         Warning (14320): Synthesized away node "lives:LIFE_DISPLAY|char_rom:HEART_ROM_3|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|q_a[0]" File: C:/Users/edia026/305project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 34
@@ -5565,10 +5535,10 @@ Info (21057): Implemented 2361 device resources after synthesis - the final reso
     Info (21061): Implemented 2077 logic cells
     Info (21064): Implemented 200 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 427 warnings
-    Info: Peak virtual memory: 4993 megabytes
-    Info: Processing ended: Sat May 23 17:39:15 2026
-    Info: Elapsed time: 00:00:29
-    Info: Total CPU time (on all processors): 00:00:21
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 421 warnings
+    Info: Peak virtual memory: 5023 megabytes
+    Info: Processing ended: Sat May 23 17:53:08 2026
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:15
 
 

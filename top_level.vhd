@@ -130,7 +130,13 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 
     COMPONENT LAYER IS
     PORT
-       (BACKGROUND_RED,BACKGROUND_GREEN,BACKGROUND_BLUE    : in std_logic_vector(3 downto 0);
+       (            Win                     : IN STD_LOGIC;  -- logic high
+            Termination             : IN STD_LOGIC;  -- logic high
+            Pause_OUT               : IN STD_LOGIC;  -- logic high
+            Game_state_signal       : IN std_logic_vector(1 DOWNTO 0);
+
+        
+       BACKGROUND_RED,BACKGROUND_GREEN,BACKGROUND_BLUE    : in std_logic_vector(3 downto 0);
             PIPE_RED,PIPE_GREEN, PIPE_BLUE  				: in std_logic_vector(3 DOWNTO 0);
             PIPE_ON                            			    : IN STD_LOGIC;
             BAIT_RED,BAIT_GREEN,BAIT_BLUE   				: in std_logic_vector(3 DOWNTO 0);
@@ -139,9 +145,9 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
             SPRITE_ON 										: IN std_logic;
             LIVES_RED,LIVES_GREEN,LIVES_BLUE				: in std_logic_vector(3 DOWNTO 0);
             LIVES_ON                        				: IN STD_LOGIC;
-            TEXT_RED,TEXT_GREEN,TEXT_BLUE   				: in std_logic_vector(3 DOWNTO 0);
-            GAME_WON_TEXT_RED, GAME_WON_TEXT_GREEN, GAME_WON_TEXT_BLUE : STD_LOGIC_VECTOR(3 DOWNTO 0);
-            GAME_OVER_TEXT_RED, GAME_OVER_TEXT_GREEN, GAME_OVER_TEXT_BLUE : STD_LOGIC_VECTOR(3 DOWNTO 0);
+            HOME_DISPLAY_TEXT_RED,HOME_DISPLAY_TEXT_GREEN,HOME_DISPLAY_TEXT_BLUE   				: in std_logic_vector(3 DOWNTO 0);
+            GAME_WON_TEXT_RED, GAME_WON_TEXT_GREEN, GAME_WON_TEXT_BLUE :   IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+            GAME_OVER_TEXT_RED, GAME_OVER_TEXT_GREEN, GAME_OVER_TEXT_BLUE : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
             RED_OUT,GREEN_OUT,BLUE_OUT                      : OUT STD_LOGIC_vector(3 DOWNTO 0)
             );
     END COMPONENT LAYER;
@@ -256,7 +262,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
     SIGNAL DOLPHIN_ON          : STD_LOGIC;
     SIGNAL PIPE_RED, PIPE_GREEN, PIPE_BLUE: STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL PIPE_ON : STD_LOGIC;
-    SIGNAL TEXT_RED, TEXT_GREEN, TEXT_BLUE : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL HOME_DISPLAY_TEXT_RED, HOME_DISPLAY_TEXT_GREEN, HOME_DISPLAY_TEXT_BLUE : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL GAME_WON_TEXT_RED, GAME_WON_TEXT_GREEN, GAME_WON_TEXT_BLUE : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL GAME_OVER_TEXT_RED, GAME_OVER_TEXT_GREEN, GAME_OVER_TEXT_BLUE : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL TEXT_ON                                              : std_logic;
@@ -319,6 +325,7 @@ BEGIN
         Pause_OUT       => Pause_out_signal,
         Game_state_signal      => Game_state_signal,
         clock => CLOCK_25MHZ,
+        -- outputs
         red => BACKGROUND_RED,
         green => BACKGROUND_GREEN,
         blue => BACKGROUND_BLUE
@@ -389,9 +396,9 @@ BEGIN
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
         Game_state_signal => Game_state_signal,
-        red => TEXT_RED,
-        green => TEXT_GREEN,
-        blue => TEXT_BLUE
+        red => HOME_DISPLAY_TEXT_RED,
+        green => HOME_DISPLAY_TEXT_GREEN,
+        blue => HOME_DISPLAY_TEXT_BLUE
 
     );
 
@@ -411,6 +418,15 @@ BEGIN
     );
 
     LAYER_RENDERER: LAYER PORT MAP (
+
+        Win             => win_test,
+        Termination     => game_over_test,
+        Pause_OUT       => Pause_out_signal,
+        Game_state_signal      => Game_state_signal,
+
+
+
+
         BACKGROUND_RED => BACKGROUND_RED,
         BACKGROUND_GREEN => BACKGROUND_GREEN,
         BACKGROUND_BLUE => BACKGROUND_BLUE,
@@ -430,9 +446,9 @@ BEGIN
         LIVES_GREEN => LIVES_GREEN,
         LIVES_BLUE => LIVES_BLUE,
         LIVES_ON => LIVES_ON,
-        TEXT_RED => TEXT_RED,
-        TEXT_GREEN => TEXT_GREEN,
-        TEXT_BLUE => TEXT_BLUE,
+        HOME_DISPLAY_TEXT_RED => HOME_DISPLAY_TEXT_RED,
+        HOME_DISPLAY_TEXT_GREEN => HOME_DISPLAY_TEXT_GREEN,
+        HOME_DISPLAY_TEXT_BLUE => HOME_DISPLAY_TEXT_BLUE,
 
         GAME_WON_TEXT_RED   => GAME_WON_TEXT_RED,
         GAME_WON_TEXT_GREEN => GAME_WON_TEXT_GREEN,
