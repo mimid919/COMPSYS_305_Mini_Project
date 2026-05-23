@@ -109,6 +109,16 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
             );
     END COMPONENT GAME_WON_TEXT;
 
+    COMPONENT GAME_OVER_TEXT IS
+        PORT
+            ( clk                   : IN std_logic;
+            pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
+            Win                     : IN std_logic;
+            termination             : IN  std_logic;
+            red, green, blue        : OUT std_logic_vector(3 DOWNTO 0)
+            );
+    END COMPONENT GAME_OVER_TEXT;
+
     COMPONENT HOME_DISPLAY_TEXT IS
     PORT
         ( clk                 : IN std_logic;
@@ -120,18 +130,20 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 
     COMPONENT LAYER IS
     PORT
-        ( BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE : IN std_logic_vector(3 DOWNTO 0);
-        PIPE_RED, PIPE_GREEN, PIPE_BLUE : IN std_logic_vector(3 DOWNTO 0);
-        PIPE_ON              : IN std_logic;
-        BAIT_RED, BAIT_GREEN, BAIT_BLUE : IN std_logic_vector(3 DOWNTO 0);
-        BAIT_ON              : IN std_logic;
-        SPRITE_RED, SPRITE_GREEN, SPRITE_BLUE : IN std_logic_vector(3 DOWNTO 0);
-        SPRITE_ON           : IN std_logic;
-        LIVES_RED, LIVES_GREEN, LIVES_BLUE : IN std_logic_vector(3 DOWNTO 0);
-        LIVES_ON            : IN std_logic;
-        TEXT_RED, TEXT_GREEN, TEXT_BLUE : IN std_logic_vector(3 DOWNTO 0);
-        RED_OUT, GREEN_OUT, BLUE_OUT : OUT std_logic_vector(3 DOWNTO 0)
-        );
+       (BACKGROUND_RED,BACKGROUND_GREEN,BACKGROUND_BLUE    : in std_logic_vector(3 downto 0);
+            PIPE_RED,PIPE_GREEN, PIPE_BLUE  				: in std_logic_vector(3 DOWNTO 0);
+            PIPE_ON                            			    : IN STD_LOGIC;
+            BAIT_RED,BAIT_GREEN,BAIT_BLUE   				: in std_logic_vector(3 DOWNTO 0);
+            BAIT_ON                         				: IN STD_LOGIC;
+            SPRITE_RED, SPRITE_GREEN, SPRITE_BLUE 		    : IN std_logic_vector(3 DOWNTO 0);
+            SPRITE_ON 										: IN std_logic;
+            LIVES_RED,LIVES_GREEN,LIVES_BLUE				: in std_logic_vector(3 DOWNTO 0);
+            LIVES_ON                        				: IN STD_LOGIC;
+            TEXT_RED,TEXT_GREEN,TEXT_BLUE   				: in std_logic_vector(3 DOWNTO 0);
+            GAME_WON_TEXT_RED, GAME_WON_TEXT_GREEN, GAME_WON_TEXT_BLUE : STD_LOGIC_VECTOR(3 DOWNTO 0);
+            GAME_OVER_TEXT_RED, GAME_OVER_TEXT_GREEN, GAME_OVER_TEXT_BLUE : STD_LOGIC_VECTOR(3 DOWNTO 0);
+            RED_OUT,GREEN_OUT,BLUE_OUT                      : OUT STD_LOGIC_vector(3 DOWNTO 0)
+            );
     END COMPONENT LAYER;
 
     COMPONENT LFSR IS
@@ -226,6 +238,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
     
     -- test it by using a switch so we can actually see the game won page
     SIGNAL win_test : std_logic;
+    SIGNAL game_over_test : std_logic;
 
 
     -- VGA signals used in other componants
@@ -245,6 +258,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
     SIGNAL PIPE_ON : STD_LOGIC;
     SIGNAL TEXT_RED, TEXT_GREEN, TEXT_BLUE : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL GAME_WON_TEXT_RED, GAME_WON_TEXT_GREEN, GAME_WON_TEXT_BLUE : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL GAME_OVER_TEXT_RED, GAME_OVER_TEXT_GREEN, GAME_OVER_TEXT_BLUE : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL TEXT_ON                                              : std_logic;
     SIGNAL BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE: STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL BAIT_RED, BAIT_GREEN, BAIT_BLUE  : STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -288,6 +302,7 @@ BEGIN
     RESET <= NOT KEY(0); -- active low reset
     -- testing game_won_text by making win high
      win_test  <= SW(8);
+     game_over_test <= SW(7);
 
 
     -- need to change the lifes in the other components to the fsm life
@@ -300,7 +315,7 @@ BEGIN
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
         Win             => win_test,
-        Termination     => Termination_signal,
+        Termination     => game_over_test,
         Pause_OUT       => Pause_out_signal,
         Game_state_signal      => Game_state_signal,
         clock => CLOCK_25MHZ,
@@ -357,6 +372,18 @@ BEGIN
 
     );
 
+    GAME_OVER_TEXT_INSTANCE: GAME_OVER_TEXT PORT MAP (
+        clk => CLOCK_25MHZ,
+        pixel_row => PIXEL_ROW,
+        pixel_column => PIXEL_COLUMN,
+        win => win_test,
+        termination => game_over_test,
+        red => GAME_OVER_TEXT_RED,
+        green => GAME_OVER_TEXT_GREEN,
+        blue => GAME_OVER_TEXT_BLUE
+
+    );
+
     HOME_SCREEN_TEXT: HOME_DISPLAY_TEXT PORT MAP (
         clk => CLOCK_25MHZ,
         pixel_row => PIXEL_ROW,
@@ -406,6 +433,15 @@ BEGIN
         TEXT_RED => TEXT_RED,
         TEXT_GREEN => TEXT_GREEN,
         TEXT_BLUE => TEXT_BLUE,
+
+        GAME_WON_TEXT_RED   => GAME_WON_TEXT_RED,
+        GAME_WON_TEXT_GREEN => GAME_WON_TEXT_GREEN,
+        GAME_WON_TEXT_BLUE  => GAME_WON_TEXT_BLUE,
+
+        GAME_OVER_TEXT_RED   => GAME_OVER_TEXT_RED,
+        GAME_OVER_TEXT_GREEN => GAME_OVER_TEXT_GREEN,
+        GAME_OVER_TEXT_BLUE  => GAME_OVER_TEXT_BLUE,
+
         RED_OUT => RED_OUT,
         GREEN_OUT => GREEN_OUT,
         BLUE_OUT => BLUE_OUT

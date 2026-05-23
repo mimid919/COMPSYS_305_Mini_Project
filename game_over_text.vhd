@@ -6,17 +6,17 @@ USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.STD_LOGIC_ARITH.ALL;
 USE IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-ENTITY game_won IS
+ENTITY GAME_OVER_TEXT IS
     PORT (
         clk                     : IN  std_logic;
         pixel_row, pixel_column : IN  std_logic_vector(9 DOWNTO 0);
         Win                     : IN  std_logic;
-        termination                     : IN  std_logic;
+        termination             : IN  std_logic;
         red, green, blue        : OUT std_logic_vector(3 DOWNTO 0)
     );
-END game_won;
+END GAME_OVER_TEXT;
 
-ARCHITECTURE behaviour OF game_won IS
+ARCHITECTURE behaviour OF GAME_OVER_TEXT IS
 
     -- Configuration: adjust these for your text
     CONSTANT TEXT_ROW_START  : integer := 300;   -- Y position of text
