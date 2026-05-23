@@ -18,7 +18,7 @@ END GAME_WON_TEXT;
 ARCHITECTURE behaviour OF GAME_WON_TEXT IS
 
     -- Configuration: adjust these for your text
-    CONSTANT TEXT_ROW_START  : integer := 300;   -- Y position of text
+    CONSTANT TEXT_ROW_START  : integer := 240;   -- Y position of text
     CONSTANT CHAR_SIZE       : integer := 32;    -- Pixel size of each char
     CONSTANT CHAR_SPACING    : integer := 40;    -- Distance between char origins
 

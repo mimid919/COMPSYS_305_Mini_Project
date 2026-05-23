@@ -1,5 +1,5 @@
 Flow report for top_level
-Sat May 23 17:56:24 2026
+Sat May 23 18:21:04 2026
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -40,18 +40,18 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Flow Summary                                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Flow Status                     ; Successful - Sat May 23 17:56:16 2026           ;
+; Flow Status                     ; Successful - Sat May 23 18:20:55 2026           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; top_level                                       ;
 ; Top-level Entity Name           ; top_level                                       ;
 ; Family                          ; Cyclone V                                       ;
 ; Device                          ; 5CEBA4F23C7                                     ;
 ; Timing Models                   ; Final                                           ;
-; Logic utilization (in ALMs)     ; 1,079 / 18,480 ( 6 % )                          ;
-; Total registers                 ; 298                                             ;
+; Logic utilization (in ALMs)     ; 1,158 / 18,480 ( 6 % )                          ;
+; Total registers                 ; 302                                             ;
 ; Total pins                      ; 83 / 224 ( 37 % )                               ;
 ; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 418,912 / 3,153,920 ( 13 % )                    ;
+; Total block memory bits         ; 420,000 / 3,153,920 ( 13 % )                    ;
 ; Total DSP Blocks                ; 0 / 66 ( 0 % )                                  ;
 ; Total HSSI RX PCSs              ; 0                                               ;
 ; Total HSSI PMA RX Deserializers ; 0                                               ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/23/2026 17:52:57 ;
+; Start date & time ; 05/23/2026 18:17:14 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; top_level           ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+----------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name    ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+----------------+------------+
-; COMPILER_SIGNATURE_ID               ; 224948461116748.177951557735748        ; --            ; --             ; --         ;
+; COMPILER_SIGNATURE_ID               ; 224948461116748.177951703308244        ; --            ; --             ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --             ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --             ; --         ;
 ; MISC_FILE                           ; pll.cmp                                ; --            ; --             ; --         ;
@@ -100,11 +100,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:11     ; 1.0                     ; 5023 MB             ; 00:00:15                           ;
-; Fitter               ; 00:02:59     ; 1.1                     ; 7722 MB             ; 00:08:01                           ;
-; Assembler            ; 00:00:06     ; 1.0                     ; 4862 MB             ; 00:00:03                           ;
-; Timing Analyzer      ; 00:00:07     ; 2.3                     ; 5317 MB             ; 00:00:11                           ;
-; Total                ; 00:03:23     ; --                      ; --                  ; 00:08:30                           ;
+; Analysis & Synthesis ; 00:00:10     ; 1.0                     ; 5032 MB             ; 00:00:16                           ;
+; Fitter               ; 00:03:19     ; 1.1                     ; 7737 MB             ; 00:09:08                           ;
+; Assembler            ; 00:00:08     ; 1.0                     ; 4859 MB             ; 00:00:04                           ;
+; Timing Analyzer      ; 00:00:08     ; 2.2                     ; 5322 MB             ; 00:00:10                           ;
+; Total                ; 00:03:45     ; --                      ; --                  ; 00:09:38                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

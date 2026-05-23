@@ -44,6 +44,12 @@ BEGIN
         -------------------------- PAUSE  --------------------------
         IF Pause_OUT = '1' THEN
             -- add later 
+        -------------------------- HOME SCREEN  --------------------------
+            -- purple background (blue TXT)
+        ELSIF Game_state_signal = "00"  THEN 
+            RED <= "0101";
+            GREEN <= "0000";
+            BLUE <= "0110";
         -------------------------- GAME WON  --------------------------
             --  black background, green text
         ELSIF Win = '1'  THEN 
@@ -56,12 +62,6 @@ BEGIN
             RED <= "0000";
             GREEN <= "0000";
             BLUE <= "0000";
-        -------------------------- HOME SCREEN  --------------------------
-            -- purple background (blue TXT)
-        ELSIF Game_state_signal = "00"  THEN 
-            RED <= "0101";
-            GREEN <= "0000";
-            BLUE <= "0110";
         -------------------------- TRAINING & GAME MODE  --------------------------
             -- game screen, scaled sunset background image
         ELSIF Game_state_signal = "01" OR Game_state_signal = "11" THEN 

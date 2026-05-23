@@ -130,13 +130,13 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 
     COMPONENT LAYER IS
     PORT
-       (            Win                     : IN STD_LOGIC;  -- logic high
+       (     Win                     : IN STD_LOGIC;  -- logic high
             Termination             : IN STD_LOGIC;  -- logic high
             Pause_OUT               : IN STD_LOGIC;  -- logic high
             Game_state_signal       : IN std_logic_vector(1 DOWNTO 0);
 
         
-       BACKGROUND_RED,BACKGROUND_GREEN,BACKGROUND_BLUE    : in std_logic_vector(3 downto 0);
+            BACKGROUND_RED,BACKGROUND_GREEN,BACKGROUND_BLUE    : in std_logic_vector(3 downto 0);
             PIPE_RED,PIPE_GREEN, PIPE_BLUE  				: in std_logic_vector(3 DOWNTO 0);
             PIPE_ON                            			    : IN STD_LOGIC;
             BAIT_RED,BAIT_GREEN,BAIT_BLUE   				: in std_logic_vector(3 DOWNTO 0);
@@ -318,17 +318,17 @@ BEGIN
 ------------------------------------ PORT MAP DECLARATION START ------------------------------------
 
     BG: BACKGROUND PORT MAP (
-        pixel_row => PIXEL_ROW,
-        pixel_column => PIXEL_COLUMN,
-        Win             => win_test,
-        Termination     => game_over_test,
-        Pause_OUT       => Pause_out_signal,
-        Game_state_signal      => Game_state_signal,
-        clock => CLOCK_25MHZ,
+        pixel_row               => PIXEL_ROW,
+        pixel_column            => PIXEL_COLUMN,
+        Win                     => win_test,
+        Termination             => game_over_test,
+        Pause_OUT               => Pause_out_signal,
+        Game_state_signal       => Game_state_signal,
+        clock                   => CLOCK_25MHZ,
         -- outputs
-        red => BACKGROUND_RED,
-        green => BACKGROUND_GREEN,
-        blue => BACKGROUND_BLUE
+        red                     => BACKGROUND_RED,
+        green                   => BACKGROUND_GREEN,
+        blue                    => BACKGROUND_BLUE
     );
 
 

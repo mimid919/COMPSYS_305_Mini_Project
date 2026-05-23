@@ -19,7 +19,7 @@ END GAME_OVER_TEXT;
 ARCHITECTURE behaviour OF GAME_OVER_TEXT IS
 
     -- Configuration: adjust these for your text
-    CONSTANT TEXT_ROW_START  : integer := 300;   -- Y position of text
+    CONSTANT TEXT_ROW_START  : integer := 240;   -- Y position of text
     CONSTANT CHAR_SIZE       : integer := 32;    -- Pixel size of each char
     CONSTANT CHAR_SPACING    : integer := 40;    -- Distance between char origins
 
@@ -112,8 +112,8 @@ BEGIN
     ----------------------------------------------------------------------------
     -- Output colors RED TEXT 
     ----------------------------------------------------------------------------
-    green <= "1000" WHEN text_on = '1' ELSE "0000";
-    red  <= "0000";
+    red <= "1000" WHEN text_on = '1' ELSE "0000";
+    green  <= "0000";
     blue  <= "0000";
 
 END behaviour;
