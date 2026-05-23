@@ -27,7 +27,7 @@ BEGIN
 		widthad_a => 10,
 		numwords_a => 1024,
 		outdata_reg_a => "UNREGISTERED",
-		init_file => "sunset.mif",
+		init_file => "dolphin.mif",
 		intended_device_family => "Cyclone V"
 	)
 	PORT MAP (

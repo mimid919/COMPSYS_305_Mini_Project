@@ -19,7 +19,6 @@ ENTITY flappy_dolphin IS
 		dolphin_y_pos_out : OUT std_logic_vector(9 DOWNTO 0);
 		  left_click 				: IN std_logic;
 		  Game_state_signal                 : IN std_logic_vector(1 DOWNTO 0);
-		  red, green, blue 			: OUT std_logic_vector(3 DOWNTO 0);
 		  dolphin_on				: OUT std_logic;
 		  dolphin_enable			: OUT std_logic); -- for collisions
 END flappy_dolphin; 
@@ -60,18 +59,6 @@ dolphin_y_pos_out <= dolphin_y_pos;
 	(pixel_row >= dolphin_y_pos - size) and 
 	(pixel_row <= dolphin_y_pos + size)
 ) else '0';
-
--- temporary dolphin colour
-red   <= "0000";
-green <= "0000";
-blue <= "1000" when (
-    (state = '1') and
-    (dolphin_y_pos >= size) and
-    (pixel_column >= dolphin_x_pos - size) and 
-    (pixel_column <= dolphin_x_pos + size) and
-    (pixel_row >= dolphin_y_pos - size) and 
-    (pixel_row <= dolphin_y_pos + size)
-) else "0000";
 
 	process (vert_sync)
 		variable left_click_edge : std_logic;

@@ -58,16 +58,17 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
         );
     END COMPONENT CHAR_ROM;
 
-    COMPONENT DOLPHIN_SPRITE IS
-    PORT
-        ( clk                     : IN std_logic;
+    COMPONENT dolphin_visual IS
+    PORT (
+        clk                     : IN std_logic;
         pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
-        dolphin_x_pos          : IN std_logic_vector(9 DOWNTO 0);
-        dolphin_y_pos          : IN std_logic_vector(9 DOWNTO 0);
-        red, green, blue       : OUT std_logic_vector(3 DOWNTO 0);
-        dolphin_on             : OUT std_logic
-        );
-    END COMPONENT DOLPHIN_SPRITE;
+        dolphin_x_pos           : IN std_logic_vector(9 DOWNTO 0);
+        dolphin_y_pos           : IN std_logic_vector(9 DOWNTO 0);
+		Game_state_signal       : IN std_logic_vector(1 DOWNTO 0);
+        red, green, blue        : OUT std_logic_vector(3 DOWNTO 0);
+        dolphin_on              : OUT std_logic
+    );
+    END COMPONENT dolphin_visual;
 
     COMPONENT FLAPPY_DOLPHIN IS -- HOW IS THIS WORKING WITHOUT RGB IN DECLARATION (RGB ARE OUTPUTS IN ENTITY)
     PORT
@@ -320,12 +321,13 @@ BEGIN
         locked   => OPEN
     );
 
-    DOLPHIN_SPRITE_INST : DOLPHIN_SPRITE PORT MAP (
+    DOLPHIN_SPRITE_INST : DOLPHIN_VISUAL PORT MAP (
         clk => CLOCK_25MHZ,
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
         dolphin_x_pos => DOLPHIN_X_POS,
         dolphin_y_pos => DOLPHIN_Y_POS,
+        Game_state_signal => Game_state_signal,
         red => SPRITE_RED,
         green => SPRITE_GREEN,
         blue => SPRITE_BLUE,
