@@ -11,7 +11,7 @@ USE  IEEE.STD_LOGIC_UNSIGNED.all;
 -- set conditions for bouncing down from ceiling 
 -- no dolphin movement after touching ground (could add change of state instead)
 
-ENTITY flappy_dolphin IS
+ENTITY dolphin_movement IS
 	PORT
 		( clk, vert_sync	: IN std_logic;
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
@@ -21,9 +21,9 @@ ENTITY flappy_dolphin IS
 		  Game_state_signal                 : IN std_logic_vector(1 DOWNTO 0);
 		  dolphin_on				: OUT std_logic;
 		  dolphin_enable			: OUT std_logic); -- for collisions
-END flappy_dolphin; 
+END dolphin_movement; 
 
-architecture behavior of flappy_dolphin is
+architecture behavior of dolphin_movement is
 
 SIGNAL size 						: std_logic_vector(9 DOWNTO 0);  
 SIGNAL dolphin_y_pos				: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(240,10); -- start on the ground

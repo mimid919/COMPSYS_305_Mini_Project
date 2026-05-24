@@ -1,22 +1,19 @@
--- only takes in termiantion and win, so enabel it when termianion is 1 and win is 0-- put the text in here fore the game over, and it takes in an input of win and only enables when win = 1
-
 --  use this as a reference for automated text
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.STD_LOGIC_ARITH.ALL;
 USE IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-ENTITY GAME_OVER_TEXT IS
+ENTITY HOME_DISPLAY_TEXT IS
     PORT (
         clk                     : IN  std_logic;
         pixel_row, pixel_column : IN  std_logic_vector(9 DOWNTO 0);
-        Win                     : IN  std_logic;
-        termination             : IN  std_logic;
+        Game_state_signal       : IN  std_logic_vector(1 DOWNTO 0);     -- may need more fsm states for example, game_won needs win signal
         red, green, blue        : OUT std_logic_vector(3 DOWNTO 0)
     );
-END GAME_OVER_TEXT;
+END HOME_DISPLAY_TEXT;
 
-ARCHITECTURE behaviour OF GAME_OVER_TEXT IS
+ARCHITECTURE behaviour OF HOME_DISPLAY_TEXT IS
 
     -- Configuration: adjust these for your text
     CONSTANT TEXT_ROW_START  : integer := 240;   -- Y position of text
@@ -27,16 +24,20 @@ ARCHITECTURE behaviour OF GAME_OVER_TEXT IS
     -- "FLAPPYD DOLPHIN" example — adjust to your ROM encoding
     TYPE char_addr_array IS ARRAY (natural RANGE <>) OF std_logic_vector(5 DOWNTO 0);
     CONSTANT MESSAGE : char_addr_array := (
-        "000111",  -- G
+        "000110",  -- F
+        "001100",  -- L
         "000001",  -- A
-        "001101",  -- M
-        "000101",  -- E
+        "010000",  -- P
+        "010000",  -- P
+        "011001",  -- Y
         "100111",  -- (space)
+        "000100",  -- D
         "001111",  -- O
-        "010110",  -- v
-        "000101",  -- E
-        "010010"  -- R
-        
+        "001100",  -- L
+        "010000",  -- P
+        "001000",  -- H
+        "001001",  -- I
+        "001110"   -- N
     );
     CONSTANT NUM_CHARS : integer := MESSAGE'LENGTH;
 
@@ -85,14 +86,14 @@ BEGIN
     ----------------------------------------------------------------------------
     -- Combine all characters into text_on
     ----------------------------------------------------------------------------
-    PROCESS(pixel_row, pixel_column, win, rom_pixels)
+    PROCESS(pixel_row, pixel_column, Game_state_signal, rom_pixels)
         VARIABLE col_offset_v : integer;
         VARIABLE row_offset_v : integer;
         VARIABLE hit          : std_logic;
     BEGIN
         hit := '0';
 
-        IF (win = '0' AND termination = '1') THEN
+        IF Game_state_signal = "00" THEN
             row_offset_v := CONV_INTEGER(pixel_row) - TEXT_ROW_START;
 
             FOR i IN 0 TO NUM_CHARS-1 LOOP
@@ -110,10 +111,10 @@ BEGIN
     END PROCESS;
 
     ----------------------------------------------------------------------------
-    -- Output colors RED TEXT 
+    -- Output colors PINK TEXT
     ----------------------------------------------------------------------------
-    red <="1000";
-    green  <= "0000";
-    blue  <= "0000";
+    red   <= "1111" WHEN text_on = '1' ELSE "0000";
+    green <= "0000";
+    blue  <= "1000" WHEN text_on = '1' ELSE "0000";
 
 END behaviour;

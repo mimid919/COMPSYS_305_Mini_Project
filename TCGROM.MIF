@@ -2,7 +2,7 @@ Depth = 512;
 Width = 8;
 Address_radix = oct;
 Data_radix = bin;
-% Character Generator ROM Data %
+% Character Generator ROM Data %                %take the first 2 digits of the adress and convert from oct to binary %
 Content
   Begin
 000  : 00111100 ; %    ****     %
@@ -356,9 +356,9 @@ Content
 466  : 00111111 ; %    ******   %
 467  : 00000000 ; %             %
 
-470  : 00000110 ; %       **    %
-471  : 00001100 ; %      **     %
-472  : 00011000 ; %     **      %
+470  : 00000000 ; %             %
+471  : 00000000 ; %             %
+472  : 00000000 ; %             %
 473  : 00000000 ; %             %
 474  : 00000000 ; %             %
 475  : 00000000 ; %             %
