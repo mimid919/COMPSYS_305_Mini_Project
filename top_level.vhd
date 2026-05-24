@@ -24,7 +24,8 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
                 Termination             : IN STD_LOGIC;  -- logic high
                 Pause_OUT               : IN STD_LOGIC;  -- logic high
                 Game_state_signal       : IN std_logic_vector(1 DOWNTO 0);
-                red, green, blue 	    : OUT std_logic
+                clock                   : IN STD_LOGIC;
+                red, green, blue 	    : OUT std_logic_vector(3 DOWNTO 0)
         );
     END COMPONENT BACKGROUND;
 
@@ -34,7 +35,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
         Game_state_signal               : IN std_logic_vector(1 DOWNTO 0);
         pipe_x_pos_1           : IN std_logic_vector(9 DOWNTO 0);
         gap_height             : IN std_logic_vector(9 DOWNTO 0);
-        red, green, blue       : OUT std_logic;
+        red, green, blue       : OUT std_logic_vector(3 DOWNTO 0);
         bait_on                : OUT std_logic;
         bait_enable           : OUT std_logic
         );
@@ -57,18 +58,19 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
         );
     END COMPONENT CHAR_ROM;
 
-    COMPONENT DOLPHIN_SPRITE IS
-    PORT
-        ( clk                     : IN std_logic;
+    COMPONENT dolphin_visual IS
+    PORT (
+        clk                     : IN std_logic;
         pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
-        dolphin_x_pos          : IN std_logic_vector(9 DOWNTO 0);
-        dolphin_y_pos          : IN std_logic_vector(9 DOWNTO 0);
-        red, green, blue       : OUT std_logic;
-        dolphin_on             : OUT std_logic
-        );
-    END COMPONENT DOLPHIN_SPRITE;
+        dolphin_x_pos           : IN std_logic_vector(9 DOWNTO 0);
+        dolphin_y_pos           : IN std_logic_vector(9 DOWNTO 0);
+		Game_state_signal       : IN std_logic_vector(1 DOWNTO 0);
+        red, green, blue        : OUT std_logic_vector(3 DOWNTO 0);
+        dolphin_on              : OUT std_logic
+    );
+    END COMPONENT dolphin_visual;
 
-    COMPONENT FLAPPY_DOLPHIN IS
+    COMPONENT FLAPPY_DOLPHIN IS -- HOW IS THIS WORKING WITHOUT RGB IN DECLARATION (RGB ARE OUTPUTS IN ENTITY)
     PORT
         ( clk, vert_sync        : IN std_logic;
         pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
@@ -103,23 +105,23 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
         ( clk                 : IN std_logic;
         pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
         Game_state_signal           : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-        red, green, blue    : OUT std_logic
+        red, green, blue    : OUT std_logic_vector(3 DOWNTO 0)
         );
     END COMPONENT HOME_DISPLAY;
 
     COMPONENT LAYER IS
     PORT
-        ( BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE : IN std_logic;
-        PIPE_RED, PIPE_GREEN, PIPE_BLUE : IN std_logic;
+        ( BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE : IN std_logic_vector(3 DOWNTO 0);
+        PIPE_RED, PIPE_GREEN, PIPE_BLUE : IN std_logic_vector(3 DOWNTO 0);
         PIPE_ON              : IN std_logic;
-        BAIT_RED, BAIT_GREEN, BAIT_BLUE : IN std_logic;
+        BAIT_RED, BAIT_GREEN, BAIT_BLUE : IN std_logic_vector(3 DOWNTO 0);
         BAIT_ON              : IN std_logic;
-        SPRITE_RED, SPRITE_GREEN, SPRITE_BLUE : IN std_logic;
+        SPRITE_RED, SPRITE_GREEN, SPRITE_BLUE : IN std_logic_vector(3 DOWNTO 0);
         SPRITE_ON           : IN std_logic;
-        LIVES_RED, LIVES_GREEN, LIVES_BLUE : IN std_logic;
+        LIVES_RED, LIVES_GREEN, LIVES_BLUE : IN std_logic_vector(3 DOWNTO 0);
         LIVES_ON            : IN std_logic;
-        TEXT_RED, TEXT_GREEN, TEXT_BLUE : IN std_logic;
-        RED_OUT, GREEN_OUT, BLUE_OUT : OUT std_logic
+        TEXT_RED, TEXT_GREEN, TEXT_BLUE : IN std_logic_vector(3 DOWNTO 0);
+        RED_OUT, GREEN_OUT, BLUE_OUT : OUT std_logic_vector(3 DOWNTO 0)
         );
     END COMPONENT LAYER;
 
@@ -139,7 +141,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
         pixel_row, pixel_column   : IN std_logic_vector(9 DOWNTO 0);
         Game_state_signal                 : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
         life_one, life_two, life_three : IN STD_LOGIC;
-        red, green, blue         : OUT std_logic;
+        red, green, blue         : OUT std_logic_vector(3 DOWNTO 0);
         live_on                  : OUT std_logic
         );
     END COMPONENT LIVES;
@@ -161,7 +163,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
         vert_sync             : IN std_logic;
         pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
         Game_state_signal             : IN std_logic_vector(1 DOWNTO 0);
-        red, green, blue      : OUT std_logic;
+        red, green, blue      : OUT std_logic_vector(3 DOWNTO 0);
         pipe_on               : OUT std_logic;
         lfsr_value            : IN std_logic_vector(7 DOWNTO 0);
         pipe_enable           : OUT std_logic;
@@ -192,22 +194,12 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
         );
     END COMPONENT POSITION_TO_BCD;
 
-    COMPONENT TEXT_DISPLAY IS
-    PORT
-        ( clk                 : IN std_logic;
-        pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
-        SW                  : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-        red, green, blue    : OUT std_logic;
-        text_on             : OUT std_logic
-        );
-    END COMPONENT TEXT_DISPLAY;
-
     COMPONENT VGA_SYNC IS
-    PORT
-        ( clock_25Mhz, red, green, blue : IN STD_LOGIC;
-        red_out, green_out, blue_out, horiz_sync_out, vert_sync_out : OUT STD_LOGIC;
-        pixel_row, pixel_column : OUT STD_LOGIC_VECTOR(9 DOWNTO 0)
-        );
+    PORT(	clock_25Mhz		: IN	STD_LOGIC;
+			red, green, blue : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+			red_out, green_out, blue_out : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+			horiz_sync_out, vert_sync_out	: OUT	STD_LOGIC;
+			pixel_row, pixel_column: OUT STD_LOGIC_VECTOR(9 DOWNTO 0));
     END COMPONENT VGA_SYNC;
 ------------------------------------ COMPONENT DECLARATION START ------------------------------------
 
@@ -236,19 +228,19 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 
     -- Signals for game components 
     -- MOVE TO ELEMENT LAYERING FILE
-    SIGNAL DOLPHIN_RED, DOLPHIN_GREEN, DOLPHIN_BLUE : STD_LOGIC;
+    SIGNAL DOLPHIN_RED, DOLPHIN_GREEN, DOLPHIN_BLUE : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL DOLPHIN_ON          : STD_LOGIC;
-    SIGNAL PIPE_RED, PIPE_GREEN, PIPE_BLUE                      : STD_LOGIC;
+    SIGNAL PIPE_RED, PIPE_GREEN, PIPE_BLUE: STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL PIPE_ON : STD_LOGIC;
-    SIGNAL TEXT_RED, TEXT_GREEN, TEXT_BLUE                      : STD_LOGIC;
+    SIGNAL TEXT_RED, TEXT_GREEN, TEXT_BLUE : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL TEXT_ON                                              : std_logic;
-    SIGNAL BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE    : STD_LOGIC;
-    SIGNAL BAIT_RED, BAIT_GREEN, BAIT_BLUE                      : STD_LOGIC;
-    SIGNAL LIVES_RED, LIVES_GREEN, LIVES_BLUE                      : STD_LOGIC;
+    SIGNAL BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE: STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL BAIT_RED, BAIT_GREEN, BAIT_BLUE  : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL LIVES_RED, LIVES_GREEN, LIVES_BLUE   : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL LIVES_ON                                              : STD_LOGIC;
 
     -- final colour outputs to VGA
-    SIGNAL RED_OUT, GREEN_OUT, BLUE_OUT : STD_LOGIC; 
+    SIGNAL RED_OUT, GREEN_OUT, BLUE_OUT : STD_LOGIC_VECTOR(3 DOWNTO 0);
 
     SIGNAL RANDOM_VALUE : STD_LOGIC_VECTOR(7 DOWNTO 0); -- output from LFSR to connect to pipes for random pipe heights
 
@@ -267,18 +259,18 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
     SIGNAL SPRITE_ON : STD_LOGIC;
     SIGNAL DOLPHIN_X_POS : std_logic_vector(9 downto 0);
     SIGNAL DOLPHIN_Y_POS : std_logic_vector(9 downto 0);
-    SIGNAL SPRITE_RED : std_logic;
-    SIGNAL SPRITE_GREEN : std_logic;
-    SIGNAL SPRITE_BLUE : std_logic;
+    SIGNAL SPRITE_RED : std_logic_vector(3 DOWNTO 0);
+    SIGNAL SPRITE_GREEN : std_logic_vector(3 DOWNTO 0);
+    SIGNAL SPRITE_BLUE : std_logic_vector(3 DOWNTO 0);
 
 
 BEGIN
 
 
     -- DELETE WHEN ADDING MORE COLOURS
-    VGA_R(2 DOWNTO 0) <= "000";
-    VGA_G(2 DOWNTO 0) <= "000";
-    VGA_B(2 DOWNTO 0) <= "000";
+    -- VGA_R(2 DOWNTO 0) <= "000";
+    -- VGA_G(2 DOWNTO 0) <= "000";
+    -- VGA_B(2 DOWNTO 0) <= "000";
 
 
     -- Connect VGA sync signals to output, could VGA_HS/VS go straight in instance?
@@ -295,13 +287,14 @@ BEGIN
     BG: BACKGROUND PORT MAP (
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
-        red => BACKGROUND_RED,
-        green => BACKGROUND_GREEN,
-        blue => BACKGROUND_BLUE,
         Win             => Win_signal,
         Termination     => Termination_signal,
         Pause_OUT       => Pause_out_signal,
-        Game_state_signal      => Game_state_signal
+        Game_state_signal      => Game_state_signal,
+        clock => CLOCK_25MHZ,
+        red => BACKGROUND_RED,
+        green => BACKGROUND_GREEN,
+        blue => BACKGROUND_BLUE
     );
 
 
@@ -328,12 +321,13 @@ BEGIN
         locked   => OPEN
     );
 
-    DOLPHIN_SPRITE_INST : DOLPHIN_SPRITE PORT MAP (
+    DOLPHIN_SPRITE_INST : DOLPHIN_VISUAL PORT MAP (
         clk => CLOCK_25MHZ,
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
         dolphin_x_pos => DOLPHIN_X_POS,
         dolphin_y_pos => DOLPHIN_Y_POS,
+        Game_state_signal => Game_state_signal,
         red => SPRITE_RED,
         green => SPRITE_GREEN,
         blue => SPRITE_BLUE,
@@ -501,9 +495,9 @@ BEGIN
         red => RED_OUT,
         green => GREEN_OUT,
         blue => BLUE_OUT,
-        red_out => VGA_R(3),
-        green_out => VGA_G(3),
-        blue_out => VGA_B(3),
+        red_out => VGA_R,
+        green_out => VGA_G,
+        blue_out => VGA_B,
         horiz_sync_out => HORIZ_SYNC,
         vert_sync_out => VERT_SYNC,
         pixel_row => PIXEL_ROW,
