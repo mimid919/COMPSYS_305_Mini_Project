@@ -10,7 +10,6 @@ incremental_db/
 # Quartus project / config files
 *.qsf
 *.qpf
-*.mif
 *.cmp
 *.ppf
 *.qip
