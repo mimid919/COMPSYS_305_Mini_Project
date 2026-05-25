@@ -31,8 +31,10 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 
     COMPONENT BAIT IS
     PORT
-        ( pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
+        ( clk                    : IN std_logic;
+        pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
         Game_state_signal               : IN std_logic_vector(1 DOWNTO 0);
+        dolphin_enable          : IN std_logic;
         pipe_x_pos_1           : IN std_logic_vector(9 DOWNTO 0);
         gap_height             : IN std_logic_vector(9 DOWNTO 0);
         red, green, blue       : OUT std_logic_vector(3 DOWNTO 0);
@@ -145,6 +147,8 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
             SPRITE_ON 										: IN std_logic;
             LIVES_RED,LIVES_GREEN,LIVES_BLUE				: in std_logic_vector(3 DOWNTO 0);
             LIVES_ON                        				: IN STD_LOGIC;
+            SCORE_RED,SCORE_GREEN,SCORE_BLUE				: in std_logic_vector(3 DOWNTO 0);
+            SCORE_ON                        				: IN STD_LOGIC;
             HOME_DISPLAY_TEXT_RED,HOME_DISPLAY_TEXT_GREEN,HOME_DISPLAY_TEXT_BLUE   				: in std_logic_vector(3 DOWNTO 0);
             GAME_WON_TEXT_RED, GAME_WON_TEXT_GREEN, GAME_WON_TEXT_BLUE :   IN STD_LOGIC_VECTOR(3 DOWNTO 0);
             GAME_OVER_TEXT_RED, GAME_OVER_TEXT_GREEN, GAME_OVER_TEXT_BLUE : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -194,6 +198,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
         pipe_on               : OUT std_logic;
         lfsr_value            : IN std_logic_vector(7 DOWNTO 0);
         pipe_enable           : OUT std_logic;
+        pipe_passed           : OUT std_logic;
         pipe_x_1              : OUT std_logic_vector(9 DOWNTO 0);
         pipe_y_1              : OUT std_logic_vector(9 DOWNTO 0)
         );
@@ -229,6 +234,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
         dolphin_enable      : IN  STD_LOGIC;
         pipe_enable         : IN  STD_LOGIC;
         bait_enable         : IN  STD_LOGIC;
+        pipe_passed         : IN  STD_LOGIC;
         life_one            : OUT STD_LOGIC;
         life_two            : OUT STD_LOGIC;
         life_three          : OUT STD_LOGIC;
@@ -238,6 +244,18 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
         score_tens          : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
     );
 END COMPONENT GAME_LOGIC;
+
+    COMPONENT SCORE_TEXT IS
+    PORT
+        ( clk                   : IN std_logic;
+        pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
+        Game_state_signal       : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+        score_ones              : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+        score_tens              : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+        red, green, blue        : OUT std_logic_vector(3 DOWNTO 0);
+        score_on                : OUT std_logic
+        );
+    END COMPONENT SCORE_TEXT;
 
     COMPONENT VGA_SYNC IS
     PORT(	clock_25Mhz		: IN	STD_LOGIC;
@@ -288,6 +306,8 @@ END COMPONENT GAME_LOGIC;
     SIGNAL BAIT_RED, BAIT_GREEN, BAIT_BLUE  : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL LIVES_RED, LIVES_GREEN, LIVES_BLUE   : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL LIVES_ON                                              : STD_LOGIC;
+    SIGNAL SCORE_RED, SCORE_GREEN, SCORE_BLUE   : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL SCORE_ON                                              : STD_LOGIC;
 
     -- final colour outputs to VGA
     SIGNAL RED_OUT, GREEN_OUT, BLUE_OUT : STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -317,6 +337,7 @@ END COMPONENT GAME_LOGIC;
     SIGNAL DOLPHIN_ENABLE   : STD_LOGIC;
     SIGNAL PIPE_ENABLE_SIG  : STD_LOGIC;
     SIGNAL BAIT_ENABLE_SIG  : STD_LOGIC;
+    SIGNAL PIPE_PASSED_SIG  : STD_LOGIC;
     SIGNAL LIFE_ONE_SIG, LIFE_TWO_SIG, LIFE_THREE_SIG : STD_LOGIC;
     SIGNAL SCORE_ONES_SIG, SCORE_TENS_SIG : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL TIMER_SIG        : STD_LOGIC;
@@ -471,6 +492,10 @@ CT : BCD_TO_SEVENSEG PORT MAP (
         LIVES_GREEN => LIVES_GREEN,
         LIVES_BLUE => LIVES_BLUE,
         LIVES_ON => LIVES_ON,
+        SCORE_RED => SCORE_RED,
+        SCORE_GREEN => SCORE_GREEN,
+        SCORE_BLUE => SCORE_BLUE,
+        SCORE_ON => SCORE_ON,
         HOME_DISPLAY_TEXT_RED => HOME_DISPLAY_TEXT_RED,
         HOME_DISPLAY_TEXT_GREEN => HOME_DISPLAY_TEXT_GREEN,
         HOME_DISPLAY_TEXT_BLUE => HOME_DISPLAY_TEXT_BLUE,
@@ -525,6 +550,7 @@ CT : BCD_TO_SEVENSEG PORT MAP (
         blue => PIPE_BLUE,
         lfsr_value => RANDOM_VALUE,
         pipe_enable => PIPE_ENABLE_SIG,
+        pipe_passed => PIPE_PASSED_SIG,
         pipe_x_1 => bait_pipe_x,
         pipe_y_1 => bait_pipe_y
     );
@@ -558,9 +584,11 @@ CT : BCD_TO_SEVENSEG PORT MAP (
     );
 
     RANDOM_BAIT: BAIT PORT MAP (
+        clk => CLOCK_25MHZ,
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
         Game_state_signal => Game_state_signal,
+        dolphin_enable => SPRITE_ON,
         pipe_x_pos_1 => bait_pipe_x,
         gap_height => bait_pipe_y,
         red => BAIT_RED,
@@ -593,9 +621,10 @@ CT : BCD_TO_SEVENSEG PORT MAP (
         clk => CLOCK_25MHZ,
         reset => RESET,
         Game_state_signal => Game_state_signal,
-        dolphin_enable=> DOLPHIN_ENABLE,
+        dolphin_enable=> SPRITE_ON,
         pipe_enable =>PIPE_ENABLE_SIG,
         bait_enable=> BAIT_ENABLE_SIG,
+        pipe_passed=> PIPE_PASSED_SIG,
         life_one=> LIFE_ONE_SIG,
         life_two  => LIFE_TWO_SIG,
         life_three => LIFE_THREE_SIG,
@@ -603,6 +632,19 @@ CT : BCD_TO_SEVENSEG PORT MAP (
         timer_out => TIMER_SIG,
         score_ones => SCORE_ONES_SIG,
         score_tens  => SCORE_TENS_SIG
+    );
+
+    SCORE_DISPLAY: SCORE_TEXT PORT MAP (
+        clk => CLOCK_25MHZ,
+        pixel_row => PIXEL_ROW,
+        pixel_column => PIXEL_COLUMN,
+        Game_state_signal => Game_state_signal,
+        score_ones => SCORE_ONES_SIG,
+        score_tens => SCORE_TENS_SIG,
+        score_on => SCORE_ON,
+        red => SCORE_RED,
+        green => SCORE_GREEN,
+        blue => SCORE_BLUE
     );
 
 

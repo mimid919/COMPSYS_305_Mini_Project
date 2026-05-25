@@ -19,6 +19,7 @@ ENTITY PIPES IS
             Game_state_signal                 : IN std_logic_vector(1 DOWNTO 0);
             pipe_on                 : OUT std_logic;
             pipe_enable				: OUT std_logic;
+            pipe_passed             : OUT std_logic;
             pipe_x_1                  : OUT std_logic_vector(9 DOWNTO 0); -- for bait
             pipe_y_1                  : OUT std_logic_vector(9 DOWNTO 0) -- for bait
             );	
@@ -40,6 +41,10 @@ ARCHITECTURE behavior OF PIPES IS
     SIGNAL state                 : std_logic;
 
     SIGNAL pipe_visible : std_logic;
+    SIGNAL pipe_passed_int : std_logic := '0';
+    SIGNAL pipe_1_ready : std_logic := '0';
+    SIGNAL pipe_2_ready : std_logic := '1';
+    SIGNAL pipe_3_ready : std_logic := '1';
 
 BEGIN
 
@@ -47,9 +52,10 @@ BEGIN
     random_height_2 <= CONV_STD_LOGIC_VECTOR(125 + CONV_INTEGER(lfsr_value(4 DOWNTO 0) & '0'), 10);
     random_height_3 <= CONV_STD_LOGIC_VECTOR(125 + CONV_INTEGER('0' & lfsr_value(5 DOWNTO 1)), 10);
 
-    state <= '1' when Game_state_signal = "01" else '0'; -- only show pipes during game state
+    state <= '1' when (Game_state_signal = "01" or Game_state_signal = "10") else '0'; -- show pipes during gameplay states
     pipe_on <= pipe_visible and state;
     pipe_enable <= pipe_visible and state;
+    pipe_passed <= pipe_passed_int and state;
 
     red   <= "0000";
     green <= "1000" when (pipe_visible = '1' and state = '1') else "0000";
@@ -61,22 +67,35 @@ BEGIN
     PROCESS (vert_sync)
     BEGIN
         IF rising_edge(vert_sync) THEN
+            pipe_passed_int <= '0';
 
             pipe_x_pos_1 <= pipe_x_pos_1 - 1;
             pipe_x_pos_2 <= pipe_x_pos_2 - 1;
             pipe_x_pos_3 <= pipe_x_pos_3 - 1;
 
             IF pipe_x_pos_1 = 0 THEN
+                if pipe_1_ready = '1' then
+                    pipe_passed_int <= '1';
+                end if;
+                pipe_1_ready <= '1';
                 pipe_x_pos_1 <= CONV_STD_LOGIC_VECTOR(640, 10);
                 pipe_top_height_1 <= random_height_1;
 				END IF;
 
             IF pipe_x_pos_2 = 0 THEN
+                if pipe_2_ready = '1' then
+                    pipe_passed_int <= '1';
+                end if;
+                pipe_2_ready <= '1';
                 pipe_x_pos_2 <= CONV_STD_LOGIC_VECTOR(640, 10);
                 pipe_top_height_2 <= random_height_2;
             END IF;
 
             IF pipe_x_pos_3 = 0 THEN
+                if pipe_3_ready = '1' then
+                    pipe_passed_int <= '1';
+                end if;
+                pipe_3_ready <= '1';
                 pipe_x_pos_3 <= CONV_STD_LOGIC_VECTOR(640, 10);
                 pipe_top_height_3 <= random_height_3;
             END IF;

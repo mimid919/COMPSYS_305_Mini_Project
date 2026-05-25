@@ -481,10 +481,11 @@ set_global_assignment -name VHDL_FILE FSM.vhd
 set_global_assignment -name MIF_FILE dolphin_sprite.mif
 set_global_assignment -name SOURCE_FILE pll.cmp
 set_global_assignment -name VHDL_FILE lives.vhd
+set_global_assignment -name VHDL_FILE score_text.vhd
 set_global_assignment -name VHDL_FILE layer.vhd
 set_global_assignment -name VHDL_FILE collision_detector.vhd
 set_global_assignment -name VHDL_FILE bait.vhd
-set_global_assignment -name VHDL_FILE home_display.vhd
+set_global_assignment -name VHDL_FILE home_display_text.vhd
 set_global_assignment -name VHDL_FILE pipes.vhd
 set_global_assignment -name VHDL_FILE LFSR.vhd
 set_global_assignment -name VHDL_FILE background.vhd

@@ -11,6 +11,7 @@ ENTITY game_logic IS
         dolphin_enable      : IN  STD_LOGIC;
         pipe_enable         : IN  STD_LOGIC;
         bait_enable         : IN  STD_LOGIC;
+        pipe_passed         : IN  STD_LOGIC;
         life_one            : OUT STD_LOGIC;
         life_two            : OUT STD_LOGIC;
         life_three          : OUT STD_LOGIC;
@@ -26,11 +27,14 @@ ARCHITECTURE behaviour OF game_logic IS
     SIGNAL score            : STD_LOGIC_VECTOR(6 DOWNTO 0) := (OTHERS => '0');
     SIGNAL pipe_collision       : STD_LOGIC;
     SIGNAL pipe_collision_prev  : STD_LOGIC := '0';
-    SIGNAL collision_cooldown   : STD_LOGIC_VECTOR(6 DOWNTO 0) := (OTHERS => '0');
-    CONSTANT COOLDOWN_MAX       : STD_LOGIC_VECTOR(6 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(90, 7);
-     SIGNAL bait_prev            : STD_LOGIC := '0';
-    SIGNAL bait_cooldown        : STD_LOGIC_VECTOR(5 DOWNTO 0) := (OTHERS => '0');
-    CONSTANT BAIT_COOLDOWN_MAX  : STD_LOGIC_VECTOR(5 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(10, 6);
+    SIGNAL bait_collision       : STD_LOGIC;
+    SIGNAL bait_collision_prev  : STD_LOGIC := '0';
+    SIGNAL pipe_passed_prev     : STD_LOGIC := '0';
+    SIGNAL pipe_hit_since_pass  : STD_LOGIC := '0';
+    SIGNAL collision_cooldown   : STD_LOGIC_VECTOR(24 DOWNTO 0) := (OTHERS => '0');
+    CONSTANT COOLDOWN_MAX       : STD_LOGIC_VECTOR(24 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(25000000, 25);
+    SIGNAL bait_cooldown        : STD_LOGIC_VECTOR(24 DOWNTO 0) := (OTHERS => '0');
+    CONSTANT BAIT_COOLDOWN_MAX  : STD_LOGIC_VECTOR(24 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(25000000, 25);
 -- clk = 25 MHz → 25,000,000 ticks per second
     -- 20 seconds   → 500,000,000 ticks
     -- Counter needs 30 bits to hold 500,000,000 (2^29 = 536M)
@@ -49,6 +53,7 @@ ARCHITECTURE behaviour OF game_logic IS
 
 BEGIN
     pipe_collision  <= '1' when (dolphin_enable = '1' and pipe_enable = '1') else '0';
+    bait_collision  <= '1' when (dolphin_enable = '1' and bait_enable = '1') else '0';
     game_active     <= '1' when (Game_state_signal = "01" or Game_state_signal = "10") else '0';
     game_mode_only  <= '1' when  Game_state_signal = "10" else '0';  
 
@@ -61,16 +66,31 @@ BEGIN
                 collision_cooldown  <= (OTHERS => '0');
                 bait_cooldown       <= (OTHERS => '0');
                 pipe_collision_prev <= '0';
-                bait_prev           <= '0';
+                bait_collision_prev <= '0';
+                pipe_passed_prev    <= '0';
+                pipe_hit_since_pass <= '0';
                 timer_count         <= (OTHERS => '0');
                 timer_done          <= '0';
 
             elsif game_active = '1' then
         
-                -- PIPE COLLISION: lose a life
-                -- Rising edge of pipe_collision + cooldown
+                -- PIPE COLLISION: lose one life on the first overlap pixel, then ignore
+                -- further overlap pixels while the dolphin is passing through the object.
                 
                 pipe_collision_prev <= pipe_collision;
+                pipe_passed_prev <= pipe_passed;
+
+                if pipe_collision = '1' then
+                    pipe_hit_since_pass <= '1';
+                end if;
+
+                if pipe_passed = '1' and pipe_passed_prev = '0' then
+                    if pipe_hit_since_pass = '0' and score < CONV_STD_LOGIC_VECTOR(99, 7) then
+                        score <= score + 1;
+                    end if;
+                    pipe_hit_since_pass <= '0';
+                end if;
+
                 if collision_cooldown > 0 then
                     collision_cooldown <= collision_cooldown - 1;
                 else
@@ -82,21 +102,17 @@ BEGIN
                     end if;
                       end if;
                 
-                -- bait eaten-> gain a life (max 3) and score++
-                -- aflling edge of bait_enable
+                -- BAIT COLLISION: gain one life (max 3) on the first overlap.
                 
-                bait_prev <= bait_enable;
+                bait_collision_prev <= bait_collision;
                 if bait_cooldown > 0 then
                     bait_cooldown <= bait_cooldown - 1;
                 else
-                    if bait_prev = '1' and  bait_enable = '0' then
+                    if bait_collision = '1' and bait_collision_prev = '0' then
                         bait_cooldown    <= BAIT_COOLDOWN_MAX;
                         if lives_count < "11" then 
                             lives_count <= lives_count + 1;
                         end if ;
-                        if score < CONV_STD_LOGIC_VECTOR(99, 7) then
-                            score <= score + 1;
-                          end if;
                       end if;
                  end if;
 
@@ -116,6 +132,10 @@ BEGIN
                     score              <= (OTHERS => '0');
                     collision_cooldown <= (OTHERS => '0');
                     bait_cooldown      <= (OTHERS => '0');
+                    pipe_collision_prev <= '0';
+                    bait_collision_prev <= '0';
+                    pipe_passed_prev    <= '0';
+                    pipe_hit_since_pass <= '0';
                     timer_count        <= (OTHERS => '0');
                     timer_done         <= '0';
                  end if;

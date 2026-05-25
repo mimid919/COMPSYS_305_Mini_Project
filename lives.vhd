@@ -3,7 +3,7 @@ USE IEEE.STD_LOGIC_1164.all;
 USE  IEEE.STD_LOGIC_ARITH.all;
 USE  IEEE.STD_LOGIC_UNSIGNED.all;
 
--- Displays three hearts (as text) in top left of screen during state '01'
+-- Displays three hearts (as text) in top left of screen during gameplay states.
 -- Each heart has a seperate enable (life_one - three) which can be set to '0' when a life is lost
 
 ENTITY lives IS
@@ -32,7 +32,6 @@ architecture behaviour of lives is
     SIGNAL rom_pixel_heart_1 : std_logic;
     SIGNAL rom_pixel_heart_2 : std_logic;
     SIGNAL rom_pixel_heart_3 : std_logic;
-
     SIGNAL row_heart_1, col_heart_1 : std_logic_vector(9 DOWNTO 0);
     SIGNAL row_heart_2, col_heart_2 : std_logic_vector(9 DOWNTO 0);
     SIGNAL row_heart_3, col_heart_3 : std_logic_vector(9 DOWNTO 0);
@@ -49,7 +48,6 @@ col_heart_2 <= pixel_column - CONV_STD_LOGIC_VECTOR(35,10);
 row_heart_3 <= pixel_row - CONV_STD_LOGIC_VECTOR(20,10);
 col_heart_3 <= pixel_column - CONV_STD_LOGIC_VECTOR(70,10);
 
-
 process(pixel_row, pixel_column, Game_state_signal,
             row_heart_1, col_heart_1, rom_pixel_heart_1,
             row_heart_2, col_heart_2, rom_pixel_heart_2,
@@ -58,7 +56,7 @@ process(pixel_row, pixel_column, Game_state_signal,
 begin
     lives_visible <= '0';
 
-    if Game_state_signal = "01" then 
+    if Game_state_signal = "01" or Game_state_signal = "10" then 
 
         if life_one = '1' and col_heart_1 < 16 and row_heart_1 < 16 and rom_pixel_heart_1 = '1' then
             lives_visible <= '1';
