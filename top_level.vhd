@@ -221,6 +221,24 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
         );
     END COMPONENT POSITION_TO_BCD;
 
+    COMPONENT GAME_LOGIC IS
+    PORT (
+        clk                 : IN  STD_LOGIC;  
+        reset               : IN  STD_LOGIC;
+        Game_state_signal   : IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
+        dolphin_enable      : IN  STD_LOGIC;
+        pipe_enable         : IN  STD_LOGIC;
+        bait_enable         : IN  STD_LOGIC;
+        life_one            : OUT STD_LOGIC;
+        life_two            : OUT STD_LOGIC;
+        life_three          : OUT STD_LOGIC;
+        life_out            : OUT STD_LOGIC;
+        timer_out           : OUT STD_LOGIC;
+        score_ones          : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+        score_tens          : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+    );
+END COMPONENT GAME_LOGIC;
+
     COMPONENT VGA_SYNC IS
     PORT(	clock_25Mhz		: IN	STD_LOGIC;
 			red, green, blue : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -243,8 +261,8 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
     SIGNAL Game_state_signal        : STD_LOGIC_VECTOR(1 downto 0) := "00";  -- used to be called "Game_state_signal"
     
     -- test it by using a switch so we can actually see the game won page
-    SIGNAL win_test : std_logic;
-    SIGNAL game_over_test : std_logic;
+    --SIGNAL win_test : std_logic;
+    --SIGNAL game_over_test : std_logic;
 
 
     -- VGA signals used in other componants
@@ -295,6 +313,14 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
     SIGNAL SPRITE_GREEN : std_logic_vector(3 DOWNTO 0);
     SIGNAL SPRITE_BLUE : std_logic_vector(3 DOWNTO 0);
 
+    --game logic
+    SIGNAL DOLPHIN_ENABLE   : STD_LOGIC;
+    SIGNAL PIPE_ENABLE_SIG  : STD_LOGIC;
+    SIGNAL BAIT_ENABLE_SIG  : STD_LOGIC;
+    SIGNAL LIFE_ONE_SIG, LIFE_TWO_SIG, LIFE_THREE_SIG : STD_LOGIC;
+    SIGNAL SCORE_ONES_SIG, SCORE_TENS_SIG : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL TIMER_SIG        : STD_LOGIC;
+
 
 BEGIN
 
@@ -307,8 +333,8 @@ BEGIN
 
     RESET <= NOT KEY(0); -- active low reset
     -- testing game_won_text by making win high
-     win_test  <= SW(8);
-     game_over_test <= SW(7);
+     --win_test  <= SW(8);
+     --game_over_test <= SW(7);
 
 
     -- need to change the lifes in the other components to the fsm life
@@ -320,8 +346,8 @@ BEGIN
     BG: BACKGROUND PORT MAP (
         pixel_row               => PIXEL_ROW,
         pixel_column            => PIXEL_COLUMN,
-        Win                     => win_test,
-        Termination             => game_over_test,
+        Win                     => Win_signal,
+        Termination             => Termination_signal,
         Pause_OUT               => Pause_out_signal,
         Game_state_signal       => Game_state_signal,
         clock                   => CLOCK_25MHZ,
@@ -372,7 +398,7 @@ BEGIN
         clk => CLOCK_25MHZ,
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
-        win => win_test,
+        win => Win_signal,
         red => GAME_WON_TEXT_RED,
         green => GAME_WON_TEXT_GREEN,
         blue => GAME_WON_TEXT_BLUE
@@ -383,8 +409,8 @@ BEGIN
         clk => CLOCK_25MHZ,
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
-        win => win_test,
-        termination => game_over_test,
+        win => Win_signal,
+        termination => Termination_signal,
         red => GAME_OVER_TEXT_RED,
         green => GAME_OVER_TEXT_GREEN,
         blue => GAME_OVER_TEXT_BLUE
@@ -419,8 +445,8 @@ BEGIN
 
     LAYER_RENDERER: LAYER PORT MAP (
 
-        Win             => win_test,
-        Termination     => game_over_test,
+        Win             => Win_signal,
+        Termination     => Termination_signal,
         Pause_OUT       => Pause_out_signal,
         Game_state_signal      => Game_state_signal,
 
@@ -562,6 +588,22 @@ BEGIN
         column_hundreds => column_hundreds,
         column_tens => column_tens,
         column_ones => column_ones
+    );
+
+    GAME_RULE: GAME_LOGIC PORT MAP (
+        clk => CLOCK_25MHZ,
+        reset => RESET,
+        Game_state_signal => Game_state_signal,
+        dolphin_enable=> DOLPHIN_ENABLE,
+        pipe_enable =>PIPE_ENABLE_SIG,
+        bait_enable=> BAIT_ENABLE_SIG,
+        life_one=> LIFE_ONE_SIG,
+        life_two  => LIFE_TWO_SIG,
+        life_three => LIFE_THREE_SIG,
+        life_out  => Life_signal,
+        timer_out => TIMER_SIG,
+        score_ones => SCORE_ONES_SIG,
+        score_tens  => SCORE_TENS_SIG
     );
 
 
