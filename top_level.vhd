@@ -81,7 +81,8 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
         left_click            : IN std_logic;
         Game_state_signal             : IN std_logic_vector(1 DOWNTO 0);
         dolphin_on            : OUT std_logic;
-        dolphin_enable        : OUT std_logic
+        dolphin_enable        : OUT std_logic;
+        first_click_out           : OUT std_logic
         );
     END COMPONENT DOLPHIN_MOVEMENT;
 
@@ -89,7 +90,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
     PORT (
             CLK              : in STD_LOGIC;
             Reset            : in STD_LOGIC;   -- key[0]
-            Start            : in STD_LOGIC;   -- key[1]
+            Start            : in STD_LOGIC;   -- key[3]
             Pause_IN         : in STD_LOGIC;   -- SW[9]  cant be a push button because need a permanent state
             Mode             : in STD_LOGIC;   -- SW[0], user selects either TRAINING OR GAME
             Life             : in STD_LOGIC;   -- logic high
@@ -190,19 +191,21 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 
     COMPONENT PIPES IS
     PORT
-        ( CLOCK_25Mhz            : IN std_logic;
-        vert_sync             : IN std_logic;
-        pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
-        Game_state_signal             : IN std_logic_vector(1 DOWNTO 0);
-        pipe_speed_up          : IN std_logic;
-        red, green, blue      : OUT std_logic_vector(3 DOWNTO 0);
-        pipe_on               : OUT std_logic;
-        lfsr_value            : IN std_logic_vector(7 DOWNTO 0);
-        pipe_enable           : OUT std_logic;
-        pipe_passed           : OUT std_logic;
-        pipe_x_1              : OUT std_logic_vector(9 DOWNTO 0);
-        pipe_y_1              : OUT std_logic_vector(9 DOWNTO 0)
-        );
+        ( CLOCK_25Mhz	            : IN std_logic;
+        vert_sync		            : IN std_logic;
+        pixel_row, pixel_column	    : IN std_logic_vector(9 DOWNTO 0);
+        lfsr_value				    : IN std_logic_vector(7 DOWNTO 0);
+        Game_state_signal           : IN std_logic_vector(1 DOWNTO 0);
+        pipe_speed_up               : IN std_logic;
+        first_click                 : IN std_logic; 
+
+        pipe_on                     : OUT std_logic;
+        pipe_enable				    : OUT std_logic;
+        pipe_passed                 : OUT std_logic;
+        pipe_x_1                    : OUT std_logic_vector(9 DOWNTO 0); -- for bait
+        pipe_y_1                    : OUT std_logic_vector(9 DOWNTO 0); -- for bait
+        red, green, blue 			: OUT std_logic_vector(3 DOWNTO 0)
+        );	
     END COMPONENT PIPES;
 
     COMPONENT PLL IS
@@ -274,7 +277,7 @@ END COMPONENT GAME_LOGIC;
 
     SIGNAL CLOCK_25MHZ : STD_LOGIC;
 
-    ----    FSM SIGNALS ---
+    ----    FSM SIGNALS ouputs ---
     SIGNAL Life_signal              : STD_LOGIC := '1';
     SIGNAL Win_signal               : STD_LOGIC;
     SIGNAL Termination_signal       : STD_LOGIC := '0';
@@ -336,7 +339,7 @@ END COMPONENT GAME_LOGIC;
     SIGNAL SPRITE_GREEN : std_logic_vector(3 DOWNTO 0);
     SIGNAL SPRITE_BLUE : std_logic_vector(3 DOWNTO 0);
 
-    --game logic
+    --game logic outputs 
     SIGNAL DOLPHIN_ENABLE   : STD_LOGIC;
     SIGNAL PIPE_ENABLE_SIG  : STD_LOGIC;
     SIGNAL BAIT_ENABLE_SIG  : STD_LOGIC;
@@ -347,6 +350,8 @@ END COMPONENT GAME_LOGIC;
     SIGNAL TIMER_SIG        : STD_LOGIC;
 
 
+    -- first click signal for dolphin movement, pipes, score, and timer to stay frozen until the first click
+    SIGNAL first_click_signal : STD_LOGIC;
 BEGIN
 
 
@@ -360,7 +365,6 @@ BEGIN
     -- testing game_won_text by making win high
      --win_test  <= SW(8);
      --game_over_test <= SW(7);
-     TIMER_SIG <= SW(1); -- testing timer signal by connecting to switch, needs to be changed to an actual timer output from the FSM
 
 
     -- need to change the lifes in the other components to the fsm life
@@ -477,8 +481,8 @@ BEGIN
     FINITE_STATE_MACHINE : FSM PORT MAP(
         CLK             => CLOCK_25MHZ,
         Reset           => RESET,  -- declared above before port map declarations
-        Start           => NOT KEY(1),
-        Pause_IN        => SW(9), -- different to original fsm diagram
+        Start           => NOT KEY(3),
+        Pause_IN        => RIGHT_CLICK, -- different to original fsm diagram
         Mode            => SW(0),
         Life            => Life_signal, 
         Timer           => TIMER_SIG,
@@ -570,6 +574,7 @@ BEGIN
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
         Game_state_signal => Game_state_signal,
+        first_click => first_click_signal,
         pipe_speed_up => PIPE_SPEED_UP_SIG,
         pipe_on => PIPE_ON,
         red => PIPE_RED,
@@ -592,7 +597,8 @@ BEGIN
         dolphin_x_pos_out => DOLPHIN_X_POS,
         dolphin_y_pos_out => DOLPHIN_Y_POS,
         dolphin_on => DOLPHIN_ON,
-        dolphin_enable => DOLPHIN_ENABLE
+        dolphin_enable => DOLPHIN_ENABLE,
+        first_click_out => first_click_signal
     );
 
     RH : BCD_TO_SEVENSEG PORT MAP (

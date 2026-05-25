@@ -22,9 +22,12 @@ ENTITY dolphin_movement IS
           dolphin_x_pos_out : OUT std_logic_vector(9 DOWNTO 0);
           dolphin_y_pos_out : OUT std_logic_vector(9 DOWNTO 0);
           left_click                : IN std_logic;
-          Game_state_signal                 : IN std_logic_vector(1 DOWNTO 0);
+          Game_state_signal          : IN std_logic_vector(1 DOWNTO 0);
+
           dolphin_on                : OUT std_logic;
-          dolphin_enable            : OUT std_logic); -- for collisions
+          dolphin_enable            : OUT std_logic;
+          first_click_out           : OUT std_logic
+        );  -- NEW OUTPUT)
 END dolphin_movement;
 
 architecture behavior of dolphin_movement is
@@ -58,6 +61,9 @@ BEGIN
     size <= CONV_STD_LOGIC_VECTOR(8,10);
 
     dolphin_x_pos <= CONV_STD_LOGIC_VECTOR(50,10);
+
+    -- reuse the first click signal, in pipes and ?
+    first_click_out <=  first_click;
 
     -- sets dolphin visibility to 8x8 square
     dolphin_visible <= '1' when (

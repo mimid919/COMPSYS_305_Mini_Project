@@ -11,19 +11,21 @@ USE  IEEE.STD_LOGIC_UNSIGNED.all;
 
 ENTITY PIPES IS
     PORT
-            ( CLOCK_25Mhz	            : IN std_logic;
-            vert_sync		            : IN std_logic;
-            pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-            red, green, blue 			: OUT std_logic_vector(3 DOWNTO 0);
-            lfsr_value				: IN std_logic_vector(7 DOWNTO 0);
-            Game_state_signal                 : IN std_logic_vector(1 DOWNTO 0);
-            pipe_speed_up          : IN std_logic;
-            pipe_on                 : OUT std_logic;
-            pipe_enable				: OUT std_logic;
-            pipe_passed             : OUT std_logic;
-            pipe_x_1                  : OUT std_logic_vector(9 DOWNTO 0); -- for bait
-            pipe_y_1                  : OUT std_logic_vector(9 DOWNTO 0) -- for bait
-            );	
+        ( CLOCK_25Mhz	            : IN std_logic;
+        vert_sync		            : IN std_logic;
+        pixel_row, pixel_column	    : IN std_logic_vector(9 DOWNTO 0);
+        lfsr_value				    : IN std_logic_vector(7 DOWNTO 0);
+        Game_state_signal           : IN std_logic_vector(1 DOWNTO 0);
+        pipe_speed_up               : IN std_logic;
+        first_click                 : IN std_logic; 
+
+        pipe_on                     : OUT std_logic;
+        pipe_enable				    : OUT std_logic;
+        pipe_passed                 : OUT std_logic;
+        pipe_x_1                    : OUT std_logic_vector(9 DOWNTO 0); -- for bait
+        pipe_y_1                    : OUT std_logic_vector(9 DOWNTO 0); -- for bait
+        red, green, blue 			: OUT std_logic_vector(3 DOWNTO 0)
+        );	
 END PIPES;
 
 ARCHITECTURE behavior OF PIPES IS
@@ -50,6 +52,7 @@ ARCHITECTURE behavior OF PIPES IS
     SIGNAL vert_sync_prev : std_logic := '0';
     SIGNAL frame_tick : std_logic;
 
+
 BEGIN
 
     random_height_1 <= CONV_STD_LOGIC_VECTOR(125 + CONV_INTEGER(lfsr_value(7 DOWNTO 3) & '0'), 10);
@@ -70,12 +73,13 @@ BEGIN
     pipe_x_1 <= pipe_x_pos_1;
     pipe_y_1 <= pipe_top_height_1;
 
+    -- update pipe positions and heights on each vertical sync, reset to initial positions and heights during home screen
     PROCESS (CLOCK_25Mhz)
     BEGIN
         IF rising_edge(CLOCK_25Mhz) THEN
             vert_sync_prev <= vert_sync;
             pipe_passed_int <= '0';
-
+            -- home page
             IF Game_state_signal = "00" THEN
                 pipe_x_pos_1 <= CONV_STD_LOGIC_VECTOR(0, 10);
                 pipe_x_pos_2 <= CONV_STD_LOGIC_VECTOR(213, 10);
@@ -86,7 +90,8 @@ BEGIN
                 pipe_1_ready <= '0';
                 pipe_2_ready <= '1';
                 pipe_3_ready <= '1';
-            ELSIF state = '1' and frame_tick = '1' THEN
+            --  GAME mode and TRAINING mode, only start moving after "first_click"
+            ELSIF state = '1' and frame_tick = '1' and first_click = '1' THEN
                 IF pipe_x_pos_1 <= pipe_step THEN
                     if pipe_1_ready = '1' then
                         pipe_passed_int <= '1';
@@ -124,6 +129,7 @@ BEGIN
         END IF; 
     END PROCESS;    
 
+    -- determine if pipe is visible at the current pixel by checking if the pixel is within the x bounds of the pipe and outside the gap defined by the
     PROCESS (pixel_row, pixel_column, 
             pipe_x_pos_1, pipe_top_height_1, 
             pipe_x_pos_2, pipe_top_height_2, 

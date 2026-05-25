@@ -1,4 +1,3 @@
--- THIS FILE DOESNT IMPLEMENT TIMER, instead it takes SW[1] as the logic high input of timer to simulate states
 library IEEE;
 use  IEEE.STD_LOGIC_1164.all;
 use  IEEE.STD_LOGIC_ARITH.all;
@@ -7,11 +6,11 @@ use  IEEE.STD_LOGIC_UNSIGNED.all;
 entity FSM is
     Port ( CLK              : in STD_LOGIC;
            Reset            : in STD_LOGIC;   -- key[0]
-           Start            : in STD_LOGIC;   -- key[1]
-           Pause_IN         : in STD_LOGIC;   -- SW[9]  cant be a push button because need a permanent state
+           Start            : in STD_LOGIC;   -- key[3]
+           Pause_IN         : in STD_LOGIC;   -- right click
            Mode             : in STD_LOGIC;   -- SW[0], user selects either TRAINING OR GAME
            Life             : in STD_LOGIC;   -- logic high
-           Timer            : in STD_LOGIC;   -- SW[1] NEEDS CHANGING TO USE AN ACTUAL TIMER
+           Timer            : in STD_LOGIC;   -- timer from the Game_Logic 
        
            Win              : out STD_LOGIC;  -- logic high
            Termination      : out STD_LOGIC;  -- logic high
