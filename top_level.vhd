@@ -194,6 +194,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
         vert_sync             : IN std_logic;
         pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
         Game_state_signal             : IN std_logic_vector(1 DOWNTO 0);
+        pipe_speed_up          : IN std_logic;
         red, green, blue      : OUT std_logic_vector(3 DOWNTO 0);
         pipe_on               : OUT std_logic;
         lfsr_value            : IN std_logic_vector(7 DOWNTO 0);
@@ -229,6 +230,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
     COMPONENT GAME_LOGIC IS
     PORT (
         clk                 : IN  STD_LOGIC;  
+        vert_sync           : IN  STD_LOGIC;
         reset               : IN  STD_LOGIC;
         Game_state_signal   : IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
         dolphin_enable      : IN  STD_LOGIC;
@@ -240,6 +242,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
         life_three          : OUT STD_LOGIC;
         life_out            : OUT STD_LOGIC;
         timer_out           : OUT STD_LOGIC;
+        pipe_speed_up       : OUT STD_LOGIC;
         score_ones          : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
         score_tens          : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
     );
@@ -338,6 +341,7 @@ END COMPONENT GAME_LOGIC;
     SIGNAL PIPE_ENABLE_SIG  : STD_LOGIC;
     SIGNAL BAIT_ENABLE_SIG  : STD_LOGIC;
     SIGNAL PIPE_PASSED_SIG  : STD_LOGIC;
+    SIGNAL PIPE_SPEED_UP_SIG : STD_LOGIC;
     SIGNAL LIFE_ONE_SIG, LIFE_TWO_SIG, LIFE_THREE_SIG : STD_LOGIC;
     SIGNAL SCORE_ONES_SIG, SCORE_TENS_SIG : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL TIMER_SIG        : STD_LOGIC;
@@ -449,7 +453,7 @@ CT : BCD_TO_SEVENSEG PORT MAP (
     );
 
     FINITE_STATE_MACHINE : FSM PORT MAP(
-        CLK             => CLOCK_50,
+        CLK             => CLOCK_25MHZ,
         Reset           => RESET,  -- declared above before port map declarations
         Start           => NOT KEY(1),
         Pause_IN        => SW(9), -- different to original fsm diagram
@@ -544,6 +548,7 @@ CT : BCD_TO_SEVENSEG PORT MAP (
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
         Game_state_signal => Game_state_signal,
+        pipe_speed_up => PIPE_SPEED_UP_SIG,
         pipe_on => PIPE_ON,
         red => PIPE_RED,
         green => PIPE_GREEN,
@@ -619,6 +624,7 @@ CT : BCD_TO_SEVENSEG PORT MAP (
 
     GAME_RULE: GAME_LOGIC PORT MAP (
         clk => CLOCK_25MHZ,
+        vert_sync => VERT_SYNC,
         reset => RESET,
         Game_state_signal => Game_state_signal,
         dolphin_enable=> SPRITE_ON,
@@ -630,6 +636,7 @@ CT : BCD_TO_SEVENSEG PORT MAP (
         life_three => LIFE_THREE_SIG,
         life_out  => Life_signal,
         timer_out => TIMER_SIG,
+        pipe_speed_up => PIPE_SPEED_UP_SIG,
         score_ones => SCORE_ONES_SIG,
         score_tens  => SCORE_TENS_SIG
     );

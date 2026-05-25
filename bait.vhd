@@ -51,12 +51,14 @@ BEGIN
         IF rising_edge(clk) THEN
             pipe_x_pos_prev <= pipe_x_pos_1;
 
-            IF state = '0' THEN
+            IF Game_state_signal = "00" THEN
                 bait_eaten <= '0';
-            ELSIF pipe_x_pos_1 > pipe_x_pos_prev THEN
-                bait_eaten <= '0';
-            ELSIF bait_raw_visible = '1' and dolphin_enable = '1' THEN
-                bait_eaten <= '1';
+            ELSIF state = '1' THEN
+                IF pipe_x_pos_1 > pipe_x_pos_prev THEN
+                    bait_eaten <= '0';
+                ELSIF bait_raw_visible = '1' and dolphin_enable = '1' THEN
+                    bait_eaten <= '1';
+                END IF;
             END IF;
         END IF;
     END PROCESS;

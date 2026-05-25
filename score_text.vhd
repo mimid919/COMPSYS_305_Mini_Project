@@ -5,13 +5,13 @@ USE IEEE.STD_LOGIC_UNSIGNED.all;
 
 ENTITY score_text IS
     PORT
-        ( clk                   : IN std_logic;
+        ( clk                     : IN std_logic;
           pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
-          Game_state_signal     : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-          score_ones            : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-          score_tens            : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-          red, green, blue      : OUT std_logic_vector(3 DOWNTO 0);
-          score_on              : OUT std_logic
+          Game_state_signal       : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+          score_ones              : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+          score_tens              : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+          red, green, blue        : OUT std_logic_vector(3 DOWNTO 0);
+          score_on                : OUT std_logic
         );
 END score_text;
 
@@ -26,10 +26,12 @@ ARCHITECTURE behaviour OF score_text IS
         );
     END COMPONENT char_rom;
 
-    SIGNAL score_visible : std_logic;
-
-    SIGNAL rom_pixel_s, rom_pixel_c, rom_pixel_o, rom_pixel_r, rom_pixel_e : std_logic;
-    SIGNAL rom_pixel_tens, rom_pixel_ones : std_logic;
+    SIGNAL char_selected : std_logic;
+    SIGNAL char_selected_d : std_logic := '0';
+    SIGNAL rom_pixel     : std_logic;
+    SIGNAL char_addr     : STD_LOGIC_VECTOR(5 DOWNTO 0);
+    SIGNAL font_row_sel  : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL font_col_sel  : STD_LOGIC_VECTOR(2 DOWNTO 0);
 
     SIGNAL row_s, col_s       : std_logic_vector(9 DOWNTO 0);
     SIGNAL row_c, col_c       : std_logic_vector(9 DOWNTO 0);
@@ -63,94 +65,73 @@ BEGIN
     col_ones <= pixel_column - CONV_STD_LOGIC_VECTOR(546, 10);
 
     PROCESS(pixel_row, pixel_column, Game_state_signal,
-            row_s, col_s, rom_pixel_s,
-            row_c, col_c, rom_pixel_c,
-            row_o, col_o, rom_pixel_o,
-            row_r, col_r, rom_pixel_r,
-            row_e, col_e, rom_pixel_e,
-            row_tens, col_tens, rom_pixel_tens,
-            row_ones, col_ones, rom_pixel_ones)
+            row_s, col_s, row_c, col_c, row_o, col_o, row_r, col_r, row_e, col_e,
+            row_tens, col_tens, row_ones, col_ones, score_tens, score_ones)
     BEGIN
-        score_visible <= '0';
+        char_selected <= '0';
+        char_addr <= (OTHERS => '0');
+        font_row_sel <= (OTHERS => '0');
+        font_col_sel <= (OTHERS => '0');
 
         IF Game_state_signal = "01" or Game_state_signal = "10" THEN
-            IF col_s < 16 and row_s < 16 and rom_pixel_s = '1' THEN
-                score_visible <= '1';
-            ELSIF col_c < 16 and row_c < 16 and rom_pixel_c = '1' THEN
-                score_visible <= '1';
-            ELSIF col_o < 16 and row_o < 16 and rom_pixel_o = '1' THEN
-                score_visible <= '1';
-            ELSIF col_r < 16 and row_r < 16 and rom_pixel_r = '1' THEN
-                score_visible <= '1';
-            ELSIF col_e < 16 and row_e < 16 and rom_pixel_e = '1' THEN
-                score_visible <= '1';
-            ELSIF col_tens < 16 and row_tens < 16 and rom_pixel_tens = '1' THEN
-                score_visible <= '1';
-            ELSIF col_ones < 16 and row_ones < 16 and rom_pixel_ones = '1' THEN
-                score_visible <= '1';
+            IF col_s < 16 and row_s < 16 THEN
+                char_selected <= '1';
+                char_addr <= "010011";
+                font_row_sel <= row_s(3 DOWNTO 1);
+                font_col_sel <= col_s(3 DOWNTO 1);
+            ELSIF col_c < 16 and row_c < 16 THEN
+                char_selected <= '1';
+                char_addr <= "000011";
+                font_row_sel <= row_c(3 DOWNTO 1);
+                font_col_sel <= col_c(3 DOWNTO 1);
+            ELSIF col_o < 16 and row_o < 16 THEN
+                char_selected <= '1';
+                char_addr <= "001111";
+                font_row_sel <= row_o(3 DOWNTO 1);
+                font_col_sel <= col_o(3 DOWNTO 1);
+            ELSIF col_r < 16 and row_r < 16 THEN
+                char_selected <= '1';
+                char_addr <= "010010";
+                font_row_sel <= row_r(3 DOWNTO 1);
+                font_col_sel <= col_r(3 DOWNTO 1);
+            ELSIF col_e < 16 and row_e < 16 THEN
+                char_selected <= '1';
+                char_addr <= "000101";
+                font_row_sel <= row_e(3 DOWNTO 1);
+                font_col_sel <= col_e(3 DOWNTO 1);
+            ELSIF col_tens < 16 and row_tens < 16 THEN
+                char_selected <= '1';
+                char_addr <= "11" & score_tens;
+                font_row_sel <= row_tens(3 DOWNTO 1);
+                font_col_sel <= col_tens(3 DOWNTO 1);
+            ELSIF col_ones < 16 and row_ones < 16 THEN
+                char_selected <= '1';
+                char_addr <= "11" & score_ones;
+                font_row_sel <= row_ones(3 DOWNTO 1);
+                font_col_sel <= col_ones(3 DOWNTO 1);
             END IF;
         END IF;
     END PROCESS;
 
-    S_ROM: char_rom PORT MAP (
-        character_address => "010011",
-        font_row => row_s(3 DOWNTO 1),
-        font_col => col_s(3 DOWNTO 1),
+    SCORE_ROM: char_rom
+    PORT MAP (
+        character_address => char_addr,
+        font_row => font_row_sel,
+        font_col => font_col_sel,
         clock => clk,
-        rom_mux_output => rom_pixel_s
+        rom_mux_output => rom_pixel
     );
 
-    C_ROM: char_rom PORT MAP (
-        character_address => "000011",
-        font_row => row_c(3 DOWNTO 1),
-        font_col => col_c(3 DOWNTO 1),
-        clock => clk,
-        rom_mux_output => rom_pixel_c
-    );
+    PROCESS(clk)
+    BEGIN
+        IF rising_edge(clk) THEN
+            char_selected_d <= char_selected;
+        END IF;
+    END PROCESS;
 
-    O_ROM: char_rom PORT MAP (
-        character_address => "001111",
-        font_row => row_o(3 DOWNTO 1),
-        font_col => col_o(3 DOWNTO 1),
-        clock => clk,
-        rom_mux_output => rom_pixel_o
-    );
-
-    R_ROM: char_rom PORT MAP (
-        character_address => "010010",
-        font_row => row_r(3 DOWNTO 1),
-        font_col => col_r(3 DOWNTO 1),
-        clock => clk,
-        rom_mux_output => rom_pixel_r
-    );
-
-    E_ROM: char_rom PORT MAP (
-        character_address => "000101",
-        font_row => row_e(3 DOWNTO 1),
-        font_col => col_e(3 DOWNTO 1),
-        clock => clk,
-        rom_mux_output => rom_pixel_e
-    );
-
-    TENS_ROM: char_rom PORT MAP (
-        character_address => "11" & score_tens,
-        font_row => row_tens(3 DOWNTO 1),
-        font_col => col_tens(3 DOWNTO 1),
-        clock => clk,
-        rom_mux_output => rom_pixel_tens
-    );
-
-    ONES_ROM: char_rom PORT MAP (
-        character_address => "11" & score_ones,
-        font_row => row_ones(3 DOWNTO 1),
-        font_col => col_ones(3 DOWNTO 1),
-        clock => clk,
-        rom_mux_output => rom_pixel_ones
-    );
-
-    score_on <= score_visible;
-    red   <= "1111" when score_visible = '1' else "0000";
-    green <= "1111" when score_visible = '1' else "0000";
-    blue  <= "1111" when score_visible = '1' else "0000";
+    score_on <= char_selected_d and rom_pixel;
+    red   <= "1111" when (char_selected_d = '1' and rom_pixel = '1') else "0000";
+    green <= "1111" when (char_selected_d = '1' and rom_pixel = '1') else "0000";
+    blue  <= "1111" when (char_selected_d = '1' and rom_pixel = '1') else "0000";
 
 END behaviour;
