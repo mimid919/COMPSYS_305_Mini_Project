@@ -365,15 +365,14 @@ BEGIN
     );
 
     CO : BCD_TO_SEVENSEG PORT MAP (
-        BCD_digit => column_ones,
-        SevenSeg_out => HEX0
-    );
+    BCD_digit => SCORE_ONES_SIG,
+    SevenSeg_out => HEX0
+);
 
-    CT : BCD_TO_SEVENSEG PORT MAP (
-        BCD_digit => column_tens,
-        SevenSeg_out => HEX1
-    );
-
+CT : BCD_TO_SEVENSEG PORT MAP (
+    BCD_digit => SCORE_TENS_SIG,
+    SevenSeg_out => HEX1
+);
     clock_divider : PLL PORT MAP (
         refclk   => CLOCK_50,
         rst      => '0',
@@ -435,7 +434,7 @@ BEGIN
         Pause_IN        => SW(9), -- different to original fsm diagram
         Mode            => SW(0),
         Life            => Life_signal, 
-        Timer           => SW(1),
+        Timer           => TIMER_SIG,
        -- outputs
         Win             => win_signal,
         Termination     => Termination_signal,
@@ -494,9 +493,9 @@ BEGIN
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
         Game_state_signal => Game_state_signal,
-        life_one => '1',
-        life_two => '1',
-        life_three => '0',
+        life_one => LIFE_ONE_SIG,
+        life_two => LIFE_TWO_SIG,
+        life_three => LIFE_THREE_SIG,
         live_on => LIVES_ON,
         red => LIVES_RED,
         green => LIVES_GREEN,
@@ -525,7 +524,7 @@ BEGIN
         green => PIPE_GREEN,
         blue => PIPE_BLUE,
         lfsr_value => RANDOM_VALUE,
-        pipe_enable => OPEN,
+        pipe_enable => PIPE_ENABLE_SIG,
         pipe_x_1 => bait_pipe_x,
         pipe_y_1 => bait_pipe_y
     );
@@ -540,7 +539,7 @@ BEGIN
         dolphin_x_pos_out => DOLPHIN_X_POS,
         dolphin_y_pos_out => DOLPHIN_Y_POS,
         dolphin_on => DOLPHIN_ON,
-        dolphin_enable => OPEN
+        dolphin_enable => DOLPHIN_ENABLE
     );
 
     RH : BCD_TO_SEVENSEG PORT MAP (
@@ -568,7 +567,7 @@ BEGIN
         green => BAIT_GREEN,
         blue => BAIT_BLUE,
         bait_on => BAIT_ON,
-        bait_enable => OPEN
+        bait_enable => BAIT_ENABLE_SIG
     );
 
     RANDOM_NUMBER: LFSR PORT MAP (

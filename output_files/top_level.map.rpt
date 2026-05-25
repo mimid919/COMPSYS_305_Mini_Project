@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_level
-Mon May 25 15:43:46 2026
+Mon May 25 16:43:20 2026
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -96,9 +96,9 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  88. Parameter Settings for User Entity Instance: lives:LIFE_DISPLAY|char_rom:HEART_ROM_1|altsyncram:altsyncram_component
  89. Parameter Settings for User Entity Instance: lives:LIFE_DISPLAY|char_rom:HEART_ROM_2|altsyncram:altsyncram_component
  90. Parameter Settings for User Entity Instance: lives:LIFE_DISPLAY|char_rom:HEART_ROM_3|altsyncram:altsyncram_component
- 91. Parameter Settings for Inferred Entity Instance: position_to_BCD:sevenseg_display|lpm_divide:Mod3
- 92. Parameter Settings for Inferred Entity Instance: position_to_BCD:sevenseg_display|lpm_divide:Div3
- 93. Parameter Settings for Inferred Entity Instance: position_to_BCD:sevenseg_display|lpm_divide:Mod2
+ 91. Parameter Settings for Inferred Entity Instance: game_logic:GAME_RULE|lpm_divide:Mod1
+ 92. Parameter Settings for Inferred Entity Instance: game_logic:GAME_RULE|lpm_divide:Div0
+ 93. Parameter Settings for Inferred Entity Instance: game_logic:GAME_RULE|lpm_divide:Mod0
  94. Parameter Settings for Inferred Entity Instance: position_to_BCD:sevenseg_display|lpm_divide:Div2
  95. Parameter Settings for Inferred Entity Instance: position_to_BCD:sevenseg_display|lpm_divide:Mod1
  96. Parameter Settings for Inferred Entity Instance: position_to_BCD:sevenseg_display|lpm_divide:Div1
@@ -107,51 +107,48 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  99. Parameter Settings for Inferred Entity Instance: BACKGROUND:BG|lpm_divide:Div1
 100. Parameter Settings for Inferred Entity Instance: BACKGROUND:BG|lpm_divide:Div0
 101. altsyncram Parameter Settings by Entity Instance
-102. Port Connectivity Checks: "game_logic:GAME_RULE"
+102. Port Connectivity Checks: "position_to_BCD:sevenseg_display"
 103. Port Connectivity Checks: "lfsr:RANDOM_NUMBER"
-104. Port Connectivity Checks: "bait:RANDOM_BAIT"
-105. Port Connectivity Checks: "dolphin_movement:PLAYER_CHARACTER"
-106. Port Connectivity Checks: "PIPES:PIPE_DISPLAY"
-107. Port Connectivity Checks: "MOUSE:MOUSE_CONTROLS"
-108. Port Connectivity Checks: "lives:LIFE_DISPLAY|char_rom:HEART_ROM_3"
-109. Port Connectivity Checks: "lives:LIFE_DISPLAY|char_rom:HEART_ROM_2"
-110. Port Connectivity Checks: "lives:LIFE_DISPLAY|char_rom:HEART_ROM_1"
-111. Port Connectivity Checks: "lives:LIFE_DISPLAY"
-112. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:13:CHAR_ROM_INST"
-113. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:12:CHAR_ROM_INST"
-114. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:11:CHAR_ROM_INST"
-115. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:10:CHAR_ROM_INST"
-116. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:9:CHAR_ROM_INST"
-117. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:8:CHAR_ROM_INST"
-118. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:7:CHAR_ROM_INST"
-119. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:6:CHAR_ROM_INST"
-120. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:5:CHAR_ROM_INST"
-121. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:4:CHAR_ROM_INST"
-122. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:3:CHAR_ROM_INST"
-123. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:2:CHAR_ROM_INST"
-124. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:1:CHAR_ROM_INST"
-125. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:0:CHAR_ROM_INST"
-126. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:8:CHAR_ROM_INST"
-127. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:7:CHAR_ROM_INST"
-128. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:6:CHAR_ROM_INST"
-129. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:5:CHAR_ROM_INST"
-130. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:4:CHAR_ROM_INST"
-131. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:3:CHAR_ROM_INST"
-132. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:2:CHAR_ROM_INST"
-133. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:1:CHAR_ROM_INST"
-134. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST"
-135. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:7:CHAR_ROM_INST"
-136. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:6:CHAR_ROM_INST"
-137. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:5:CHAR_ROM_INST"
-138. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:4:CHAR_ROM_INST"
-139. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:3:CHAR_ROM_INST"
-140. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:2:CHAR_ROM_INST"
-141. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:1:CHAR_ROM_INST"
-142. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST"
-143. Port Connectivity Checks: "pll:clock_divider"
-144. Post-Synthesis Netlist Statistics for Top Partition
-145. Elapsed Time Per Partition
-146. Analysis & Synthesis Messages
+104. Port Connectivity Checks: "dolphin_movement:PLAYER_CHARACTER"
+105. Port Connectivity Checks: "MOUSE:MOUSE_CONTROLS"
+106. Port Connectivity Checks: "lives:LIFE_DISPLAY|char_rom:HEART_ROM_3"
+107. Port Connectivity Checks: "lives:LIFE_DISPLAY|char_rom:HEART_ROM_2"
+108. Port Connectivity Checks: "lives:LIFE_DISPLAY|char_rom:HEART_ROM_1"
+109. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:13:CHAR_ROM_INST"
+110. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:12:CHAR_ROM_INST"
+111. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:11:CHAR_ROM_INST"
+112. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:10:CHAR_ROM_INST"
+113. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:9:CHAR_ROM_INST"
+114. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:8:CHAR_ROM_INST"
+115. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:7:CHAR_ROM_INST"
+116. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:6:CHAR_ROM_INST"
+117. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:5:CHAR_ROM_INST"
+118. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:4:CHAR_ROM_INST"
+119. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:3:CHAR_ROM_INST"
+120. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:2:CHAR_ROM_INST"
+121. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:1:CHAR_ROM_INST"
+122. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:0:CHAR_ROM_INST"
+123. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:8:CHAR_ROM_INST"
+124. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:7:CHAR_ROM_INST"
+125. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:6:CHAR_ROM_INST"
+126. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:5:CHAR_ROM_INST"
+127. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:4:CHAR_ROM_INST"
+128. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:3:CHAR_ROM_INST"
+129. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:2:CHAR_ROM_INST"
+130. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:1:CHAR_ROM_INST"
+131. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST"
+132. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:7:CHAR_ROM_INST"
+133. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:6:CHAR_ROM_INST"
+134. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:5:CHAR_ROM_INST"
+135. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:4:CHAR_ROM_INST"
+136. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:3:CHAR_ROM_INST"
+137. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:2:CHAR_ROM_INST"
+138. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:1:CHAR_ROM_INST"
+139. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST"
+140. Port Connectivity Checks: "pll:clock_divider"
+141. Post-Synthesis Netlist Statistics for Top Partition
+142. Elapsed Time Per Partition
+143. Analysis & Synthesis Messages
 
 
 
@@ -177,16 +174,16 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon May 25 15:43:46 2026       ;
+; Analysis & Synthesis Status     ; Successful - Mon May 25 16:43:20 2026       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; top_level                                   ;
 ; Top-level Entity Name           ; top_level                                   ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 264                                         ;
+; Total registers                 ; 312                                         ;
 ; Total pins                      ; 83                                          ;
 ; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 418,912                                     ;
+; Total block memory bits         ; 418,976                                     ;
 ; Total DSP Blocks                ; 0                                           ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
@@ -357,15 +354,21 @@ refer to the applicable agreement for further details.
 ; lpm_divide.tdf                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_divide.tdf        ;         ;
 ; abs_divider.inc                  ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/abs_divider.inc       ;         ;
 ; sign_div_unsign.inc              ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sign_div_unsign.inc   ;         ;
+; db/lpm_divide_a2m.tdf            ; yes             ; Auto-Generated Megafunction            ; C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/lpm_divide_a2m.tdf         ;         ;
+; db/sign_div_unsign_dkh.tdf       ; yes             ; Auto-Generated Megafunction            ; C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/sign_div_unsign_dkh.tdf    ;         ;
+; db/alt_u_div_0te.tdf             ; yes             ; Auto-Generated Megafunction            ; C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/alt_u_div_0te.tdf          ;         ;
+; db/lpm_divide_4am.tdf            ; yes             ; Auto-Generated Megafunction            ; C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/lpm_divide_4am.tdf         ;         ;
+; db/sign_div_unsign_akh.tdf       ; yes             ; Auto-Generated Megafunction            ; C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/sign_div_unsign_akh.tdf    ;         ;
+; db/alt_u_div_qse.tdf             ; yes             ; Auto-Generated Megafunction            ; C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/alt_u_div_qse.tdf          ;         ;
+; db/lpm_divide_hbm.tdf            ; yes             ; Auto-Generated Megafunction            ; C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/lpm_divide_hbm.tdf         ;         ;
+; db/sign_div_unsign_nlh.tdf       ; yes             ; Auto-Generated Megafunction            ; C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/sign_div_unsign_nlh.tdf    ;         ;
+; db/alt_u_div_kve.tdf             ; yes             ; Auto-Generated Megafunction            ; C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/alt_u_div_kve.tdf          ;         ;
 ; db/lpm_divide_u4m.tdf            ; yes             ; Auto-Generated Megafunction            ; C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/lpm_divide_u4m.tdf         ;         ;
 ; db/sign_div_unsign_1nh.tdf       ; yes             ; Auto-Generated Megafunction            ; C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/sign_div_unsign_1nh.tdf    ;         ;
 ; db/alt_u_div_82f.tdf             ; yes             ; Auto-Generated Megafunction            ; C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/alt_u_div_82f.tdf          ;         ;
 ; db/lpm_divide_ebm.tdf            ; yes             ; Auto-Generated Megafunction            ; C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/lpm_divide_ebm.tdf         ;         ;
 ; db/sign_div_unsign_klh.tdf       ; yes             ; Auto-Generated Megafunction            ; C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/sign_div_unsign_klh.tdf    ;         ;
 ; db/alt_u_div_eve.tdf             ; yes             ; Auto-Generated Megafunction            ; C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/alt_u_div_eve.tdf          ;         ;
-; db/lpm_divide_hbm.tdf            ; yes             ; Auto-Generated Megafunction            ; C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/lpm_divide_hbm.tdf         ;         ;
-; db/sign_div_unsign_nlh.tdf       ; yes             ; Auto-Generated Megafunction            ; C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/sign_div_unsign_nlh.tdf    ;         ;
-; db/alt_u_div_kve.tdf             ; yes             ; Auto-Generated Megafunction            ; C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/alt_u_div_kve.tdf          ;         ;
 ; db/lpm_divide_4dm.tdf            ; yes             ; Auto-Generated Megafunction            ; C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/lpm_divide_4dm.tdf         ;         ;
 ; db/sign_div_unsign_anh.tdf       ; yes             ; Auto-Generated Megafunction            ; C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/sign_div_unsign_anh.tdf    ;         ;
 ; db/alt_u_div_q2f.tdf             ; yes             ; Auto-Generated Megafunction            ; C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/alt_u_div_q2f.tdf          ;         ;
@@ -380,20 +383,20 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                      ;
 +---------------------------------------------+----------------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 1120                                                                       ;
+; Estimate of Logic utilization (ALMs needed) ; 1083                                                                       ;
 ;                                             ;                                                                            ;
-; Combinational ALUT usage for logic          ; 2036                                                                       ;
-;     -- 7 input functions                    ; 12                                                                         ;
-;     -- 6 input functions                    ; 183                                                                        ;
-;     -- 5 input functions                    ; 109                                                                        ;
-;     -- 4 input functions                    ; 309                                                                        ;
-;     -- <=3 input functions                  ; 1423                                                                       ;
+; Combinational ALUT usage for logic          ; 1958                                                                       ;
+;     -- 7 input functions                    ; 15                                                                         ;
+;     -- 6 input functions                    ; 184                                                                        ;
+;     -- 5 input functions                    ; 150                                                                        ;
+;     -- 4 input functions                    ; 268                                                                        ;
+;     -- <=3 input functions                  ; 1341                                                                       ;
 ;                                             ;                                                                            ;
-; Dedicated logic registers                   ; 264                                                                        ;
+; Dedicated logic registers                   ; 312                                                                        ;
 ;                                             ;                                                                            ;
 ; I/O pins                                    ; 83                                                                         ;
 ; Total MLAB memory bits                      ; 0                                                                          ;
-; Total block memory bits                     ; 418912                                                                     ;
+; Total block memory bits                     ; 418976                                                                     ;
 ;                                             ;                                                                            ;
 ; Total DSP Blocks                            ; 0                                                                          ;
 ;                                             ;                                                                            ;
@@ -401,9 +404,9 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1                                                                          ;
 ;                                             ;                                                                            ;
 ; Maximum fan-out node                        ; pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
-; Maximum fan-out                             ; 296                                                                        ;
-; Total fan-out                               ; 8952                                                                       ;
-; Average fan-out                             ; 3.35                                                                       ;
+; Maximum fan-out                             ; 351                                                                        ;
+; Total fan-out                               ; 8980                                                                       ;
+; Average fan-out                             ; 3.39                                                                       ;
 +---------------------------------------------+----------------------------------------------------------------------------+
 
 
@@ -412,8 +415,8 @@ refer to the applicable agreement for further details.
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                               ; Entity Name         ; Library Name ;
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |top_level                                   ; 2036 (1)            ; 264 (0)                   ; 418912            ; 0          ; 83   ; 0            ; |top_level                                                                                                                                        ; top_level           ; work         ;
-;    |BACKGROUND:BG|                           ; 555 (92)            ; 3 (0)                     ; 405600            ; 0          ; 0    ; 0            ; |top_level|BACKGROUND:BG                                                                                                                          ; BACKGROUND          ; work         ;
+; |top_level                                   ; 1958 (1)            ; 312 (0)                   ; 418976            ; 0          ; 83   ; 0            ; |top_level                                                                                                                                        ; top_level           ; work         ;
+;    |BACKGROUND:BG|                           ; 558 (95)            ; 3 (0)                     ; 405600            ; 0          ; 0    ; 0            ; |top_level|BACKGROUND:BG                                                                                                                          ; BACKGROUND          ; work         ;
 ;       |lpm_divide:Div0|                      ; 215 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|BACKGROUND:BG|lpm_divide:Div0                                                                                                          ; lpm_divide          ; work         ;
 ;          |lpm_divide_rbm:auto_generated|     ; 215 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|BACKGROUND:BG|lpm_divide:Div0|lpm_divide_rbm:auto_generated                                                                            ; lpm_divide_rbm      ; work         ;
 ;             |sign_div_unsign_1mh:divider|    ; 215 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|BACKGROUND:BG|lpm_divide:Div0|lpm_divide_rbm:auto_generated|sign_div_unsign_1mh:divider                                                ; sign_div_unsign_1mh ; work         ;
@@ -433,72 +436,87 @@ refer to the applicable agreement for further details.
 ;    |BCD_to_SevenSeg:RH|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|BCD_to_SevenSeg:RH                                                                                                                     ; BCD_to_SevenSeg     ; work         ;
 ;    |BCD_to_SevenSeg:RO|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|BCD_to_SevenSeg:RO                                                                                                                     ; BCD_to_SevenSeg     ; work         ;
 ;    |BCD_to_SevenSeg:RT|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|BCD_to_SevenSeg:RT                                                                                                                     ; BCD_to_SevenSeg     ; work         ;
-;    |FSM:FINITE_STATE_MACHINE|                ; 9 (9)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|FSM:FINITE_STATE_MACHINE                                                                                                               ; FSM                 ; work         ;
-;    |HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|      ; 196 (154)           ; 0 (0)                     ; 896               ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT                                                                                                     ; HOME_DISPLAY_TEXT   ; work         ;
-;       |char_rom:\GEN_CHARS:0:CHAR_ROM_INST|  ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:0:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
+;    |FSM:FINITE_STATE_MACHINE|                ; 15 (15)             ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|FSM:FINITE_STATE_MACHINE                                                                                                               ; FSM                 ; work         ;
+;    |HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|      ; 181 (153)           ; 0 (0)                     ; 896               ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT                                                                                                     ; HOME_DISPLAY_TEXT   ; work         ;
+;       |char_rom:\GEN_CHARS:0:CHAR_ROM_INST|  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:0:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:0:CHAR_ROM_INST|altsyncram:altsyncram_component                                 ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:0:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated  ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:10:CHAR_ROM_INST| ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:10:CHAR_ROM_INST                                                                ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:10:CHAR_ROM_INST| ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:10:CHAR_ROM_INST                                                                ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:10:CHAR_ROM_INST|altsyncram:altsyncram_component                                ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:10:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:11:CHAR_ROM_INST| ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:11:CHAR_ROM_INST                                                                ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:11:CHAR_ROM_INST| ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:11:CHAR_ROM_INST                                                                ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:11:CHAR_ROM_INST|altsyncram:altsyncram_component                                ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:11:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:12:CHAR_ROM_INST| ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:12:CHAR_ROM_INST                                                                ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:12:CHAR_ROM_INST| ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:12:CHAR_ROM_INST                                                                ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:12:CHAR_ROM_INST|altsyncram:altsyncram_component                                ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:12:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:13:CHAR_ROM_INST| ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:13:CHAR_ROM_INST                                                                ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:13:CHAR_ROM_INST| ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:13:CHAR_ROM_INST                                                                ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:13:CHAR_ROM_INST|altsyncram:altsyncram_component                                ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:13:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:1:CHAR_ROM_INST|  ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:1:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:1:CHAR_ROM_INST|  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:1:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:1:CHAR_ROM_INST|altsyncram:altsyncram_component                                 ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:1:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated  ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:2:CHAR_ROM_INST|  ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:2:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:2:CHAR_ROM_INST|  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:2:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:2:CHAR_ROM_INST|altsyncram:altsyncram_component                                 ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:2:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated  ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:3:CHAR_ROM_INST|  ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:3:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:3:CHAR_ROM_INST|  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:3:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:3:CHAR_ROM_INST|altsyncram:altsyncram_component                                 ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:3:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated  ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:4:CHAR_ROM_INST|  ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:4:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:4:CHAR_ROM_INST|  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:4:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:4:CHAR_ROM_INST|altsyncram:altsyncram_component                                 ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:4:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated  ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:5:CHAR_ROM_INST|  ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:5:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:5:CHAR_ROM_INST|  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:5:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:5:CHAR_ROM_INST|altsyncram:altsyncram_component                                 ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:5:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated  ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:6:CHAR_ROM_INST|  ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:6:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:6:CHAR_ROM_INST|  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:6:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:6:CHAR_ROM_INST|altsyncram:altsyncram_component                                 ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:6:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated  ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:7:CHAR_ROM_INST|  ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:7:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:7:CHAR_ROM_INST|  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:7:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:7:CHAR_ROM_INST|altsyncram:altsyncram_component                                 ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:7:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated  ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:8:CHAR_ROM_INST|  ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:8:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:8:CHAR_ROM_INST|  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:8:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:8:CHAR_ROM_INST|altsyncram:altsyncram_component                                 ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:8:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated  ; altsyncram_d5g1     ; work         ;
-;       |char_rom:\GEN_CHARS:9:CHAR_ROM_INST|  ; 3 (3)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:9:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
+;       |char_rom:\GEN_CHARS:9:CHAR_ROM_INST|  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:9:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:9:CHAR_ROM_INST|altsyncram:altsyncram_component                                 ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:9:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated  ; altsyncram_d5g1     ; work         ;
 ;    |MOUSE:MOUSE_CONTROLS|                    ; 109 (109)           ; 118 (118)                 ; 0                 ; 0          ; 0    ; 0            ; |top_level|MOUSE:MOUSE_CONTROLS                                                                                                                   ; MOUSE               ; work         ;
 ;    |PIPES:PIPE_DISPLAY|                      ; 173 (173)           ; 52 (52)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|PIPES:PIPE_DISPLAY                                                                                                                     ; PIPES               ; work         ;
 ;    |VGA_SYNC:VGA_REFRESH|                    ; 72 (72)             ; 57 (57)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|VGA_SYNC:VGA_REFRESH                                                                                                                   ; VGA_SYNC            ; work         ;
-;    |bait:RANDOM_BAIT|                        ; 89 (89)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|bait:RANDOM_BAIT                                                                                                                       ; bait                ; work         ;
+;    |bait:RANDOM_BAIT|                        ; 91 (91)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|bait:RANDOM_BAIT                                                                                                                       ; bait                ; work         ;
 ;    |dolphin_movement:PLAYER_CHARACTER|       ; 46 (46)             ; 22 (22)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|dolphin_movement:PLAYER_CHARACTER                                                                                                      ; dolphin_movement    ; work         ;
-;    |dolphin_visual:DOLPHIN_SPRITE_INST|      ; 29 (29)             ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |top_level|dolphin_visual:DOLPHIN_SPRITE_INST                                                                                                     ; dolphin_visual      ; work         ;
+;    |dolphin_visual:DOLPHIN_SPRITE_INST|      ; 30 (30)             ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |top_level|dolphin_visual:DOLPHIN_SPRITE_INST                                                                                                     ; dolphin_visual      ; work         ;
 ;       |dolphin_rom:DOLPHIN|                  ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |top_level|dolphin_visual:DOLPHIN_SPRITE_INST|dolphin_rom:DOLPHIN                                                                                 ; dolphin_rom         ; work         ;
 ;          |altsyncram:ROM|                    ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |top_level|dolphin_visual:DOLPHIN_SPRITE_INST|dolphin_rom:DOLPHIN|altsyncram:ROM                                                                  ; altsyncram          ; work         ;
 ;             |altsyncram_j3u3:auto_generated| ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |top_level|dolphin_visual:DOLPHIN_SPRITE_INST|dolphin_rom:DOLPHIN|altsyncram:ROM|altsyncram_j3u3:auto_generated                                   ; altsyncram_j3u3     ; work         ;
-;    |game_logic:GAME_RULE|                    ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|game_logic:GAME_RULE                                                                                                                   ; game_logic          ; work         ;
+;    |game_logic:GAME_RULE|                    ; 190 (75)            ; 47 (47)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|game_logic:GAME_RULE                                                                                                                   ; game_logic          ; work         ;
+;       |lpm_divide:Div0|                      ; 38 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|game_logic:GAME_RULE|lpm_divide:Div0                                                                                                   ; lpm_divide          ; work         ;
+;          |lpm_divide_4am:auto_generated|     ; 38 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|game_logic:GAME_RULE|lpm_divide:Div0|lpm_divide_4am:auto_generated                                                                     ; lpm_divide_4am      ; work         ;
+;             |sign_div_unsign_akh:divider|    ; 38 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|game_logic:GAME_RULE|lpm_divide:Div0|lpm_divide_4am:auto_generated|sign_div_unsign_akh:divider                                         ; sign_div_unsign_akh ; work         ;
+;                |alt_u_div_qse:divider|       ; 38 (38)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|game_logic:GAME_RULE|lpm_divide:Div0|lpm_divide_4am:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider                   ; alt_u_div_qse       ; work         ;
+;       |lpm_divide:Mod0|                      ; 29 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|game_logic:GAME_RULE|lpm_divide:Mod0                                                                                                   ; lpm_divide          ; work         ;
+;          |lpm_divide_a2m:auto_generated|     ; 29 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|game_logic:GAME_RULE|lpm_divide:Mod0|lpm_divide_a2m:auto_generated                                                                     ; lpm_divide_a2m      ; work         ;
+;             |sign_div_unsign_dkh:divider|    ; 29 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|game_logic:GAME_RULE|lpm_divide:Mod0|lpm_divide_a2m:auto_generated|sign_div_unsign_dkh:divider                                         ; sign_div_unsign_dkh ; work         ;
+;                |alt_u_div_0te:divider|       ; 29 (29)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|game_logic:GAME_RULE|lpm_divide:Mod0|lpm_divide_a2m:auto_generated|sign_div_unsign_dkh:divider|alt_u_div_0te:divider                   ; alt_u_div_0te       ; work         ;
+;       |lpm_divide:Mod1|                      ; 48 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|game_logic:GAME_RULE|lpm_divide:Mod1                                                                                                   ; lpm_divide          ; work         ;
+;          |lpm_divide_a2m:auto_generated|     ; 48 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|game_logic:GAME_RULE|lpm_divide:Mod1|lpm_divide_a2m:auto_generated                                                                     ; lpm_divide_a2m      ; work         ;
+;             |sign_div_unsign_dkh:divider|    ; 48 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|game_logic:GAME_RULE|lpm_divide:Mod1|lpm_divide_a2m:auto_generated|sign_div_unsign_dkh:divider                                         ; sign_div_unsign_dkh ; work         ;
+;                |alt_u_div_0te:divider|       ; 48 (48)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|game_logic:GAME_RULE|lpm_divide:Mod1|lpm_divide_a2m:auto_generated|sign_div_unsign_dkh:divider|alt_u_div_0te:divider                   ; alt_u_div_0te       ; work         ;
 ;    |lfsr:RANDOM_NUMBER|                      ; 6 (6)               ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|lfsr:RANDOM_NUMBER                                                                                                                     ; lfsr                ; work         ;
-;    |lives:LIFE_DISPLAY|                      ; 39 (35)             ; 0 (0)                     ; 128               ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY                                                                                                                     ; lives               ; work         ;
+;    |lives:LIFE_DISPLAY|                      ; 52 (46)             ; 0 (0)                     ; 192               ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY                                                                                                                     ; lives               ; work         ;
 ;       |char_rom:HEART_ROM_1|                 ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY|char_rom:HEART_ROM_1                                                                                                ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY|char_rom:HEART_ROM_1|altsyncram:altsyncram_component                                                                ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY|char_rom:HEART_ROM_1|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated                                 ; altsyncram_d5g1     ; work         ;
 ;       |char_rom:HEART_ROM_2|                 ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY|char_rom:HEART_ROM_2                                                                                                ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY|char_rom:HEART_ROM_2|altsyncram:altsyncram_component                                                                ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY|char_rom:HEART_ROM_2|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated                                 ; altsyncram_d5g1     ; work         ;
+;       |char_rom:HEART_ROM_3|                 ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY|char_rom:HEART_ROM_3                                                                                                ; char_rom            ; work         ;
+;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY|char_rom:HEART_ROM_3|altsyncram:altsyncram_component                                                                ; altsyncram          ; work         ;
+;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY|char_rom:HEART_ROM_3|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated                                 ; altsyncram_d5g1     ; work         ;
 ;    |pll:clock_divider|                       ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|pll:clock_divider                                                                                                                      ; pll                 ; pll          ;
 ;       |pll_0002:pll_inst|                    ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|pll:clock_divider|pll_0002:pll_inst                                                                                                    ; pll_0002            ; pll          ;
 ;          |altera_pll:altera_pll_i|           ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i                                                                            ; altera_pll          ; work         ;
-;    |position_to_BCD:sevenseg_display|        ; 668 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display                                                                                                       ; position_to_BCD     ; work         ;
+;    |position_to_BCD:sevenseg_display|        ; 392 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display                                                                                                       ; position_to_BCD     ; work         ;
 ;       |lpm_divide:Div0|                      ; 60 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div0                                                                                       ; lpm_divide          ; work         ;
 ;          |lpm_divide_hbm:auto_generated|     ; 60 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div0|lpm_divide_hbm:auto_generated                                                         ; lpm_divide_hbm      ; work         ;
 ;             |sign_div_unsign_nlh:divider|    ; 60 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div0|lpm_divide_hbm:auto_generated|sign_div_unsign_nlh:divider                             ; sign_div_unsign_nlh ; work         ;
@@ -511,10 +529,6 @@ refer to the applicable agreement for further details.
 ;          |lpm_divide_hbm:auto_generated|     ; 60 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div2|lpm_divide_hbm:auto_generated                                                         ; lpm_divide_hbm      ; work         ;
 ;             |sign_div_unsign_nlh:divider|    ; 60 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div2|lpm_divide_hbm:auto_generated|sign_div_unsign_nlh:divider                             ; sign_div_unsign_nlh ; work         ;
 ;                |alt_u_div_kve:divider|       ; 60 (60)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div2|lpm_divide_hbm:auto_generated|sign_div_unsign_nlh:divider|alt_u_div_kve:divider       ; alt_u_div_kve       ; work         ;
-;       |lpm_divide:Div3|                      ; 71 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div3                                                                                       ; lpm_divide          ; work         ;
-;          |lpm_divide_ebm:auto_generated|     ; 71 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div3|lpm_divide_ebm:auto_generated                                                         ; lpm_divide_ebm      ; work         ;
-;             |sign_div_unsign_klh:divider|    ; 71 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div3|lpm_divide_ebm:auto_generated|sign_div_unsign_klh:divider                             ; sign_div_unsign_klh ; work         ;
-;                |alt_u_div_eve:divider|       ; 71 (71)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Div3|lpm_divide_ebm:auto_generated|sign_div_unsign_klh:divider|alt_u_div_eve:divider       ; alt_u_div_eve       ; work         ;
 ;       |lpm_divide:Mod0|                      ; 93 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod0                                                                                       ; lpm_divide          ; work         ;
 ;          |lpm_divide_u4m:auto_generated|     ; 93 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod0|lpm_divide_u4m:auto_generated                                                         ; lpm_divide_u4m      ; work         ;
 ;             |sign_div_unsign_1nh:divider|    ; 93 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod0|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider                             ; sign_div_unsign_1nh ; work         ;
@@ -523,14 +537,6 @@ refer to the applicable agreement for further details.
 ;          |lpm_divide_u4m:auto_generated|     ; 110 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod1|lpm_divide_u4m:auto_generated                                                         ; lpm_divide_u4m      ; work         ;
 ;             |sign_div_unsign_1nh:divider|    ; 110 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod1|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider                             ; sign_div_unsign_1nh ; work         ;
 ;                |alt_u_div_82f:divider|       ; 110 (110)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod1|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider|alt_u_div_82f:divider       ; alt_u_div_82f       ; work         ;
-;       |lpm_divide:Mod2|                      ; 93 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod2                                                                                       ; lpm_divide          ; work         ;
-;          |lpm_divide_u4m:auto_generated|     ; 93 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod2|lpm_divide_u4m:auto_generated                                                         ; lpm_divide_u4m      ; work         ;
-;             |sign_div_unsign_1nh:divider|    ; 93 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod2|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider                             ; sign_div_unsign_1nh ; work         ;
-;                |alt_u_div_82f:divider|       ; 93 (93)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod2|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider|alt_u_div_82f:divider       ; alt_u_div_82f       ; work         ;
-;       |lpm_divide:Mod3|                      ; 112 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod3                                                                                       ; lpm_divide          ; work         ;
-;          |lpm_divide_u4m:auto_generated|     ; 112 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod3|lpm_divide_u4m:auto_generated                                                         ; lpm_divide_u4m      ; work         ;
-;             |sign_div_unsign_1nh:divider|    ; 112 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod3|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider                             ; sign_div_unsign_1nh ; work         ;
-;                |alt_u_div_82f:divider|       ; 112 (112)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod3|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider|alt_u_div_82f:divider       ; alt_u_div_82f       ; work         ;
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -558,6 +564,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; dolphin_visual:DOLPHIN_SPRITE_INST|dolphin_rom:DOLPHIN|altsyncram:ROM|altsyncram_j3u3:auto_generated|ALTSYNCRAM                                   ; AUTO ; ROM  ; 1024         ; 12           ; --           ; --           ; 12288  ; dolphin.mif ;
 ; lives:LIFE_DISPLAY|char_rom:HEART_ROM_1|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM                                 ; AUTO ; ROM  ; 512          ; 8            ; --           ; --           ; 4096   ; tcgrom.mif  ;
 ; lives:LIFE_DISPLAY|char_rom:HEART_ROM_2|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM                                 ; AUTO ; ROM  ; 512          ; 8            ; --           ; --           ; 4096   ; tcgrom.mif  ;
+; lives:LIFE_DISPLAY|char_rom:HEART_ROM_3|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM                                 ; AUTO ; ROM  ; 512          ; 8            ; --           ; --           ; 4096   ; tcgrom.mif  ;
 +---------------------------------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+-------------+
 
 
@@ -656,30 +663,27 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; MOUSE:MOUSE_CONTROLS|cursor_row[9]            ; Stuck at GND due to stuck port data_in              ;
 ; VGA_SYNC:VGA_REFRESH|pixel_row[9]             ; Stuck at GND due to stuck port data_in              ;
 ; game_logic:GAME_RULE|pipe_collision_prev      ; Lost fanout                                         ;
-; game_logic:GAME_RULE|bait_prev                ; Lost fanout                                         ;
 ; game_logic:GAME_RULE|collision_cooldown[0..6] ; Lost fanout                                         ;
-; game_logic:GAME_RULE|bait_cooldown[0..5]      ; Lost fanout                                         ;
-; game_logic:GAME_RULE|lives_count[1]           ; Merged with game_logic:GAME_RULE|lives_count[0]     ;
-; game_logic:GAME_RULE|lives_count[0]           ; Stuck at VCC due to stuck port data_in              ;
-; FSM:FINITE_STATE_MACHINE|state.Game_Over      ; Stuck at GND due to stuck port data_in              ;
-; Total Number of Removed Registers = 38        ;                                                     ;
+; Total Number of Removed Registers = 28        ;                                                     ;
 +-----------------------------------------------+-----------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                            ;
-+--------------------------------------------+---------------------------+-------------------------------------------------------------------------------+
-; Register name                              ; Reason for Removal        ; Registers Removed due to This Register                                        ;
-+--------------------------------------------+---------------------------+-------------------------------------------------------------------------------+
-; game_logic:GAME_RULE|bait_cooldown[5]      ; Lost Fanouts              ; game_logic:GAME_RULE|bait_cooldown[3], game_logic:GAME_RULE|bait_cooldown[2], ;
-;                                            ;                           ; game_logic:GAME_RULE|bait_cooldown[0], game_logic:GAME_RULE|bait_cooldown[1]  ;
-; game_logic:GAME_RULE|collision_cooldown[6] ; Lost Fanouts              ; game_logic:GAME_RULE|collision_cooldown[0],                                   ;
-;                                            ;                           ; game_logic:GAME_RULE|collision_cooldown[1]                                    ;
-; game_logic:GAME_RULE|collision_cooldown[5] ; Lost Fanouts              ; game_logic:GAME_RULE|collision_cooldown[3],                                   ;
-;                                            ;                           ; game_logic:GAME_RULE|collision_cooldown[2]                                    ;
-; lfsr:RANDOM_NUMBER|lfsr_reg[0]             ; Stuck at GND              ; PIPES:PIPE_DISPLAY|pipe_top_height_2[1]                                       ;
-;                                            ; due to stuck port data_in ;                                                                               ;
-+--------------------------------------------+---------------------------+-------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                       ;
++-----------------------------------------+---------------------------+---------------------------------------------+
+; Register name                           ; Reason for Removal        ; Registers Removed due to This Register      ;
++-----------------------------------------+---------------------------+---------------------------------------------+
+; PIPES:PIPE_DISPLAY|pipe_top_height_3[8] ; Stuck at GND              ; game_logic:GAME_RULE|pipe_collision_prev,   ;
+;                                         ; due to stuck port data_in ; game_logic:GAME_RULE|collision_cooldown[6], ;
+;                                         ;                           ; game_logic:GAME_RULE|collision_cooldown[5], ;
+;                                         ;                           ; game_logic:GAME_RULE|collision_cooldown[4], ;
+;                                         ;                           ; game_logic:GAME_RULE|collision_cooldown[3], ;
+;                                         ;                           ; game_logic:GAME_RULE|collision_cooldown[2], ;
+;                                         ;                           ; game_logic:GAME_RULE|collision_cooldown[0], ;
+;                                         ;                           ; game_logic:GAME_RULE|collision_cooldown[1]  ;
+; lfsr:RANDOM_NUMBER|lfsr_reg[0]          ; Stuck at GND              ; PIPES:PIPE_DISPLAY|pipe_top_height_2[1]     ;
+;                                         ; due to stuck port data_in ;                                             ;
++-----------------------------------------+---------------------------+---------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -687,12 +691,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 264   ;
-; Number of registers using Synchronous Clear  ; 58    ;
-; Number of registers using Synchronous Load   ; 20    ;
+; Total registers                              ; 312   ;
+; Number of registers using Synchronous Clear  ; 98    ;
+; Number of registers using Synchronous Load   ; 29    ;
 ; Number of registers using Asynchronous Clear ; 50    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 148   ;
+; Number of registers using Clock Enable       ; 187   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -702,6 +706,8 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------------+---------+
 ; Inverted Register                                  ; Fan out ;
 +----------------------------------------------------+---------+
+; game_logic:GAME_RULE|lives_count[1]                ; 8       ;
+; game_logic:GAME_RULE|lives_count[0]                ; 8       ;
 ; dolphin_movement:PLAYER_CHARACTER|dolphin_y_pos[7] ; 8       ;
 ; dolphin_movement:PLAYER_CHARACTER|dolphin_y_pos[5] ; 11      ;
 ; dolphin_movement:PLAYER_CHARACTER|dolphin_y_pos[6] ; 9       ;
@@ -734,39 +740,42 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; MOUSE:MOUSE_CONTROLS|SHIFTOUT[6]                   ; 1       ;
 ; MOUSE:MOUSE_CONTROLS|SHIFTOUT[7]                   ; 1       ;
 ; MOUSE:MOUSE_CONTROLS|SHIFTOUT[8]                   ; 1       ;
-; Total number of inverted registers = 32            ;         ;
+; Total number of inverted registers = 34            ;         ;
 +----------------------------------------------------+---------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------+
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |top_level|MOUSE:MOUSE_CONTROLS|new_cursor_column[2]                                    ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |top_level|VGA_SYNC:VGA_REFRESH|v_count[8]                                              ;
-; 4:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |top_level|dolphin_movement:PLAYER_CHARACTER|dolphin_y_motion[0]                        ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |top_level|dolphin_movement:PLAYER_CHARACTER|dolphin_y_pos[3]                           ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |top_level|MOUSE:MOUSE_CONTROLS|cursor_column[7]                                        ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |top_level|MOUSE:MOUSE_CONTROLS|cursor_column[8]                                        ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |top_level|MOUSE:MOUSE_CONTROLS|cursor_row[2]                                           ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |top_level|MOUSE:MOUSE_CONTROLS|cursor_row[5]                                           ;
-; 6:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |top_level|game_logic:GAME_RULE|collision_cooldown[5]                                   ;
-; 6:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |top_level|game_logic:GAME_RULE|bait_cooldown[2]                                        ;
-; 11:1               ; 12 bits   ; 84 LEs        ; 60 LEs               ; 24 LEs                 ; Yes        ; |top_level|VGA_SYNC:VGA_REFRESH|blue_out[0]                                             ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|dolphin_movement:PLAYER_CHARACTER|dolphin_y_pos[4]                           ;
-; 8:1                ; 7 bits    ; 35 LEs        ; 35 LEs               ; 0 LEs                  ; No         ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:10:CHAR_ROM_INST|Mux0 ;
-; 8:1                ; 7 bits    ; 35 LEs        ; 35 LEs               ; 0 LEs                  ; No         ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:5:CHAR_ROM_INST|Mux0  ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:CO|SevenSeg_out[3]                                           ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:CT|SevenSeg_out[0]                                           ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:CH|SevenSeg_out[3]                                           ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:RO|SevenSeg_out[5]                                           ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:RT|SevenSeg_out[2]                                           ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:RH|SevenSeg_out[5]                                           ;
-; 9:1                ; 12 bits   ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |top_level|BACKGROUND:BG|blue                                                           ;
-; 15:1               ; 4 bits    ; 40 LEs        ; 24 LEs               ; 16 LEs                 ; No         ; |top_level|FSM:FINITE_STATE_MACHINE|state                                               ;
-; 15:1               ; 2 bits    ; 20 LEs        ; 8 LEs                ; 12 LEs                 ; No         ; |top_level|FSM:FINITE_STATE_MACHINE|state                                               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |top_level|game_logic:GAME_RULE|pipe_collision_prev                                    ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |top_level|MOUSE:MOUSE_CONTROLS|new_cursor_row[0]                                      ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |top_level|VGA_SYNC:VGA_REFRESH|v_count[2]                                             ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |top_level|game_logic:GAME_RULE|score[5]                                               ;
+; 4:1                ; 30 bits   ; 60 LEs        ; 0 LEs                ; 60 LEs                 ; Yes        ; |top_level|game_logic:GAME_RULE|timer_count[16]                                        ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |top_level|dolphin_movement:PLAYER_CHARACTER|dolphin_y_motion[9]                       ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |top_level|dolphin_movement:PLAYER_CHARACTER|dolphin_y_pos[3]                          ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |top_level|MOUSE:MOUSE_CONTROLS|cursor_column[3]                                       ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |top_level|MOUSE:MOUSE_CONTROLS|cursor_column[8]                                       ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |top_level|MOUSE:MOUSE_CONTROLS|cursor_row[3]                                          ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |top_level|MOUSE:MOUSE_CONTROLS|cursor_row[4]                                          ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |top_level|game_logic:GAME_RULE|bait_cooldown[3]                                       ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |top_level|game_logic:GAME_RULE|collision_cooldown[6]                                  ;
+; 11:1               ; 12 bits   ; 84 LEs        ; 60 LEs               ; 24 LEs                 ; Yes        ; |top_level|VGA_SYNC:VGA_REFRESH|blue_out[3]                                            ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|dolphin_movement:PLAYER_CHARACTER|dolphin_y_pos[7]                          ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 35 LEs               ; 0 LEs                  ; No         ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:0:CHAR_ROM_INST|Mux0 ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 35 LEs               ; 0 LEs                  ; No         ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:3:CHAR_ROM_INST|Mux0 ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:CO|SevenSeg_out[2]                                          ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:CT|SevenSeg_out[5]                                          ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:CH|SevenSeg_out[5]                                          ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:RO|SevenSeg_out[2]                                          ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:RT|SevenSeg_out[0]                                          ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:RH|SevenSeg_out[5]                                          ;
+; 9:1                ; 12 bits   ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |top_level|BACKGROUND:BG|red                                                           ;
+; 15:1               ; 4 bits    ; 40 LEs        ; 24 LEs               ; 16 LEs                 ; No         ; |top_level|FSM:FINITE_STATE_MACHINE|state                                              ;
+; 15:1               ; 2 bits    ; 20 LEs        ; 8 LEs                ; 12 LEs                 ; No         ; |top_level|FSM:FINITE_STATE_MACHINE|state                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------+
@@ -3536,72 +3545,72 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: position_to_BCD:sevenseg_display|lpm_divide:Mod3 ;
-+------------------------+----------------+---------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                    ;
-+------------------------+----------------+---------------------------------------------------------+
-; LPM_WIDTHN             ; 10             ; Untyped                                                 ;
-; LPM_WIDTHD             ; 10             ; Untyped                                                 ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
-; LPM_PIPELINE           ; 0              ; Untyped                                                 ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                 ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                                 ;
-; CBXI_PARAMETER         ; lpm_divide_u4m ; Untyped                                                 ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                                 ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                 ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                              ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                            ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                            ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                          ;
-+------------------------+----------------+---------------------------------------------------------+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: game_logic:GAME_RULE|lpm_divide:Mod1 ;
++------------------------+----------------+---------------------------------------------+
+; Parameter Name         ; Value          ; Type                                        ;
++------------------------+----------------+---------------------------------------------+
+; LPM_WIDTHN             ; 7              ; Untyped                                     ;
+; LPM_WIDTHD             ; 7              ; Untyped                                     ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_PIPELINE           ; 0              ; Untyped                                     ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                     ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                     ;
+; CBXI_PARAMETER         ; lpm_divide_a2m ; Untyped                                     ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                     ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                     ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                              ;
++------------------------+----------------+---------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: position_to_BCD:sevenseg_display|lpm_divide:Div3 ;
-+------------------------+----------------+---------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                    ;
-+------------------------+----------------+---------------------------------------------------------+
-; LPM_WIDTHN             ; 10             ; Untyped                                                 ;
-; LPM_WIDTHD             ; 4              ; Untyped                                                 ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
-; LPM_PIPELINE           ; 0              ; Untyped                                                 ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                 ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                                 ;
-; CBXI_PARAMETER         ; lpm_divide_ebm ; Untyped                                                 ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                                 ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                 ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                              ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                            ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                            ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                          ;
-+------------------------+----------------+---------------------------------------------------------+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: game_logic:GAME_RULE|lpm_divide:Div0 ;
++------------------------+----------------+---------------------------------------------+
+; Parameter Name         ; Value          ; Type                                        ;
++------------------------+----------------+---------------------------------------------+
+; LPM_WIDTHN             ; 7              ; Untyped                                     ;
+; LPM_WIDTHD             ; 4              ; Untyped                                     ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_PIPELINE           ; 0              ; Untyped                                     ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                     ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                     ;
+; CBXI_PARAMETER         ; lpm_divide_4am ; Untyped                                     ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                     ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                     ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                              ;
++------------------------+----------------+---------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: position_to_BCD:sevenseg_display|lpm_divide:Mod2 ;
-+------------------------+----------------+---------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                    ;
-+------------------------+----------------+---------------------------------------------------------+
-; LPM_WIDTHN             ; 10             ; Untyped                                                 ;
-; LPM_WIDTHD             ; 10             ; Untyped                                                 ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
-; LPM_PIPELINE           ; 0              ; Untyped                                                 ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                 ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                                 ;
-; CBXI_PARAMETER         ; lpm_divide_u4m ; Untyped                                                 ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                                 ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                 ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                              ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                            ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                            ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                          ;
-+------------------------+----------------+---------------------------------------------------------+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: game_logic:GAME_RULE|lpm_divide:Mod0 ;
++------------------------+----------------+---------------------------------------------+
+; Parameter Name         ; Value          ; Type                                        ;
++------------------------+----------------+---------------------------------------------+
+; LPM_WIDTHN             ; 7              ; Untyped                                     ;
+; LPM_WIDTHD             ; 7              ; Untyped                                     ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_PIPELINE           ; 0              ; Untyped                                     ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                     ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                     ;
+; CBXI_PARAMETER         ; lpm_divide_a2m ; Untyped                                     ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                     ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                     ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                              ;
++------------------------+----------------+---------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -4171,18 +4180,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+------------------------------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "game_logic:GAME_RULE"                                                                     ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port       ; Type   ; Severity ; Details                                                                             ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; life_one   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; life_two   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; life_three ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; timer_out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; score_ones ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; score_tens ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "position_to_BCD:sevenseg_display"                                                          ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; column_tens ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; column_ones ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------+
@@ -4202,32 +4207,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------+-------+----------+--------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "bait:RANDOM_BAIT"                                                                          ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port        ; Type   ; Severity ; Details                                                                             ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
-; bait_enable ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "dolphin_movement:PLAYER_CHARACTER"                                                            ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; dolphin_on     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; dolphin_enable ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "PIPES:PIPE_DISPLAY"                                                                        ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port        ; Type   ; Severity ; Details                                                                             ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
-; pipe_enable ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "dolphin_movement:PLAYER_CHARACTER"                                                        ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; dolphin_on ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------+
@@ -4267,17 +4253,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; character_address[4..0] ; Input ; Info     ; Stuck at GND           ;
 ; character_address[5]    ; Input ; Info     ; Stuck at VCC           ;
 +-------------------------+-------+----------+------------------------+
-
-
-+------------------------------------------------+
-; Port Connectivity Checks: "lives:LIFE_DISPLAY" ;
-+------------+-------+----------+----------------+
-; Port       ; Type  ; Severity ; Details        ;
-+------------+-------+----------+----------------+
-; life_one   ; Input ; Info     ; Stuck at VCC   ;
-; life_two   ; Input ; Info     ; Stuck at VCC   ;
-; life_three ; Input ; Info     ; Stuck at GND   ;
-+------------+-------+----------+----------------+
 
 
 +-----------------------------------------------------------------------------------------------------+
@@ -4657,32 +4632,33 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 264                         ;
+; arriav_ff             ; 312                         ;
 ;     CLR               ; 17                          ;
 ;     ENA               ; 77                          ;
 ;     ENA CLR           ; 33                          ;
-;     ENA SCLR          ; 18                          ;
+;     ENA SCLR          ; 48                          ;
+;     ENA SCLR SLD      ; 9                           ;
 ;     ENA SLD           ; 20                          ;
-;     SCLR              ; 40                          ;
-;     plain             ; 59                          ;
+;     SCLR              ; 41                          ;
+;     plain             ; 67                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 2036                        ;
-;     arith             ; 893                         ;
-;         0 data inputs ; 134                         ;
-;         1 data inputs ; 302                         ;
+; arriav_lcell_comb     ; 1958                        ;
+;     arith             ; 852                         ;
+;         0 data inputs ; 116                         ;
+;         1 data inputs ; 339                         ;
 ;         2 data inputs ; 77                          ;
-;         3 data inputs ; 237                         ;
-;         4 data inputs ; 143                         ;
-;     extend            ; 12                          ;
-;         7 data inputs ; 12                          ;
-;     normal            ; 1023                        ;
+;         3 data inputs ; 200                         ;
+;         4 data inputs ; 120                         ;
+;     extend            ; 15                          ;
+;         7 data inputs ; 15                          ;
+;     normal            ; 983                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 17                          ;
-;         2 data inputs ; 326                         ;
-;         3 data inputs ; 221                         ;
-;         4 data inputs ; 166                         ;
-;         5 data inputs ; 109                         ;
-;         6 data inputs ; 183                         ;
+;         2 data inputs ; 290                         ;
+;         3 data inputs ; 193                         ;
+;         4 data inputs ; 148                         ;
+;         5 data inputs ; 150                         ;
+;         6 data inputs ; 184                         ;
 ;     shared            ; 108                         ;
 ;         0 data inputs ; 20                          ;
 ;         1 data inputs ; 64                          ;
@@ -4690,10 +4666,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         3 data inputs ; 2                           ;
 ; boundary_port         ; 83                          ;
 ; generic_pll           ; 1                           ;
-; stratixv_ram_block    ; 200                         ;
+; stratixv_ram_block    ; 208                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 24.40                       ;
-; Average LUT depth     ; 11.19                       ;
+; Average LUT depth     ; 10.38                       ;
 +-----------------------+-----------------------------+
 
 
@@ -4702,7 +4678,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:05     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -4712,7 +4688,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Mon May 25 15:43:29 2026
+    Info: Processing started: Mon May 25 16:43:09 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off group_27 -c top_level
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
@@ -4789,15 +4765,8 @@ Info (12127): Elaborating entity "top_level" for the top level hierarchy
 Warning (10541): VHDL Signal Declaration warning at top_level.vhd(14): used implicit default value for signal "LEDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 14
 Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(274): object "RIGHT_CLICK" assigned a value but never read File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 274
 Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(280): object "DOLPHIN_ON" assigned a value but never read File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 280
-Warning (10541): VHDL Signal Declaration warning at top_level.vhd(317): used implicit default value for signal "DOLPHIN_ENABLE" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 317
-Warning (10541): VHDL Signal Declaration warning at top_level.vhd(318): used implicit default value for signal "PIPE_ENABLE_SIG" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 318
-Warning (10541): VHDL Signal Declaration warning at top_level.vhd(319): used implicit default value for signal "BAIT_ENABLE_SIG" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 319
-Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(320): object "LIFE_ONE_SIG" assigned a value but never read File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 320
-Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(320): object "LIFE_TWO_SIG" assigned a value but never read File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 320
-Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(320): object "LIFE_THREE_SIG" assigned a value but never read File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 320
-Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(321): object "SCORE_ONES_SIG" assigned a value but never read File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 321
-Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(321): object "SCORE_TENS_SIG" assigned a value but never read File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 321
-Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(322): object "TIMER_SIG" assigned a value but never read File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 322
+Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(300): object "column_tens" assigned a value but never read File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 300
+Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(300): object "column_ones" assigned a value but never read File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 300
 Info (12128): Elaborating entity "BACKGROUND" for hierarchy "BACKGROUND:BG" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 346
 Warning (10492): VHDL Process Statement warning at background.vhd(72): signal "sunset_pixel" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/background.vhd Line: 72
 Warning (10492): VHDL Process Statement warning at background.vhd(73): signal "sunset_pixel" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/background.vhd Line: 73
@@ -4898,7 +4867,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/mux_
     Info (12023): Found entity 1: mux_5hb File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/mux_5hb.tdf Line: 22
 Info (12128): Elaborating entity "mux_5hb" for hierarchy "BACKGROUND:BG|sunset_rom:SUNSET_BACKGROUND|altsyncram:ROM|altsyncram_43u3:auto_generated|mux_5hb:mux2" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_43u3.tdf Line: 40
 Info (12128): Elaborating entity "BCD_to_SevenSeg" for hierarchy "BCD_to_SevenSeg:CH" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 362
-Info (12128): Elaborating entity "pll" for hierarchy "pll:clock_divider" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 377
+Info (12128): Elaborating entity "pll" for hierarchy "pll:clock_divider" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 376
 Info (12128): Elaborating entity "pll_0002" for hierarchy "pll:clock_divider|pll_0002:pll_inst" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/pll.vhd Line: 32
 Info (12128): Elaborating entity "altera_pll" for hierarchy "pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/pll/pll_0002.v Line: 85
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
@@ -4964,7 +4933,7 @@ Info (12133): Instantiated megafunction "pll:clock_divider|pll_0002:pll_inst|alt
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "dolphin_visual" for hierarchy "dolphin_visual:DOLPHIN_SPRITE_INST" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 384
+Info (12128): Elaborating entity "dolphin_visual" for hierarchy "dolphin_visual:DOLPHIN_SPRITE_INST" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 383
 Info (12128): Elaborating entity "dolphin_rom" for hierarchy "dolphin_visual:DOLPHIN_SPRITE_INST|dolphin_rom:DOLPHIN" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/dolphin_visual.vhd Line: 47
 Info (12128): Elaborating entity "altsyncram" for hierarchy "dolphin_visual:DOLPHIN_SPRITE_INST|dolphin_rom:DOLPHIN|altsyncram:ROM" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/dolphin_rom.vhd Line: 23
 Info (12130): Elaborated megafunction instantiation "dolphin_visual:DOLPHIN_SPRITE_INST|dolphin_rom:DOLPHIN|altsyncram:ROM" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/dolphin_rom.vhd Line: 23
@@ -5022,7 +4991,7 @@ Info (12133): Instantiated megafunction "dolphin_visual:DOLPHIN_SPRITE_INST|dolp
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_j3u3.tdf
     Info (12023): Found entity 1: altsyncram_j3u3 File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_j3u3.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_j3u3" for hierarchy "dolphin_visual:DOLPHIN_SPRITE_INST|dolphin_rom:DOLPHIN|altsyncram:ROM|altsyncram_j3u3:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "GAME_WON_TEXT" for hierarchy "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 397
+Info (12128): Elaborating entity "GAME_WON_TEXT" for hierarchy "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 396
 Warning (10036): Verilog HDL or VHDL warning at game_won_text.vhd(50): object "text_on" assigned a value but never read File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/game_won_text.vhd Line: 50
 Info (12128): Elaborating entity "char_rom" for hierarchy "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/game_won_text.vhd Line: 73
 Info (12128): Elaborating entity "altsyncram" for hierarchy "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST|altsyncram:altsyncram_component" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/char_rom.vhd Line: 51
@@ -5045,41 +5014,33 @@ Info (12133): Instantiated megafunction "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|ch
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_d5g1.tdf
     Info (12023): Found entity 1: altsyncram_d5g1 File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_d5g1" for hierarchy "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "GAME_OVER_TEXT" for hierarchy "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 408
+Info (12128): Elaborating entity "GAME_OVER_TEXT" for hierarchy "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 407
 Warning (10036): Verilog HDL or VHDL warning at game_over_text.vhd(52): object "text_on" assigned a value but never read File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/game_over_text.vhd Line: 52
 Warning (10492): VHDL Process Statement warning at game_over_text.vhd(95): signal "termination" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/game_over_text.vhd Line: 95
 Warning (12125): Using design file home_display_text.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
     Info (12022): Found design unit 1: HOME_DISPLAY_TEXT-behaviour File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/home_display_text.vhd Line: 16
     Info (12023): Found entity 1: HOME_DISPLAY_TEXT File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/home_display_text.vhd Line: 7
-Info (12128): Elaborating entity "HOME_DISPLAY_TEXT" for hierarchy "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 420
-Info (12128): Elaborating entity "FSM" for hierarchy "FSM:FINITE_STATE_MACHINE" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 431
-Info (12128): Elaborating entity "LAYER" for hierarchy "LAYER:LAYER_RENDERER" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 446
-Info (12128): Elaborating entity "lives" for hierarchy "lives:LIFE_DISPLAY" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 492
-Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:MOUSE_CONTROLS" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 506
+Info (12128): Elaborating entity "HOME_DISPLAY_TEXT" for hierarchy "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 419
+Info (12128): Elaborating entity "FSM" for hierarchy "FSM:FINITE_STATE_MACHINE" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 430
+Info (12128): Elaborating entity "LAYER" for hierarchy "LAYER:LAYER_RENDERER" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 445
+Info (12128): Elaborating entity "lives" for hierarchy "lives:LIFE_DISPLAY" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 491
+Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:MOUSE_CONTROLS" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 505
 Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/mouse.vhd Line: 25
 Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/mouse.vhd Line: 151
 Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/mouse.vhd Line: 155
 Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/mouse.vhd Line: 156
 Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/mouse.vhd Line: 157
-Info (12128): Elaborating entity "PIPES" for hierarchy "PIPES:PIPE_DISPLAY" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 517
-Info (12128): Elaborating entity "dolphin_movement" for hierarchy "dolphin_movement:PLAYER_CHARACTER" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 533
+Info (12128): Elaborating entity "PIPES" for hierarchy "PIPES:PIPE_DISPLAY" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 516
+Info (12128): Elaborating entity "dolphin_movement" for hierarchy "dolphin_movement:PLAYER_CHARACTER" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 532
 Warning (10541): VHDL Signal Declaration warning at dolphin_movement.vhd(23): used implicit default value for signal "dolphin_enable" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/dolphin_movement.vhd Line: 23
-Info (12128): Elaborating entity "bait" for hierarchy "bait:RANDOM_BAIT" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 561
-Info (12128): Elaborating entity "lfsr" for hierarchy "lfsr:RANDOM_NUMBER" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 574
+Info (12128): Elaborating entity "bait" for hierarchy "bait:RANDOM_BAIT" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 560
+Info (12128): Elaborating entity "lfsr" for hierarchy "lfsr:RANDOM_NUMBER" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 573
 Warning (10492): VHDL Process Statement warning at LFSR.vhd(28): signal "INITIAL_VALUE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/LFSR.vhd Line: 28
-Info (12128): Elaborating entity "position_to_BCD" for hierarchy "position_to_BCD:sevenseg_display" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 582
-Info (12128): Elaborating entity "game_logic" for hierarchy "game_logic:GAME_RULE" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 593
-Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:VGA_REFRESH" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 610
+Info (12128): Elaborating entity "position_to_BCD" for hierarchy "position_to_BCD:sevenseg_display" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 581
+Info (12128): Elaborating entity "game_logic" for hierarchy "game_logic:GAME_RULE" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 592
+Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:VGA_REFRESH" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 609
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "lives:LIFE_DISPLAY|char_rom:HEART_ROM_3|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|q_a[0]" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 34
-        Warning (14320): Synthesized away node "lives:LIFE_DISPLAY|char_rom:HEART_ROM_3|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|q_a[1]" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 55
-        Warning (14320): Synthesized away node "lives:LIFE_DISPLAY|char_rom:HEART_ROM_3|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|q_a[2]" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 76
-        Warning (14320): Synthesized away node "lives:LIFE_DISPLAY|char_rom:HEART_ROM_3|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|q_a[3]" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 97
-        Warning (14320): Synthesized away node "lives:LIFE_DISPLAY|char_rom:HEART_ROM_3|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|q_a[4]" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 118
-        Warning (14320): Synthesized away node "lives:LIFE_DISPLAY|char_rom:HEART_ROM_3|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|q_a[5]" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 139
-        Warning (14320): Synthesized away node "lives:LIFE_DISPLAY|char_rom:HEART_ROM_3|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|q_a[6]" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 160
-        Warning (14320): Synthesized away node "lives:LIFE_DISPLAY|char_rom:HEART_ROM_3|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|q_a[7]" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 181
         Warning (14320): Synthesized away node "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:8:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|q_a[0]" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 34
         Warning (14320): Synthesized away node "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:8:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|q_a[1]" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 55
         Warning (14320): Synthesized away node "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:8:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|q_a[2]" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 76
@@ -5217,9 +5178,9 @@ Warning (14284): Synthesized away the following node(s):
         Warning (14320): Synthesized away node "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|q_a[6]" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 160
         Warning (14320): Synthesized away node "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|q_a[7]" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 181
 Info (278001): Inferred 10 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "position_to_BCD:sevenseg_display|Mod3" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 38
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "position_to_BCD:sevenseg_display|Div3" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 37
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "position_to_BCD:sevenseg_display|Mod2" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 37
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "game_logic:GAME_RULE|Mod1" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/game_logic.vhd Line: 141
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "game_logic:GAME_RULE|Div0" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/game_logic.vhd Line: 140
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "game_logic:GAME_RULE|Mod0" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/game_logic.vhd Line: 140
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "position_to_BCD:sevenseg_display|Div2" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 36
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "position_to_BCD:sevenseg_display|Mod1" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 33
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "position_to_BCD:sevenseg_display|Div1" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 32
@@ -5227,30 +5188,30 @@ Info (278001): Inferred 10 megafunctions from design logic
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "position_to_BCD:sevenseg_display|Div0" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 31
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BACKGROUND:BG|Div1" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/background.vhd Line: 69
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BACKGROUND:BG|Div0" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/background.vhd Line: 68
-Info (12130): Elaborated megafunction instantiation "position_to_BCD:sevenseg_display|lpm_divide:Mod3" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 38
-Info (12133): Instantiated megafunction "position_to_BCD:sevenseg_display|lpm_divide:Mod3" with the following parameter: File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 38
-    Info (12134): Parameter "LPM_WIDTHN" = "10"
-    Info (12134): Parameter "LPM_WIDTHD" = "10"
+Info (12130): Elaborated megafunction instantiation "game_logic:GAME_RULE|lpm_divide:Mod1" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/game_logic.vhd Line: 141
+Info (12133): Instantiated megafunction "game_logic:GAME_RULE|lpm_divide:Mod1" with the following parameter: File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/game_logic.vhd Line: 141
+    Info (12134): Parameter "LPM_WIDTHN" = "7"
+    Info (12134): Parameter "LPM_WIDTHD" = "7"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_u4m.tdf
-    Info (12023): Found entity 1: lpm_divide_u4m File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/lpm_divide_u4m.tdf Line: 24
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_1nh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_1nh File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/sign_div_unsign_1nh.tdf Line: 24
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_82f.tdf
-    Info (12023): Found entity 1: alt_u_div_82f File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/alt_u_div_82f.tdf Line: 22
-Info (12130): Elaborated megafunction instantiation "position_to_BCD:sevenseg_display|lpm_divide:Div3" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 37
-Info (12133): Instantiated megafunction "position_to_BCD:sevenseg_display|lpm_divide:Div3" with the following parameter: File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 37
-    Info (12134): Parameter "LPM_WIDTHN" = "10"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_a2m.tdf
+    Info (12023): Found entity 1: lpm_divide_a2m File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/lpm_divide_a2m.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_dkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_dkh File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/sign_div_unsign_dkh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_0te.tdf
+    Info (12023): Found entity 1: alt_u_div_0te File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/alt_u_div_0te.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "game_logic:GAME_RULE|lpm_divide:Div0" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/game_logic.vhd Line: 140
+Info (12133): Instantiated megafunction "game_logic:GAME_RULE|lpm_divide:Div0" with the following parameter: File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/game_logic.vhd Line: 140
+    Info (12134): Parameter "LPM_WIDTHN" = "7"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ebm.tdf
-    Info (12023): Found entity 1: lpm_divide_ebm File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/lpm_divide_ebm.tdf Line: 24
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_klh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_klh File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/sign_div_unsign_klh.tdf Line: 24
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_eve.tdf
-    Info (12023): Found entity 1: alt_u_div_eve File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/alt_u_div_eve.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_4am.tdf
+    Info (12023): Found entity 1: lpm_divide_4am File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/lpm_divide_4am.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_akh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_akh File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/sign_div_unsign_akh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_qse.tdf
+    Info (12023): Found entity 1: alt_u_div_qse File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/alt_u_div_qse.tdf Line: 22
 Info (12130): Elaborated megafunction instantiation "position_to_BCD:sevenseg_display|lpm_divide:Div2" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 36
 Info (12133): Instantiated megafunction "position_to_BCD:sevenseg_display|lpm_divide:Div2" with the following parameter: File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 36
     Info (12134): Parameter "LPM_WIDTHN" = "10"
@@ -5269,10 +5230,28 @@ Info (12133): Instantiated megafunction "position_to_BCD:sevenseg_display|lpm_di
     Info (12134): Parameter "LPM_WIDTHD" = "10"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_u4m.tdf
+    Info (12023): Found entity 1: lpm_divide_u4m File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/lpm_divide_u4m.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_1nh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_1nh File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/sign_div_unsign_1nh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_82f.tdf
+    Info (12023): Found entity 1: alt_u_div_82f File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/alt_u_div_82f.tdf Line: 22
 Info (12130): Elaborated megafunction instantiation "position_to_BCD:sevenseg_display|lpm_divide:Div1" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 32
 Info (12133): Instantiated megafunction "position_to_BCD:sevenseg_display|lpm_divide:Div1" with the following parameter: File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 32
     Info (12134): Parameter "LPM_WIDTHN" = "10"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ebm.tdf
+    Info (12023): Found entity 1: lpm_divide_ebm File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/lpm_divide_ebm.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_klh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_klh File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/sign_div_unsign_klh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_eve.tdf
+    Info (12023): Found entity 1: alt_u_div_eve File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/alt_u_div_eve.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "position_to_BCD:sevenseg_display|lpm_divide:Mod0" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 32
+Info (12133): Instantiated megafunction "position_to_BCD:sevenseg_display|lpm_divide:Mod0" with the following parameter: File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 32
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "10"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12130): Elaborated megafunction instantiation "position_to_BCD:sevenseg_display|lpm_divide:Div0" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/position_to_BCD.vhd Line: 31
@@ -5319,23 +5298,24 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 14
     Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 14
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 15 registers lost all their fanouts during netlist optimizations.
-Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:6:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
+Info (17049): 8 registers lost all their fanouts during netlist optimizations.
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:8:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
+Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:6:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:13:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:10:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:12:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
-Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:4:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:9:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:11:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
+Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:4:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
+Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:3:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:0:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:1:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
-Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:3:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
+Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:7:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:2:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:5:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
-Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:7:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
-Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "lives:LIFE_DISPLAY|char_rom:HEART_ROM_1|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "lives:LIFE_DISPLAY|char_rom:HEART_ROM_2|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
+Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "lives:LIFE_DISPLAY|char_rom:HEART_ROM_3|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
+Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "lives:LIFE_DISPLAY|char_rom:HEART_ROM_1|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK2_50 -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK3_50 -entity DE0_CV_Default was ignored
@@ -5571,9 +5551,10 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 3 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning: RST port on the PLL is not properly connected on instance pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altera_pll.v Line: 748
     Info: Must be connected
-Warning (21074): Design contains 9 input pin(s) that do not drive logic
+Warning (21074): Design contains 10 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 8
     Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 8
+    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 9
     Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 9
     Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 9
     Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 9
@@ -5581,17 +5562,17 @@ Warning (21074): Design contains 9 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 9
     Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 9
     Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/User/Desktop/COMPSYS_305_Mini_Project/top_level.vhd Line: 9
-Info (21057): Implemented 2401 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2331 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 66 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 2117 logic cells
-    Info (21064): Implemented 200 RAM segments
+    Info (21061): Implemented 2039 logic cells
+    Info (21064): Implemented 208 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 431 warnings
-    Info: Peak virtual memory: 4980 megabytes
-    Info: Processing ended: Mon May 25 15:43:46 2026
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:24
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 417 warnings
+    Info: Peak virtual memory: 4986 megabytes
+    Info: Processing ended: Mon May 25 16:43:20 2026
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:18
 
 

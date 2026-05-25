@@ -137,7 +137,7 @@ BEGIN
         VARIABLE score_int : INTEGER;
     BEGIN
         score_int      := CONV_INTEGER(score);
-        score_tens_int <= CONV_STD_LOGIC_VECTOR((score_int / 10) MOD 10, 4);
+        score_tens_int <= CONV_STD_LOGIC_VECTOR((score_int /10) MOD 10, 4);
         score_ones_int <= CONV_STD_LOGIC_VECTOR( score_int MOD 10,4);
     END PROCESS;
 
