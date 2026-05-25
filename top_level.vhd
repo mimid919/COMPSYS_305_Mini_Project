@@ -360,6 +360,7 @@ BEGIN
     -- testing game_won_text by making win high
      --win_test  <= SW(8);
      --game_over_test <= SW(7);
+     TIMER_SIG <= SW(1); -- testing timer signal by connecting to switch, needs to be changed to an actual timer output from the FSM
 
 
     -- need to change the lifes in the other components to the fsm life
@@ -390,14 +391,14 @@ BEGIN
     );
 
     CO : BCD_TO_SEVENSEG PORT MAP (
-    BCD_digit => SCORE_ONES_SIG,
-    SevenSeg_out => HEX0
-);
+        BCD_digit => SCORE_ONES_SIG,
+        SevenSeg_out => HEX0
+    );
 
-CT : BCD_TO_SEVENSEG PORT MAP (
-    BCD_digit => SCORE_TENS_SIG,
-    SevenSeg_out => HEX1
-);
+    CT : BCD_TO_SEVENSEG PORT MAP (
+        BCD_digit => SCORE_TENS_SIG,
+        SevenSeg_out => HEX1
+    );
     clock_divider : PLL PORT MAP (
         refclk   => CLOCK_50,
         rst      => '0',
@@ -416,6 +417,26 @@ CT : BCD_TO_SEVENSEG PORT MAP (
         green => SPRITE_GREEN,
         blue => SPRITE_BLUE,
         dolphin_on => SPRITE_ON
+    );
+
+
+    GAME_RULE: GAME_LOGIC PORT MAP (
+        clk => CLOCK_25MHZ,
+        vert_sync => VERT_SYNC,
+        reset => RESET,
+        Game_state_signal => Game_state_signal,
+        dolphin_enable=> SPRITE_ON,
+        pipe_enable =>PIPE_ENABLE_SIG,
+        bait_enable=> BAIT_ENABLE_SIG,
+        pipe_passed=> PIPE_PASSED_SIG,
+        life_one=> LIFE_ONE_SIG,
+        life_two  => LIFE_TWO_SIG,
+        life_three => LIFE_THREE_SIG,
+        life_out  => Life_signal,
+        timer_out => TIMER_SIG,    -- from the fsm
+        pipe_speed_up => PIPE_SPEED_UP_SIG,
+        score_ones => SCORE_ONES_SIG,
+        score_tens  => SCORE_TENS_SIG
     );
 
     GAME_WON_TEXT_INSTANCE: GAME_WON_TEXT PORT MAP (
@@ -440,6 +461,7 @@ CT : BCD_TO_SEVENSEG PORT MAP (
         blue => GAME_OVER_TEXT_BLUE
 
     );
+    
 
     HOME_SCREEN_TEXT: HOME_DISPLAY_TEXT PORT MAP (
         clk => CLOCK_25MHZ,
@@ -620,25 +642,6 @@ CT : BCD_TO_SEVENSEG PORT MAP (
         column_hundreds => column_hundreds,
         column_tens => column_tens,
         column_ones => column_ones
-    );
-
-    GAME_RULE: GAME_LOGIC PORT MAP (
-        clk => CLOCK_25MHZ,
-        vert_sync => VERT_SYNC,
-        reset => RESET,
-        Game_state_signal => Game_state_signal,
-        dolphin_enable=> SPRITE_ON,
-        pipe_enable =>PIPE_ENABLE_SIG,
-        bait_enable=> BAIT_ENABLE_SIG,
-        pipe_passed=> PIPE_PASSED_SIG,
-        life_one=> LIFE_ONE_SIG,
-        life_two  => LIFE_TWO_SIG,
-        life_three => LIFE_THREE_SIG,
-        life_out  => Life_signal,
-        timer_out => TIMER_SIG,
-        pipe_speed_up => PIPE_SPEED_UP_SIG,
-        score_ones => SCORE_ONES_SIG,
-        score_tens  => SCORE_TENS_SIG
     );
 
     SCORE_DISPLAY: SCORE_TEXT PORT MAP (

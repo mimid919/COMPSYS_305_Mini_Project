@@ -10,10 +10,10 @@ USE  IEEE.STD_LOGIC_UNSIGNED.all;
 -- bait_enable outputs '1' if bait is visible so this can be used for collisions
 
 ENTITY bait IS
-   PORT(  clk                  : IN std_logic;
+   PORT(  clk                       : IN std_logic;
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-		  Game_state_signal                 : IN std_logic_vector(1 DOWNTO 0);
-          dolphin_enable           : IN std_logic;
+		  Game_state_signal         : IN std_logic_vector(1 DOWNTO 0);   -- fsm
+          dolphin_enable            : IN std_logic;
           pipe_x_pos_1              : IN std_logic_vector(9 DOWNTO 0);
           gap_height                : IN std_logic_vector(9 DOWNTO 0);
 		  red, green, blue 			: OUT std_logic_vector(3 DOWNTO 0);
@@ -48,14 +48,17 @@ BEGIN
 
     PROCESS(clk)
     BEGIN
+        -- update bait_eaten when pipe moves left and bait is visible, reset when new pipe appears
         IF rising_edge(clk) THEN
             pipe_x_pos_prev <= pipe_x_pos_1;
-
+            -- home page
             IF Game_state_signal = "00" THEN
                 bait_eaten <= '0';
             ELSIF state = '1' THEN
+            -- reset bait_eaten when new pipe appears
                 IF pipe_x_pos_1 > pipe_x_pos_prev THEN
                     bait_eaten <= '0';
+                -- set bait_eaten when bait is visible and dolphin_enable is '1'
                 ELSIF bait_raw_visible = '1' and dolphin_enable = '1' THEN
                     bait_eaten <= '1';
                 END IF;
@@ -63,14 +66,15 @@ BEGIN
         END IF;
     END PROCESS;
     
+    -- bait is visible when in the correct state, randomiser is '1' and pixel is within bait area, and not eaten
     bait_raw_visible <= '1' when (
-    state = '1' and
-    randomiser = '1' and
-    pixel_column >= bait_x_pos - size and 
-    pixel_column <= bait_x_pos + size and 
-    pixel_row >= bait_y_pos - size and 
-    pixel_row <= bait_y_pos + size
-) else '0';
+        state = '1' and
+        randomiser = '1' and
+        pixel_column >= bait_x_pos - size and 
+        pixel_column <= bait_x_pos + size and 
+        pixel_row >= bait_y_pos - size and 
+        pixel_row <= bait_y_pos + size
+    ) else '0';
 
 bait_visible <= bait_raw_visible and not bait_eaten;
 

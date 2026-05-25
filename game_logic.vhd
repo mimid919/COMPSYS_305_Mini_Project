@@ -13,6 +13,7 @@ ENTITY game_logic IS
         pipe_enable         : IN  STD_LOGIC;
         bait_enable         : IN  STD_LOGIC;
         pipe_passed         : IN  STD_LOGIC;
+
         life_one            : OUT STD_LOGIC;
         life_two            : OUT STD_LOGIC;
         life_three          : OUT STD_LOGIC;
@@ -25,8 +26,8 @@ ENTITY game_logic IS
 END game_logic;
 
 ARCHITECTURE behaviour OF game_logic IS
-    SIGNAL lives_count          : STD_LOGIC_VECTOR(1 DOWNTO 0) := "11";
-    SIGNAL score_ones_int      : STD_LOGIC_VECTOR(3 DOWNTO 0) := (OTHERS => '0');
+    SIGNAL lives_count          : STD_LOGIC_VECTOR(1 DOWNTO 0) := "11"; -- 3 lives 
+    SIGNAL score_ones_int      : STD_LOGIC_VECTOR(3 DOWNTO 0) := (OTHERS => '0'); 
     SIGNAL score_tens_int      : STD_LOGIC_VECTOR(3 DOWNTO 0) := (OTHERS => '0');
 
     SIGNAL pipe_collision      : STD_LOGIC;

@@ -4,19 +4,23 @@ USE  IEEE.STD_LOGIC_ARITH.all;
 USE  IEEE.STD_LOGIC_UNSIGNED.all;
 
 -- Sets dolphin visibility to 8x8 square around fixed x and click-dependant y position
--- When Game_state_signal changes to '01' dolphin is initialised to verticle center of screen
+-- When Game_state_signal changes to '01' or '10' dolphin is initialised to verticle center of screen
 -- dolphin_enable outputs '1' when dolphin is visible so can be used for collisions
 -- dolphin_y_motion is made up of jumps or accumulating gravity (fall gets faster)
 -- dolphin_y_motion is added to dolphin_y_position, refreshing each Vert_sync frame
 -- set conditions for bouncing down from ceiling
+
+
 -- no dolphin movement after touching ground (could add change of state instead)
+--  NEED TO ADD THIS TO THE FSM, WHEN IT TOUCHES THE GORUND MAKE LIVES 0 SO IT GOES TO HOME SCREEN ON "01" AND GAME_OVER ON "10"
+--  NEED TO ADD THE FIRST LEFT CLICK TO THE PIPE AND SCORE LOGIC 
 
 ENTITY dolphin_movement IS
     PORT
         ( clk, vert_sync    : IN std_logic;
           pixel_row, pixel_column   : IN std_logic_vector(9 DOWNTO 0);
           dolphin_x_pos_out : OUT std_logic_vector(9 DOWNTO 0);
-        dolphin_y_pos_out : OUT std_logic_vector(9 DOWNTO 0);
+          dolphin_y_pos_out : OUT std_logic_vector(9 DOWNTO 0);
           left_click                : IN std_logic;
           Game_state_signal                 : IN std_logic_vector(1 DOWNTO 0);
           dolphin_on                : OUT std_logic;
@@ -39,8 +43,9 @@ SIGNAL frame_tick                   : std_logic;
 
 -- increase gravity to fall faster
 CONSTANT gravity                    : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(1,10);
--- for bigger jump --> 1008 (-16) or smaller jump --> 1020 (-4)
-CONSTANT jump               : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(1010, 10); -- -8 is 1016
+-- for bigger jump --> 1016 or 1010
+-- for smaller jump --> 1020 
+CONSTANT jump                       : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(1014, 10); 
 CONSTANT dolphin_ground             : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(472,10); -- ground level for dolphin
 
 BEGIN  
