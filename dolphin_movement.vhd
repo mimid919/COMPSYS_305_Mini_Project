@@ -32,6 +32,7 @@ SIGNAL dolphin_y_motion				: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECT
 SIGNAL left_click_prev				: std_logic := '0'; -- to avoid holding click
 SIGNAL state						 : std_logic;
 SIGNAL prev_state					: std_logic := '0';
+SIGNAL first_click					: std_logic := '0';	
 
 -- increase gravity to fall faster
 CONSTANT gravity 					: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(1,10); 
@@ -41,8 +42,8 @@ CONSTANT dolphin_ground 			: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECT
 
 BEGIN   
 
-dolphin_x_pos_out <= dolphin_x_pos;
-dolphin_y_pos_out <= dolphin_y_pos;
+	dolphin_x_pos_out <= dolphin_x_pos;
+	dolphin_y_pos_out <= dolphin_y_pos;
 
   	state <= '1' when Game_state_signal = "01" else '0'; -- only show pipes during game state
 
@@ -58,7 +59,7 @@ dolphin_y_pos_out <= dolphin_y_pos;
 	(pixel_column <= dolphin_x_pos + size) and
 	(pixel_row >= dolphin_y_pos - size) and 
 	(pixel_row <= dolphin_y_pos + size)
-) else '0';
+	) else '0';
 
 	process (vert_sync)
 		variable left_click_edge : std_logic;
@@ -72,27 +73,38 @@ dolphin_y_pos_out <= dolphin_y_pos;
 			if (state = '1' and prev_state = '0') then
 				dolphin_y_pos <= CONV_STD_LOGIC_VECTOR(240, 10);
 				dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
+				first_click <= '0';
 
 			else
-				if (left_click_edge = '1') then
-					dolphin_y_motion <= jump;
-				else 
-					dolphin_y_motion <= dolphin_y_motion + gravity;
-				end if;
+				if first_click = '0' then
+					-- hold dolphin at centre until the first left click
+					if left_click_edge = '1' then
+						first_click <= '1';
+						dolphin_y_motion <= jump; -- start movement on first click
+					else
+						dolphin_y_pos <= CONV_STD_LOGIC_VECTOR(240, 10);
+						dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
+					end if;
+				else
+					-- normal game movement after the first click
+					if (left_click_edge = '1') then
+						dolphin_y_motion <= jump;
+					else 
+						dolphin_y_motion <= dolphin_y_motion + gravity;
+					end if;
 
-				dolphin_y_pos <=  dolphin_y_pos + dolphin_y_motion;
+					dolphin_y_pos <=  dolphin_y_pos + dolphin_y_motion;
 
-				if dolphin_y_pos < size then
-					dolphin_y_pos <= size;
-					--dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
-				end if;
+					if dolphin_y_pos < size then
+						dolphin_y_pos <= size;
+					end if;
 
-				if dolphin_y_pos >= dolphin_ground then
-					dolphin_y_pos <= dolphin_ground;
-					dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
+					if dolphin_y_pos >= dolphin_ground then
+						dolphin_y_pos <= dolphin_ground;
+						dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
+					end if;
 				end if;
 			end if;
-			
 		end if;
 	end process;
 
