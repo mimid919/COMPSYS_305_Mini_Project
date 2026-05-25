@@ -21,19 +21,19 @@ END BACKGROUND;
 ARCHITECTURE behavior OF BACKGROUND IS
     COMPONENT sunset_rom IS
     PORT(
-        address : IN STD_LOGIC_VECTOR (18 DOWNTO 0);
+        address : IN STD_LOGIC_VECTOR (16 DOWNTO 0);
         clock   : IN STD_LOGIC;
         q       : OUT STD_LOGIC_VECTOR (11 DOWNTO 0)
     );
     END COMPONENT;
 
-    constant SOURCE_WIDTH : integer := 640;
-    constant SOURCE_HEIGHT : integer := 480;
+    constant SOURCE_WIDTH : integer := 320;
+    constant SOURCE_HEIGHT : integer := 240;
     constant TARGET_WIDTH : integer := 640;
     constant TARGET_HEIGHT : integer := 480;
 
 
-    SIGNAL rom_address : STD_LOGIC_VECTOR(18 DOWNTO 0);
+    SIGNAL rom_address : STD_LOGIC_VECTOR(16 DOWNTO 0);
     SIGNAL sunset_pixel : STD_LOGIC_VECTOR (11 DOWNTO 0);
 BEGIN
     PROCESS (pixel_row, pixel_column, Game_state_signal, Win, Termination , Pause_OUT)
@@ -68,7 +68,7 @@ BEGIN
             row_i := (CONV_INTEGER(pixel_row) * SOURCE_HEIGHT) / TARGET_HEIGHT;
             col_i := (CONV_INTEGER(pixel_column) * SOURCE_WIDTH) / TARGET_WIDTH;
             img_addr := row_i * SOURCE_WIDTH + col_i;
-            rom_address <= CONV_STD_LOGIC_VECTOR(img_addr, 19);
+            rom_address <= CONV_STD_LOGIC_VECTOR(img_addr, 17);
             RED <= sunset_pixel(11 DOWNTO 8);
             GREEN <= sunset_pixel(7 DOWNTO 4);
             BLUE <= sunset_pixel(3 DOWNTO 0);

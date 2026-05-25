@@ -10,7 +10,7 @@ USE altera_mf.altera_mf_components.ALL;
 ENTITY sunset_rom IS
 	PORT
 	(
-		address : IN STD_LOGIC_VECTOR (18 DOWNTO 0);
+		address : IN STD_LOGIC_VECTOR (16 DOWNTO 0);
 		clock   : IN STD_LOGIC;
 		q       : OUT STD_LOGIC_VECTOR (11 DOWNTO 0)
 	);
@@ -24,8 +24,8 @@ BEGIN
 	GENERIC MAP (
 		operation_mode => "ROM",
 		width_a => 12,
-		widthad_a => 19,
-		numwords_a => 307200,
+		widthad_a => 17,
+		numwords_a => 76800,
 		outdata_reg_a => "UNREGISTERED",
 		init_file => "sunset.mif",
 		intended_device_family => "Cyclone V"
