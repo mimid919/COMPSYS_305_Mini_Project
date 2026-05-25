@@ -36,7 +36,7 @@ BEGIN
         pixel_column <  dolphin_x_pos + 32 and
         pixel_row    >= dolphin_y_pos and
         pixel_row    <  dolphin_y_pos + 32 and
-        Game_state_signal = "01"
+        (Game_state_signal = "01" or Game_state_signal = "10")
     ) else '0';
 
     sprite_x <= pixel_column(4 DOWNTO 0) - dolphin_x_pos(4 DOWNTO 0);

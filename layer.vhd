@@ -19,6 +19,8 @@ ENTITY LAYER IS
             SPRITE_ON 										: IN std_logic;
             LIVES_RED,LIVES_GREEN,LIVES_BLUE				: in std_logic_vector(3 DOWNTO 0);
             LIVES_ON                        				: IN STD_LOGIC;
+            SCORE_RED,SCORE_GREEN,SCORE_BLUE				: in std_logic_vector(3 DOWNTO 0);
+            SCORE_ON                        				: IN STD_LOGIC;
             HOME_DISPLAY_TEXT_RED,HOME_DISPLAY_TEXT_GREEN,HOME_DISPLAY_TEXT_BLUE   				: in std_logic_vector(3 DOWNTO 0);
             GAME_WON_TEXT_RED, GAME_WON_TEXT_GREEN, GAME_WON_TEXT_BLUE : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
             GAME_OVER_TEXT_RED, GAME_OVER_TEXT_GREEN, GAME_OVER_TEXT_BLUE : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -35,6 +37,7 @@ BEGIN
 process( Win, Termination, Pause_OUT, Game_state_signal,
     HOME_DISPLAY_TEXT_RED, HOME_DISPLAY_TEXT_GREEN, HOME_DISPLAY_TEXT_BLUE,
     LIVES_RED, LIVES_GREEN, LIVES_BLUE, LIVES_ON,
+    SCORE_RED, SCORE_GREEN, SCORE_BLUE, SCORE_ON,
     SPRITE_RED, SPRITE_GREEN, SPRITE_BLUE, SPRITE_ON,
     BAIT_RED, BAIT_GREEN, BAIT_BLUE, BAIT_ON,
     PIPE_RED, PIPE_GREEN, PIPE_BLUE, PIPE_ON,
@@ -90,6 +93,10 @@ begin
             RED_OUT   <= LIVES_RED;
             GREEN_OUT <= LIVES_GREEN;
             BLUE_OUT  <= LIVES_BLUE;
+        ELSIF (SCORE_ON = '1') THEN
+            RED_OUT   <= SCORE_RED;
+            GREEN_OUT <= SCORE_GREEN;
+            BLUE_OUT  <= SCORE_BLUE;
         ELSIF (SPRITE_ON = '1') THEN
             RED_OUT   <= SPRITE_RED;
             GREEN_OUT <= SPRITE_GREEN;

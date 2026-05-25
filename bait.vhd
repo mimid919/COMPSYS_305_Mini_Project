@@ -10,8 +10,10 @@ USE  IEEE.STD_LOGIC_UNSIGNED.all;
 -- bait_enable outputs '1' if bait is visible so this can be used for collisions
 
 ENTITY bait IS
-   PORT(  pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-		  Game_state_signal                 : IN std_logic_vector(1 DOWNTO 0);
+   PORT(  clk                       : IN std_logic;
+          pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
+		  Game_state_signal         : IN std_logic_vector(1 DOWNTO 0);   -- fsm
+          dolphin_enable            : IN std_logic;
           pipe_x_pos_1              : IN std_logic_vector(9 DOWNTO 0);
           gap_height                : IN std_logic_vector(9 DOWNTO 0);
 		  red, green, blue 			: OUT std_logic_vector(3 DOWNTO 0);
@@ -25,11 +27,14 @@ ARCHITECTURE behaviour of bait is
     SIGNAL bait_x_pos           : std_logic_vector(9 DOWNTO 0);
     SIGNAL bait_y_pos           : std_logic_vector(9 DOWNTO 0);
     SIGNAL randomiser           : std_logic;
-    SIGNAL bait_visible : std_logic;
+    SIGNAL bait_raw_visible     : std_logic;
+    SIGNAL bait_visible         : std_logic;
+    SIGNAL bait_eaten           : std_logic := '0';
+    SIGNAL pipe_x_pos_prev      : std_logic_vector(9 DOWNTO 0) := (OTHERS => '0');
 
 BEGIN
 
-    state <= '1' when Game_state_signal = "01" else '0'; -- only show bait during game state
+    state <= '1' when (Game_state_signal = "01" or Game_state_signal = "10") else '0'; -- show bait during gameplay states
 
     randomiser <= gap_height(0);
 
@@ -40,15 +45,38 @@ BEGIN
 
 	bait_x_pos <= pipe_x_pos_1 + CONV_STD_LOGIC_VECTOR(25, 10);
     bait_y_pos <= gap_height + CONV_STD_LOGIC_VECTOR(100, 10);
+
+    PROCESS(clk)
+    BEGIN
+        -- update bait_eaten when pipe moves left and bait is visible, reset when new pipe appears
+        IF rising_edge(clk) THEN
+            pipe_x_pos_prev <= pipe_x_pos_1;
+            -- home page
+            IF Game_state_signal = "00" THEN
+                bait_eaten <= '0';
+            ELSIF state = '1' THEN
+            -- reset bait_eaten when new pipe appears
+                IF pipe_x_pos_1 > pipe_x_pos_prev THEN
+                    bait_eaten <= '0';
+                -- set bait_eaten when bait is visible and dolphin_enable is '1'
+                ELSIF bait_raw_visible = '1' and dolphin_enable = '1' THEN
+                    bait_eaten <= '1';
+                END IF;
+            END IF;
+        END IF;
+    END PROCESS;
     
-    bait_visible <= '1' when (
-    state = '1' and
-    randomiser = '1' and
-    pixel_column >= bait_x_pos - size and 
-    pixel_column <= bait_x_pos + size and 
-    pixel_row >= bait_y_pos - size and 
-    pixel_row <= bait_y_pos + size
-) else '0';
+    -- bait is visible when in the correct state, randomiser is '1' and pixel is within bait area, and not eaten
+    bait_raw_visible <= '1' when (
+        state = '1' and
+        randomiser = '1' and
+        pixel_column >= bait_x_pos - size and 
+        pixel_column <= bait_x_pos + size and 
+        pixel_row >= bait_y_pos - size and 
+        pixel_row <= bait_y_pos + size
+    ) else '0';
+
+bait_visible <= bait_raw_visible and not bait_eaten;
 
 bait_on <= bait_visible;
 red   <= "1000" when bait_visible = '1' else "0000";
