@@ -49,6 +49,7 @@ ARCHITECTURE behaviour OF game_logic IS
     SIGNAL speed_phase_count    : STD_LOGIC_VECTOR(10 DOWNTO 0) := (OTHERS => '0');
     SIGNAL training_timer_count : STD_LOGIC_VECTOR(10 DOWNTO 0) := (OTHERS => '0');
     SIGNAL training_timer_done  : STD_LOGIC := '0';
+    -- NEW ADDED SIGNAL FOR GAME MODE GAME WON AND GAME OVER STATE RESET TO HOMEPAGE  
     SIGNAL speed_timer_done     : STD_LOGIC := '0';
     SIGNAL speed_phase_done     : STD_LOGIC := '0';
 
@@ -79,7 +80,7 @@ BEGIN
                 pipe_collision_prev  <= '0';
                 bait_collision_prev  <= '0';
                 pipe_passed_prev     <= '0';
-                pipe_hit_since_pass  <= '0';
+                pipe_hit_since_pass  <= '0'; 
                 speed_timer_count    <= (OTHERS => '0');
                 speed_phase_count    <= (OTHERS => '0');
                 training_timer_count <= (OTHERS => '0');

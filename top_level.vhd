@@ -500,7 +500,7 @@ BEGIN
         Start           => NOT KEY(3),
         Pause_IN        => RIGHT_CLICK, -- different to original fsm diagram
         Mode            => SW(0),  -- 0 for training, 1 for game
-        Life            => Life_signal,   -- from game logic
+        Life            => '1',--Life_signal,   -- from game logic
 
         Timer           => TIMER_SIG,     -- from game logic 
        -- outputs
