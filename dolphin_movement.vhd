@@ -13,24 +13,24 @@ USE  IEEE.STD_LOGIC_UNSIGNED.all;
 
 -- no dolphin movement after touching ground (could add change of state instead)
 --  NEED TO ADD THIS TO THE FSM, WHEN IT TOUCHES THE GORUND MAKE LIVES 0 SO IT GOES TO HOME SCREEN ON "01" AND GAME_OVER ON "10"
---  NEED TO ADD THE FIRST LEFT CLICK TO THE PIPE AND SCORE LOGIC 
 
-ENTITY dolphin_movement IS
+ENTITY DOLPHIN_MOVEMENT IS
     PORT
-        ( clk, vert_sync    : IN std_logic;
+        ( clk, vert_sync            : IN std_logic;
           pixel_row, pixel_column   : IN std_logic_vector(9 DOWNTO 0);
-          dolphin_x_pos_out : OUT std_logic_vector(9 DOWNTO 0);
-          dolphin_y_pos_out : OUT std_logic_vector(9 DOWNTO 0);
           left_click                : IN std_logic;
-          Game_state_signal          : IN std_logic_vector(1 DOWNTO 0);
+          Game_state_signal         : IN std_logic_vector(1 DOWNTO 0);
 
+          dolphin_x_pos_out         : OUT std_logic_vector(9 DOWNTO 0);
+          dolphin_y_pos_out         : OUT std_logic_vector(9 DOWNTO 0);
           dolphin_on                : OUT std_logic;
           dolphin_enable            : OUT std_logic;
-          first_click_out           : OUT std_logic
-        );  -- NEW OUTPUT)
-END dolphin_movement;
+          first_click_out           : OUT std_logic;
+          hit_ground                : OUT std_logic
+        );  
+END DOLPHIN_MOVEMENT;
 
-architecture behavior of dolphin_movement is
+architecture behavior of DOLPHIN_MOVEMENT is
 
 SIGNAL size                         : std_logic_vector(9 DOWNTO 0);  
 SIGNAL dolphin_y_pos                : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(240,10); -- start on the ground
@@ -124,9 +124,13 @@ BEGIN
                                 dolphin_y_pos <= size;
                             end if;
 
+                            -- set hit_ground to '1' when dolphin touches the ground, fed into game logic and FSM
                             if dolphin_y_pos >= dolphin_ground then
                                 dolphin_y_pos <= dolphin_ground;
                                 dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
+                                hit_ground <= '1';
+                            else
+                                hit_ground <= '0';
                             end if;
                         end if;
                     end if;

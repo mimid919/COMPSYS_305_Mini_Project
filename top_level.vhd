@@ -74,16 +74,18 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 
     COMPONENT DOLPHIN_MOVEMENT IS -- HOW IS THIS WORKING WITHOUT RGB IN DECLARATION (RGB ARE OUTPUTS IN ENTITY)
     PORT
-        ( clk, vert_sync        : IN std_logic;
-        pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
-        dolphin_x_pos_out     : OUT std_logic_vector(9 DOWNTO 0);
-        dolphin_y_pos_out     : OUT std_logic_vector(9 DOWNTO 0);
-        left_click            : IN std_logic;
-        Game_state_signal             : IN std_logic_vector(1 DOWNTO 0);
-        dolphin_on            : OUT std_logic;
-        dolphin_enable        : OUT std_logic;
-        first_click_out           : OUT std_logic
-        );
+        ( clk, vert_sync            : IN std_logic;
+          pixel_row, pixel_column   : IN std_logic_vector(9 DOWNTO 0);
+          left_click                : IN std_logic;
+          Game_state_signal         : IN std_logic_vector(1 DOWNTO 0);
+
+          dolphin_x_pos_out         : OUT std_logic_vector(9 DOWNTO 0);
+          dolphin_y_pos_out         : OUT std_logic_vector(9 DOWNTO 0);
+          dolphin_on                : OUT std_logic;
+          dolphin_enable            : OUT std_logic;
+          first_click_out           : OUT std_logic;
+          hit_ground                : OUT std_logic
+        );  
     END COMPONENT DOLPHIN_MOVEMENT;
 
     COMPONENT FSM IS
@@ -240,10 +242,11 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
         pipe_enable         : IN  STD_LOGIC;
         bait_enable         : IN  STD_LOGIC;
         pipe_passed         : IN  STD_LOGIC;
+        hit_ground          : IN  STD_LOGIC;   -- from dolphin movement, high when dolphin touches ground
         life_one            : OUT STD_LOGIC;
         life_two            : OUT STD_LOGIC;
         life_three          : OUT STD_LOGIC;
-        life_out            : OUT STD_LOGIC;
+        dolphin_IS_alive            : OUT STD_LOGIC;
         timer_out           : OUT STD_LOGIC;
         pipe_speed_up       : OUT STD_LOGIC;
         score_ones          : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -352,6 +355,9 @@ END COMPONENT GAME_LOGIC;
 
     -- first click signal for dolphin movement, pipes, score, and timer to stay frozen until the first click
     SIGNAL first_click_signal : STD_LOGIC;
+
+    -- when dolphin hits ground 
+    SIGNAL HIT_GROUND_SIG : STD_LOGIC;
 BEGIN
 
 
@@ -433,10 +439,11 @@ BEGIN
         pipe_enable =>PIPE_ENABLE_SIG,
         bait_enable=> BAIT_ENABLE_SIG,
         pipe_passed=> PIPE_PASSED_SIG,
+        hit_ground=> HIT_GROUND_SIG,
         life_one=> LIFE_ONE_SIG,
         life_two  => LIFE_TWO_SIG,
         life_three => LIFE_THREE_SIG,
-        life_out  => Life_signal,
+        dolphin_IS_alive  => Life_signal, -- fed into the fsm, logic high
         timer_out => TIMER_SIG,    -- from the fsm
         pipe_speed_up => PIPE_SPEED_UP_SIG,
         score_ones => SCORE_ONES_SIG,
@@ -483,9 +490,10 @@ BEGIN
         Reset           => RESET,  -- declared above before port map declarations
         Start           => NOT KEY(3),
         Pause_IN        => RIGHT_CLICK, -- different to original fsm diagram
-        Mode            => SW(0),
-        Life            => Life_signal, 
-        Timer           => TIMER_SIG,
+        Mode            => SW(0),  -- 0 for training, 1 for game
+        Life            => Life_signal,   -- from game logic
+
+        Timer           => TIMER_SIG,     -- from game logic 
        -- outputs
         Win             => win_signal,
         Termination     => Termination_signal,
@@ -594,11 +602,13 @@ BEGIN
         pixel_column => PIXEL_COLUMN,
         left_click => LEFT_CLICK,
         Game_state_signal => Game_state_signal,
+
         dolphin_x_pos_out => DOLPHIN_X_POS,
         dolphin_y_pos_out => DOLPHIN_Y_POS,
         dolphin_on => DOLPHIN_ON,
         dolphin_enable => DOLPHIN_ENABLE,
-        first_click_out => first_click_signal
+        first_click_out => first_click_signal,
+        hit_ground => HIT_GROUND_SIG
     );
 
     RH : BCD_TO_SEVENSEG PORT MAP (

@@ -13,11 +13,12 @@ ENTITY game_logic IS
         pipe_enable         : IN  STD_LOGIC;
         bait_enable         : IN  STD_LOGIC;
         pipe_passed         : IN  STD_LOGIC;
+        hit_ground          : IN  STD_LOGIC;   -- from dolphin movement, high when dolphin touches ground
 
         life_one            : OUT STD_LOGIC;
         life_two            : OUT STD_LOGIC;
         life_three          : OUT STD_LOGIC;
-        life_out            : OUT STD_LOGIC;
+        dolphin_IS_alive            : OUT STD_LOGIC;   -- high when alive, low when dead, fed into FSM
         timer_out           : OUT STD_LOGIC;
         pipe_speed_up       : OUT STD_LOGIC;
         score_ones          : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -64,6 +65,7 @@ BEGIN
     game_active        <= '1' when (Game_state_signal = "01" or Game_state_signal = "10") else '0';
     training_mode_only <= '1' when Game_state_signal = "01" else '0';
     game_mode_only     <= '1' when Game_state_signal = "10" else '0';
+
 
     PROCESS (clk)
     BEGIN
@@ -181,7 +183,7 @@ BEGIN
     life_two   <= '1' when lives_count >= "10" else '0';
     life_one   <= '1' when lives_count >= "01" else '0';
 
-    life_out <= '0' when lives_count = "00" else '1';
+    dolphin_IS_alive <= '0' when (lives_count = "00" OR hit_ground = '1') else '1';  -- logic high
     timer_out <= training_timer_done when training_mode_only = '1' else
                  speed_phase_done when game_mode_only = '1' else
                  '0';
