@@ -8,20 +8,17 @@ ENTITY HOME_DISPLAY_TEXT IS
     PORT (
         clk                     : IN  std_logic;
         pixel_row, pixel_column : IN  std_logic_vector(9 DOWNTO 0);
-        Game_state_signal       : IN  std_logic_vector(1 DOWNTO 0);     -- may need more fsm states for example, game_won needs win signal
+        Game_state_signal       : IN  std_logic_vector(1 DOWNTO 0);
         red, green, blue        : OUT std_logic_vector(3 DOWNTO 0)
     );
 END HOME_DISPLAY_TEXT;
 
 ARCHITECTURE behaviour OF HOME_DISPLAY_TEXT IS
 
-    -- Configuration: adjust these for your text
-    CONSTANT TEXT_ROW_START  : integer := 240;   -- Y position of text
-    CONSTANT CHAR_SIZE       : integer := 32;    -- Pixel size of each char
-    CONSTANT CHAR_SPACING    : integer := 40;    -- Distance between char origins
+    CONSTANT TEXT_ROW_START  : integer := 240;
+    CONSTANT CHAR_SIZE       : integer := 32;
+    CONSTANT CHAR_SPACING    : integer := 40;
 
-    -- Your message as character addresses (6-bit each), --> take the first 2 digits of the oct adress and convert to binary
-    -- "FLAPPYD DOLPHIN" example — adjust to your ROM encoding
     TYPE char_addr_array IS ARRAY (natural RANGE <>) OF std_logic_vector(5 DOWNTO 0);
     CONSTANT MESSAGE : char_addr_array := (
         "000110",  -- F
@@ -41,13 +38,9 @@ ARCHITECTURE behaviour OF HOME_DISPLAY_TEXT IS
     );
     CONSTANT NUM_CHARS : integer := MESSAGE'LENGTH;
 
-    ----------------------------------------------------------------------------
-    -- CENTERING (HORIZONTAL)      can do manually but this automates it so you never need to pick the start column
-    ----------------------------------------------------------------------------
     CONSTANT TEXT_COL_START : integer :=
         (640 - (NUM_CHARS - 1) * CHAR_SPACING) / 2;
 
-    -- Internal signals
     TYPE pixel_array IS ARRAY (0 TO NUM_CHARS-1) OF std_logic;
     SIGNAL rom_pixels : pixel_array;
     SIGNAL text_on    : std_logic;
@@ -63,9 +56,6 @@ ARCHITECTURE behaviour OF HOME_DISPLAY_TEXT IS
 
 BEGIN
 
-    ----------------------------------------------------------------------------
-    -- Generate one char_rom instance per character
-    ----------------------------------------------------------------------------
     GEN_CHARS: FOR i IN 0 TO NUM_CHARS-1 GENERATE
         SIGNAL row_offset : std_logic_vector(9 DOWNTO 0);
         SIGNAL col_offset : std_logic_vector(9 DOWNTO 0);
@@ -83,9 +73,6 @@ BEGIN
             );
     END GENERATE GEN_CHARS;
 
-    ----------------------------------------------------------------------------
-    -- Combine all characters into text_on
-    ----------------------------------------------------------------------------
     PROCESS(pixel_row, pixel_column, Game_state_signal, rom_pixels)
         VARIABLE col_offset_v : integer;
         VARIABLE row_offset_v : integer;
@@ -110,9 +97,6 @@ BEGIN
         text_on <= hit;
     END PROCESS;
 
-    ----------------------------------------------------------------------------
-    -- Output colors PINK TEXT
-    ----------------------------------------------------------------------------
     red   <= "1111" WHEN text_on = '1' ELSE "0000";
     green <= "0000";
     blue  <= "1000" WHEN text_on = '1' ELSE "0000";

@@ -72,7 +72,7 @@ begin
         END IF;
 
     -- -------------------------- GAME OVER --------------------------
-    ELSIF Win = '0' AND Termination = '1' THEN 
+    ELSIF Game_state_signal = "11" THEN
         IF (GAME_OVER_TEXT_RED /= "0000" OR GAME_OVER_TEXT_GREEN /= "0000" OR GAME_OVER_TEXT_BLUE /= "0000") THEN
             RED_OUT   <= GAME_OVER_TEXT_RED;
             GREEN_OUT <= GAME_OVER_TEXT_GREEN;                                   
@@ -102,6 +102,7 @@ begin
             RED_OUT   <= PIPE_RED;
             GREEN_OUT <= PIPE_GREEN;
             BLUE_OUT  <= PIPE_BLUE;
+       
         END IF;
         
     END IF;

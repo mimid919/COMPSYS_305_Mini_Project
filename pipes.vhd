@@ -19,8 +19,12 @@ ENTITY PIPES IS
             Game_state_signal                 : IN std_logic_vector(1 DOWNTO 0);
             pipe_on                 : OUT std_logic;
             pipe_enable				: OUT std_logic;
-            pipe_x_1                  : OUT std_logic_vector(9 DOWNTO 0); -- for bait
-            pipe_y_1                  : OUT std_logic_vector(9 DOWNTO 0) -- for bait
+            pipe_x_1                  : OUT std_logic_vector(9 DOWNTO 0);
+            pipe_y_1                  : OUT std_logic_vector(9 DOWNTO 0);
+            pipe_x_2                  : OUT std_logic_vector(9 DOWNTO 0);
+            pipe_y_2                  : OUT std_logic_vector(9 DOWNTO 0);
+            pipe_x_3                  : OUT std_logic_vector(9 DOWNTO 0);
+            pipe_y_3                  : OUT std_logic_vector(9 DOWNTO 0)
             );	
 END PIPES;
 
@@ -47,7 +51,7 @@ BEGIN
     random_height_2 <= CONV_STD_LOGIC_VECTOR(125 + CONV_INTEGER(lfsr_value(4 DOWNTO 0) & '0'), 10);
     random_height_3 <= CONV_STD_LOGIC_VECTOR(125 + CONV_INTEGER('0' & lfsr_value(5 DOWNTO 1)), 10);
 
-    state <= '1' when Game_state_signal = "01" else '0'; -- only show pipes during game state
+   state <= '1' when (Game_state_signal = "01" OR Game_state_signal = "10") else '0';
     pipe_on <= pipe_visible and state;
     pipe_enable <= pipe_visible and state;
 
@@ -57,6 +61,10 @@ BEGIN
 
     pipe_x_1 <= pipe_x_pos_1;
     pipe_y_1 <= pipe_top_height_1;
+    pipe_x_2 <= pipe_x_pos_2;
+    pipe_y_2 <= pipe_top_height_2;
+    pipe_x_3 <= pipe_x_pos_3;
+    pipe_y_3 <= pipe_top_height_3;
 
     PROCESS (vert_sync)
     BEGIN

@@ -18,6 +18,7 @@ ENTITY dolphin_movement IS
 		  dolphin_x_pos_out : OUT std_logic_vector(9 DOWNTO 0);
 		dolphin_y_pos_out : OUT std_logic_vector(9 DOWNTO 0);
 		  left_click 				: IN std_logic;
+		  respawn : IN std_logic;
 		  Game_state_signal                 : IN std_logic_vector(1 DOWNTO 0);
 		  dolphin_on				: OUT std_logic;
 		  dolphin_enable			: OUT std_logic); -- for collisions
@@ -44,7 +45,7 @@ BEGIN
 dolphin_x_pos_out <= dolphin_x_pos;
 dolphin_y_pos_out <= dolphin_y_pos;
 
-  	state <= '1' when Game_state_signal = "01" else '0'; -- only show pipes during game state
+  state <= '1' when (Game_state_signal = "01" OR Game_state_signal = "10") else '0';
 
 	size <= CONV_STD_LOGIC_VECTOR(8,10);
 
@@ -73,15 +74,20 @@ dolphin_y_pos_out <= dolphin_y_pos;
 				dolphin_y_pos <= CONV_STD_LOGIC_VECTOR(240, 10);
 				dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
 
-			else
-				if (left_click_edge = '1') then
-					dolphin_y_motion <= jump;
-				else 
-					dolphin_y_motion <= dolphin_y_motion + gravity;
-				end if;
+elsif respawn = '1' then
+    dolphin_y_pos <= CONV_STD_LOGIC_VECTOR(240, 10);
+    dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
+    left_click_prev <= '0';
 
-				dolphin_y_pos <=  dolphin_y_pos + dolphin_y_motion;
+			elsif state = '1' then
+    if (left_click_edge = '1') then
+        dolphin_y_motion <= jump;
+    else 
+        dolphin_y_motion <= dolphin_y_motion + gravity;
+    end if;
 
+    dolphin_y_pos <= dolphin_y_pos + dolphin_y_motion;
+				
 				if dolphin_y_pos < size then
 					dolphin_y_pos <= size;
 					--dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
