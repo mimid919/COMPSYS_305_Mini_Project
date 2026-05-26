@@ -11,17 +11,21 @@ USE  IEEE.STD_LOGIC_UNSIGNED.all;
 
 ENTITY PIPES IS
     PORT
-            ( CLOCK_25Mhz	            : IN std_logic;
-            vert_sync		            : IN std_logic;
-            pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-            red, green, blue 			: OUT std_logic_vector(3 DOWNTO 0);
-            lfsr_value				: IN std_logic_vector(7 DOWNTO 0);
-            Game_state_signal                 : IN std_logic_vector(1 DOWNTO 0);
-            pipe_on                 : OUT std_logic;
-            pipe_enable				: OUT std_logic;
-            pipe_x_1                  : OUT std_logic_vector(9 DOWNTO 0); -- for bait
-            pipe_y_1                  : OUT std_logic_vector(9 DOWNTO 0) -- for bait
-            );	
+        ( CLOCK_25Mhz	            : IN std_logic;
+        vert_sync		            : IN std_logic;
+        pixel_row, pixel_column	    : IN std_logic_vector(9 DOWNTO 0);
+        lfsr_value				    : IN std_logic_vector(7 DOWNTO 0);
+        Game_state_signal           : IN std_logic_vector(1 DOWNTO 0);
+        pipe_speed_up               : IN std_logic;
+        first_click                 : IN std_logic;   -- high on first click rising edge
+
+        pipe_on                     : OUT std_logic;
+        pipe_enable				    : OUT std_logic;
+        pipe_passed                 : OUT std_logic;
+        pipe_x_1                    : OUT std_logic_vector(9 DOWNTO 0); -- for bait
+        pipe_y_1                    : OUT std_logic_vector(9 DOWNTO 0); -- for bait
+        red, green, blue 			: OUT std_logic_vector(3 DOWNTO 0)
+        );	
 END PIPES;
 
 ARCHITECTURE behavior OF PIPES IS
@@ -30,8 +34,8 @@ ARCHITECTURE behavior OF PIPES IS
     SIGNAL pipe_x_pos_3				: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(426, 10);
 
     SIGNAL pipe_top_height_1         : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(200, 10); -- initial height of top pipe
-    SIGNAL pipe_top_height_2         : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(200, 10);
-    SIGNAL pipe_top_height_3         : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(200, 10);
+    SIGNAL pipe_top_height_2         : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(220, 10);
+    SIGNAL pipe_top_height_3         : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(150, 10);
 
     SIGNAL random_height_1           : std_logic_vector(9 DOWNTO 0);
     SIGNAL random_height_2           : std_logic_vector(9 DOWNTO 0);
@@ -40,6 +44,14 @@ ARCHITECTURE behavior OF PIPES IS
     SIGNAL state                 : std_logic;
 
     SIGNAL pipe_visible : std_logic;
+    SIGNAL pipe_passed_int : std_logic := '0';
+    SIGNAL pipe_1_ready : std_logic := '0';
+    SIGNAL pipe_2_ready : std_logic := '1';
+    SIGNAL pipe_3_ready : std_logic := '1';
+    SIGNAL pipe_step : std_logic_vector(9 DOWNTO 0);
+    SIGNAL vert_sync_prev : std_logic := '0';
+    SIGNAL frame_tick : std_logic;
+
 
 BEGIN
 
@@ -47,43 +59,79 @@ BEGIN
     random_height_2 <= CONV_STD_LOGIC_VECTOR(125 + CONV_INTEGER(lfsr_value(4 DOWNTO 0) & '0'), 10);
     random_height_3 <= CONV_STD_LOGIC_VECTOR(125 + CONV_INTEGER('0' & lfsr_value(5 DOWNTO 1)), 10);
 
-    state <= '1' when Game_state_signal = "01" else '0'; -- only show pipes during game state
+    state <= '1' when (Game_state_signal = "01" or Game_state_signal = "10") else '0'; -- show pipes during gameplay states
     pipe_on <= pipe_visible and state;
     pipe_enable <= pipe_visible and state;
+    pipe_passed <= pipe_passed_int and state;
+    pipe_step <= CONV_STD_LOGIC_VECTOR(2, 10) when pipe_speed_up = '1' else CONV_STD_LOGIC_VECTOR(1, 10);
+    frame_tick <= vert_sync and not vert_sync_prev;
 
     red   <= "0000";
     green <= "1000" when (pipe_visible = '1' and state = '1') else "0000";
     blue  <= "0000";   
 
+    -- for bait
     pipe_x_1 <= pipe_x_pos_1;
     pipe_y_1 <= pipe_top_height_1;
 
-    PROCESS (vert_sync)
+    -- update pipe positions and heights on each vertical sync, reset to initial positions and heights during home screen
+    PROCESS (CLOCK_25Mhz)
     BEGIN
-        IF rising_edge(vert_sync) THEN
+        IF rising_edge(CLOCK_25Mhz) THEN
+            vert_sync_prev <= vert_sync;
+            pipe_passed_int <= '0';
+            -- home page
+            IF Game_state_signal = "00" THEN
+                pipe_x_pos_1 <= CONV_STD_LOGIC_VECTOR(640, 10);   -- off the screen so that the FIRST PIPE DOESNT APPEAR FIRST 
+                pipe_x_pos_2 <= CONV_STD_LOGIC_VECTOR(213, 10);
+                pipe_x_pos_3 <= CONV_STD_LOGIC_VECTOR(426, 10);
+                pipe_top_height_1 <= CONV_STD_LOGIC_VECTOR(200, 10);
+                pipe_top_height_2 <= CONV_STD_LOGIC_VECTOR(220, 10);
+                pipe_top_height_3 <= CONV_STD_LOGIC_VECTOR(150, 10);
+                pipe_1_ready <= '0';
+                pipe_2_ready <= '1';
+                pipe_3_ready <= '1';
+            --  GAME mode and TRAINING mode, only start moving after "first_click"
+            ELSIF state = '1' and frame_tick = '1'   and first_click = '1' THEN
+            -- 
+                IF pipe_x_pos_1 <= pipe_step THEN
+                    if pipe_1_ready = '1' then
+                        pipe_passed_int <= '1';
+                    end if;
+                    pipe_1_ready <= '1';
+                    pipe_x_pos_1 <= CONV_STD_LOGIC_VECTOR(640, 10);
+                    pipe_top_height_1 <= random_height_1;
+                ELSE
+                    pipe_x_pos_1 <= pipe_x_pos_1 - pipe_step;
+                END IF;
 
-            pipe_x_pos_1 <= pipe_x_pos_1 - 1;
-            pipe_x_pos_2 <= pipe_x_pos_2 - 1;
-            pipe_x_pos_3 <= pipe_x_pos_3 - 1;
+                IF pipe_x_pos_2 <= pipe_step THEN
+                    if pipe_2_ready = '1' then
+                        pipe_passed_int <= '1';
+                    end if;
+                    pipe_2_ready <= '1';
+                    pipe_x_pos_2 <= CONV_STD_LOGIC_VECTOR(640, 10);
+                    pipe_top_height_2 <= random_height_2;
+                ELSE
+                    pipe_x_pos_2 <= pipe_x_pos_2 - pipe_step;
+                END IF;
 
-            IF pipe_x_pos_1 = 0 THEN
-                pipe_x_pos_1 <= CONV_STD_LOGIC_VECTOR(640, 10);
-                pipe_top_height_1 <= random_height_1;
-				END IF;
-
-            IF pipe_x_pos_2 = 0 THEN
-                pipe_x_pos_2 <= CONV_STD_LOGIC_VECTOR(640, 10);
-                pipe_top_height_2 <= random_height_2;
-            END IF;
-
-            IF pipe_x_pos_3 = 0 THEN
-                pipe_x_pos_3 <= CONV_STD_LOGIC_VECTOR(640, 10);
-                pipe_top_height_3 <= random_height_3;
+                IF pipe_x_pos_3 <= pipe_step THEN
+                    if pipe_3_ready = '1' then
+                        pipe_passed_int <= '1';
+                    end if;
+                    pipe_3_ready <= '1';
+                    pipe_x_pos_3 <= CONV_STD_LOGIC_VECTOR(640, 10);
+                    pipe_top_height_3 <= random_height_3;
+                ELSE
+                    pipe_x_pos_3 <= pipe_x_pos_3 - pipe_step;
+                END IF;
             END IF;
 
         END IF; 
     END PROCESS;    
 
+    -- determine if pipe is visible at the current pixel by checking if the pixel is within the x bounds of the pipe and outside the gap defined by the
     PROCESS (pixel_row, pixel_column, 
             pipe_x_pos_1, pipe_top_height_1, 
             pipe_x_pos_2, pipe_top_height_2, 

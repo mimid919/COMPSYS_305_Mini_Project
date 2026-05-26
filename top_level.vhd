@@ -31,8 +31,10 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 
     COMPONENT BAIT IS
     PORT
-        ( pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
+        ( clk                    : IN std_logic;
+        pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
         Game_state_signal               : IN std_logic_vector(1 DOWNTO 0);
+        dolphin_enable          : IN std_logic;
         pipe_x_pos_1           : IN std_logic_vector(9 DOWNTO 0);
         gap_height             : IN std_logic_vector(9 DOWNTO 0);
         red, green, blue       : OUT std_logic_vector(3 DOWNTO 0);
@@ -72,22 +74,25 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 
     COMPONENT DOLPHIN_MOVEMENT IS -- HOW IS THIS WORKING WITHOUT RGB IN DECLARATION (RGB ARE OUTPUTS IN ENTITY)
     PORT
-        ( clk, vert_sync        : IN std_logic;
-        pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
-        dolphin_x_pos_out     : OUT std_logic_vector(9 DOWNTO 0);
-        dolphin_y_pos_out     : OUT std_logic_vector(9 DOWNTO 0);
-        left_click            : IN std_logic;
-        Game_state_signal             : IN std_logic_vector(1 DOWNTO 0);
-        dolphin_on            : OUT std_logic;
-        dolphin_enable        : OUT std_logic
-        );
+        ( clk, vert_sync            : IN std_logic;
+          pixel_row, pixel_column   : IN std_logic_vector(9 DOWNTO 0);
+          left_click                : IN std_logic;
+          Game_state_signal         : IN std_logic_vector(1 DOWNTO 0);
+
+          dolphin_x_pos_out         : OUT std_logic_vector(9 DOWNTO 0);
+          dolphin_y_pos_out         : OUT std_logic_vector(9 DOWNTO 0);
+          dolphin_on                : OUT std_logic;
+          dolphin_enable            : OUT std_logic;
+          first_click_out           : OUT std_logic;
+          hit_ground                : OUT std_logic
+        );  
     END COMPONENT DOLPHIN_MOVEMENT;
 
     COMPONENT FSM IS
     PORT (
             CLK              : in STD_LOGIC;
             Reset            : in STD_LOGIC;   -- key[0]
-            Start            : in STD_LOGIC;   -- key[1]
+            Start            : in STD_LOGIC;   -- key[3]
             Pause_IN         : in STD_LOGIC;   -- SW[9]  cant be a push button because need a permanent state
             Mode             : in STD_LOGIC;   -- SW[0], user selects either TRAINING OR GAME
             Life             : in STD_LOGIC;   -- logic high
@@ -130,7 +135,8 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 
     COMPONENT LAYER IS
     PORT
-       (     Win                     : IN STD_LOGIC;  -- logic high
+       (    clk : IN STD_LOGIC;
+            Win                     : IN STD_LOGIC;  -- logic high
             Termination             : IN STD_LOGIC;  -- logic high
             Pause_OUT               : IN STD_LOGIC;  -- logic high
             Game_state_signal       : IN std_logic_vector(1 DOWNTO 0);
@@ -145,6 +151,8 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
             SPRITE_ON 										: IN std_logic;
             LIVES_RED,LIVES_GREEN,LIVES_BLUE				: in std_logic_vector(3 DOWNTO 0);
             LIVES_ON                        				: IN STD_LOGIC;
+            SCORE_RED,SCORE_GREEN,SCORE_BLUE				: in std_logic_vector(3 DOWNTO 0);
+            SCORE_ON                        				: IN STD_LOGIC;
             HOME_DISPLAY_TEXT_RED,HOME_DISPLAY_TEXT_GREEN,HOME_DISPLAY_TEXT_BLUE   				: in std_logic_vector(3 DOWNTO 0);
             GAME_WON_TEXT_RED, GAME_WON_TEXT_GREEN, GAME_WON_TEXT_BLUE :   IN STD_LOGIC_VECTOR(3 DOWNTO 0);
             GAME_OVER_TEXT_RED, GAME_OVER_TEXT_GREEN, GAME_OVER_TEXT_BLUE : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -186,17 +194,21 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 
     COMPONENT PIPES IS
     PORT
-        ( CLOCK_25Mhz            : IN std_logic;
-        vert_sync             : IN std_logic;
-        pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
-        Game_state_signal             : IN std_logic_vector(1 DOWNTO 0);
-        red, green, blue      : OUT std_logic_vector(3 DOWNTO 0);
-        pipe_on               : OUT std_logic;
-        lfsr_value            : IN std_logic_vector(7 DOWNTO 0);
-        pipe_enable           : OUT std_logic;
-        pipe_x_1              : OUT std_logic_vector(9 DOWNTO 0);
-        pipe_y_1              : OUT std_logic_vector(9 DOWNTO 0)
-        );
+        ( CLOCK_25Mhz	            : IN std_logic;
+        vert_sync		            : IN std_logic;
+        pixel_row, pixel_column	    : IN std_logic_vector(9 DOWNTO 0);
+        lfsr_value				    : IN std_logic_vector(7 DOWNTO 0);
+        Game_state_signal           : IN std_logic_vector(1 DOWNTO 0);
+        pipe_speed_up               : IN std_logic;
+        first_click                 : IN std_logic; 
+
+        pipe_on                     : OUT std_logic;
+        pipe_enable				    : OUT std_logic;
+        pipe_passed                 : OUT std_logic;
+        pipe_x_1                    : OUT std_logic_vector(9 DOWNTO 0); -- for bait
+        pipe_y_1                    : OUT std_logic_vector(9 DOWNTO 0); -- for bait
+        red, green, blue 			: OUT std_logic_vector(3 DOWNTO 0)
+        );	
     END COMPONENT PIPES;
 
     COMPONENT PLL IS
@@ -221,6 +233,40 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
         );
     END COMPONENT POSITION_TO_BCD;
 
+    COMPONENT GAME_LOGIC IS
+    PORT (
+        clk                 : IN  STD_LOGIC;  
+        vert_sync           : IN  STD_LOGIC;
+        reset               : IN  STD_LOGIC;
+        Game_state_signal   : IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
+        dolphin_enable      : IN  STD_LOGIC;
+        pipe_enable         : IN  STD_LOGIC;
+        bait_enable         : IN  STD_LOGIC;
+        pipe_passed         : IN  STD_LOGIC;
+        hit_ground          : IN  STD_LOGIC;   -- from dolphin movement, high when dolphin touches ground
+        life_one            : OUT STD_LOGIC;
+        life_two            : OUT STD_LOGIC;
+        life_three          : OUT STD_LOGIC;
+        dolphin_IS_alive            : OUT STD_LOGIC;
+        timer_out           : OUT STD_LOGIC;
+        pipe_speed_up       : OUT STD_LOGIC;
+        score_ones          : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+        score_tens          : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+    );
+END COMPONENT GAME_LOGIC;
+
+    COMPONENT SCORE_TEXT IS
+    PORT
+        ( clk                   : IN std_logic;
+        pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
+        Game_state_signal       : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+        score_ones              : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+        score_tens              : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+        red, green, blue        : OUT std_logic_vector(3 DOWNTO 0);
+        score_on                : OUT std_logic
+        );
+    END COMPONENT SCORE_TEXT;
+
     COMPONENT VGA_SYNC IS
     PORT(	clock_25Mhz		: IN	STD_LOGIC;
 			red, green, blue : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -235,7 +281,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 
     SIGNAL CLOCK_25MHZ : STD_LOGIC;
 
-    ----    FSM SIGNALS ---
+    ----    FSM SIGNALS ouputs ---
     SIGNAL Life_signal              : STD_LOGIC := '1';
     SIGNAL Win_signal               : STD_LOGIC;
     SIGNAL Termination_signal       : STD_LOGIC := '0';
@@ -243,8 +289,8 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
     SIGNAL Game_state_signal        : STD_LOGIC_VECTOR(1 downto 0) := "00";  -- used to be called "Game_state_signal"
     
     -- test it by using a switch so we can actually see the game won page
-    SIGNAL win_test : std_logic;
-    SIGNAL game_over_test : std_logic;
+    -- SIGNAL win_signal : std_logic;
+    --SIGNAL game_over_test : std_logic;
 
 
     -- VGA signals used in other componants
@@ -270,9 +316,12 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
     SIGNAL BAIT_RED, BAIT_GREEN, BAIT_BLUE  : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL LIVES_RED, LIVES_GREEN, LIVES_BLUE   : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL LIVES_ON                                              : STD_LOGIC;
+    SIGNAL SCORE_RED, SCORE_GREEN, SCORE_BLUE   : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL SCORE_ON                                              : STD_LOGIC;
 
     -- final colour outputs to VGA
     SIGNAL RED_OUT, GREEN_OUT, BLUE_OUT : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL VGA_R_temp, VGA_G_temp, VGA_B_temp : STD_LOGIC_VECTOR(3 DOWNTO 0);
 
     SIGNAL RANDOM_VALUE : STD_LOGIC_VECTOR(7 DOWNTO 0); -- output from LFSR to connect to pipes for random pipe heights
 
@@ -295,7 +344,22 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
     SIGNAL SPRITE_GREEN : std_logic_vector(3 DOWNTO 0);
     SIGNAL SPRITE_BLUE : std_logic_vector(3 DOWNTO 0);
 
+    --game logic outputs 
+    SIGNAL DOLPHIN_ENABLE   : STD_LOGIC;
+    SIGNAL PIPE_ENABLE_SIG  : STD_LOGIC;
+    SIGNAL BAIT_ENABLE_SIG  : STD_LOGIC;
+    SIGNAL PIPE_PASSED_SIG  : STD_LOGIC;
+    SIGNAL PIPE_SPEED_UP_SIG : STD_LOGIC;
+    SIGNAL LIFE_ONE_SIG, LIFE_TWO_SIG, LIFE_THREE_SIG : STD_LOGIC;
+    SIGNAL SCORE_ONES_SIG, SCORE_TENS_SIG : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL TIMER_SIG        : STD_LOGIC;
 
+
+    -- first click signal for dolphin movement, pipes, score, and timer to stay frozen until the first click
+    SIGNAL first_click_signal : STD_LOGIC;
+
+    -- when dolphin hits ground 
+    SIGNAL HIT_GROUND_SIG : STD_LOGIC;
 BEGIN
 
 
@@ -307,21 +371,28 @@ BEGIN
 
     RESET <= NOT KEY(0); -- active low reset
     -- testing game_won_text by making win high
-     win_test  <= SW(8);
-     game_over_test <= SW(7);
+    --  win_signal  <= SW(8);
+     --game_over_test <= SW(7);
 
 
     -- need to change the lifes in the other components to the fsm life
 
-
+    PROCESS(CLOCK_25MHZ)
+    BEGIN
+        IF rising_edge(CLOCK_25MHZ) THEN
+            VGA_R &lt;= VGA_R_temp;
+            VGA_G &lt;= VGA_G_temp;
+            VGA_B &lt;= VGA_B_temp;
+        END IF;
+    END PROCESS;
 
 ------------------------------------ PORT MAP DECLARATION START ------------------------------------
 
     BG: BACKGROUND PORT MAP (
         pixel_row               => PIXEL_ROW,
         pixel_column            => PIXEL_COLUMN,
-        Win                     => win_test,
-        Termination             => game_over_test,
+        Win                     => win_signal,
+        Termination             => Termination_signal,
         Pause_OUT               => Pause_out_signal,
         Game_state_signal       => Game_state_signal,
         clock                   => CLOCK_25MHZ,
@@ -339,15 +410,14 @@ BEGIN
     );
 
     CO : BCD_TO_SEVENSEG PORT MAP (
-        BCD_digit => column_ones,
+        BCD_digit => SCORE_ONES_SIG,
         SevenSeg_out => HEX0
     );
 
     CT : BCD_TO_SEVENSEG PORT MAP (
-        BCD_digit => column_tens,
+        BCD_digit => SCORE_TENS_SIG,
         SevenSeg_out => HEX1
     );
-
     clock_divider : PLL PORT MAP (
         refclk   => CLOCK_50,
         rst      => '0',
@@ -368,11 +438,32 @@ BEGIN
         dolphin_on => SPRITE_ON
     );
 
+
+    GAME_RULE: GAME_LOGIC PORT MAP (
+        clk => CLOCK_25MHZ,
+        vert_sync => VERT_SYNC,
+        reset => RESET,
+        Game_state_signal => Game_state_signal,
+        dolphin_enable=> SPRITE_ON,
+        pipe_enable =>PIPE_ENABLE_SIG,
+        bait_enable=> BAIT_ENABLE_SIG,
+        pipe_passed=> PIPE_PASSED_SIG,
+        hit_ground=> HIT_GROUND_SIG,
+        life_one=> LIFE_ONE_SIG,
+        life_two  => LIFE_TWO_SIG,
+        life_three => LIFE_THREE_SIG,
+        dolphin_IS_alive  => Life_signal, -- fed into the fsm, logic high
+        timer_out => TIMER_SIG,    -- from the fsm
+        pipe_speed_up => PIPE_SPEED_UP_SIG,
+        score_ones => SCORE_ONES_SIG,
+        score_tens  => SCORE_TENS_SIG
+    );
+
     GAME_WON_TEXT_INSTANCE: GAME_WON_TEXT PORT MAP (
         clk => CLOCK_25MHZ,
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
-        win => win_test,
+        win => win_signal,
         red => GAME_WON_TEXT_RED,
         green => GAME_WON_TEXT_GREEN,
         blue => GAME_WON_TEXT_BLUE
@@ -383,13 +474,14 @@ BEGIN
         clk => CLOCK_25MHZ,
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
-        win => win_test,
-        termination => game_over_test,
+        win => win_signal,
+        termination => Termination_signal,
         red => GAME_OVER_TEXT_RED,
         green => GAME_OVER_TEXT_GREEN,
         blue => GAME_OVER_TEXT_BLUE
 
     );
+    
 
     HOME_SCREEN_TEXT: HOME_DISPLAY_TEXT PORT MAP (
         clk => CLOCK_25MHZ,
@@ -403,13 +495,14 @@ BEGIN
     );
 
     FINITE_STATE_MACHINE : FSM PORT MAP(
-        CLK             => CLOCK_50,
+        CLK             => CLOCK_25MHZ,
         Reset           => RESET,  -- declared above before port map declarations
-        Start           => NOT KEY(1),
-        Pause_IN        => SW(9), -- different to original fsm diagram
-        Mode            => SW(0),
-        Life            => Life_signal, 
-        Timer           => SW(1),
+        Start           => NOT KEY(3),
+        Pause_IN        => RIGHT_CLICK, -- different to original fsm diagram
+        Mode            => SW(0),  -- 0 for training, 1 for game
+        Life            => Life_signal,   -- from game logic
+
+        Timer           => TIMER_SIG,     -- from game logic 
        -- outputs
         Win             => win_signal,
         Termination     => Termination_signal,
@@ -418,9 +511,9 @@ BEGIN
     );
 
     LAYER_RENDERER: LAYER PORT MAP (
-
-        Win             => win_test,
-        Termination     => game_over_test,
+        clk => CLOCK_25MHZ,
+        Win             => win_signal,
+        Termination     => Termination_signal,
         Pause_OUT       => Pause_out_signal,
         Game_state_signal      => Game_state_signal,
 
@@ -446,6 +539,10 @@ BEGIN
         LIVES_GREEN => LIVES_GREEN,
         LIVES_BLUE => LIVES_BLUE,
         LIVES_ON => LIVES_ON,
+        SCORE_RED => SCORE_RED,
+        SCORE_GREEN => SCORE_GREEN,
+        SCORE_BLUE => SCORE_BLUE,
+        SCORE_ON => SCORE_ON,
         HOME_DISPLAY_TEXT_RED => HOME_DISPLAY_TEXT_RED,
         HOME_DISPLAY_TEXT_GREEN => HOME_DISPLAY_TEXT_GREEN,
         HOME_DISPLAY_TEXT_BLUE => HOME_DISPLAY_TEXT_BLUE,
@@ -468,9 +565,9 @@ BEGIN
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
         Game_state_signal => Game_state_signal,
-        life_one => '1',
-        life_two => '1',
-        life_three => '0',
+        life_one => LIFE_ONE_SIG,
+        life_two => LIFE_TWO_SIG,
+        life_three => LIFE_THREE_SIG,
         live_on => LIVES_ON,
         red => LIVES_RED,
         green => LIVES_GREEN,
@@ -494,12 +591,15 @@ BEGIN
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
         Game_state_signal => Game_state_signal,
+        first_click => first_click_signal,
+        pipe_speed_up => PIPE_SPEED_UP_SIG,
         pipe_on => PIPE_ON,
         red => PIPE_RED,
         green => PIPE_GREEN,
         blue => PIPE_BLUE,
         lfsr_value => RANDOM_VALUE,
-        pipe_enable => OPEN,
+        pipe_enable => PIPE_ENABLE_SIG,
+        pipe_passed => PIPE_PASSED_SIG,
         pipe_x_1 => bait_pipe_x,
         pipe_y_1 => bait_pipe_y
     );
@@ -511,10 +611,13 @@ BEGIN
         pixel_column => PIXEL_COLUMN,
         left_click => LEFT_CLICK,
         Game_state_signal => Game_state_signal,
+
         dolphin_x_pos_out => DOLPHIN_X_POS,
         dolphin_y_pos_out => DOLPHIN_Y_POS,
         dolphin_on => DOLPHIN_ON,
-        dolphin_enable => OPEN
+        dolphin_enable => DOLPHIN_ENABLE,
+        first_click_out => first_click_signal,
+        hit_ground => HIT_GROUND_SIG
     );
 
     RH : BCD_TO_SEVENSEG PORT MAP (
@@ -533,16 +636,18 @@ BEGIN
     );
 
     RANDOM_BAIT: BAIT PORT MAP (
+        clk => CLOCK_25MHZ,
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
         Game_state_signal => Game_state_signal,
+        dolphin_enable => SPRITE_ON,
         pipe_x_pos_1 => bait_pipe_x,
         gap_height => bait_pipe_y,
         red => BAIT_RED,
         green => BAIT_GREEN,
         blue => BAIT_BLUE,
         bait_on => BAIT_ON,
-        bait_enable => OPEN
+        bait_enable => BAIT_ENABLE_SIG
     );
 
     RANDOM_NUMBER: LFSR PORT MAP (
@@ -564,15 +669,28 @@ BEGIN
         column_ones => column_ones
     );
 
+    SCORE_DISPLAY: SCORE_TEXT PORT MAP (
+        clk => CLOCK_25MHZ,
+        pixel_row => PIXEL_ROW,
+        pixel_column => PIXEL_COLUMN,
+        Game_state_signal => Game_state_signal,
+        score_ones => SCORE_ONES_SIG,
+        score_tens => SCORE_TENS_SIG,
+        score_on => SCORE_ON,
+        red => SCORE_RED,
+        green => SCORE_GREEN,
+        blue => SCORE_BLUE
+    );
+
 
     VGA_REFRESH: VGA_SYNC PORT MAP (
         clock_25Mhz => CLOCK_25MHZ,
         red => RED_OUT,
         green => GREEN_OUT,
         blue => BLUE_OUT,
-        red_out => VGA_R,
-        green_out => VGA_G,
-        blue_out => VGA_B,
+        red_out => VGA_R_temp,
+        green_out => VGA_G_temp,
+        blue_out => VGA_B_temp,
         horiz_sync_out => HORIZ_SYNC,
         vert_sync_out => VERT_SYNC,
         pixel_row => PIXEL_ROW,

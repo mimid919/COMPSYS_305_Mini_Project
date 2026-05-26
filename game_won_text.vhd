@@ -11,7 +11,7 @@ ENTITY GAME_WON_TEXT IS
         clk                     : IN  std_logic;
         pixel_row, pixel_column : IN  std_logic_vector(9 DOWNTO 0);
         Win                     : IN  std_logic;
-        red, green, blue        : OUT std_logic_vector(3 DOWNTO 0)
+        red, green, blue        : OUT std_logic_vector(3 DOWNTO 0)   -- we should also print the score below this 
     );
 END GAME_WON_TEXT;
 
@@ -111,7 +111,7 @@ BEGIN
     -- Output colors green TEXT 
     ----------------------------------------------------------------------------
     red   <= "0000";
-    green  <= "1000";
+    green  <= "1000" WHEN text_on = '1' ELSE "0000";
     blue  <= "0000";
 
 END behaviour;

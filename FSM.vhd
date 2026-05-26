@@ -1,4 +1,3 @@
--- THIS FILE DOESNT IMPLEMENT TIMER, instead it takes SW[1] as the logic high input of timer to simulate states
 library IEEE;
 use  IEEE.STD_LOGIC_1164.all;
 use  IEEE.STD_LOGIC_ARITH.all;
@@ -7,11 +6,11 @@ use  IEEE.STD_LOGIC_UNSIGNED.all;
 entity FSM is
     Port ( CLK              : in STD_LOGIC;
            Reset            : in STD_LOGIC;   -- key[0]
-           Start            : in STD_LOGIC;   -- key[1]
-           Pause_IN         : in STD_LOGIC;   -- SW[9]  cant be a push button because need a permanent state
+           Start            : in STD_LOGIC;   -- key[3]
+           Pause_IN         : in STD_LOGIC;   -- right click
            Mode             : in STD_LOGIC;   -- SW[0], user selects either TRAINING OR GAME
            Life             : in STD_LOGIC;   -- logic high
-           Timer            : in STD_LOGIC;   -- SW[1] NEEDS CHANGING TO USE AN ACTUAL TIMER
+           Timer            : in STD_LOGIC;   -- timer from the Game_Logic 
        
            Win              : out STD_LOGIC;  -- logic high
            Termination      : out STD_LOGIC;  -- logic high
@@ -24,6 +23,7 @@ architecture Moore of FSM is
 -- All 6 states, as seen in the FSM diagram
 type state_type is (Home_Screen, TRAINING_Mode, GAME_Mode, Pause, Game_Won, Game_Over);
 signal state, next_state : state_type;   -- Local states
+signal state_before_pause : state_type := Home_Screen;
 signal start_pressed : STD_LOGIC;
 
 begin
@@ -34,7 +34,11 @@ begin
         if rising_edge(CLK) then
             if (reset = '1') then  -- checks reset twice    
                 state <= Home_Screen;
+                state_before_pause <= Home_Screen;
             else
+                if next_state = Pause and state /= Pause then
+                    state_before_pause <= state;
+                end if;
                 state <= next_state;
             end if;
         end if;
@@ -85,7 +89,7 @@ begin
     -- reads the inputs and "state" to determines the next_state
     --      *if there is any ERROR with the states it could be because of the debouncing of the keys
     --      * if ADDING CODE please make sure the next state logic is in order of priority for example reset > pause
-    NEXT_STATE_LOGIC : process (state,    Reset, Start, Pause_IN, Mode, Life, Timer)
+    NEXT_STATE_LOGIC : process (state, state_before_pause, Reset, Start, Pause_IN, Mode, Life, Timer)
     begin
         next_state <= state; -- default state
         case state is
@@ -99,7 +103,7 @@ begin
                    end if;
                 end if;
             when TRAINING_Mode =>
-                if (Reset = '1' OR Life = '0') then  -- we can change it so when it loses all its lifes it can go to game_over
+                if (Reset = '1' OR Life = '0' OR Timer = '1') then  -- Timer returns training to the start screen after 30 seconds
                     next_state <= Home_Screen;
                 elsif (Pause_IN = '1') then
                     next_state <= Pause;
@@ -116,11 +120,7 @@ begin
                 end if;  
             when Pause =>  --- will only chane states if they un flick the switch
                 if (Pause_IN = '0') then
-                    if (Mode = '0') then
-                        next_state <= TRAINING_Mode;
-                   else
-                        next_state <= GAME_Mode;
-                   end if;
+                    next_state <= state_before_pause;
                 end if;
             when Game_Won | Game_Over=> -- Game_Over and Game_won both only change with timer and go to Home_screen
                 if (Timer = '1') then
