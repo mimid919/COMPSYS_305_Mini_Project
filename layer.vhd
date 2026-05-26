@@ -23,6 +23,10 @@ ENTITY LAYER IS
             GAME_WON_TEXT_RED, GAME_WON_TEXT_GREEN, GAME_WON_TEXT_BLUE : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
             GAME_OVER_TEXT_RED, GAME_OVER_TEXT_GREEN, GAME_OVER_TEXT_BLUE : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 
+            --FOR  CURRENT SCORE AND CURRENT  LEVEL DISPLAY
+            GAME_INFO_RED, GAME_INFO_GREEN, GAME_INFO_BLUE : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+            GAME_INFO_ON : IN STD_LOGIC;
+
             RED_OUT,GREEN_OUT,BLUE_OUT                      : OUT STD_LOGIC_vector(3 DOWNTO 0)
             );
 
@@ -85,11 +89,15 @@ begin
 
     -- -------------------------- DURING GAMEPLAY (01 or 11) --------------------------
     ELSE 
-        -- Priority: Lives > Dolphin (Sprite) > Bait > Pipes > (Background handles itself)
+        -- Priority: Lives > SCORE AND LEVEL>Dolphin (Sprite) > Bait > Pipes > (Background handles itself)
         IF (LIVES_ON = '1') THEN
             RED_OUT   <= LIVES_RED;
             GREEN_OUT <= LIVES_GREEN;
             BLUE_OUT  <= LIVES_BLUE;
+        ELSIF GAME_INFO_ON = '1' THEN
+            RED_OUT <= GAME_INFO_RED;
+            GREEN_OUT <= GAME_INFO_GREEN;
+            BLUE_OUT <= GAME_INFO_BLUE;
         ELSIF (SPRITE_ON = '1') THEN
             RED_OUT   <= SPRITE_RED;
             GREEN_OUT <= SPRITE_GREEN;

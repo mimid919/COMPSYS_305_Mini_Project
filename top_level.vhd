@@ -149,6 +149,8 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
             HOME_DISPLAY_TEXT_RED,HOME_DISPLAY_TEXT_GREEN,HOME_DISPLAY_TEXT_BLUE   				: in std_logic_vector(3 DOWNTO 0);
             GAME_WON_TEXT_RED, GAME_WON_TEXT_GREEN, GAME_WON_TEXT_BLUE :   IN STD_LOGIC_VECTOR(3 DOWNTO 0);
             GAME_OVER_TEXT_RED, GAME_OVER_TEXT_GREEN, GAME_OVER_TEXT_BLUE : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+            GAME_INFO_RED, GAME_INFO_GREEN, GAME_INFO_BLUE : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+            GAME_INFO_ON : IN STD_LOGIC;
             RED_OUT,GREEN_OUT,BLUE_OUT                      : OUT STD_LOGIC_vector(3 DOWNTO 0)
             );
     END COMPONENT LAYER;
@@ -229,6 +231,18 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
         column_ones      : OUT std_logic_vector(3 DOWNTO 0)
         );
     END COMPONENT POSITION_TO_BCD;
+
+    COMPONENT GAME_INFO_TEXT IS
+    PORT (
+        clk                     : IN std_logic;
+        pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
+        Game_state_signal       : IN std_logic_vector(1 DOWNTO 0);
+        Level_sig               : IN std_logic;
+        Score_count             : IN std_logic_vector(3 DOWNTO 0);
+        red, green, blue        : OUT std_logic_vector(3 DOWNTO 0);
+        info_on                 : OUT std_logic
+    );
+END COMPONENT GAME_INFO_TEXT;
 
     COMPONENT VGA_SYNC IS
     PORT(	clock_25Mhz		: IN	STD_LOGIC;
@@ -323,58 +337,168 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
     SIGNAL GROUND_HIT_SIG : STD_LOGIC;
     SIGNAL DAMAGE_HIT_SIG : STD_LOGIC;
     SIGNAL LEVEL_GROUND_HIT_SIG : STD_LOGIC;
+SIGNAL DAMAGE_COOLDOWN : INTEGER RANGE 0 TO 25000000 := 0;
+    SIGNAL DAMAGE_ALLOWED  : STD_LOGIC;
+    SIGNAL RESPAWN_COUNT : INTEGER RANGE 0 TO 1000000 := 0;
 
-    ----TIMER FROM LEVEL 1 TO 2
-    SIGNAL LEVEL_SIG : STD_LOGIC := '0'; -- 0 = Level 1, 1 = Level 2
-SIGNAL LEVEL_TIMER : INTEGER RANGE 0 TO 500000000 := 0;
+    -----MAKE SURE DOLPHIN HIT THE SAME PIPE JUST ONCE 
+    SIGNAL PIPE1_HIT_SIG : STD_LOGIC;
+    SIGNAL PIPE2_HIT_SIG : STD_LOGIC;
+    SIGNAL PIPE3_HIT_SIG : STD_LOGIC;
+    SIGNAL PIPE1_USED : STD_LOGIC := '0';
+    SIGNAL PIPE2_USED : STD_LOGIC := '0';
+    SIGNAL PIPE3_USED : STD_LOGIC := '0';
+
+    ----TIMER FROM LEVEL 1 TO 2, 
+ SIGNAL LEVEL_SIG : STD_LOGIC := '0'; -- 0 = Level 1, 1 = Level 2
 SIGNAL RAW_HIT_SIG : STD_LOGIC;
 SIGNAL PREV_DAMAGE_HIT_SIG : STD_LOGIC := '0';
 SIGNAL RESPAWN_PULSE_SIG   : STD_LOGIC := '0';
+SIGNAL PASS_COUNT : INTEGER RANGE 0 TO 8 := 0;
+SIGNAL PIPE1_PASSED : STD_LOGIC := '0';
+SIGNAL PIPE2_PASSED : STD_LOGIC := '0';
+SIGNAL PIPE3_PASSED : STD_LOGIC := '0';
+SIGNAL LEVEL2_PASS_COUNT : INTEGER RANGE 0 TO 4 := 0;
+SIGNAL WIN_SIG_FROM_LEVEL : STD_LOGIC := '0';
+
+---signals for score and level text display while on game mode
+SIGNAL GAME_INFO_RED, GAME_INFO_GREEN, GAME_INFO_BLUE : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL GAME_INFO_ON : STD_LOGIC;
+SIGNAL PASS_COUNT_VEC : STD_LOGIC_VECTOR(3 DOWNTO 0);
 
 
 BEGIN
 
+
+PASS_COUNT_VEC <= CONV_STD_LOGIC_VECTOR(PASS_COUNT, 4);
+
 --ADD FSM SIGNAL 
 FSM_LIFE_SIG <= '0' WHEN
 (
-    Game_state_signal = "01"
-    AND
-    (PIPE_HIT_LATCH = '1' OR GROUND_HIT_SIG = '1')
+    (Game_state_signal = "01" AND RAW_HIT_SIG = '1')
+    OR
+    (Game_state_signal = "10" AND Life_signal = '0' AND DAMAGE_COOLDOWN = 0 AND PIPE_HIT_SIG = '0')
 )
-ELSE
-    Life_signal;
+ELSE '1';
+
+
+--ADD THE 1 PIPE 1 HIT SIGNAL 
+PIPE1_HIT_SIG <= '1' WHEN
+(
+    CONV_INTEGER(DOLPHIN_X_POS) + 32 >= CONV_INTEGER(bait_pipe_x) AND
+    CONV_INTEGER(DOLPHIN_X_POS) <= CONV_INTEGER(bait_pipe_x) + 50 AND
+    (
+        CONV_INTEGER(DOLPHIN_Y_POS) < CONV_INTEGER(bait_pipe_y) OR
+        CONV_INTEGER(DOLPHIN_Y_POS) + 32 > CONV_INTEGER(bait_pipe_y) + 200
+    )
+)
+ELSE '0';
+
+PIPE2_HIT_SIG <= '1' WHEN
+(
+    CONV_INTEGER(DOLPHIN_X_POS) + 32 >= CONV_INTEGER(pipe_x_2_sig) AND
+    CONV_INTEGER(DOLPHIN_X_POS) <= CONV_INTEGER(pipe_x_2_sig) + 50 AND
+    (
+        CONV_INTEGER(DOLPHIN_Y_POS) < CONV_INTEGER(pipe_y_2_sig) OR
+        CONV_INTEGER(DOLPHIN_Y_POS) + 32 > CONV_INTEGER(pipe_y_2_sig) + 200
+    )
+)
+ELSE '0';
+
+PIPE3_HIT_SIG <= '1' WHEN
+(
+    CONV_INTEGER(DOLPHIN_X_POS) + 32 >= CONV_INTEGER(pipe_x_3_sig) AND
+    CONV_INTEGER(DOLPHIN_X_POS) <= CONV_INTEGER(pipe_x_3_sig) + 50 AND
+    (
+        CONV_INTEGER(DOLPHIN_Y_POS) < CONV_INTEGER(pipe_y_3_sig) OR
+        CONV_INTEGER(DOLPHIN_Y_POS) + 32 > CONV_INTEGER(pipe_y_3_sig) + 200
+    )
+)
+ELSE '0';
+
 
 --ADD COLLISION SIGNAL FOR GAME logic
-PIPE_HIT_SIG <= '1' WHEN
-    (
-        (CONV_INTEGER(DOLPHIN_X_POS) + 32 >= CONV_INTEGER(bait_pipe_x)) AND
-        (CONV_INTEGER(DOLPHIN_X_POS)       <= CONV_INTEGER(bait_pipe_x) + 50) AND
-        (
-            (CONV_INTEGER(DOLPHIN_Y_POS) < CONV_INTEGER(bait_pipe_y)) OR
-            (CONV_INTEGER(DOLPHIN_Y_POS) + 32 > CONV_INTEGER(bait_pipe_y) + 200)
-        )
-    ) OR
-    (
-        (CONV_INTEGER(DOLPHIN_X_POS) + 32 >= CONV_INTEGER(pipe_x_2_sig)) AND
-        (CONV_INTEGER(DOLPHIN_X_POS)       <= CONV_INTEGER(pipe_x_2_sig) + 50) AND
-        (
-            (CONV_INTEGER(DOLPHIN_Y_POS) < CONV_INTEGER(pipe_y_2_sig)) OR
-            (CONV_INTEGER(DOLPHIN_Y_POS) + 32 > CONV_INTEGER(pipe_y_2_sig) + 200)
-        )
-    ) OR
-    (
-        (CONV_INTEGER(DOLPHIN_X_POS) + 32 >= CONV_INTEGER(pipe_x_3_sig)) AND
-        (CONV_INTEGER(DOLPHIN_X_POS)       <= CONV_INTEGER(pipe_x_3_sig) + 50) AND
-        (
-            (CONV_INTEGER(DOLPHIN_Y_POS) < CONV_INTEGER(pipe_y_3_sig)) OR
-            (CONV_INTEGER(DOLPHIN_Y_POS) + 32 > CONV_INTEGER(pipe_y_3_sig) + 200)
-        )
-    )
-ELSE '0';
+PIPE_HIT_SIG <=
+    (PIPE1_HIT_SIG AND NOT PIPE1_USED) OR
+    (PIPE2_HIT_SIG AND NOT PIPE2_USED) OR
+    (PIPE3_HIT_SIG AND NOT PIPE3_USED);
+
+PROCESS(CLOCK_25MHZ)
+    VARIABLE next_pass_count : INTEGER RANGE 0 TO 8;
+BEGIN
+    IF rising_edge(CLOCK_25MHZ) THEN
+    next_pass_count := PASS_COUNT;
+        IF RESET = '1' OR Game_state_signal /= "10" THEN
+            PIPE1_USED <= '0';
+            PIPE2_USED <= '0';
+            PIPE3_USED <= '0';
+
+            PIPE1_PASSED <= '0';
+            PIPE2_PASSED <= '0';
+            PIPE3_PASSED <= '0';
+
+            PASS_COUNT <= 0;
+            LEVEL_SIG <= '0';
+
+        ELSE
+            -- reset when pipe respawns on right side
+            IF CONV_INTEGER(bait_pipe_x) >= 639 THEN
+                PIPE1_USED <= '0';
+                PIPE1_PASSED <= '0';
+            END IF;
+
+            IF CONV_INTEGER(pipe_x_2_sig) >= 639 THEN
+                PIPE2_USED <= '0';
+                PIPE2_PASSED <= '0';
+            END IF;
+
+            IF CONV_INTEGER(pipe_x_3_sig) >= 639 THEN
+                PIPE3_USED <= '0';
+                PIPE3_PASSED <= '0';
+            END IF;
+
+            -- count pipe when dolphin fully passes it
+            IF CONV_INTEGER(bait_pipe_x) < 50 AND PIPE1_PASSED = '0' AND PASS_COUNT < 8 THEN
+                next_pass_count := next_pass_count + 1;
+                PIPE1_PASSED <= '1';
+            END IF;
+
+            IF CONV_INTEGER(pipe_x_2_sig) < 50 AND PIPE2_PASSED = '0' AND PASS_COUNT < 8 THEN
+                next_pass_count := next_pass_count + 1;
+                PIPE2_PASSED <= '1';
+            END IF;
+
+            IF CONV_INTEGER(pipe_x_3_sig) < 50 AND PIPE3_PASSED = '0' AND PASS_COUNT < 8 THEN
+               next_pass_count := next_pass_count + 1;
+                PIPE3_PASSED <= '1';
+            END IF;
+            -- level 2 starts after passing 4 pipes
+            IF LEVEL_SIG = '0' THEN
+
+    IF next_pass_count >= 4 THEN
+    LEVEL_SIG <= '1';
+
+        PIPE1_PASSED <= '0';
+        PIPE2_PASSED <= '0';
+        PIPE3_PASSED <= '0';
+    END IF;
+
+-- LEVEL 2 -> WIN
+ELSIF LEVEL_SIG = '1' THEN
+
+    IF next_pass_count >= 8 AND Life_signal = '1' THEN
+        WIN_SIG_FROM_LEVEL <= '1';
+    END IF;
+
+END IF;
+        END IF;
+        PASS_COUNT <= next_pass_count;
+    END IF;
+END PROCESS;
 
 LEVEL_GROUND_HIT_SIG <= '1' WHEN
 (
-    CONV_INTEGER(DOLPHIN_Y_POS) + 32 >= 479
+    CONV_INTEGER(DOLPHIN_Y_POS) >= 440
     AND Game_state_signal = "10"
 )
 ELSE '0';
@@ -401,7 +525,7 @@ END PROCESS;
 
 GROUND_HIT_SIG <= '1' WHEN 
 (
-    CONV_INTEGER(DOLPHIN_Y_POS) + 32 >= 479
+    CONV_INTEGER(DOLPHIN_Y_POS) >= 440
     AND Game_state_signal = "01"
 )
 ELSE '0';
@@ -412,53 +536,57 @@ RAW_HIT_SIG <= '1' WHEN
     (PIPE_HIT_LATCH = '1' OR GROUND_HIT_SIG = '1')
 ELSE '0';
 
-DAMAGE_HIT_SIG <= 
+DAMAGE_HIT_SIG <= '1' WHEN 
 (
-    PIPE_HIT_LATCH OR LEVEL_GROUND_HIT_SIG
+    (PIPE_HIT_SIG = '1' OR (LEVEL_GROUND_HIT_SIG = '1' AND RESPAWN_PULSE_SIG = '0'))
+    AND DAMAGE_ALLOWED = '1'
+    AND Game_state_signal = "10"
 )
-WHEN Game_state_signal = "10"
 ELSE '0';
 
---TIMER RUNNING FOR 10 SECONDS
-PROCESS(CLOCK_50, RESET)
-BEGIN
-    IF RESET = '1' THEN
-        LEVEL_TIMER <= 0;
-        LEVEL_SIG <= '0';
 
-    ELSIF rising_edge(CLOCK_50) THEN
 
-        IF Game_state_signal /= "10" THEN
-            LEVEL_TIMER <= 0;
-            LEVEL_SIG <= '0';
-
-        ELSE
-            IF LEVEL_SIG = '0' THEN
-                IF LEVEL_TIMER < 500000000 THEN
-                    LEVEL_TIMER <= LEVEL_TIMER + 1;
-                ELSE
-                    LEVEL_SIG <= '1';
-                    LEVEL_TIMER <= 0;
-                END IF;
-            END IF;
-        END IF;
-
-    END IF;
-END PROCESS;
-
----RESPAWNN TIMER 
+---RESPAWNN TIMER  
 PROCESS(CLOCK_25MHZ)
 BEGIN
     IF rising_edge(CLOCK_25MHZ) THEN
         PREV_DAMAGE_HIT_SIG <= DAMAGE_HIT_SIG;
 
-        IF DAMAGE_HIT_SIG = '1' AND PREV_DAMAGE_HIT_SIG = '0' THEN
+        IF RESET = '1' OR Game_state_signal /= "10" THEN
+            RESPAWN_PULSE_SIG <= '0';
+            RESPAWN_COUNT <= 0;
+
+        ELSIF DAMAGE_HIT_SIG = '1' AND PREV_DAMAGE_HIT_SIG = '0' THEN
             RESPAWN_PULSE_SIG <= '1';
+            RESPAWN_COUNT <= 1000000;
+
+        ELSIF RESPAWN_COUNT > 0 THEN
+            RESPAWN_PULSE_SIG <= '1';
+            RESPAWN_COUNT <= RESPAWN_COUNT - 1;
+
         ELSE
             RESPAWN_PULSE_SIG <= '0';
         END IF;
     END IF;
 END PROCESS;
+
+--cooldowns timer 
+PROCESS(CLOCK_25MHZ)
+BEGIN
+    IF rising_edge(CLOCK_25MHZ) THEN
+        IF RESET = '1' OR Game_state_signal /= "10" THEN
+            DAMAGE_COOLDOWN <= 0;
+
+        ELSIF DAMAGE_HIT_SIG = '1' AND PREV_DAMAGE_HIT_SIG = '0' THEN
+            DAMAGE_COOLDOWN <= 5000000;
+
+        ELSIF DAMAGE_COOLDOWN > 0 THEN
+            DAMAGE_COOLDOWN <= DAMAGE_COOLDOWN - 1;
+        END IF;
+    END IF;
+END PROCESS;
+
+DAMAGE_ALLOWED <= '1' WHEN DAMAGE_COOLDOWN = 0 ELSE '0';
 
     -- Connect VGA sync signals to output, could VGA_HS/VS go straight in instance?
     VGA_HS <= HORIZ_SYNC;
@@ -480,7 +608,7 @@ END PROCESS;
         pixel_row               => PIXEL_ROW,
         pixel_column            => PIXEL_COLUMN,
         Win                     => win_signal,
-        Termination             => game_over_test,
+        Termination             => Termination_signal,
         Pause_OUT               => Pause_out_signal,
         Game_state_signal       => Game_state_signal,
         clock                   => CLOCK_25MHZ,
@@ -568,7 +696,7 @@ END PROCESS;
         Pause_IN        => SW(9), -- different to original fsm diagram
         Mode            => SW(0),
         Life            => FSM_LIFE_SIG,
-        Timer           => SW(1),
+        Timer           => WIN_SIG_FROM_LEVEL,
        -- outputs
         Win             => win_signal,
         Termination     => Termination_signal,
@@ -616,6 +744,11 @@ END PROCESS;
         GAME_OVER_TEXT_RED   => GAME_OVER_TEXT_RED,
         GAME_OVER_TEXT_GREEN => GAME_OVER_TEXT_GREEN,
         GAME_OVER_TEXT_BLUE  => GAME_OVER_TEXT_BLUE,
+
+        GAME_INFO_RED => GAME_INFO_RED,
+        GAME_INFO_GREEN => GAME_INFO_GREEN,
+       GAME_INFO_BLUE => GAME_INFO_BLUE,
+        GAME_INFO_ON => GAME_INFO_ON,
 
         RED_OUT => RED_OUT,
         GREEN_OUT => GREEN_OUT,
@@ -671,18 +804,32 @@ END PROCESS;
         pipe_y_3 => pipe_y_3_sig
     );
 
+    LEVEL_SCORE_DISPLAY: GAME_INFO_TEXT PORT MAP (
+    clk => CLOCK_25MHZ,
+    pixel_row => PIXEL_ROW,
+    pixel_column => PIXEL_COLUMN,
+    Game_state_signal => Game_state_signal,
+    Level_sig => LEVEL_SIG,
+    Score_count => PASS_COUNT_VEC,
+    red => GAME_INFO_RED,
+    green => GAME_INFO_GREEN,
+    blue => GAME_INFO_BLUE,
+    info_on => GAME_INFO_ON
+);
+
+
     PLAYER_CHARACTER: DOLPHIN_MOVEMENT PORT MAP (
-        clk => CLOCK_25MHZ,
-        vert_sync => VERT_SYNC,
-        pixel_row => PIXEL_ROW,
-        pixel_column => PIXEL_COLUMN,
+    clk => CLOCK_25MHZ,
+    vert_sync => VERT_SYNC,
+    pixel_row => PIXEL_ROW,
+    pixel_column => PIXEL_COLUMN,
         left_click => LEFT_CLICK,
-        respawn => RESPAWN_PULSE_SIG,
-        Game_state_signal => Game_state_signal,
-        dolphin_x_pos_out => DOLPHIN_X_POS,
-        dolphin_y_pos_out => DOLPHIN_Y_POS,
-        dolphin_on => DOLPHIN_ON,
-        dolphin_enable => DOLPHIN_ENABLE_SIG
+     respawn => RESPAWN_PULSE_SIG,
+       Game_state_signal => Game_state_signal,
+    dolphin_x_pos_out => DOLPHIN_X_POS,
+    dolphin_y_pos_out => DOLPHIN_Y_POS,
+      dolphin_on => DOLPHIN_ON,
+       dolphin_enable => DOLPHIN_ENABLE_SIG
     );
 
     RH : BCD_TO_SEVENSEG PORT MAP (

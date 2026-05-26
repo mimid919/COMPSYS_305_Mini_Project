@@ -37,8 +37,8 @@ SIGNAL prev_state					: std_logic := '0';
 -- increase gravity to fall faster
 CONSTANT gravity 					: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(1,10); 
 -- for bigger jump --> 1008 (-16) or smaller jump --> 1020 (-4)
-CONSTANT jump				: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(1010, 10); -- -8 is 1016
-CONSTANT dolphin_ground 			: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(472,10); -- ground level for dolphin
+CONSTANT jump				: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(1016, 10); -- -8 is 1016
+CONSTANT dolphin_ground : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(440,10); -- ground level for dolphin, dolphin is 32px
 
 BEGIN   
 
@@ -71,15 +71,15 @@ dolphin_y_pos_out <= dolphin_y_pos;
 			left_click_edge := left_click and (not left_click_prev); -- detect rising edge of left click
 
 			if (state = '1' and prev_state = '0') then
-				dolphin_y_pos <= CONV_STD_LOGIC_VECTOR(240, 10);
-				dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
+    dolphin_y_pos <= CONV_STD_LOGIC_VECTOR(240, 10);
+    dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
 
 elsif respawn = '1' then
     dolphin_y_pos <= CONV_STD_LOGIC_VECTOR(240, 10);
     dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
     left_click_prev <= '0';
 
-			elsif state = '1' then
+elsif state = '1' then
     if (left_click_edge = '1') then
         dolphin_y_motion <= jump;
     else 
@@ -87,18 +87,19 @@ elsif respawn = '1' then
     end if;
 
     dolphin_y_pos <= dolphin_y_pos + dolphin_y_motion;
-				
-				if dolphin_y_pos < size then
-					dolphin_y_pos <= size;
-					--dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
-				end if;
 
-				if dolphin_y_pos >= dolphin_ground then
-					dolphin_y_pos <= dolphin_ground;
-					dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
-				end if;
-			end if;
-			
+    if dolphin_y_pos < size then
+        dolphin_y_pos <= size;
+    end if;
+
+   if dolphin_y_pos >= dolphin_ground then
+    dolphin_y_pos <= dolphin_ground;
+
+    if respawn = '0' then
+        dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
+    end if;
+end if;
+end if;
 		end if;
 	end process;
 

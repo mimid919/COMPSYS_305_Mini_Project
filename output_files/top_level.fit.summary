@@ -1,16 +1,16 @@
-Fitter Status : Successful - Tue May 26 23:36:27 2026
-Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+Fitter Status : Successful - Wed May 27 09:32:34 2026
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : top_level
 Top-level Entity Name : top_level
 Family : Cyclone V
 Device : 5CEBA4F23C7
 Timing Models : Final
-Logic utilization (in ALMs) : 1,175 / 18,480 ( 6 % )
-Total registers : 296
+Logic utilization (in ALMs) : 1,328 / 18,480 ( 7 % )
+Total registers : 358
 Total pins : 83 / 224 ( 37 % )
 Total virtual pins : 0
-Total block memory bits : 418,976 / 3,153,920 ( 13 % )
-Total RAM Blocks : 57 / 308 ( 19 % )
+Total block memory bits : 608,160 / 3,153,920 ( 19 % )
+Total RAM Blocks : 84 / 308 ( 27 % )
 Total DSP Blocks : 0 / 66 ( 0 % )
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0

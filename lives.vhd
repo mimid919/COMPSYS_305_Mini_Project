@@ -79,11 +79,11 @@ dolphin_IS_alive <= '1' WHEN life_count > 0 ELSE '0';
 
 
 row_heart_1 <= pixel_row - CONV_STD_LOGIC_VECTOR(20,10) WHEN pixel_row >= 20 ELSE (OTHERS => '1');
-col_heart_1 <= pixel_column - CONV_STD_LOGIC_VECTOR(5,10)  WHEN pixel_column >= 5  ELSE (OTHERS => '1');
+col_heart_1 <= pixel_column - CONV_STD_LOGIC_VECTOR(15,10)  WHEN pixel_column >= 5  ELSE (OTHERS => '1');
 row_heart_2 <= pixel_row - CONV_STD_LOGIC_VECTOR(20,10) WHEN pixel_row >= 20 ELSE (OTHERS => '1');
-col_heart_2 <= pixel_column - CONV_STD_LOGIC_VECTOR(25,10) WHEN pixel_column >= 25 ELSE (OTHERS => '1');
+col_heart_2 <= pixel_column - CONV_STD_LOGIC_VECTOR(35,10) WHEN pixel_column >= 25 ELSE (OTHERS => '1');
 row_heart_3 <= pixel_row - CONV_STD_LOGIC_VECTOR(20,10) WHEN pixel_row >= 20 ELSE (OTHERS => '1');
-col_heart_3 <= pixel_column - CONV_STD_LOGIC_VECTOR(45,10) WHEN pixel_column >= 45 ELSE (OTHERS => '1');
+col_heart_3 <= pixel_column - CONV_STD_LOGIC_VECTOR(55,10) WHEN pixel_column >= 45 ELSE (OTHERS => '1');
 
 
 font_row_1 <= row_heart_1(3 DOWNTO 1);

@@ -25,7 +25,7 @@ BEGIN
 		operation_mode => "ROM",
 		width_a => 12,
 		widthad_a => 16,
-		numwords_a => 33800,
+		numwords_a => 49400,
 		outdata_reg_a => "UNREGISTERED",
 		init_file => "sunset.mif",
 		intended_device_family => "Cyclone V"
