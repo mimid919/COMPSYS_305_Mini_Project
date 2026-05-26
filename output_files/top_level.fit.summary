@@ -1,11 +1,11 @@
-Fitter Status : Successful - Tue May 26 12:56:05 2026
+Fitter Status : Successful - Tue May 26 13:02:26 2026
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 Revision Name : top_level
 Top-level Entity Name : top_level
 Family : Cyclone V
 Device : 5CEBA4F23C7
 Timing Models : Final
-Logic utilization (in ALMs) : 1,140 / 18,480 ( 6 % )
+Logic utilization (in ALMs) : 1,136 / 18,480 ( 6 % )
 Total registers : 398
 Total pins : 83 / 224 ( 37 % )
 Total virtual pins : 0

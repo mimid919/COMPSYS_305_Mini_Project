@@ -82,12 +82,12 @@ BEGIN
             pipe_passed_int <= '0';
             -- home page
             IF Game_state_signal = "00" THEN
-                pipe_x_pos_1 <= CONV_STD_LOGIC_VECTOR(640, 10);
+                pipe_x_pos_1 <= CONV_STD_LOGIC_VECTOR(640, 10);   -- off the screen so that the FIRST PIPE DOESNT APPEAR FIRST 
                 pipe_x_pos_2 <= CONV_STD_LOGIC_VECTOR(213, 10);
                 pipe_x_pos_3 <= CONV_STD_LOGIC_VECTOR(426, 10);
                 pipe_top_height_1 <= CONV_STD_LOGIC_VECTOR(200, 10);
-                pipe_top_height_2 <= CONV_STD_LOGIC_VECTOR(200, 10);
-                pipe_top_height_3 <= CONV_STD_LOGIC_VECTOR(200, 10);
+                pipe_top_height_2 <= CONV_STD_LOGIC_VECTOR(220, 10);
+                pipe_top_height_3 <= CONV_STD_LOGIC_VECTOR(150, 10);
                 pipe_1_ready <= '0';
                 pipe_2_ready <= '1';
                 pipe_3_ready <= '1';
