@@ -288,7 +288,7 @@ END COMPONENT GAME_LOGIC;
     SIGNAL Game_state_signal        : STD_LOGIC_VECTOR(1 downto 0) := "00";  -- used to be called "Game_state_signal"
     
     -- test it by using a switch so we can actually see the game won page
-    --SIGNAL win_test : std_logic;
+    -- SIGNAL win_signal : std_logic;
     --SIGNAL game_over_test : std_logic;
 
 
@@ -369,7 +369,7 @@ BEGIN
 
     RESET <= NOT KEY(0); -- active low reset
     -- testing game_won_text by making win high
-     --win_test  <= SW(8);
+    --  win_signal  <= SW(8);
      --game_over_test <= SW(7);
 
 
@@ -382,7 +382,7 @@ BEGIN
     BG: BACKGROUND PORT MAP (
         pixel_row               => PIXEL_ROW,
         pixel_column            => PIXEL_COLUMN,
-        Win                     => Win_signal,
+        Win                     => win_signal,
         Termination             => Termination_signal,
         Pause_OUT               => Pause_out_signal,
         Game_state_signal       => Game_state_signal,
@@ -454,7 +454,7 @@ BEGIN
         clk => CLOCK_25MHZ,
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
-        win => Win_signal,
+        win => win_signal,
         red => GAME_WON_TEXT_RED,
         green => GAME_WON_TEXT_GREEN,
         blue => GAME_WON_TEXT_BLUE
@@ -465,7 +465,7 @@ BEGIN
         clk => CLOCK_25MHZ,
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
-        win => Win_signal,
+        win => win_signal,
         termination => Termination_signal,
         red => GAME_OVER_TEXT_RED,
         green => GAME_OVER_TEXT_GREEN,
@@ -503,7 +503,7 @@ BEGIN
 
     LAYER_RENDERER: LAYER PORT MAP (
 
-        Win             => Win_signal,
+        Win             => win_signal,
         Termination     => Termination_signal,
         Pause_OUT       => Pause_out_signal,
         Game_state_signal      => Game_state_signal,

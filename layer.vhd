@@ -68,11 +68,22 @@ begin
 
     -- -------------------------- GAME WON --------------------------
     ELSIF Win = '1' THEN 
-        IF (GAME_WON_TEXT_RED /= "0000" OR GAME_WON_TEXT_GREEN /= "0000" OR GAME_WON_TEXT_BLUE /= "0000") THEN
-            RED_OUT   <= GAME_WON_TEXT_RED;
-            GREEN_OUT <= GAME_WON_TEXT_GREEN;                                   
-            BLUE_OUT  <= GAME_WON_TEXT_BLUE;   
-        END IF;
+
+    -- black background
+    RED_OUT   <= "0000";
+    GREEN_OUT <= "0000";
+    BLUE_OUT  <= "0000";
+
+    -- draw text on top
+    IF (GAME_WON_TEXT_RED /= "0000" OR 
+        GAME_WON_TEXT_GREEN /= "0000" OR 
+        GAME_WON_TEXT_BLUE /= "0000") THEN
+
+        RED_OUT   <= GAME_WON_TEXT_RED;
+        GREEN_OUT <= GAME_WON_TEXT_GREEN;                                   
+        BLUE_OUT  <= GAME_WON_TEXT_BLUE;
+
+    END IF;
 
     -- -------------------------- GAME OVER --------------------------
     ELSIF Win = '0' AND Termination = '1' THEN 
