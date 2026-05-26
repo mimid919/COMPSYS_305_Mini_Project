@@ -17,7 +17,7 @@ ENTITY PIPES IS
         lfsr_value				    : IN std_logic_vector(7 DOWNTO 0);
         Game_state_signal           : IN std_logic_vector(1 DOWNTO 0);
         pipe_speed_up               : IN std_logic;
-        first_click                 : IN std_logic; 
+        first_click                 : IN std_logic;   -- high on first click rising edge
 
         pipe_on                     : OUT std_logic;
         pipe_enable				    : OUT std_logic;
@@ -34,8 +34,8 @@ ARCHITECTURE behavior OF PIPES IS
     SIGNAL pipe_x_pos_3				: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(426, 10);
 
     SIGNAL pipe_top_height_1         : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(200, 10); -- initial height of top pipe
-    SIGNAL pipe_top_height_2         : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(200, 10);
-    SIGNAL pipe_top_height_3         : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(200, 10);
+    SIGNAL pipe_top_height_2         : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(220, 10);
+    SIGNAL pipe_top_height_3         : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(150, 10);
 
     SIGNAL random_height_1           : std_logic_vector(9 DOWNTO 0);
     SIGNAL random_height_2           : std_logic_vector(9 DOWNTO 0);
@@ -70,6 +70,7 @@ BEGIN
     green <= "1000" when (pipe_visible = '1' and state = '1') else "0000";
     blue  <= "0000";   
 
+    -- for bait
     pipe_x_1 <= pipe_x_pos_1;
     pipe_y_1 <= pipe_top_height_1;
 
@@ -81,7 +82,7 @@ BEGIN
             pipe_passed_int <= '0';
             -- home page
             IF Game_state_signal = "00" THEN
-                pipe_x_pos_1 <= CONV_STD_LOGIC_VECTOR(0, 10);
+                pipe_x_pos_1 <= CONV_STD_LOGIC_VECTOR(640, 10);
                 pipe_x_pos_2 <= CONV_STD_LOGIC_VECTOR(213, 10);
                 pipe_x_pos_3 <= CONV_STD_LOGIC_VECTOR(426, 10);
                 pipe_top_height_1 <= CONV_STD_LOGIC_VECTOR(200, 10);
@@ -91,7 +92,8 @@ BEGIN
                 pipe_2_ready <= '1';
                 pipe_3_ready <= '1';
             --  GAME mode and TRAINING mode, only start moving after "first_click"
-            ELSIF state = '1' and frame_tick = '1' and first_click = '1' THEN
+            ELSIF state = '1' and frame_tick = '1'   and first_click = '1' THEN
+            -- 
                 IF pipe_x_pos_1 <= pipe_step THEN
                     if pipe_1_ready = '1' then
                         pipe_passed_int <= '1';
