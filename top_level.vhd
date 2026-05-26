@@ -132,7 +132,8 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
 
     COMPONENT LAYER IS
     PORT
-       (     Win                     : IN STD_LOGIC;  -- logic high
+       (     clk : in std_logic;
+             Win                     : IN STD_LOGIC;  -- logic high
             Termination             : IN STD_LOGIC;  -- logic high
             Pause_OUT               : IN STD_LOGIC;  -- logic high
             Game_state_signal       : IN std_logic_vector(1 DOWNTO 0);
@@ -314,6 +315,7 @@ END COMPONENT GAME_LOGIC;
 
     -- final colour outputs to VGA
     SIGNAL RED_OUT, GREEN_OUT, BLUE_OUT : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL VGA_R_temp, VGA_G_temp, VGA_B_temp : STD_LOGIC_VECTOR(3 DOWNTO 0);
 
     SIGNAL RANDOM_VALUE : STD_LOGIC_VECTOR(7 DOWNTO 0); -- output from LFSR to connect to pipes for random pipe heights
 
@@ -360,12 +362,19 @@ BEGIN
     -- testing game_won_text by making win high
      --win_test  <= SW(8);
      --game_over_test <= SW(7);
-     TIMER_SIG <= SW(1); -- testing timer signal by connecting to switch, needs to be changed to an actual timer output from the FSM
+     ---TIMER_SIG <= SW(1); -- testing timer signal by connecting to switch, needs to be changed to an actual timer output from the FSM
 
 
     -- need to change the lifes in the other components to the fsm life
 
-
+    PROCESS(CLOCK_50)
+    BEGIN
+        IF rising_edge(CLOCK_50) THEN
+            VGA_R <= VGA_R_temp;  
+            VGA_G <= VGA_G_temp;
+            VGA_B <= VGA_B_temp; 
+        END IF;
+    END PROCESS;
 
 ------------------------------------ PORT MAP DECLARATION START ------------------------------------
 
@@ -491,6 +500,7 @@ BEGIN
 
     LAYER_RENDERER: LAYER PORT MAP (
 
+        clk => CLOCK_25MHZ,
         Win             => Win_signal,
         Termination     => Termination_signal,
         Pause_OUT       => Pause_out_signal,
@@ -663,9 +673,9 @@ BEGIN
         red => RED_OUT,
         green => GREEN_OUT,
         blue => BLUE_OUT,
-        red_out => VGA_R,
-        green_out => VGA_G,
-        blue_out => VGA_B,
+        red_out => VGA_R_temp,
+        green_out => VGA_G_temp,
+        blue_out => VGA_B_temp,
         horiz_sync_out => HORIZ_SYNC,
         vert_sync_out => VERT_SYNC,
         pixel_row => PIXEL_ROW,

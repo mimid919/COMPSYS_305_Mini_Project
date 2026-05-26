@@ -5,7 +5,8 @@ USE  IEEE.STD_LOGIC_UNSIGNED.all;
 
 ENTITY LAYER IS
 	PORT
-		(   Win                     : IN STD_LOGIC;  -- logic high
+		(   clk : IN STD_LOGIC; 
+            Win                     : IN STD_LOGIC;  -- logic high
             Termination             : IN STD_LOGIC;  -- logic high
             Pause_OUT               : IN STD_LOGIC;  -- logic high
             Game_state_signal       : IN std_logic_vector(1 DOWNTO 0);
@@ -34,83 +35,74 @@ architecture behaviour of LAYER is
 
 BEGIN
 
-process( Win, Termination, Pause_OUT, Game_state_signal,
-    HOME_DISPLAY_TEXT_RED, HOME_DISPLAY_TEXT_GREEN, HOME_DISPLAY_TEXT_BLUE,
-    LIVES_RED, LIVES_GREEN, LIVES_BLUE, LIVES_ON,
-    SCORE_RED, SCORE_GREEN, SCORE_BLUE, SCORE_ON,
-    SPRITE_RED, SPRITE_GREEN, SPRITE_BLUE, SPRITE_ON,
-    BAIT_RED, BAIT_GREEN, BAIT_BLUE, BAIT_ON,
-    PIPE_RED, PIPE_GREEN, PIPE_BLUE, PIPE_ON,
-    BACKGROUND_RED, BACKGROUND_GREEN, BACKGROUND_BLUE,
-    GAME_WON_TEXT_RED, GAME_WON_TEXT_GREEN, GAME_WON_TEXT_BLUE,
-    GAME_OVER_TEXT_RED, GAME_OVER_TEXT_GREEN, GAME_OVER_TEXT_BLUE
-)
-begin
+PROCESS(clk) 
+BEGIN
+    IF rising_edge(clk) THEN
     -- =================================================================
     -- STEP 1: Default to the Background color determined by BACKGROUND.vhd
     -- =================================================================
-    RED_OUT   <= BACKGROUND_RED;
-    GREEN_OUT <= BACKGROUND_GREEN;
-    BLUE_OUT  <= BACKGROUND_BLUE;
+        RED_OUT   <= BACKGROUND_RED;
+        GREEN_OUT <= BACKGROUND_GREEN;
+        BLUE_OUT  <= BACKGROUND_BLUE;
 
     -- =================================================================
     -- STEP 2: Layer game elements or state text on top based on state
     -- =================================================================
     
     -- -------------------------- HOME SCREEN --------------------------
-    IF Game_state_signal = "00" THEN 
-        -- If text pixel is NOT black/transparent, draw it. Otherwise, keep background.
-        IF (HOME_DISPLAY_TEXT_RED /= "0000" OR HOME_DISPLAY_TEXT_GREEN /= "0000" OR HOME_DISPLAY_TEXT_BLUE /= "0000") THEN
-            RED_OUT   <= HOME_DISPLAY_TEXT_RED;
-            GREEN_OUT <= HOME_DISPLAY_TEXT_GREEN;
-            BLUE_OUT  <= HOME_DISPLAY_TEXT_BLUE;
-        END IF;
+        IF Game_state_signal = "00" THEN 
+            -- If text pixel is NOT black/transparent, draw it. Otherwise, keep background.
+            IF (HOME_DISPLAY_TEXT_RED /= "0000" OR HOME_DISPLAY_TEXT_GREEN /= "0000" OR HOME_DISPLAY_TEXT_BLUE /= "0000") THEN
+                RED_OUT   <= HOME_DISPLAY_TEXT_RED;
+                GREEN_OUT <= HOME_DISPLAY_TEXT_GREEN;
+                BLUE_OUT  <= HOME_DISPLAY_TEXT_BLUE;
+            END IF;
 
-    -- -------------------------- GAME WON --------------------------
-    ELSIF Win = '1' THEN 
-        IF (GAME_WON_TEXT_RED /= "0000" OR GAME_WON_TEXT_GREEN /= "0000" OR GAME_WON_TEXT_BLUE /= "0000") THEN
-            RED_OUT   <= GAME_WON_TEXT_RED;
-            GREEN_OUT <= GAME_WON_TEXT_GREEN;                                   
-            BLUE_OUT  <= GAME_WON_TEXT_BLUE;   
-        END IF;
+        -- -------------------------- GAME WON --------------------------
+        ELSIF Win = '1' THEN 
+            IF (GAME_WON_TEXT_RED /= "0000" OR GAME_WON_TEXT_GREEN /= "0000" OR GAME_WON_TEXT_BLUE /= "0000") THEN
+                RED_OUT   <= GAME_WON_TEXT_RED;
+                GREEN_OUT <= GAME_WON_TEXT_GREEN;                                   
+                BLUE_OUT  <= GAME_WON_TEXT_BLUE;   
+            END IF;
 
-    -- -------------------------- GAME OVER --------------------------
-    ELSIF Win = '0' AND Termination = '1' THEN 
-        IF (GAME_OVER_TEXT_RED /= "0000" OR GAME_OVER_TEXT_GREEN /= "0000" OR GAME_OVER_TEXT_BLUE /= "0000") THEN
-            RED_OUT   <= GAME_OVER_TEXT_RED;
-            GREEN_OUT <= GAME_OVER_TEXT_GREEN;                                   
-            BLUE_OUT  <= GAME_OVER_TEXT_BLUE;   
-        END IF;
+        -- -------------------------- GAME OVER --------------------------
+        ELSIF Win = '0' AND Termination = '1' THEN 
+            IF (GAME_OVER_TEXT_RED /= "0000" OR GAME_OVER_TEXT_GREEN /= "0000" OR GAME_OVER_TEXT_BLUE /= "0000") THEN
+                RED_OUT   <= GAME_OVER_TEXT_RED;
+                GREEN_OUT <= GAME_OVER_TEXT_GREEN;                                   
+                BLUE_OUT  <= GAME_OVER_TEXT_BLUE;   
+            END IF;
 
-    -- -------------------------- PAUSE --------------------------
-    ELSIF Pause_OUT = '1' THEN
-        -- Add pause text/overlay handling here later
+        -- -------------------------- PAUSE --------------------------
+        ELSIF Pause_OUT = '1' THEN
+            -- Add pause text/overlay handling here later
 
-    -- -------------------------- DURING GAMEPLAY (01 or 11) --------------------------
-    ELSE 
-        -- Priority: Lives > Dolphin (Sprite) > Bait > Pipes > (Background handles itself)
-        IF (LIVES_ON = '1') THEN
-            RED_OUT   <= LIVES_RED;
-            GREEN_OUT <= LIVES_GREEN;
-            BLUE_OUT  <= LIVES_BLUE;
-        ELSIF (SCORE_ON = '1') THEN
-            RED_OUT   <= SCORE_RED;
-            GREEN_OUT <= SCORE_GREEN;
-            BLUE_OUT  <= SCORE_BLUE;
-        ELSIF (SPRITE_ON = '1') THEN
-            RED_OUT   <= SPRITE_RED;
-            GREEN_OUT <= SPRITE_GREEN;
-            BLUE_OUT  <= SPRITE_BLUE;
-        ELSIF (BAIT_ON = '1') THEN
-            RED_OUT   <= BAIT_RED;
-            GREEN_OUT <= BAIT_GREEN;
-            BLUE_OUT  <= BAIT_BLUE;
-        ELSIF (PIPE_ON = '1') THEN
-            RED_OUT   <= PIPE_RED;
-            GREEN_OUT <= PIPE_GREEN;
-            BLUE_OUT  <= PIPE_BLUE;
+        -- -------------------------- DURING GAMEPLAY (01 or 11) --------------------------
+        ELSE 
+            -- Priority: Lives > Dolphin (Sprite) > Bait > Pipes > (Background handles itself)
+            IF (LIVES_ON = '1') THEN
+                RED_OUT   <= LIVES_RED;
+                GREEN_OUT <= LIVES_GREEN;
+                BLUE_OUT  <= LIVES_BLUE;
+            ELSIF (SCORE_ON = '1') THEN
+                RED_OUT   <= SCORE_RED;
+                GREEN_OUT <= SCORE_GREEN;
+                BLUE_OUT  <= SCORE_BLUE;
+            ELSIF (SPRITE_ON = '1') THEN
+                RED_OUT   <= SPRITE_RED;
+                GREEN_OUT <= SPRITE_GREEN;
+                BLUE_OUT  <= SPRITE_BLUE;
+            ELSIF (BAIT_ON = '1') THEN
+                RED_OUT   <= BAIT_RED;
+                GREEN_OUT <= BAIT_GREEN;
+                BLUE_OUT  <= BAIT_BLUE;
+            ELSIF (PIPE_ON = '1') THEN
+                RED_OUT   <= PIPE_RED;
+                GREEN_OUT <= PIPE_GREEN;
+                BLUE_OUT  <= PIPE_BLUE;
+            END IF;
         END IF;
-        
     END IF;
 end process;
 end behaviour;
