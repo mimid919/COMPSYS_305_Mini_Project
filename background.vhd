@@ -35,50 +35,59 @@ ARCHITECTURE behavior OF BACKGROUND IS
 
     SIGNAL rom_address : STD_LOGIC_VECTOR(15 DOWNTO 0);
     SIGNAL sunset_pixel : STD_LOGIC_VECTOR (11 DOWNTO 0);
+    SIGNAL red_int, green_int, blue_int : std_logic_vector(3 DOWNTO 0) := (OTHERS => '0');
+
+    SIGNAL row_i    : integer := 0;
+    SIGNAL col_i    : integer := 0;
+    SIGNAL img_addr : integer := 0;
 BEGIN
-    PROCESS (pixel_row, pixel_column, Game_state_signal, Win, Termination , Pause_OUT)
-    VARIABLE row_i : integer;
-    VARIABLE col_i : integer;
-    VARIABLE img_addr : integer;
-    BEGIN -- In order of Priority THIS WHOLE PROCESS NEEDS CHANGING AS WE IMPLEMENT TIMER ETC
-        -------------------------- PAUSE  --------------------------
-        IF Pause_OUT = '1' THEN
-            -- add later 
-        -------------------------- HOME SCREEN  --------------------------
-            -- purple background (blue TXT)
-        ELSIF Game_state_signal = "00"  THEN 
-            RED <= "0101";
-            GREEN <= "0000";
-            BLUE <= "0110";
-        -------------------------- GAME WON  --------------------------
-            --  black background, green text
-        ELSIF Win = '1'  THEN 
-            RED <= "0000";
-            GREEN <= "0000";
-            BLUE <= "0000";
-        -------------------------- GAME OVER  --------------------------
-            --  black background, red text
-        ELSIF Win = '0' and Termination ='1' THEN 
-            RED <= "0000";
-            GREEN <= "0000";
-            BLUE <= "0000";
-       -------------------------- TRAINING & GAME MODE  --------------------------
-            -- game screen, scaled sunset background image
-        ELSIF Game_state_signal = "01" OR Game_state_signal = "10" THEN 
-            row_i := (CONV_INTEGER(pixel_row) * SOURCE_HEIGHT) / TARGET_HEIGHT;
-            col_i := (CONV_INTEGER(pixel_column) * SOURCE_WIDTH) / TARGET_WIDTH;
-            img_addr := row_i * SOURCE_WIDTH + col_i;
+    PROCESS (clock)
+    begin
+        IF rising_edge(clock) THEN
+            row_i <=  (CONV_INTEGER(pixel_row) * 17) / 64;
+            col_i <=  (CONV_INTEGER(pixel_column) * 13) / 32;
+
+            img_addr <=  row_i * SOURCE_WIDTH + col_i;
             rom_address <= CONV_STD_LOGIC_VECTOR(img_addr, 16);
-            RED <= sunset_pixel(11 DOWNTO 8);
-            GREEN <= sunset_pixel(7 DOWNTO 4);
-            BLUE <= sunset_pixel(3 DOWNTO 0);
-        -------------------------- DEFAULT MODE -> RED SCREEN BECASUE ITS AN ERROR --------------------------
-        ELSE -- default to avoid latch
-            RED <= "1000";
-            GREEN <= "0000";
-            BLUE <= "0000";
         END IF;
+    End process;
+
+
+    PROCESS (clock)
+    
+    BEGIN
+        IF (rising_edge(clock)) THEN
+            IF Pause_OUT = '1' THEN
+                    red_int <= sunset_pixel(11 DOWNTO 8);
+                    green_int <= sunset_pixel(7 DOWNTO 4);
+                    blue_int <= sunset_pixel(3 DOWNTO 0);
+                ELSIF Game_state_signal = "00"  THEN
+                    red_int <= "0101";
+                    green_int <= "0000";
+                    blue_int <= "0110";
+                ELSIF Win = '1'  THEN
+                    red_int <= "0001";
+                    green_int <= "0001";
+                    blue_int <= "0001";
+                ELSIF Win = '0' and Termination ='1' THEN
+                    red_int <= "0001";
+                    green_int <= "0001";
+                    blue_int <= "0001";
+                ELSIF Game_state_signal = "01" OR Game_state_signal = "10" THEN
+                    red_int <= sunset_pixel(11 DOWNTO 8);
+                    green_int <= sunset_pixel(7 DOWNTO 4);
+                    blue_int <= sunset_pixel(3 DOWNTO 0);
+                ELSE
+                    red_int <= "1000";
+                    green_int <= "0000";
+                    blue_int <= "0000";
+                END IF;
+            END IF;
     END PROCESS;
+
+    red <= red_int;
+    green <= green_int;
+    blue <= blue_int;
 
     SUNSET_BACKGROUND : sunset_rom PORT MAP (
         address => rom_address,
