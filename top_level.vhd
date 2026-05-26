@@ -367,9 +367,9 @@ BEGIN
 
     -- need to change the lifes in the other components to the fsm life
 
-    PROCESS(CLOCK_50)
+    PROCESS(CLOCK_25MHZ)
     BEGIN
-        IF rising_edge(CLOCK_50) THEN
+        IF rising_edge(CLOCK_25MHZ) THEN
             VGA_R <= VGA_R_temp;  
             VGA_G <= VGA_G_temp;
             VGA_B <= VGA_B_temp; 

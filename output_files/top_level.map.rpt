@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_level
-Tue May 26 12:27:45 2026
+Tue May 26 12:45:09 2026
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -166,13 +166,13 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue May 26 12:27:45 2026           ;
+; Analysis & Synthesis Status     ; Successful - Tue May 26 12:45:09 2026           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; top_level                                       ;
 ; Top-level Entity Name           ; top_level                                       ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 435                                             ;
+; Total registers                 ; 470                                             ;
 ; Total pins                      ; 83                                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 422,944                                         ;
@@ -291,7 +291,8 @@ refer to the applicable agreement for further details.
 ;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
 ;     Processor 6            ;   0.0%      ;
-;     Processors 7-8         ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -362,16 +363,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                      ;
 +---------------------------------------------+----------------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 913                                                                        ;
+; Estimate of Logic utilization (ALMs needed) ; 890                                                                        ;
 ;                                             ;                                                                            ;
-; Combinational ALUT usage for logic          ; 1575                                                                       ;
-;     -- 7 input functions                    ; 12                                                                         ;
-;     -- 6 input functions                    ; 223                                                                        ;
-;     -- 5 input functions                    ; 160                                                                        ;
-;     -- 4 input functions                    ; 206                                                                        ;
-;     -- <=3 input functions                  ; 974                                                                        ;
+; Combinational ALUT usage for logic          ; 1546                                                                       ;
+;     -- 7 input functions                    ; 11                                                                         ;
+;     -- 6 input functions                    ; 205                                                                        ;
+;     -- 5 input functions                    ; 165                                                                        ;
+;     -- 4 input functions                    ; 209                                                                        ;
+;     -- <=3 input functions                  ; 956                                                                        ;
 ;                                             ;                                                                            ;
-; Dedicated logic registers                   ; 435                                                                        ;
+; Dedicated logic registers                   ; 470                                                                        ;
 ;                                             ;                                                                            ;
 ; I/O pins                                    ; 83                                                                         ;
 ; Total MLAB memory bits                      ; 0                                                                          ;
@@ -383,9 +384,9 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1                                                                          ;
 ;                                             ;                                                                            ;
 ; Maximum fan-out node                        ; pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
-; Maximum fan-out                             ; 534                                                                        ;
-; Total fan-out                               ; 8292                                                                       ;
-; Average fan-out                             ; 3.48                                                                       ;
+; Maximum fan-out                             ; 581                                                                        ;
+; Total fan-out                               ; 8255                                                                       ;
+; Average fan-out                             ; 3.46                                                                       ;
 +---------------------------------------------+----------------------------------------------------------------------------+
 
 
@@ -394,8 +395,8 @@ refer to the applicable agreement for further details.
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                               ; Entity Name         ; Library Name ;
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |top_level                                   ; 1575 (1)            ; 435 (12)                  ; 422944            ; 1          ; 83   ; 0            ; |top_level                                                                                                                                        ; top_level           ; work         ;
-;    |BACKGROUND:BG|                           ; 64 (52)             ; 64 (61)                   ; 405600            ; 1          ; 0    ; 0            ; |top_level|BACKGROUND:BG                                                                                                                          ; BACKGROUND          ; work         ;
+; |top_level                                   ; 1546 (1)            ; 470 (12)                  ; 422944            ; 1          ; 83   ; 0            ; |top_level                                                                                                                                        ; top_level           ; work         ;
+;    |BACKGROUND:BG|                           ; 66 (54)             ; 64 (61)                   ; 405600            ; 1          ; 0    ; 0            ; |top_level|BACKGROUND:BG                                                                                                                          ; BACKGROUND          ; work         ;
 ;       |sunset_rom:SUNSET_BACKGROUND|         ; 12 (0)              ; 3 (0)                     ; 405600            ; 0          ; 0    ; 0            ; |top_level|BACKGROUND:BG|sunset_rom:SUNSET_BACKGROUND                                                                                             ; sunset_rom          ; work         ;
 ;          |altsyncram:ROM|                    ; 12 (0)              ; 3 (0)                     ; 405600            ; 0          ; 0    ; 0            ; |top_level|BACKGROUND:BG|sunset_rom:SUNSET_BACKGROUND|altsyncram:ROM                                                                              ; altsyncram          ; work         ;
 ;             |altsyncram_43u3:auto_generated| ; 12 (0)              ; 3 (3)                     ; 405600            ; 0          ; 0    ; 0            ; |top_level|BACKGROUND:BG|sunset_rom:SUNSET_BACKGROUND|altsyncram:ROM|altsyncram_43u3:auto_generated                                               ; altsyncram_43u3     ; work         ;
@@ -451,19 +452,19 @@ refer to the applicable agreement for further details.
 ;       |char_rom:\GEN_CHARS:9:CHAR_ROM_INST|  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:9:CHAR_ROM_INST                                                                 ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:9:CHAR_ROM_INST|altsyncram:altsyncram_component                                 ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:9:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated  ; altsyncram_d5g1     ; work         ;
-;    |LAYER:LAYER_RENDERER|                    ; 27 (27)             ; 12 (12)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|LAYER:LAYER_RENDERER                                                                                                                   ; LAYER               ; work         ;
+;    |LAYER:LAYER_RENDERER|                    ; 24 (24)             ; 47 (47)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|LAYER:LAYER_RENDERER                                                                                                                   ; LAYER               ; work         ;
 ;    |MOUSE:MOUSE_CONTROLS|                    ; 108 (108)           ; 118 (118)                 ; 0                 ; 0          ; 0    ; 0            ; |top_level|MOUSE:MOUSE_CONTROLS                                                                                                                   ; MOUSE               ; work         ;
-;    |PIPES:PIPE_DISPLAY|                      ; 220 (220)           ; 53 (53)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|PIPES:PIPE_DISPLAY                                                                                                                     ; PIPES               ; work         ;
+;    |PIPES:PIPE_DISPLAY|                      ; 198 (198)           ; 53 (53)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|PIPES:PIPE_DISPLAY                                                                                                                     ; PIPES               ; work         ;
 ;    |VGA_SYNC:VGA_REFRESH|                    ; 39 (39)             ; 57 (57)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|VGA_SYNC:VGA_REFRESH                                                                                                                   ; VGA_SYNC            ; work         ;
 ;    |bait:RANDOM_BAIT|                        ; 81 (81)             ; 11 (11)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|bait:RANDOM_BAIT                                                                                                                       ; bait                ; work         ;
 ;    |dolphin_movement:PLAYER_CHARACTER|       ; 54 (54)             ; 25 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|dolphin_movement:PLAYER_CHARACTER                                                                                                      ; dolphin_movement    ; work         ;
-;    |dolphin_visual:DOLPHIN_SPRITE_INST|      ; 26 (26)             ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |top_level|dolphin_visual:DOLPHIN_SPRITE_INST                                                                                                     ; dolphin_visual      ; work         ;
+;    |dolphin_visual:DOLPHIN_SPRITE_INST|      ; 30 (30)             ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |top_level|dolphin_visual:DOLPHIN_SPRITE_INST                                                                                                     ; dolphin_visual      ; work         ;
 ;       |dolphin_rom:DOLPHIN|                  ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |top_level|dolphin_visual:DOLPHIN_SPRITE_INST|dolphin_rom:DOLPHIN                                                                                 ; dolphin_rom         ; work         ;
 ;          |altsyncram:ROM|                    ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |top_level|dolphin_visual:DOLPHIN_SPRITE_INST|dolphin_rom:DOLPHIN|altsyncram:ROM                                                                  ; altsyncram          ; work         ;
 ;             |altsyncram_j3u3:auto_generated| ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |top_level|dolphin_visual:DOLPHIN_SPRITE_INST|dolphin_rom:DOLPHIN|altsyncram:ROM|altsyncram_j3u3:auto_generated                                   ; altsyncram_j3u3     ; work         ;
-;    |game_logic:GAME_RULE|                    ; 131 (131)           ; 63 (63)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|game_logic:GAME_RULE                                                                                                                   ; game_logic          ; work         ;
+;    |game_logic:GAME_RULE|                    ; 126 (126)           ; 63 (63)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|game_logic:GAME_RULE                                                                                                                   ; game_logic          ; work         ;
 ;    |lfsr:RANDOM_NUMBER|                      ; 6 (6)               ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|lfsr:RANDOM_NUMBER                                                                                                                     ; lfsr                ; work         ;
-;    |lives:LIFE_DISPLAY|                      ; 48 (46)             ; 1 (1)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY                                                                                                                     ; lives               ; work         ;
+;    |lives:LIFE_DISPLAY|                      ; 47 (45)             ; 1 (1)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY                                                                                                                     ; lives               ; work         ;
 ;       |char_rom:HEART_ROM|                   ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY|char_rom:HEART_ROM                                                                                                  ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY|char_rom:HEART_ROM|altsyncram:altsyncram_component                                                                  ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY|char_rom:HEART_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated                                   ; altsyncram_d5g1     ; work         ;
@@ -491,7 +492,7 @@ refer to the applicable agreement for further details.
 ;          |lpm_divide_u4m:auto_generated|     ; 110 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod1|lpm_divide_u4m:auto_generated                                                         ; lpm_divide_u4m      ; work         ;
 ;             |sign_div_unsign_1nh:divider|    ; 110 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod1|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider                             ; sign_div_unsign_1nh ; work         ;
 ;                |alt_u_div_82f:divider|       ; 110 (110)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|position_to_BCD:sevenseg_display|lpm_divide:Mod1|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider|alt_u_div_82f:divider       ; alt_u_div_82f       ; work         ;
-;    |score_text:SCORE_DISPLAY|                ; 120 (118)           ; 1 (1)                     ; 4096              ; 0          ; 0    ; 0            ; |top_level|score_text:SCORE_DISPLAY                                                                                                               ; score_text          ; work         ;
+;    |score_text:SCORE_DISPLAY|                ; 116 (114)           ; 1 (1)                     ; 4096              ; 0          ; 0    ; 0            ; |top_level|score_text:SCORE_DISPLAY                                                                                                               ; score_text          ; work         ;
 ;       |char_rom:SCORE_ROM|                   ; 2 (2)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |top_level|score_text:SCORE_DISPLAY|char_rom:SCORE_ROM                                                                                            ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |top_level|score_text:SCORE_DISPLAY|char_rom:SCORE_ROM|altsyncram:altsyncram_component                                                            ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |top_level|score_text:SCORE_DISPLAY|char_rom:SCORE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated                             ; altsyncram_d5g1     ; work         ;
@@ -597,6 +598,25 @@ Encoding Type:  One-Hot
 ; Register name                                     ; Reason for Removal                                           ;
 +---------------------------------------------------+--------------------------------------------------------------+
 ; lfsr:RANDOM_NUMBER|lfsr_reg[0]                    ; Stuck at GND due to stuck port data_in                       ;
+; LAYER:LAYER_RENDERER|reg_OVER_BLUE[0..3]          ; Stuck at GND due to stuck port data_in                       ;
+; LAYER:LAYER_RENDERER|reg_OVER_GREEN[0..3]         ; Stuck at GND due to stuck port data_in                       ;
+; LAYER:LAYER_RENDERER|reg_OVER_RED[0..2]           ; Stuck at GND due to stuck port data_in                       ;
+; LAYER:LAYER_RENDERER|reg_OVER_RED[3]              ; Stuck at VCC due to stuck port data_in                       ;
+; LAYER:LAYER_RENDERER|reg_WON_BLUE[0..3]           ; Stuck at GND due to stuck port data_in                       ;
+; LAYER:LAYER_RENDERER|reg_WON_GREEN[0..2]          ; Stuck at GND due to stuck port data_in                       ;
+; LAYER:LAYER_RENDERER|reg_WON_GREEN[3]             ; Stuck at VCC due to stuck port data_in                       ;
+; LAYER:LAYER_RENDERER|reg_WON_RED[0..3]            ; Stuck at GND due to stuck port data_in                       ;
+; LAYER:LAYER_RENDERER|reg_HOME_BLUE[0..2]          ; Stuck at GND due to stuck port data_in                       ;
+; LAYER:LAYER_RENDERER|reg_HOME_GREEN[0..3]         ; Stuck at GND due to stuck port data_in                       ;
+; LAYER:LAYER_RENDERER|reg_LIVES_BLUE[0..3]         ; Stuck at GND due to stuck port data_in                       ;
+; LAYER:LAYER_RENDERER|reg_LIVES_GREEN[0..3]        ; Stuck at GND due to stuck port data_in                       ;
+; LAYER:LAYER_RENDERER|reg_LIVES_RED[0..2]          ; Stuck at GND due to stuck port data_in                       ;
+; LAYER:LAYER_RENDERER|reg_BAIT_BLUE[0..3]          ; Stuck at GND due to stuck port data_in                       ;
+; LAYER:LAYER_RENDERER|reg_BAIT_GREEN[0..2]         ; Stuck at GND due to stuck port data_in                       ;
+; LAYER:LAYER_RENDERER|reg_BAIT_RED[0..2]           ; Stuck at GND due to stuck port data_in                       ;
+; LAYER:LAYER_RENDERER|reg_PIPE_BLUE[0..3]          ; Stuck at GND due to stuck port data_in                       ;
+; LAYER:LAYER_RENDERER|reg_PIPE_GREEN[0..2]         ; Stuck at GND due to stuck port data_in                       ;
+; LAYER:LAYER_RENDERER|reg_PIPE_RED[0..3]           ; Stuck at GND due to stuck port data_in                       ;
 ; BACKGROUND:BG|col_i[9..31]                        ; Stuck at GND due to stuck port data_in                       ;
 ; BACKGROUND:BG|row_i[9..31]                        ; Stuck at GND due to stuck port data_in                       ;
 ; MOUSE:MOUSE_CONTROLS|CHAROUT[4..7]                ; Stuck at VCC due to stuck port data_in                       ;
@@ -609,6 +629,17 @@ Encoding Type:  One-Hot
 ; PIPES:PIPE_DISPLAY|pipe_top_height_3[9]           ; Merged with PIPES:PIPE_DISPLAY|pipe_top_height_3[8]          ;
 ; PIPES:PIPE_DISPLAY|pipe_top_height_2[8,9]         ; Merged with PIPES:PIPE_DISPLAY|pipe_top_height_2[1]          ;
 ; PIPES:PIPE_DISPLAY|pipe_top_height_1[9]           ; Merged with PIPES:PIPE_DISPLAY|pipe_top_height_1[8]          ;
+; LAYER:LAYER_RENDERER|reg_HOME_RED[0..3]           ; Merged with LAYER:LAYER_RENDERER|reg_HOME_BLUE[3]            ;
+; LAYER:LAYER_RENDERER|reg_SCORE_BLUE[1..3]         ; Merged with LAYER:LAYER_RENDERER|reg_SCORE_BLUE[0]           ;
+; LAYER:LAYER_RENDERER|reg_SCORE_GREEN[1..3]        ; Merged with LAYER:LAYER_RENDERER|reg_SCORE_GREEN[0]          ;
+; LAYER:LAYER_RENDERER|reg_SCORE_RED[1..3]          ; Merged with LAYER:LAYER_RENDERER|reg_SCORE_RED[0]            ;
+; LAYER:LAYER_RENDERER|reg_BAIT_RED[3]              ; Merged with LAYER:LAYER_RENDERER|reg_BAIT_ON                 ;
+; LAYER:LAYER_RENDERER|reg_BAIT_GREEN[3]            ; Merged with LAYER:LAYER_RENDERER|reg_BAIT_ON                 ;
+; LAYER:LAYER_RENDERER|reg_PIPE_ON                  ; Merged with LAYER:LAYER_RENDERER|reg_PIPE_GREEN[3]           ;
+; LAYER:LAYER_RENDERER|reg_SCORE_GREEN[0]           ; Merged with LAYER:LAYER_RENDERER|reg_SCORE_BLUE[0]           ;
+; LAYER:LAYER_RENDERER|reg_SCORE_ON                 ; Merged with LAYER:LAYER_RENDERER|reg_SCORE_BLUE[0]           ;
+; LAYER:LAYER_RENDERER|reg_SCORE_RED[0]             ; Merged with LAYER:LAYER_RENDERER|reg_SCORE_BLUE[0]           ;
+; LAYER:LAYER_RENDERER|reg_LIVES_RED[3]             ; Merged with LAYER:LAYER_RENDERER|reg_LIVES_ON                ;
 ; PIPES:PIPE_DISPLAY|pipe_top_height_3[8]           ; Stuck at GND due to stuck port data_in                       ;
 ; PIPES:PIPE_DISPLAY|pipe_top_height_2[1]           ; Stuck at GND due to stuck port data_in                       ;
 ; PIPES:PIPE_DISPLAY|pipe_top_height_1[8]           ; Stuck at GND due to stuck port data_in                       ;
@@ -619,7 +650,7 @@ Encoding Type:  One-Hot
 ; BACKGROUND:BG|row_i[8]                            ; Stuck at GND due to stuck port data_in                       ;
 ; FSM:FINITE_STATE_MACHINE|state_before_pause.Pause ; Stuck at GND due to stuck port data_in                       ;
 ; PIPES:PIPE_DISPLAY|pipe_top_height_3[5]           ; Merged with PIPES:PIPE_DISPLAY|pipe_top_height_3[7]          ;
-; Total Number of Removed Registers = 72            ;                                                              ;
+; Total Number of Removed Registers = 155           ;                                                              ;
 +---------------------------------------------------+--------------------------------------------------------------+
 
 
@@ -640,8 +671,8 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 435   ;
-; Number of registers using Synchronous Clear  ; 97    ;
+; Total registers                              ; 470   ;
+; Number of registers using Synchronous Clear  ; 107   ;
 ; Number of registers using Synchronous Load   ; 20    ;
 ; Number of registers using Asynchronous Clear ; 50    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -655,27 +686,27 @@ Encoding Type:  One-Hot
 +----------------------------------------------------+---------+
 ; Inverted Register                                  ; Fan out ;
 +----------------------------------------------------+---------+
-; game_logic:GAME_RULE|lives_count[0]                ; 7       ;
-; game_logic:GAME_RULE|lives_count[1]                ; 6       ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_2[6]                 ; 4       ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_2[7]                 ; 4       ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_2[2]                 ; 4       ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_2[4]                 ; 4       ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_2[0]                 ; 4       ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_3[7]                 ; 4       ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_3[3]                 ; 4       ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_3[5]                 ; 4       ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_3[8]                 ; 4       ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_3[1]                 ; 5       ;
+; game_logic:GAME_RULE|lives_count[0]                ; 8       ;
+; game_logic:GAME_RULE|lives_count[1]                ; 9       ;
 ; PIPES:PIPE_DISPLAY|pipe_top_height_1[7]            ; 7       ;
 ; PIPES:PIPE_DISPLAY|pipe_top_height_1[6]            ; 7       ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_1[3]            ; 18      ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_3[7]            ; 6       ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_3[6]            ; 4       ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_3[3]            ; 7       ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_2[7]            ; 3       ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_2[6]            ; 4       ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_2[3]            ; 7       ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_1[3]            ; 17      ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_3[1]                 ; 5       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_2[0]                 ; 4       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_3[7]                 ; 4       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_3[8]                 ; 4       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_3[5]                 ; 4       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_3[3]                 ; 4       ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_3[7]            ; 4       ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_3[6]            ; 3       ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_3[3]            ; 4       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_2[7]                 ; 4       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_2[6]                 ; 4       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_2[4]                 ; 4       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_2[2]                 ; 4       ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_2[7]            ; 1       ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_2[6]            ; 3       ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_2[3]            ; 4       ;
 ; dolphin_movement:PLAYER_CHARACTER|dolphin_y_pos[7] ; 7       ;
 ; dolphin_movement:PLAYER_CHARACTER|dolphin_y_pos[6] ; 8       ;
 ; dolphin_movement:PLAYER_CHARACTER|dolphin_y_pos[5] ; 10      ;
@@ -694,59 +725,59 @@ Encoding Type:  One-Hot
 +----------------------------------------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------+
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |top_level|MOUSE:MOUSE_CONTROLS|new_cursor_row[6]                                      ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_top_height_1[5]                                     ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_top_height_2[2]                                     ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_top_height_3[4]                                     ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |top_level|VGA_SYNC:VGA_REFRESH|v_count[6]                                             ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |top_level|game_logic:GAME_RULE|pipe_collision_prev                                    ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|game_logic:GAME_RULE|score_tens_int[1]                                      ;
-; 4:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |top_level|game_logic:GAME_RULE|speed_phase_count[4]                                   ;
-; 4:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |top_level|game_logic:GAME_RULE|training_timer_count[2]                                ;
-; 4:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |top_level|game_logic:GAME_RULE|speed_timer_count[0]                                   ;
-; 4:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_x_pos_1[0]                                          ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_x_pos_2[9]                                          ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_x_pos_3[0]                                          ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |top_level|MOUSE:MOUSE_CONTROLS|cursor_column[3]                                       ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |top_level|MOUSE:MOUSE_CONTROLS|cursor_column[8]                                       ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |top_level|MOUSE:MOUSE_CONTROLS|cursor_row[2]                                          ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |top_level|MOUSE:MOUSE_CONTROLS|cursor_row[7]                                          ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |top_level|game_logic:GAME_RULE|collision_cooldown[4]                                  ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |top_level|game_logic:GAME_RULE|bait_cooldown[5]                                       ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_level|game_logic:GAME_RULE|score_ones_int[3]                                      ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|dolphin_movement:PLAYER_CHARACTER|dolphin_y_motion[3]                       ;
-; 7:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |top_level|dolphin_movement:PLAYER_CHARACTER|dolphin_y_motion[8]                       ;
-; 8:1                ; 6 bits    ; 30 LEs        ; 24 LEs               ; 6 LEs                  ; Yes        ; |top_level|dolphin_movement:PLAYER_CHARACTER|dolphin_y_pos[2]                          ;
-; 9:1                ; 12 bits   ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; Yes        ; |top_level|BACKGROUND:BG|green_int[1]                                                  ;
-; 11:1               ; 12 bits   ; 84 LEs        ; 72 LEs               ; 12 LEs                 ; Yes        ; |top_level|LAYER:LAYER_RENDERER|BLUE_OUT[2]                                            ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_top_height_1[7]                                     ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_top_height_2[3]                                     ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_top_height_3[3]                                     ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_x_pos_2[6]                                          ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_x_pos_3[1]                                          ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; Yes        ; |top_level|dolphin_movement:PLAYER_CHARACTER|dolphin_y_pos[7]                          ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|FSM:FINITE_STATE_MACHINE|state_before_pause                                 ;
-; 8:1                ; 7 bits    ; 35 LEs        ; 35 LEs               ; 0 LEs                  ; No         ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:0:CHAR_ROM_INST|Mux0 ;
-; 8:1                ; 7 bits    ; 35 LEs        ; 35 LEs               ; 0 LEs                  ; No         ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:5:CHAR_ROM_INST|Mux0 ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:CO|SevenSeg_out[3]                                          ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:CT|SevenSeg_out[0]                                          ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:CH|SevenSeg_out[3]                                          ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:RO|SevenSeg_out[5]                                          ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:RT|SevenSeg_out[0]                                          ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:RH|SevenSeg_out[2]                                          ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |top_level|lives:LIFE_DISPLAY|font_row_sel[1]                                          ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; No         ; |top_level|lives:LIFE_DISPLAY|font_col_sel[1]                                          ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |top_level|score_text:SCORE_DISPLAY|char_addr[4]                                       ;
-; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |top_level|score_text:SCORE_DISPLAY|font_row_sel[2]                                    ;
-; 9:1                ; 4 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |top_level|score_text:SCORE_DISPLAY|char_addr[0]                                       ;
-; 15:1               ; 3 bits    ; 30 LEs        ; 18 LEs               ; 12 LEs                 ; No         ; |top_level|FSM:FINITE_STATE_MACHINE|state                                              ;
-; 15:1               ; 2 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; No         ; |top_level|FSM:FINITE_STATE_MACHINE|state                                              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------+
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |top_level|MOUSE:MOUSE_CONTROLS|new_cursor_column[0]                                    ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_top_height_1[1]                                      ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_top_height_2[5]                                      ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_top_height_3[0]                                      ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |top_level|VGA_SYNC:VGA_REFRESH|v_count[0]                                              ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |top_level|game_logic:GAME_RULE|pipe_passed_prev                                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|game_logic:GAME_RULE|score_tens_int[1]                                       ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |top_level|game_logic:GAME_RULE|speed_phase_count[5]                                    ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |top_level|game_logic:GAME_RULE|training_timer_count[8]                                 ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |top_level|game_logic:GAME_RULE|speed_timer_count[8]                                    ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_x_pos_1[4]                                           ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_x_pos_2[1]                                           ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_x_pos_3[4]                                           ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |top_level|MOUSE:MOUSE_CONTROLS|cursor_column[2]                                        ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |top_level|MOUSE:MOUSE_CONTROLS|cursor_column[6]                                        ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |top_level|MOUSE:MOUSE_CONTROLS|cursor_row[8]                                           ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |top_level|MOUSE:MOUSE_CONTROLS|cursor_row[4]                                           ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |top_level|game_logic:GAME_RULE|collision_cooldown[1]                                   ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |top_level|game_logic:GAME_RULE|bait_cooldown[4]                                        ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_level|game_logic:GAME_RULE|score_ones_int[1]                                       ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|dolphin_movement:PLAYER_CHARACTER|dolphin_y_motion[0]                        ;
+; 7:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |top_level|dolphin_movement:PLAYER_CHARACTER|dolphin_y_motion[1]                        ;
+; 8:1                ; 6 bits    ; 30 LEs        ; 24 LEs               ; 6 LEs                  ; Yes        ; |top_level|dolphin_movement:PLAYER_CHARACTER|dolphin_y_pos[9]                           ;
+; 9:1                ; 12 bits   ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; Yes        ; |top_level|BACKGROUND:BG|red_int[0]                                                     ;
+; 11:1               ; 12 bits   ; 84 LEs        ; 72 LEs               ; 12 LEs                 ; Yes        ; |top_level|LAYER:LAYER_RENDERER|GREEN_OUT[0]                                            ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_top_height_1[3]                                      ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_top_height_2[7]                                      ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_top_height_3[7]                                      ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_x_pos_2[0]                                           ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_x_pos_3[7]                                           ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; Yes        ; |top_level|dolphin_movement:PLAYER_CHARACTER|dolphin_y_pos[7]                           ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|FSM:FINITE_STATE_MACHINE|state_before_pause                                  ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 35 LEs               ; 0 LEs                  ; No         ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:2:CHAR_ROM_INST|Mux0  ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 35 LEs               ; 0 LEs                  ; No         ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:13:CHAR_ROM_INST|Mux0 ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:CO|SevenSeg_out[5]                                           ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:CT|SevenSeg_out[2]                                           ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:CH|SevenSeg_out[0]                                           ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:RO|SevenSeg_out[5]                                           ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:RT|SevenSeg_out[0]                                           ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:RH|SevenSeg_out[0]                                           ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |top_level|lives:LIFE_DISPLAY|font_row_sel[1]                                           ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; No         ; |top_level|lives:LIFE_DISPLAY|font_col_sel[0]                                           ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |top_level|score_text:SCORE_DISPLAY|char_addr[5]                                        ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |top_level|score_text:SCORE_DISPLAY|font_row_sel[1]                                     ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |top_level|score_text:SCORE_DISPLAY|char_addr[3]                                        ;
+; 15:1               ; 3 bits    ; 30 LEs        ; 18 LEs               ; 12 LEs                 ; No         ; |top_level|FSM:FINITE_STATE_MACHINE|state                                               ;
+; 15:1               ; 2 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; No         ; |top_level|FSM:FINITE_STATE_MACHINE|state                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------+
@@ -4388,32 +4419,32 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 435                         ;
+; arriav_ff             ; 470                         ;
 ;     CLR               ; 17                          ;
 ;     ENA               ; 132                         ;
 ;     ENA CLR           ; 33                          ;
 ;     ENA SCLR          ; 69                          ;
 ;     ENA SLD           ; 20                          ;
-;     SCLR              ; 28                          ;
-;     plain             ; 136                         ;
+;     SCLR              ; 38                          ;
+;     plain             ; 161                         ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 1579                        ;
+; arriav_lcell_comb     ; 1550                        ;
 ;     arith             ; 573                         ;
 ;         0 data inputs ; 63                          ;
 ;         1 data inputs ; 320                         ;
 ;         2 data inputs ; 60                          ;
 ;         3 data inputs ; 85                          ;
 ;         4 data inputs ; 45                          ;
-;     extend            ; 12                          ;
-;         7 data inputs ; 12                          ;
-;     normal            ; 893                         ;
+;     extend            ; 11                          ;
+;         7 data inputs ; 11                          ;
+;     normal            ; 865                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 15                          ;
-;         2 data inputs ; 205                         ;
-;         3 data inputs ; 128                         ;
-;         4 data inputs ; 161                         ;
-;         5 data inputs ; 160                         ;
-;         6 data inputs ; 223                         ;
+;         2 data inputs ; 190                         ;
+;         3 data inputs ; 125                         ;
+;         4 data inputs ; 164                         ;
+;         5 data inputs ; 165                         ;
+;         6 data inputs ; 205                         ;
 ;     shared            ; 101                         ;
 ;         0 data inputs ; 11                          ;
 ;         1 data inputs ; 62                          ;
@@ -4425,7 +4456,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; stratixv_ram_block    ; 200                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 15.70                       ;
-; Average LUT depth     ; 6.43                        ;
+; Average LUT depth     ; 5.71                        ;
 +-----------------------+-----------------------------+
 
 
@@ -4434,7 +4465,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:04     ;
 +----------------+--------------+
 
 
@@ -4444,7 +4475,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Tue May 26 12:27:34 2026
+    Info: Processing started: Tue May 26 12:44:55 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off group_27 -c top_level
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
@@ -4969,20 +5000,20 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/305Project/COMPSYS_305_Mini_Project/top_level.vhd Line: 14
     Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/305Project/COMPSYS_305_Mini_Project/top_level.vhd Line: 14
 Info (286030): Timing-Driven Synthesis is running
-Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:8:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/305Project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:6:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/305Project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
-Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:13:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/305Project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
+Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:8:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/305Project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:10:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/305Project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:12:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/305Project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
-Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:11:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/305Project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
+Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:13:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/305Project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:4:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/305Project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:9:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/305Project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
-Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:3:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/305Project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
+Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:11:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/305Project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:0:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/305Project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:1:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/305Project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
-Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:7:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/305Project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:2:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/305Project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
+Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:3:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/305Project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:5:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/305Project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
+Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:7:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/305Project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "lives:LIFE_DISPLAY|char_rom:HEART_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/305Project/COMPSYS_305_Mini_Project/db/altsyncram_d5g1.tdf Line: 31
 Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK2_50 -entity DE0_CV_Default was ignored
@@ -5230,18 +5261,18 @@ Warning (21074): Design contains 10 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/305Project/COMPSYS_305_Mini_Project/top_level.vhd Line: 9
     Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/305Project/COMPSYS_305_Mini_Project/top_level.vhd Line: 9
     Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/EmmaD/OneDrive/Documents/Arduino/libraries/305Project/COMPSYS_305_Mini_Project/top_level.vhd Line: 9
-Info (21057): Implemented 1999 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2000 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 66 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 1714 logic cells
+    Info (21061): Implemented 1715 logic cells
     Info (21064): Implemented 200 RAM segments
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 1 DSP elements
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 408 warnings
-    Info: Peak virtual memory: 4952 megabytes
-    Info: Processing ended: Tue May 26 12:27:45 2026
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:16
+    Info: Peak virtual memory: 4951 megabytes
+    Info: Processing ended: Tue May 26 12:45:10 2026
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:20
 
 
