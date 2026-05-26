@@ -380,9 +380,9 @@ BEGIN
     PROCESS(CLOCK_25MHZ)
     BEGIN
         IF rising_edge(CLOCK_25MHZ) THEN
-            VGA_R &lt;= VGA_R_temp;
-            VGA_G &lt;= VGA_G_temp;
-            VGA_B &lt;= VGA_B_temp;
+            VGA_R  <= VGA_R_temp;
+            VGA_G <=  VGA_G_temp;
+            VGA_B  <= VGA_B_temp;
         END IF;
     END PROCESS;
 
