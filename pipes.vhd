@@ -18,7 +18,7 @@ ENTITY PIPES IS
         Game_state_signal           : IN std_logic_vector(1 DOWNTO 0);
         pipe_speed_up               : IN std_logic;
         first_click                 : IN std_logic;   -- high on first click rising edge
-
+        Pause_in                    : IN std_logic;
         pipe_on                     : OUT std_logic;
         pipe_enable				    : OUT std_logic;
         pipe_passed                 : OUT std_logic;
@@ -91,8 +91,8 @@ BEGIN
                 pipe_1_ready <= '0';
                 pipe_2_ready <= '1';
                 pipe_3_ready <= '1';
-            --  GAME mode and TRAINING mode, only start moving after "first_click"
-            ELSIF state = '1' and frame_tick = '1'   and first_click = '1' THEN
+            --  GAME mode and TRAINING mode, only start moving after "first_click"                
+            ELSIF (state = '1' and frame_tick = '1'   and first_click = '1') THEN
             -- 
                 IF pipe_x_pos_1 <= pipe_step THEN
                     if pipe_1_ready = '1' then
@@ -101,8 +101,9 @@ BEGIN
                     pipe_1_ready <= '1';
                     pipe_x_pos_1 <= CONV_STD_LOGIC_VECTOR(640, 10);
                     pipe_top_height_1 <= random_height_1;
-                ELSE
+                ELSIF (pause_in = '0') then
                     pipe_x_pos_1 <= pipe_x_pos_1 - pipe_step;
+
                 END IF;
 
                 IF pipe_x_pos_2 <= pipe_step THEN
@@ -112,7 +113,7 @@ BEGIN
                     pipe_2_ready <= '1';
                     pipe_x_pos_2 <= CONV_STD_LOGIC_VECTOR(640, 10);
                     pipe_top_height_2 <= random_height_2;
-                ELSE
+                ELSIF (pause_in = '0') then
                     pipe_x_pos_2 <= pipe_x_pos_2 - pipe_step;
                 END IF;
 
@@ -123,7 +124,7 @@ BEGIN
                     pipe_3_ready <= '1';
                     pipe_x_pos_3 <= CONV_STD_LOGIC_VECTOR(640, 10);
                     pipe_top_height_3 <= random_height_3;
-                ELSE
+                ELSIF (pause_in = '0') then
                     pipe_x_pos_3 <= pipe_x_pos_3 - pipe_step;
                 END IF;
             END IF;

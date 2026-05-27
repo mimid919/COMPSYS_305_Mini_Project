@@ -20,14 +20,14 @@ END BACKGROUND;
 
 ARCHITECTURE behavior OF BACKGROUND IS
     COMPONENT sunset_rom IS
-    PORT(
+    PORT(    --- these might need changing
         address : IN STD_LOGIC_VECTOR (15 DOWNTO 0);
         clock   : IN STD_LOGIC;
         q       : OUT STD_LOGIC_VECTOR (11 DOWNTO 0)
     );
     END COMPONENT;
 
-    constant SOURCE_WIDTH : integer := 260;
+    constant SOURCE_WIDTH : integer := 260;    -- these need chanign
     constant SOURCE_HEIGHT : integer := 130;
     constant TARGET_WIDTH : integer := 640;
     constant TARGET_HEIGHT : integer := 480;

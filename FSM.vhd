@@ -67,7 +67,7 @@ begin
                 Win                 <= '0';
                 Termination         <= '0';
                 Pause_OUT           <= '1';
-                Game_State          <= "11";
+                Game_State          <= "10";
             when Game_Won =>
                 Win                 <= '1';
                 Termination         <= '1';
@@ -104,7 +104,7 @@ begin
                 end if;
             when TRAINING_Mode =>
                 if (Reset = '1' OR Life = '0' OR Timer = '1') then  -- Timer returns training to the start screen after 30 seconds
-                    next_state <= Home_Screen;
+                    next_state <= Home_Screen; -- i think this is getting triggered after it dies
                 elsif (Pause_IN = '1') then
                     next_state <= Pause;
                 end if;  

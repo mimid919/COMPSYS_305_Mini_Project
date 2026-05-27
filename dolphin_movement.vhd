@@ -20,7 +20,7 @@ ENTITY DOLPHIN_MOVEMENT IS
           pixel_row, pixel_column   : IN std_logic_vector(9 DOWNTO 0);
           left_click                : IN std_logic;
           Game_state_signal         : IN std_logic_vector(1 DOWNTO 0);
-
+          Pause_in                  : IN std_logic;
           dolphin_x_pos_out         : OUT std_logic_vector(9 DOWNTO 0);
           dolphin_y_pos_out         : OUT std_logic_vector(9 DOWNTO 0);
           dolphin_on                : OUT std_logic;
@@ -96,7 +96,7 @@ BEGIN
                     dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
                     first_click <= '0';
                                 hit_ground <= '0';
-                elsif (state = '1') then
+                elsif (state = '1' and pause_in = '0') then
                     if (prev_game_state_signal = "00") then
                         dolphin_y_pos <= CONV_STD_LOGIC_VECTOR(240, 10);
                         dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
@@ -137,7 +137,10 @@ BEGIN
                                 hit_ground <= '0';
                             end if;
                         end if;
+
                     end if;
+                    elsif (pause_in = '1') then
+                        dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
                 end if;
             end if;
         end if;

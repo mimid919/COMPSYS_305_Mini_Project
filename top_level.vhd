@@ -78,7 +78,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
           pixel_row, pixel_column   : IN std_logic_vector(9 DOWNTO 0);
           left_click                : IN std_logic;
           Game_state_signal         : IN std_logic_vector(1 DOWNTO 0);
-
+          pause_in : IN std_logic;
           dolphin_x_pos_out         : OUT std_logic_vector(9 DOWNTO 0);
           dolphin_y_pos_out         : OUT std_logic_vector(9 DOWNTO 0);
           dolphin_on                : OUT std_logic;
@@ -201,7 +201,7 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
         Game_state_signal           : IN std_logic_vector(1 DOWNTO 0);
         pipe_speed_up               : IN std_logic;
         first_click                 : IN std_logic; 
-
+        Pause_in : IN std_logic;
         pipe_on                     : OUT std_logic;
         pipe_enable				    : OUT std_logic;
         pipe_passed                 : OUT std_logic;
@@ -514,7 +514,7 @@ BEGIN
         clk => CLOCK_25MHZ,
         Win             => win_signal,
         Termination     => Termination_signal,
-        Pause_OUT       => Pause_out_signal,
+        Pause_OUT       => '0',-- chANGE LATER  
         Game_state_signal      => Game_state_signal,
 
 
@@ -591,6 +591,7 @@ BEGIN
         pixel_row => PIXEL_ROW,
         pixel_column => PIXEL_COLUMN,
         Game_state_signal => Game_state_signal,
+        pause_in => pause_out_signal,
         first_click => first_click_signal,
         pipe_speed_up => PIPE_SPEED_UP_SIG,
         pipe_on => PIPE_ON,
@@ -611,7 +612,7 @@ BEGIN
         pixel_column => PIXEL_COLUMN,
         left_click => LEFT_CLICK,
         Game_state_signal => Game_state_signal,
-
+        pause_in => Pause_out_signal,
         dolphin_x_pos_out => DOLPHIN_X_POS,
         dolphin_y_pos_out => DOLPHIN_Y_POS,
         dolphin_on => DOLPHIN_ON,
