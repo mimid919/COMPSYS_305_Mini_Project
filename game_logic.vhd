@@ -18,7 +18,7 @@ ENTITY game_logic IS
         life_one            : OUT STD_LOGIC;
         life_two            : OUT STD_LOGIC;
         life_three          : OUT STD_LOGIC;
-        dolphin_IS_alive            : OUT STD_LOGIC;   -- high when alive, low when dead, fed into FSM
+        dolphin_IS_alive            : OUT STD_LOGIC;   -- high when alive, low when dead, fed into FSM CHECK ITS BEING RESET
         timer_out           : OUT STD_LOGIC;
         pipe_speed_up       : OUT STD_LOGIC;
         score_ones          : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -42,6 +42,7 @@ ARCHITECTURE behaviour OF game_logic IS
     SIGNAL bait_cooldown       : STD_LOGIC_VECTOR(5 DOWNTO 0) := (OTHERS => '0');
     CONSTANT COOLDOWN_MAX      : STD_LOGIC_VECTOR(5 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(60, 6);
 
+    CONSTANT TIMER_5S         : STD_LOGIC_VECTOR(8 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(300, 9); -- 9 bits for 300
     CONSTANT TIMER_20S         : STD_LOGIC_VECTOR(10 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(1200, 11);
     CONSTANT TIMER_30S         : STD_LOGIC_VECTOR(10 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(1800, 11);
 
@@ -50,12 +51,16 @@ ARCHITECTURE behaviour OF game_logic IS
     SIGNAL training_timer_count : STD_LOGIC_VECTOR(10 DOWNTO 0) := (OTHERS => '0');
     SIGNAL training_timer_done  : STD_LOGIC := '0';
     -- NEW ADDED SIGNAL FOR GAME MODE GAME WON AND GAME OVER STATE RESET TO HOMEPAGE  
+    SIGNAL termination_state_count : STD_LOGIC_VECTOR(8 DOWNTO 0) := (OTHERS => '0');
+    SIGNAL termination_state_done  : STD_LOGIC := '0';
+
     SIGNAL speed_timer_done     : STD_LOGIC := '0';
     SIGNAL speed_phase_done     : STD_LOGIC := '0';
 
     SIGNAL game_active        : STD_LOGIC;
     SIGNAL training_mode_only : STD_LOGIC;
     SIGNAL game_mode_only     : STD_LOGIC;
+    SIGNAL game_finished     : STD_LOGIC;
     SIGNAL vert_sync_prev     : STD_LOGIC := '0';
     SIGNAL frame_tick         : STD_LOGIC;
 
@@ -66,11 +71,13 @@ BEGIN
     game_active        <= '1' when (Game_state_signal = "01" or Game_state_signal = "10") else '0';
     training_mode_only <= '1' when Game_state_signal = "01" else '0';
     game_mode_only     <= '1' when Game_state_signal = "10" else '0';
+    game_finished      <= '1' when Game_state_signal = "11" else '0';
 
 
     PROCESS (clk)
     BEGIN
         IF rising_edge(clk) THEN
+        -- 
             IF reset = '1' THEN
                 lives_count          <= "11";
                 score_ones_int       <= (OTHERS => '0');
@@ -88,6 +95,8 @@ BEGIN
                 speed_timer_done     <= '0';
                 speed_phase_done     <= '0';
                 vert_sync_prev       <= '0';
+                termination_state_count <= (OTHERS => '0');
+termination_state_done  <= '0';
             ELSE
                 vert_sync_prev <= vert_sync;
 
@@ -153,7 +162,7 @@ BEGIN
                     END IF;
 
                     IF frame_tick = '1' and training_mode_only = '1' and training_timer_done = '0' THEN
-                        IF training_timer_count >= TIMER_30S THEN
+                        IF training_timer_count >= TIMER_5S THEN
                             training_timer_done <= '1';
                         ELSE
                             training_timer_count <= training_timer_count + 1;
@@ -175,18 +184,35 @@ BEGIN
                     training_timer_done  <= '0';
                     speed_timer_done     <= '0';
                     speed_phase_done     <= '0';
+                    termination_state_count <= (OTHERS => '0');
+termination_state_done  <= '0';
+                -- IF GAME STATE is in game won or game over then start counting upwards
+                ELSIF Game_state_signal = "11" THEN
+                    -- RESET LIVES COUNT TO HOPEFULLY REMOVE GLOBAL BUG
+                    lives_count          <= "11";
+                    IF frame_tick = '1'  THEN
+                        IF termination_state_count >= TIMER_5S THEN
+                            termination_state_DONE <= '1';
+                        ELSE
+                            termination_state_count <= termination_state_count + 1;
+                        END IF;
+                    END IF;
                 END IF;
             END IF;
         END IF;
     END PROCESS;
 
+    
+
     life_three <= '1' when lives_count >= "11" else '0';
     life_two   <= '1' when lives_count >= "10" else '0';
     life_one   <= '1' when lives_count >= "01" else '0';
+        
 
     dolphin_IS_alive <= '0' when (lives_count = "00" OR hit_ground = '1') else '1';  -- logic high
-    timer_out <= training_timer_done when training_mode_only = '1' else
+    timer_out <= -- training_timer_done when training_mode_only = '1' else                   GOT RID OF TIMER FOR TRAINING MODE
                  speed_phase_done when game_mode_only = '1' else
+                 termination_state_DONE when game_finished = '1' else
                  '0';
     pipe_speed_up <= speed_timer_done;
     score_ones <= score_ones_int;

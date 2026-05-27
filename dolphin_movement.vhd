@@ -95,13 +95,17 @@ BEGIN
                     dolphin_y_pos <= CONV_STD_LOGIC_VECTOR(240, 10);
                     dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
                     first_click <= '0';
+                                hit_ground <= '0';
                 elsif (state = '1') then
                     if (prev_game_state_signal = "00") then
                         dolphin_y_pos <= CONV_STD_LOGIC_VECTOR(240, 10);
                         dolphin_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
                         first_click <= '0';
+                                                        hit_ground <= '0';
+
                     else
                         if first_click = '0' then
+                            hit_ground <= '0';
                             -- hold dolphin at centre until the first left click
                             if left_click_edge = '1' then
                                 first_click <= '1';
