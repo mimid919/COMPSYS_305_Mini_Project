@@ -360,6 +360,22 @@ END COMPONENT GAME_LOGIC;
 
     -- when dolphin hits ground 
     SIGNAL HIT_GROUND_SIG : STD_LOGIC;
+
+    SIGNAL SPRITE_ON_reg          : STD_LOGIC;
+    SIGNAL PIPE_ENABLE_SIG_reg    : STD_LOGIC;
+    SIGNAL BAIT_ENABLE_SIG_reg    : STD_LOGIC;
+    SIGNAL PIPE_PASSED_SIG_reg    : STD_LOGIC;
+    SIGNAL HIT_GROUND_SIG_reg     : STD_LOGIC;
+
+    -- Final stage pipeline registers for text layers to hit 100MHz+
+    SIGNAL HOME_TEXT_RED_reg   : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL HOME_TEXT_GREEN_reg : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL HOME_TEXT_BLUE_reg  : STD_LOGIC_VECTOR(3 DOWNTO 0);
+
+    SIGNAL SCORE_RED_reg       : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL SCORE_GREEN_reg     : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL SCORE_BLUE_reg      : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL SCORE_ON_reg        : STD_LOGIC;
 BEGIN
 
 
@@ -386,6 +402,30 @@ BEGIN
         END IF;
     END PROCESS;
 
+    PROCESS(CLOCK_25MHZ)
+    BEGIN
+        IF rising_edge(CLOCK_25MHZ) THEN
+            SPRITE_ON_reg       <= SPRITE_ON;
+            PIPE_ENABLE_SIG_reg <= PIPE_ENABLE_SIG;
+            BAIT_ENABLE_SIG_reg <= BAIT_ENABLE_SIG;
+            PIPE_PASSED_SIG_reg <= PIPE_PASSED_SIG;
+            HIT_GROUND_SIG_reg  <= HIT_GROUND_SIG;
+        END IF;
+    END PROCESS;
+
+    PROCESS(CLOCK_25MHZ)
+    BEGIN
+        IF rising_edge(CLOCK_25MHZ) THEN
+            HOME_TEXT_RED_reg   <= HOME_DISPLAY_TEXT_RED;
+            HOME_TEXT_GREEN_reg <= HOME_DISPLAY_TEXT_GREEN;
+            HOME_TEXT_BLUE_reg  <= HOME_DISPLAY_TEXT_BLUE;
+
+            SCORE_RED_reg       <= SCORE_RED;
+            SCORE_GREEN_reg     <= SCORE_GREEN;
+            SCORE_BLUE_reg      <= SCORE_BLUE;
+            SCORE_ON_reg        <= SCORE_ON;
+        END IF;
+    END PROCESS;
 ------------------------------------ PORT MAP DECLARATION START ------------------------------------
 
     BG: BACKGROUND PORT MAP (
@@ -440,23 +480,23 @@ BEGIN
 
 
     GAME_RULE: GAME_LOGIC PORT MAP (
-        clk => CLOCK_25MHZ,
-        vert_sync => VERT_SYNC,
-        reset => RESET,
+        clk               => CLOCK_25MHZ,
+        vert_sync         => VERT_SYNC,
+        reset             => RESET,
         Game_state_signal => Game_state_signal,
-        dolphin_enable=> SPRITE_ON,
-        pipe_enable =>PIPE_ENABLE_SIG,
-        bait_enable=> BAIT_ENABLE_SIG,
-        pipe_passed=> PIPE_PASSED_SIG,
-        hit_ground=> HIT_GROUND_SIG,
-        life_one=> LIFE_ONE_SIG,
-        life_two  => LIFE_TWO_SIG,
-        life_three => LIFE_THREE_SIG,
-        dolphin_IS_alive  => Life_signal, -- fed into the fsm, logic high
-        timer_out => TIMER_SIG,    -- from the fsm
-        pipe_speed_up => PIPE_SPEED_UP_SIG,
-        score_ones => SCORE_ONES_SIG,
-        score_tens  => SCORE_TENS_SIG
+        dolphin_enable    => SPRITE_ON_reg,          -- Updated
+        pipe_enable       => PIPE_ENABLE_SIG_reg,    -- Updated
+        bait_enable       => BAIT_ENABLE_SIG_reg,    -- Updated
+        pipe_passed       => PIPE_PASSED_SIG_reg,    -- Updated
+        hit_ground        => HIT_GROUND_SIG_reg,     -- Updated
+        life_one          => LIFE_ONE_SIG,
+        life_two          => LIFE_TWO_SIG,
+        life_three        => LIFE_THREE_SIG,
+        dolphin_IS_alive  => Life_signal, 
+        timer_out         => TIMER_SIG,    
+        pipe_speed_up     => PIPE_SPEED_UP_SIG,
+        score_ones        => SCORE_ONES_SIG,
+        score_tens        => SCORE_TENS_SIG
     );
 
     GAME_WON_TEXT_INSTANCE: GAME_WON_TEXT PORT MAP (
@@ -511,53 +551,53 @@ BEGIN
     );
 
     LAYER_RENDERER: LAYER PORT MAP (
-        clk => CLOCK_25MHZ,
-        Win             => win_signal,
-        Termination     => Termination_signal,
-        Pause_OUT       => '0',-- chANGE LATER  
-        Game_state_signal      => Game_state_signal,
+        clk                     => CLOCK_25MHZ,
+        Win                     => win_signal,
+        Termination             => Termination_signal,
+        Pause_OUT               => '0',  
+        Game_state_signal       => Game_state_signal,
 
+        BACKGROUND_RED          => BACKGROUND_RED,
+        BACKGROUND_GREEN        => BACKGROUND_GREEN,
+        BACKGROUND_BLUE         => BACKGROUND_BLUE,
+        PIPE_RED                => PIPE_RED,
+        PIPE_GREEN              => PIPE_GREEN,
+        PIPE_BLUE               => PIPE_BLUE,
+        PIPE_ON                 => PIPE_ON,
+        BAIT_RED                => BAIT_RED,
+        BAIT_GREEN              => BAIT_GREEN,
+        BAIT_BLUE               => BAIT_BLUE,
+        BAIT_ON                 => BAIT_ON,
+     
+        SPRITE_RED              => SPRITE_RED,
+        SPRITE_GREEN            => SPRITE_GREEN,
+        SPRITE_BLUE             => SPRITE_BLUE,
+        SPRITE_ON               => SPRITE_ON,
+        LIVES_RED               => LIVES_RED,
+        LIVES_GREEN             => LIVES_GREEN,
+        LIVES_BLUE              => LIVES_BLUE,
+        LIVES_ON                => LIVES_ON,
+        
+        SCORE_RED               => SCORE_RED_reg,
+        SCORE_GREEN             => SCORE_GREEN_reg,
+        SCORE_BLUE              => SCORE_BLUE_reg,
+        SCORE_ON                => SCORE_ON_reg,
+        
+        HOME_DISPLAY_TEXT_RED   => HOME_TEXT_RED_reg,
+        HOME_DISPLAY_TEXT_GREEN => HOME_TEXT_GREEN_reg,
+        HOME_DISPLAY_TEXT_BLUE  => HOME_TEXT_BLUE_reg,
 
+        GAME_WON_TEXT_RED       => GAME_WON_TEXT_RED,
+        GAME_WON_TEXT_GREEN     => GAME_WON_TEXT_GREEN,
+        GAME_WON_TEXT_BLUE      => GAME_WON_TEXT_BLUE,
 
+        GAME_OVER_TEXT_RED      => GAME_OVER_TEXT_RED,
+        GAME_OVER_TEXT_GREEN    => GAME_OVER_TEXT_GREEN,
+        GAME_OVER_TEXT_BLUE     => GAME_OVER_TEXT_BLUE,
 
-        BACKGROUND_RED => BACKGROUND_RED,
-        BACKGROUND_GREEN => BACKGROUND_GREEN,
-        BACKGROUND_BLUE => BACKGROUND_BLUE,
-        PIPE_RED => PIPE_RED,
-        PIPE_GREEN => PIPE_GREEN,
-        PIPE_BLUE => PIPE_BLUE,
-        PIPE_ON => PIPE_ON,
-        BAIT_RED => BAIT_RED,
-        BAIT_GREEN => BAIT_GREEN,
-        BAIT_BLUE => BAIT_BLUE,
-        BAIT_ON => BAIT_ON,
-        SPRITE_RED => SPRITE_RED,
-        SPRITE_GREEN => SPRITE_GREEN,
-        SPRITE_BLUE => SPRITE_BLUE,
-        SPRITE_ON => SPRITE_ON,
-        LIVES_RED => LIVES_RED,
-        LIVES_GREEN => LIVES_GREEN,
-        LIVES_BLUE => LIVES_BLUE,
-        LIVES_ON => LIVES_ON,
-        SCORE_RED => SCORE_RED,
-        SCORE_GREEN => SCORE_GREEN,
-        SCORE_BLUE => SCORE_BLUE,
-        SCORE_ON => SCORE_ON,
-        HOME_DISPLAY_TEXT_RED => HOME_DISPLAY_TEXT_RED,
-        HOME_DISPLAY_TEXT_GREEN => HOME_DISPLAY_TEXT_GREEN,
-        HOME_DISPLAY_TEXT_BLUE => HOME_DISPLAY_TEXT_BLUE,
-
-        GAME_WON_TEXT_RED   => GAME_WON_TEXT_RED,
-        GAME_WON_TEXT_GREEN => GAME_WON_TEXT_GREEN,
-        GAME_WON_TEXT_BLUE  => GAME_WON_TEXT_BLUE,
-
-        GAME_OVER_TEXT_RED   => GAME_OVER_TEXT_RED,
-        GAME_OVER_TEXT_GREEN => GAME_OVER_TEXT_GREEN,
-        GAME_OVER_TEXT_BLUE  => GAME_OVER_TEXT_BLUE,
-
-        RED_OUT => RED_OUT,
-        GREEN_OUT => GREEN_OUT,
-        BLUE_OUT => BLUE_OUT
+        RED_OUT                 => RED_OUT,
+        GREEN_OUT               => GREEN_OUT,
+        BLUE_OUT                => BLUE_OUT
     );
 
     LIFE_DISPLAY: LIVES PORT MAP (

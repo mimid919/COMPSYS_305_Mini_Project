@@ -45,7 +45,7 @@ ARCHITECTURE behavior OF PIPES IS
 
     SIGNAL pipe_visible : std_logic;
     SIGNAL pipe_passed_int : std_logic := '0';
-    SIGNAL pipe_1_ready : std_logic := '0';
+    SIGNAL pipe_1_ready : std_logic := '1';
     SIGNAL pipe_2_ready : std_logic := '1';
     SIGNAL pipe_3_ready : std_logic := '1';
     SIGNAL pipe_step : std_logic_vector(9 DOWNTO 0);
@@ -88,7 +88,7 @@ BEGIN
                 pipe_top_height_1 <= CONV_STD_LOGIC_VECTOR(200, 10);
                 pipe_top_height_2 <= CONV_STD_LOGIC_VECTOR(220, 10);
                 pipe_top_height_3 <= CONV_STD_LOGIC_VECTOR(150, 10);
-                pipe_1_ready <= '0';
+                pipe_1_ready <= '1';
                 pipe_2_ready <= '1';
                 pipe_3_ready <= '1';
             --  GAME mode and TRAINING mode, only start moving after "first_click"                
