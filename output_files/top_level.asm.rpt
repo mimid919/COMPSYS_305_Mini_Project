@@ -1,5 +1,5 @@
 Assembler report for top_level
-Thu May 28 22:05:30 2026
+Thu May 28 23:32:27 2026
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -10,7 +10,7 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: C:/Users/adun475/Documents/COMPSYS_305_Mini_Project/output_files/top_level.sof
+  5. Assembler Device Options: C:/Users/shor574/COMPSYS_305_Mini_Project/output_files/top_level.sof
   6. Assembler Messages
 
 
@@ -37,7 +37,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Thu May 28 22:05:30 2026 ;
+; Assembler Status      ; Successful - Thu May 28 23:32:27 2026 ;
 ; Revision Name         ; top_level                             ;
 ; Top-level Entity Name ; top_level                             ;
 ; Family                ; Cyclone V                             ;
@@ -52,23 +52,23 @@ refer to the applicable agreement for further details.
 +--------+---------+---------------+
 
 
-+--------------------------------------------------------------------------------+
-; Assembler Generated Files                                                      ;
-+--------------------------------------------------------------------------------+
-; File Name                                                                      ;
-+--------------------------------------------------------------------------------+
-; C:/Users/adun475/Documents/COMPSYS_305_Mini_Project/output_files/top_level.sof ;
-+--------------------------------------------------------------------------------+
++----------------------------------------------------------------------+
+; Assembler Generated Files                                            ;
++----------------------------------------------------------------------+
+; File Name                                                            ;
++----------------------------------------------------------------------+
+; C:/Users/shor574/COMPSYS_305_Mini_Project/output_files/top_level.sof ;
++----------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/adun475/Documents/COMPSYS_305_Mini_Project/output_files/top_level.sof ;
-+----------------+-----------------------------------------------------------------------------------------+
-; Option         ; Setting                                                                                 ;
-+----------------+-----------------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x0199E79D                                                                              ;
-; Checksum       ; 0x0199E79D                                                                              ;
-+----------------+-----------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/shor574/COMPSYS_305_Mini_Project/output_files/top_level.sof ;
++----------------+-------------------------------------------------------------------------------+
+; Option         ; Setting                                                                       ;
++----------------+-------------------------------------------------------------------------------+
+; JTAG usercode  ; 0x02271A9A                                                                    ;
+; Checksum       ; 0x02271A9A                                                                    ;
++----------------+-------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -77,13 +77,13 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Thu May 28 22:05:24 2026
+    Info: Processing started: Thu May 28 23:32:21 2026
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off group_27 -c top_level
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4869 megabytes
-    Info: Processing ended: Thu May 28 22:05:30 2026
+    Info: Peak virtual memory: 4875 megabytes
+    Info: Processing ended: Thu May 28 23:32:27 2026
     Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:03
 

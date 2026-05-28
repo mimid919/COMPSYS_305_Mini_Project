@@ -28,7 +28,26 @@ ENTITY PIPES IS
         );	
 END PIPES;
 
+
 ARCHITECTURE behavior OF PIPES IS
+
+COMPONENT pipe_top IS
+PORT (
+    address : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
+    clock   : IN STD_LOGIC;
+    q       : OUT STD_LOGIC_VECTOR(11 DOWNTO 0)
+);
+END COMPONENT;
+
+COMPONENT pipestrip IS
+PORT (
+    address : IN STD_LOGIC_VECTOR(5 DOWNTO 0);
+    clock   : IN STD_LOGIC;
+    q       : OUT STD_LOGIC_VECTOR(11 DOWNTO 0)
+);
+END COMPONENT;
+
+
     SIGNAL pipe_x_pos_1				: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(0, 10); -- start off screen to the right
     SIGNAL pipe_x_pos_2				: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(213, 10);
     SIGNAL pipe_x_pos_3				: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(426, 10);
@@ -57,6 +76,12 @@ SIGNAL pipe3_visible : std_logic;
     SIGNAL vert_sync_prev : std_logic := '0';
     SIGNAL frame_tick : std_logic;
 
+    SIGNAL top_address : STD_LOGIC_VECTOR(11 DOWNTO 0);
+    SIGNAL strip_address : STD_LOGIC_VECTOR(5 DOWNTO 0);
+
+    SIGNAL top_pixel : STD_LOGIC_VECTOR(11 DOWNTO 0);
+    SIGNAL strip_pixel : STD_LOGIC_VECTOR(11 DOWNTO 0);
+
 
 BEGIN
 
@@ -78,25 +103,24 @@ BEGIN
     pipe_y_1 <= pipe_top_height_1;
 	 
 	 
-	 
-	 
-red <=
-    "1111" WHEN pipe1_visible = '1' AND state = '1' ELSE  -- Pastel Pink (Max Red)
-    "1101" WHEN pipe2_visible = '1' AND state = '1' ELSE  -- Pastel Purple
-    "1111" WHEN pipe3_visible = '1' AND state = '1' ELSE  -- Pastel Orange (Max Red)
-    "0000";
+        TOP_ROM : pipe_top
+PORT MAP (
+    address => top_address,
+    clock => CLOCK_25Mhz,
+    q => top_pixel
+);
 
-green <=
-    "1011" WHEN pipe1_visible = '1' AND state = '1' ELSE  -- Pastel Pink
-    "1011" WHEN pipe2_visible = '1' AND state = '1' ELSE  -- Pastel Purple
-    "1101" WHEN pipe3_visible = '1' AND state = '1' ELSE  -- Pastel Orange (High Green creates the orange)
-    "0000";
+STRIP_ROM : pipestrip
+PORT MAP (
+    address => strip_address,
+    clock => CLOCK_25Mhz,
+    q => strip_pixel
+);
+	 
 
-blue <=
-    "1100" WHEN pipe1_visible = '1' AND state = '1' ELSE  -- Pastel Pink
-    "1111" WHEN pipe2_visible = '1' AND state = '1' ELSE  -- Pastel Purple (Max Blue)
-    "1010" WHEN pipe3_visible = '1' AND state = '1' ELSE  -- Pastel Orange
-    "0000";
+red <= top_pixel(11 DOWNTO 8);
+green <= top_pixel(7 DOWNTO 4);
+blue <= top_pixel(3 DOWNTO 0);
 
     -- update pipe positions and heights on each vertical sync, reset to initial positions and heights during home screen
     PROCESS (CLOCK_25Mhz)
@@ -189,4 +213,5 @@ BEGIN
     END IF;
 
 END PROCESS;
+
 END BEHAVIOR;
