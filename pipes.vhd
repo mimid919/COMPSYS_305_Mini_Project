@@ -18,7 +18,7 @@ ENTITY PIPES IS
         Game_state_signal           : IN std_logic_vector(1 DOWNTO 0);
         pipe_speed_up               : IN std_logic;
         first_click                 : IN std_logic;   -- high on first click rising edge
-
+        Pause_in                    : IN std_logic;
         pipe_on                     : OUT std_logic;
         pipe_enable				    : OUT std_logic;
         pipe_passed                 : OUT std_logic;
@@ -44,8 +44,13 @@ ARCHITECTURE behavior OF PIPES IS
     SIGNAL state                 : std_logic;
 
     SIGNAL pipe_visible : std_logic;
+	 
+SIGNAL pipe1_visible : std_logic;
+SIGNAL pipe2_visible : std_logic;
+SIGNAL pipe3_visible : std_logic;
+
     SIGNAL pipe_passed_int : std_logic := '0';
-    SIGNAL pipe_1_ready : std_logic := '0';
+    SIGNAL pipe_1_ready : std_logic := '1';
     SIGNAL pipe_2_ready : std_logic := '1';
     SIGNAL pipe_3_ready : std_logic := '1';
     SIGNAL pipe_step : std_logic_vector(9 DOWNTO 0);
@@ -59,20 +64,39 @@ BEGIN
     random_height_2 <= CONV_STD_LOGIC_VECTOR(125 + CONV_INTEGER(lfsr_value(4 DOWNTO 0) & '0'), 10);
     random_height_3 <= CONV_STD_LOGIC_VECTOR(125 + CONV_INTEGER('0' & lfsr_value(5 DOWNTO 1)), 10);
 
+	 pipe_visible <= pipe1_visible OR pipe2_visible OR pipe3_visible;
+	 
+	 
     state <= '1' when (Game_state_signal = "01" or Game_state_signal = "10") else '0'; -- show pipes during gameplay states
     pipe_on <= pipe_visible and state;
-    pipe_enable <= pipe_visible and state;
+    pipe_enable <= pipe_visible and state;    
     pipe_passed <= pipe_passed_int and state;
     pipe_step <= CONV_STD_LOGIC_VECTOR(2, 10) when pipe_speed_up = '1' else CONV_STD_LOGIC_VECTOR(1, 10);
     frame_tick <= vert_sync and not vert_sync_prev;
-
-    red   <= "0000";
-    green <= "1000" when (pipe_visible = '1' and state = '1') else "0000";
-    blue  <= "0000";   
-
     -- for bait
     pipe_x_1 <= pipe_x_pos_1;
     pipe_y_1 <= pipe_top_height_1;
+	 
+	 
+	 
+	 
+red <=
+    "1111" WHEN pipe1_visible = '1' AND state = '1' ELSE  -- Pastel Pink (Max Red)
+    "1101" WHEN pipe2_visible = '1' AND state = '1' ELSE  -- Pastel Purple
+    "1111" WHEN pipe3_visible = '1' AND state = '1' ELSE  -- Pastel Orange (Max Red)
+    "0000";
+
+green <=
+    "1011" WHEN pipe1_visible = '1' AND state = '1' ELSE  -- Pastel Pink
+    "1011" WHEN pipe2_visible = '1' AND state = '1' ELSE  -- Pastel Purple
+    "1101" WHEN pipe3_visible = '1' AND state = '1' ELSE  -- Pastel Orange (High Green creates the orange)
+    "0000";
+
+blue <=
+    "1100" WHEN pipe1_visible = '1' AND state = '1' ELSE  -- Pastel Pink
+    "1111" WHEN pipe2_visible = '1' AND state = '1' ELSE  -- Pastel Purple (Max Blue)
+    "1010" WHEN pipe3_visible = '1' AND state = '1' ELSE  -- Pastel Orange
+    "0000";
 
     -- update pipe positions and heights on each vertical sync, reset to initial positions and heights during home screen
     PROCESS (CLOCK_25Mhz)
@@ -88,11 +112,11 @@ BEGIN
                 pipe_top_height_1 <= CONV_STD_LOGIC_VECTOR(200, 10);
                 pipe_top_height_2 <= CONV_STD_LOGIC_VECTOR(220, 10);
                 pipe_top_height_3 <= CONV_STD_LOGIC_VECTOR(150, 10);
-                pipe_1_ready <= '0';
+                pipe_1_ready <= '1';
                 pipe_2_ready <= '1';
                 pipe_3_ready <= '1';
-            --  GAME mode and TRAINING mode, only start moving after "first_click"
-            ELSIF state = '1' and frame_tick = '1'   and first_click = '1' THEN
+            --  GAME mode and TRAINING mode, only start moving after "first_click"                
+            ELSIF (state = '1' and frame_tick = '1'   and first_click = '1') THEN
             -- 
                 IF pipe_x_pos_1 <= pipe_step THEN
                     if pipe_1_ready = '1' then
@@ -101,8 +125,9 @@ BEGIN
                     pipe_1_ready <= '1';
                     pipe_x_pos_1 <= CONV_STD_LOGIC_VECTOR(640, 10);
                     pipe_top_height_1 <= random_height_1;
-                ELSE
+                ELSIF (pause_in = '0') then
                     pipe_x_pos_1 <= pipe_x_pos_1 - pipe_step;
+
                 END IF;
 
                 IF pipe_x_pos_2 <= pipe_step THEN
@@ -112,7 +137,7 @@ BEGIN
                     pipe_2_ready <= '1';
                     pipe_x_pos_2 <= CONV_STD_LOGIC_VECTOR(640, 10);
                     pipe_top_height_2 <= random_height_2;
-                ELSE
+                ELSIF (pause_in = '0') then
                     pipe_x_pos_2 <= pipe_x_pos_2 - pipe_step;
                 END IF;
 
@@ -123,7 +148,7 @@ BEGIN
                     pipe_3_ready <= '1';
                     pipe_x_pos_3 <= CONV_STD_LOGIC_VECTOR(640, 10);
                     pipe_top_height_3 <= random_height_3;
-                ELSE
+                ELSIF (pause_in = '0') then
                     pipe_x_pos_3 <= pipe_x_pos_3 - pipe_step;
                 END IF;
             END IF;
@@ -132,30 +157,36 @@ BEGIN
     END PROCESS;    
 
     -- determine if pipe is visible at the current pixel by checking if the pixel is within the x bounds of the pipe and outside the gap defined by the
-    PROCESS (pixel_row, pixel_column, 
-            pipe_x_pos_1, pipe_top_height_1, 
-            pipe_x_pos_2, pipe_top_height_2, 
-            pipe_x_pos_3, pipe_top_height_3)
-    BEGIN
-        pipe_visible <= '0'; 
-        IF (pixel_column >= pipe_x_pos_1 AND pixel_column < pipe_x_pos_1 + 50) THEN -- if within x bounds of pipe
-            IF (pixel_row < pipe_top_height_1  OR pixel_row > pipe_top_height_1 + 200) THEN -- if outside the gap
-                pipe_visible <= '1';
-            END IF;
+PROCESS (pixel_row, pixel_column,
+        pipe_x_pos_1, pipe_top_height_1,
+        pipe_x_pos_2, pipe_top_height_2,
+        pipe_x_pos_3, pipe_top_height_3)
+BEGIN
+
+    pipe1_visible <= '0';
+    pipe2_visible <= '0';
+    pipe3_visible <= '0';
+
+    -- PIPE 1
+    IF (pixel_column >= pipe_x_pos_1 AND pixel_column < pipe_x_pos_1 + 50) THEN
+        IF (pixel_row < pipe_top_height_1 OR pixel_row > pipe_top_height_1 + 200) THEN
+            pipe1_visible <= '1';
         END IF;
+    END IF;
 
-        IF (pixel_column >= pipe_x_pos_2 AND pixel_column < pipe_x_pos_2 + 50) THEN -- if within x bounds of pipe
-            IF (pixel_row < pipe_top_height_2  OR pixel_row > pipe_top_height_2 + 200) THEN -- if outside the gap
-               pipe_visible <= '1';
-            END IF;
+    -- PIPE 2
+    IF (pixel_column >= pipe_x_pos_2 AND pixel_column < pipe_x_pos_2 + 50) THEN
+        IF (pixel_row < pipe_top_height_2 OR pixel_row > pipe_top_height_2 + 200) THEN
+            pipe2_visible <= '1';
         END IF;
+    END IF;
 
-        IF (pixel_column >= pipe_x_pos_3 AND pixel_column < pipe_x_pos_3 + 50) THEN -- if within x bounds of pipe
-            IF (pixel_row < pipe_top_height_3  OR pixel_row > pipe_top_height_3 + 200) THEN -- if outside the gap
-                pipe_visible <= '1';
-            END IF;
+    -- PIPE 3
+    IF (pixel_column >= pipe_x_pos_3 AND pixel_column < pipe_x_pos_3 + 50) THEN
+        IF (pixel_row < pipe_top_height_3 OR pixel_row > pipe_top_height_3 + 200) THEN
+            pipe3_visible <= '1';
         END IF;
+    END IF;
 
-    END PROCESS;
-
+END PROCESS;
 END BEHAVIOR;
