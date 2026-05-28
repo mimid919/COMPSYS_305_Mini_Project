@@ -145,6 +145,8 @@ ARCHITECTURE BEHAVIOUR OF TOP_LEVEL IS
             BACKGROUND_RED,BACKGROUND_GREEN,BACKGROUND_BLUE    : in std_logic_vector(3 downto 0);
             PIPE_RED,PIPE_GREEN, PIPE_BLUE  				: in std_logic_vector(3 DOWNTO 0);
             PIPE_ON                            			    : IN STD_LOGIC;
+            BUBBLE_RED, BUBBLE_GREEN, BUBBLE_BLUE : IN std_logic_vector(3 DOWNTO 0);
+BUBBLE_ON : IN STD_LOGIC;
             BAIT_RED,BAIT_GREEN,BAIT_BLUE   				: in std_logic_vector(3 DOWNTO 0);
             BAIT_ON                         				: IN STD_LOGIC;
             SPRITE_RED, SPRITE_GREEN, SPRITE_BLUE 		    : IN std_logic_vector(3 DOWNTO 0);
@@ -267,6 +269,19 @@ END COMPONENT GAME_LOGIC;
         );
     END COMPONENT SCORE_TEXT;
 
+    --Bubble
+    COMPONENT BUBBLES IS
+PORT (
+    clk                   : IN std_logic;
+    vert_sync             : IN std_logic;
+    pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
+    Game_state_signal     : IN std_logic_vector(1 DOWNTO 0);
+
+    red, green, blue      : OUT std_logic_vector(3 DOWNTO 0);
+    bubble_on             : OUT std_logic
+);
+END COMPONENT BUBBLES;
+
     COMPONENT VGA_SYNC IS
     PORT(	clock_25Mhz		: IN	STD_LOGIC;
 			red, green, blue : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -376,7 +391,15 @@ END COMPONENT GAME_LOGIC;
     SIGNAL SCORE_GREEN_reg     : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL SCORE_BLUE_reg      : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL SCORE_ON_reg        : STD_LOGIC;
+
+
+    --buble signa
+    SIGNAL BUBBLE_RED, BUBBLE_GREEN, BUBBLE_BLUE : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL BUBBLE_ON : STD_LOGIC;
+
 BEGIN
+
+
 
 
 
@@ -559,6 +582,10 @@ BEGIN
         PIPE_GREEN              => PIPE_GREEN,
         PIPE_BLUE               => PIPE_BLUE,
         PIPE_ON                 => PIPE_ON,
+        BUBBLE_RED => BUBBLE_RED,
+    BUBBLE_GREEN => BUBBLE_GREEN,
+    BUBBLE_BLUE => BUBBLE_BLUE,
+    BUBBLE_ON => BUBBLE_ON,
         BAIT_RED                => BAIT_RED,
         BAIT_GREEN              => BAIT_GREEN,
         BAIT_BLUE               => BAIT_BLUE,
@@ -704,6 +731,18 @@ BEGIN
         green => SCORE_GREEN,
         blue => SCORE_BLUE
     );
+
+    BUBBLE_LAYER : BUBBLES PORT MAP (
+    clk => CLOCK_25MHZ,
+    vert_sync => VERT_SYNC,
+    pixel_row => PIXEL_ROW,
+    pixel_column => PIXEL_COLUMN,
+    Game_state_signal => Game_state_signal,
+    red => BUBBLE_RED,
+    green => BUBBLE_GREEN,
+    blue => BUBBLE_BLUE,
+    bubble_on => BUBBLE_ON
+);
 
 
     VGA_REFRESH: VGA_SYNC PORT MAP (

@@ -15,6 +15,8 @@ ENTITY LAYER IS
             BACKGROUND_RED,BACKGROUND_GREEN,BACKGROUND_BLUE      : IN std_logic_vector(3 downto 0);
             PIPE_RED,PIPE_GREEN, PIPE_BLUE                       : IN std_logic_vector(3 DOWNTO 0);
             PIPE_ON                                              : IN STD_LOGIC;
+            BUBBLE_RED, BUBBLE_GREEN, BUBBLE_BLUE : IN std_logic_vector(3 DOWNTO 0);
+BUBBLE_ON : IN STD_LOGIC;
             BAIT_RED,BAIT_GREEN,BAIT_BLUE                        : IN std_logic_vector(3 DOWNTO 0);
             BAIT_ON                                              : IN STD_LOGIC;
             SPRITE_RED, SPRITE_GREEN, SPRITE_BLUE                : IN std_logic_vector(3 DOWNTO 0);
@@ -42,6 +44,8 @@ ARCHITECTURE behaviour OF LAYER IS
     SIGNAL reg_BACKGROUND_RED, reg_BACKGROUND_GREEN, reg_BACKGROUND_BLUE : std_logic_vector(3 downto 0);
     SIGNAL reg_PIPE_RED, reg_PIPE_GREEN, reg_PIPE_BLUE : std_logic_vector(3 DOWNTO 0);
     SIGNAL reg_PIPE_ON : STD_LOGIC;
+    SIGNAL reg_BUBBLE_RED, reg_BUBBLE_GREEN, reg_BUBBLE_BLUE : std_logic_vector(3 DOWNTO 0);
+SIGNAL reg_BUBBLE_ON : STD_LOGIC;
     SIGNAL reg_BAIT_RED, reg_BAIT_GREEN, reg_BAIT_BLUE : std_logic_vector(3 DOWNTO 0);
     SIGNAL reg_BAIT_ON : STD_LOGIC;
     SIGNAL reg_SPRITE_RED, reg_SPRITE_GREEN, reg_SPRITE_BLUE : std_logic_vector(3 DOWNTO 0);
@@ -71,6 +75,7 @@ BEGIN
         
         reg_BACKGROUND_RED <= BACKGROUND_RED; reg_BACKGROUND_GREEN <= BACKGROUND_GREEN; reg_BACKGROUND_BLUE <= BACKGROUND_BLUE;
         reg_PIPE_RED <= PIPE_RED; reg_PIPE_GREEN <= PIPE_GREEN; reg_PIPE_BLUE <= PIPE_BLUE; reg_PIPE_ON <= PIPE_ON;
+        reg_BUBBLE_RED <= BUBBLE_RED;reg_BUBBLE_GREEN <= BUBBLE_GREEN;reg_BUBBLE_BLUE <= BUBBLE_BLUE;reg_BUBBLE_ON <= BUBBLE_ON;
         reg_BAIT_RED <= BAIT_RED; reg_BAIT_GREEN <= BAIT_GREEN; reg_BAIT_BLUE <= BAIT_BLUE; reg_BAIT_ON <= BAIT_ON;
         reg_SPRITE_RED <= SPRITE_RED; reg_SPRITE_GREEN <= SPRITE_GREEN; reg_SPRITE_BLUE <= SPRITE_BLUE; reg_SPRITE_ON <= SPRITE_ON;
         reg_LIVES_RED <= LIVES_RED; reg_LIVES_GREEN <= LIVES_GREEN; reg_LIVES_BLUE <= LIVES_BLUE; reg_LIVES_ON <= LIVES_ON;
@@ -136,11 +141,15 @@ BEGIN
                 RED_OUT   <= reg_BAIT_RED;
                 GREEN_OUT <= reg_BAIT_GREEN;
                 BLUE_OUT  <= reg_BAIT_BLUE;
-            ELSIF (reg_PIPE_ON = '1') THEN
+          ELSIF (reg_PIPE_ON = '1') THEN
                 RED_OUT   <= reg_PIPE_RED;
                 GREEN_OUT <= reg_PIPE_GREEN;
                 BLUE_OUT  <= reg_PIPE_BLUE;
-            END IF;
+        ELSIF (reg_BUBBLE_ON = '1') THEN
+                RED_OUT   <= reg_BUBBLE_RED;
+                GREEN_OUT <= reg_BUBBLE_GREEN;
+                BLUE_OUT  <= reg_BUBBLE_BLUE;
+END IF;
         END IF;
 
     END IF;

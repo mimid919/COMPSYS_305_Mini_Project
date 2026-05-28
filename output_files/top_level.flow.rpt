@@ -1,6 +1,6 @@
 Flow report for top_level
-Thu May 28 23:32:33 2026
-Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+Fri May 29 04:55:03 2026
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
 ---------------------
@@ -37,29 +37,29 @@ refer to the applicable agreement for further details.
 
 
 
-+-----------------------------------------------------------------------------------+
-; Flow Summary                                                                      ;
-+---------------------------------+-------------------------------------------------+
-; Flow Status                     ; Successful - Thu May 28 23:32:27 2026           ;
-; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
-; Revision Name                   ; top_level                                       ;
-; Top-level Entity Name           ; top_level                                       ;
-; Family                          ; Cyclone V                                       ;
-; Device                          ; 5CEBA4F23C7                                     ;
-; Timing Models                   ; Final                                           ;
-; Logic utilization (in ALMs)     ; 1,379 / 18,480 ( 7 % )                          ;
-; Total registers                 ; 449                                             ;
-; Total pins                      ; 55 / 224 ( 25 % )                               ;
-; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 945,784 / 3,153,920 ( 30 % )                    ;
-; Total DSP Blocks                ; 0 / 66 ( 0 % )                                  ;
-; Total HSSI RX PCSs              ; 0                                               ;
-; Total HSSI PMA RX Deserializers ; 0                                               ;
-; Total HSSI TX PCSs              ; 0                                               ;
-; Total HSSI PMA TX Serializers   ; 0                                               ;
-; Total PLLs                      ; 1 / 4 ( 25 % )                                  ;
-; Total DLLs                      ; 0 / 4 ( 0 % )                                   ;
-+---------------------------------+-------------------------------------------------+
++-------------------------------------------------------------------------------+
+; Flow Summary                                                                  ;
++---------------------------------+---------------------------------------------+
+; Flow Status                     ; Successful - Fri May 29 04:54:57 2026       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; top_level                                   ;
+; Top-level Entity Name           ; top_level                                   ;
+; Family                          ; Cyclone V                                   ;
+; Device                          ; 5CEBA4F23C7                                 ;
+; Timing Models                   ; Final                                       ;
+; Logic utilization (in ALMs)     ; 1,673 / 18,480 ( 9 % )                      ;
+; Total registers                 ; 517                                         ;
+; Total pins                      ; 55 / 224 ( 25 % )                           ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 987,820 / 3,153,920 ( 31 % )                ;
+; Total DSP Blocks                ; 2 / 66 ( 3 % )                              ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 1 / 4 ( 25 % )                              ;
+; Total DLLs                      ; 0 / 4 ( 0 % )                               ;
++---------------------------------+---------------------------------------------+
 
 
 +-----------------------------------------+
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/28/2026 23:29:45 ;
+; Start date & time ; 05/29/2026 04:51:42 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; top_level           ;
 +-------------------+---------------------+
@@ -78,12 +78,13 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+----------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name    ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+----------------+------------+
-; COMPILER_SIGNATURE_ID               ; 224948461339869.177996778415612        ; --            ; --             ; --         ;
+; COMPILER_SIGNATURE_ID               ; 148014617755445.177998710141164        ; --            ; --             ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --             ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --             ; --         ;
 ; MISC_FILE                           ; pll.cmp                                ; --            ; --             ; --         ;
-; MISC_FILE                           ; pipe_top.cmp                           ; --            ; --             ; --         ;
-; MISC_FILE                           ; pipestrip.cmp                          ; --            ; --             ; --         ;
+; MISC_FILE                           ; sunset_rom.cmp                         ; --            ; --             ; --         ;
+; MISC_FILE                           ; bait_rom.cmp                           ; --            ; --             ; --         ;
+; MISC_FILE                           ; bubble_rom.cmp                         ; --            ; --             ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; DE0_CV_Default ; Top        ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --             ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; DE0_CV_Default ; Top        ;
@@ -102,11 +103,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:12     ; 1.0                     ; 5010 MB             ; 00:00:17                           ;
-; Fitter               ; 00:02:23     ; 1.1                     ; 7707 MB             ; 00:17:40                           ;
-; Assembler            ; 00:00:06     ; 1.0                     ; 4875 MB             ; 00:00:03                           ;
-; Timing Analyzer      ; 00:00:05     ; 2.7                     ; 5326 MB             ; 00:00:10                           ;
-; Total                ; 00:02:46     ; --                      ; --                  ; 00:18:10                           ;
+; Analysis & Synthesis ; 00:00:13     ; 1.0                     ; 5038 MB             ; 00:00:20                           ;
+; Fitter               ; 00:02:57     ; 1.1                     ; 7624 MB             ; 00:23:00                           ;
+; Assembler            ; 00:00:03     ; 1.0                     ; 4877 MB             ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:05     ; 3.3                     ; 5338 MB             ; 00:00:13                           ;
+; Total                ; 00:03:18     ; --                      ; --                  ; 00:23:36                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -115,10 +116,10 @@ refer to the applicable agreement for further details.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; EN441220         ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; EN441220         ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; EN441220         ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; EN441220         ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; LAPTOP-P9VVFGQ2  ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; LAPTOP-P9VVFGQ2  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; LAPTOP-P9VVFGQ2  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; LAPTOP-P9VVFGQ2  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
