@@ -68,7 +68,7 @@ BEGIN
 		numwords_a => 64,
 		operation_mode => "ROM",
 		outdata_aclr_a => "NONE",
-		outdata_reg_a => "CLOCK0",
+		outdata_reg_a => "unresgistered",
 		widthad_a => 6,
 		width_a => 12,
 		width_byteena_a => 1

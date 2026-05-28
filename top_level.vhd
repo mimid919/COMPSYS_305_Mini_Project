@@ -732,17 +732,17 @@ BEGIN
         blue => SCORE_BLUE
     );
 
-    BUBBLE_LAYER : BUBBLES PORT MAP (
-    clk => CLOCK_25MHZ,
-    vert_sync => VERT_SYNC,
-    pixel_row => PIXEL_ROW,
-    pixel_column => PIXEL_COLUMN,
-    Game_state_signal => Game_state_signal,
-    red => BUBBLE_RED,
-    green => BUBBLE_GREEN,
-    blue => BUBBLE_BLUE,
-    bubble_on => BUBBLE_ON
-);
+    --BUBBLE_LAYER : BUBBLES PORT MAP (
+    --clk => CLOCK_25MHZ,
+    --vert_sync => VERT_SYNC,
+    --pixel_row => PIXEL_ROW,
+    --pixel_column => PIXEL_COLUMN,
+    --Game_state_signal => Game_state_signal,
+    --red => BUBBLE_RED,
+    --green => BUBBLE_GREEN,
+    --blue => BUBBLE_BLUE,
+    --bubble_on => BUBBLE_ON
+--);
 
 
     VGA_REFRESH: VGA_SYNC PORT MAP (
