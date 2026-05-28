@@ -49,32 +49,133 @@ ARCHITECTURE behaviour OF HOME_DISPLAY_TEXT IS
     ----------------------------------------------------------------------------
     -- SMALL TEXT SETTINGS
     ----------------------------------------------------------------------------
-    CONSTANT SMALL_TEXT_ROW_START : integer := 310;
-    CONSTANT SMALL_CHAR_SIZE      : integer := 8;
-    CONSTANT SMALL_CHAR_SPACING   : integer := 10;
+    CONSTANT mode_TEXT_ROW_START : integer := 310;
+    CONSTANT mode_CHAR_SIZE      : integer := 8;
+    CONSTANT mode_CHAR_SPACING   : integer := 10;
+    CONSTANT start_TEXT_ROW_START : integer := 325;
+    CONSTANT start_CHAR_SIZE      : integer := 8;
+    CONSTANT start_CHAR_SPACING   : integer := 10;
 
     TYPE small_char_array IS ARRAY (natural RANGE <>) OF std_logic_vector(5 DOWNTO 0);
 
-    CONSTANT SMALL_MESSAGE : small_char_array := (
-        "010000", -- P
-        "001100", -- L
-        "000001", -- A
-        "011001", -- Y
-        "100111", -- space
-        "010100", -- T
-        "001111", -- O
-        "100111", -- space
-        "010011", -- S
-        "010100", -- T
-        "000001", -- A
-        "010010", -- R
-        "010100"  -- T
-    );
+CONSTANT mode_message : small_char_array := (
+    -- TRAINING MODE
+    "010100", -- T
+    "010010", -- R
+    "000001", -- A
+    "001001", -- I
+    "001110", -- N
+    "001001", -- I
+    "001110", -- N
+    "000111", -- G
+    "100111", -- space
+    "001101", -- M
+    "001111", -- O
+    "000100", -- D
+    "000101", -- E
 
-    CONSTANT SMALL_NUM_CHARS : integer := SMALL_MESSAGE'LENGTH;
+    "100111", -- space
+    "011111", -- arrow 
+    "100111", -- space
+     "010011", -- S
+     "010111", -- w
+     "011011", -- [
+    "110000", -- 0 
+  "011101" ,-- ]
+    "100111", -- space
+    "100001", -- = 
+    "100111", -- space
+    "110000", -- 1
+        "100111", -- space
+            "100111", -- space
+                "100111", -- space
 
-    CONSTANT SMALL_TEXT_COL_START : integer :=
-        (640 - (SMALL_NUM_CHARS - 1) * SMALL_CHAR_SPACING) / 2;
+
+    -- GAME MODE
+    "000111", -- G
+    "000001", -- A
+    "001101", -- M
+    "000101", -- E
+        "100111", -- space
+    "001101", -- M
+    "001111", -- O
+    "000100", -- D
+    "000101", -- E
+
+
+    "100111", -- space
+    "011111", -- arrow 
+    "100111", -- space
+ "010011", -- S
+ "010111", -- w
+ "011011", -- [
+    "110000", -- 0 
+  "011101" ,-- ]
+    "100111", -- space
+    "100001", -- = 
+    "100111", -- space
+    "110001", -- 1
+        "100111", -- space
+            "100111", -- space
+                "100111" -- space
+                
+
+);
+
+CONSTANT start_message : small_char_array := (
+    -- TRAINING MODE
+    "010011", -- S
+    "010100", -- T
+    "000001", -- A
+    "010010", -- R
+    "010100", -- T
+    "100111", -- space
+    "011111", -- arrow 
+    "100111", -- space
+    "001011", -- k
+    "000101", -- E
+    "011001",  -- Y
+        "011011", -- [
+    "110011", -- 0 
+  "011101" ,-- ]
+    
+    "100111", -- space
+    "100111", -- space
+    "100111", -- space
+
+    "010000",  -- P
+    "000001", -- A
+    "010101", -- u
+    "010011", -- S
+    "000101", -- E
+    "100111", -- space
+    "011111", -- arrow 
+    "100111", -- space
+
+    "010010", -- R
+    "001001",  -- I
+    "000111", -- G
+    "001000", -- H 
+    "010100", -- T
+    "100111", -- space
+    "000011", -- C
+    "001100",  -- L
+    "001001", -- I
+    "000011", -- C
+    "001011" -- k
+                
+
+);
+
+    CONSTANT mode_NUM_CHARS : integer := mode_message'LENGTH;
+    CONSTANT start_NUM_CHARS : integer := start_message'LENGTH;
+
+
+    CONSTANT mode_TEXT_COL_START : integer :=
+        (640 - (mode_NUM_CHARS - 1) * mode_CHAR_SPACING) / 2;
+    CONSTANT start_TEXT_COL_START : integer :=
+        (640 - (start_NUM_CHARS - 1) * start_CHAR_SPACING) / 2;
+
 
     ----------------------------------------------------------------------------
     -- SIGNALS
@@ -82,8 +183,11 @@ ARCHITECTURE behaviour OF HOME_DISPLAY_TEXT IS
     TYPE pixel_array IS ARRAY (0 TO NUM_CHARS-1) OF std_logic;
     SIGNAL rom_pixels : pixel_array;
 
-    TYPE small_pixel_array IS ARRAY (0 TO SMALL_NUM_CHARS-1) OF std_logic;
-    SIGNAL small_rom_pixels : small_pixel_array;
+    TYPE mode_pixel_array IS ARRAY (0 TO mode_NUM_CHARS-1) OF std_logic;
+    SIGNAL mode_rom_pixels : mode_pixel_array;
+
+    TYPE start_pixel_array IS ARRAY (0 TO start_NUM_CHARS-1) OF std_logic;
+    SIGNAL start_rom_pixels : start_pixel_array;
 
     SIGNAL text_on : std_logic;
 
@@ -134,55 +238,88 @@ BEGIN
     END GENERATE GEN_CHARS;
 
     ----------------------------------------------------------------------------
-    -- SMALL TEXT GENERATION
+    -- MODE TEXT GENERATION
     ----------------------------------------------------------------------------
-    GEN_SMALL_CHARS: FOR i IN 0 TO SMALL_NUM_CHARS-1 GENERATE
+    GEN_MODE_CHARS: FOR i IN 0 TO mode_NUM_CHARS-1 GENERATE
 
-        SIGNAL row_offset_small : std_logic_vector(9 DOWNTO 0);
-        SIGNAL col_offset_small : std_logic_vector(9 DOWNTO 0);
+        SIGNAL row_offset_mode : std_logic_vector(9 DOWNTO 0);
+        SIGNAL col_offset_mode : std_logic_vector(9 DOWNTO 0);
 
     BEGIN
 
-        row_offset_small <= pixel_row -
-            CONV_STD_LOGIC_VECTOR(SMALL_TEXT_ROW_START, 10);
+        row_offset_mode <= pixel_row -
+            CONV_STD_LOGIC_VECTOR(mode_TEXT_ROW_START, 10);
 
-        col_offset_small <= pixel_column -
+        col_offset_mode <= pixel_column -
             CONV_STD_LOGIC_VECTOR(
-                SMALL_TEXT_COL_START + i * SMALL_CHAR_SPACING, 10);
+                mode_TEXT_COL_START + i * mode_CHAR_SPACING, 10);
 
-        SMALL_CHAR_ROM: char_rom
+        mode_CHAR_ROM: char_rom
             PORT MAP (
-                character_address => SMALL_MESSAGE(i),
+                character_address => mode_message(i),
 
                 -- 8x8 text (no scaling)
-                font_row => row_offset_small(2 DOWNTO 0),
-                font_col => col_offset_small(2 DOWNTO 0),
+                font_row => row_offset_mode(2 DOWNTO 0),
+                font_col => col_offset_mode(2 DOWNTO 0),
 
                 clock => clk,
-                rom_mux_output => small_rom_pixels(i)
+                rom_mux_output => mode_rom_pixels(i)
             );
 
-    END GENERATE GEN_SMALL_CHARS;
+    END GENERATE GEN_MODE_CHARS;
+
+        ----------------------------------------------------------------------------
+    -- start TEXT GENERATION
+    ----------------------------------------------------------------------------
+    GEN_start_CHARS: FOR i IN 0 TO start_NUM_CHARS-1 GENERATE
+
+        SIGNAL row_offset_start : std_logic_vector(9 DOWNTO 0);
+        SIGNAL col_offset_start : std_logic_vector(9 DOWNTO 0);
+
+    BEGIN
+
+        row_offset_start <= pixel_row -
+            CONV_STD_LOGIC_VECTOR(start_TEXT_ROW_START, 10);
+
+        col_offset_start    <= pixel_column -
+            CONV_STD_LOGIC_VECTOR(
+                start_TEXT_COL_START + i * start_CHAR_SPACING, 10);
+
+        start_CHAR_ROM: char_rom
+            PORT MAP (
+                character_address => start_message(i),
+                -- 8x8 text (no scaling)
+                font_row => row_offset_start(2 DOWNTO 0),
+                font_col => col_offset_start(2 DOWNTO 0),
+
+                clock => clk,
+                rom_mux_output => start_rom_pixels(i)
+            );
+
+    END GENERATE GEN_start_CHARS;
 
     ----------------------------------------------------------------------------
     -- TEXT DISPLAY LOGIC
     ----------------------------------------------------------------------------
     PROCESS(pixel_row, pixel_column, Game_state_signal,
-            rom_pixels, small_rom_pixels)
+            rom_pixels, mode_rom_pixels, start_rom_pixels)
 
         VARIABLE col_offset_v       : integer;
         VARIABLE row_offset_v       : integer;
 
-        VARIABLE small_col_offset_v : integer;
-        VARIABLE small_row_offset_v : integer;
+        VARIABLE mode_col_offset_v : integer;
+        VARIABLE mode_row_offset_v : integer;
+        VARIABLE start_col_offset_v : integer;
+        VARIABLE start_row_offset_v : integer;
 
         VARIABLE hit                : std_logic;
-        VARIABLE small_hit          : std_logic;
-
+        VARIABLE mode_hit          : std_logic;
+        VARIABLE start_hit          : std_logic;
     BEGIN
 
         hit       := '0';
-        small_hit := '0';
+        mode_hit := '0';
+        start_hit := '0';
 
         IF Game_state_signal = "00" THEN
 
@@ -211,32 +348,59 @@ BEGIN
             END LOOP;
 
             ----------------------------------------------------------------------------
-            -- SMALL TEXT CHECK
+            -- MODE TEXT CHECK
             ----------------------------------------------------------------------------
-            small_row_offset_v :=
-                CONV_INTEGER(pixel_row) - SMALL_TEXT_ROW_START;
+            mode_row_offset_v :=
+                CONV_INTEGER(pixel_row) - mode_TEXT_ROW_START;
 
-            FOR i IN 0 TO SMALL_NUM_CHARS-1 LOOP
+            FOR i IN 0 TO mode_NUM_CHARS-1 LOOP
 
-                small_col_offset_v :=
+                mode_col_offset_v :=
                     CONV_INTEGER(pixel_column) -
-                    (SMALL_TEXT_COL_START + i * SMALL_CHAR_SPACING);
+                    (mode_TEXT_COL_START + i * mode_CHAR_SPACING);
 
-                IF small_col_offset_v >= 0 AND
-                   small_col_offset_v < SMALL_CHAR_SIZE AND
-                   small_row_offset_v >= 0 AND
-                   small_row_offset_v < SMALL_CHAR_SIZE AND
-                   small_rom_pixels(i) = '1' THEN
+                IF mode_col_offset_v >= 0 AND
+                   mode_col_offset_v < mode_CHAR_SIZE AND
+                   mode_row_offset_v >= 0 AND
+                   mode_row_offset_v < mode_CHAR_SIZE AND
+                   MODE_rom_pixels(i) = '1' THEN
 
-                    small_hit := '1';
+                    mode_hit := '1';
+
+                END IF;
+					 
+				
+			END LOOP;
+
+                ----------------------------------------------------------------------------
+            -- start TEXT CHECK
+            ----------------------------------------------------------------------------
+            start_row_offset_v :=
+                CONV_INTEGER(pixel_row) - start_TEXT_ROW_START;
+
+            FOR i IN 0 TO start_NUM_CHARS-1 LOOP
+
+                start_col_offset_v :=
+                    CONV_INTEGER(pixel_column) -
+                    (start_TEXT_COL_START + i * start_CHAR_SPACING);
+
+                IF start_col_offset_v >= 0 AND
+                   start_col_offset_v < start_CHAR_SIZE AND
+                   start_row_offset_v >= 0 AND
+                   start_row_offset_v < start_CHAR_SIZE AND
+                   start_rom_pixels(i) = '1' THEN
+
+                    start_hit := '1';
 
                 END IF;
 
+
             END LOOP;
+				
 
         END IF;
 
-        text_on <= hit OR small_hit;
+        text_on <= hit OR mode_hit or start_hit;
 
     END PROCESS;
 

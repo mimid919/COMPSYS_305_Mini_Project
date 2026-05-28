@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(5CEBA4F23) Path("C:/Users/edia026/Documents/GitHub/COMPSYS_305_Mini_Project/output_files/") File("top_level.sof") MfrSpec(OpMask(1));
+		Device PartName(5CEBA4F23) Path("C:/Users/adun475/Documents/COMPSYS_305_Mini_Project/output_files/") File("top_level.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

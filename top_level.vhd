@@ -10,7 +10,7 @@ ENTITY top_level IS
             PS2_CLK, PS2_DAT                    : INOUT STD_LOGIC;
             VGA_R, VGA_G, VGA_B                 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
             VGA_HS, VGA_VS                      : OUT STD_LOGIC;
-            HEX0, HEX1, HEX2, HEX3, HEX4, HEX5  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+            HEX0, HEX1   : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
             LEDR                                : OUT STD_LOGIC_VECTOR(9 DOWNTO 0)
         );
 END top_level;
@@ -444,17 +444,12 @@ BEGIN
 
 
 
-    CH : BCD_TO_SEVENSEG PORT MAP (
-        BCD_digit => column_hundreds,
-        SevenSeg_out => HEX2
-    );
-
-    CO : BCD_TO_SEVENSEG PORT MAP (
+    score_ones : BCD_TO_SEVENSEG PORT MAP (
         BCD_digit => SCORE_ONES_SIG,
         SevenSeg_out => HEX0
     );
 
-    CT : BCD_TO_SEVENSEG PORT MAP (
+    score_tens : BCD_TO_SEVENSEG PORT MAP (
         BCD_digit => SCORE_TENS_SIG,
         SevenSeg_out => HEX1
     );
@@ -661,20 +656,7 @@ BEGIN
         hit_ground => HIT_GROUND_SIG
     );
 
-    RH : BCD_TO_SEVENSEG PORT MAP (
-        BCD_digit => row_hundreds,
-        SevenSeg_out => HEX5
-    );
 
-    RT : BCD_TO_SEVENSEG PORT MAP (
-        BCD_digit => row_tens,
-        SevenSeg_out => HEX4
-    );
-
-    RO : BCD_TO_SEVENSEG PORT MAP (
-        BCD_digit => row_ones,
-        SevenSeg_out => HEX3
-    );
 
     RANDOM_BAIT: BAIT PORT MAP (
         clk => CLOCK_25MHZ,
