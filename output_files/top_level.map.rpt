@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_level
-Fri May 29 11:25:09 2026
+Fri May 29 12:29:22 2026
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -150,263 +150,265 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 142. Source assignments for PIPES:PIPE_DISPLAY|pipestrip:STRIP_ROM|altsyncram:altsyncram_component|altsyncram_vr14:auto_generated
 143. Source assignments for bait:RANDOM_BAIT|bait_rom:BAIT_IMAGE|altsyncram:altsyncram_component|altsyncram_e714:auto_generated
 144. Source assignments for score_text:SCORE_DISPLAY|char_rom:SCORE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated
-145. Parameter Settings for User Entity Instance: BACKGROUND:BG|background_index_rom:INDEX_ROM|altsyncram:ROM
-146. Parameter Settings for User Entity Instance: BACKGROUND:BG|background_palette_rom:PALETTE_ROM|altsyncram:ROM
-147. Parameter Settings for User Entity Instance: pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i
-148. Parameter Settings for User Entity Instance: dolphin_visual:DOLPHIN_SPRITE_INST|dolphin_rom:DOLPHIN|altsyncram:ROM
-149. Parameter Settings for User Entity Instance: GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST|altsyncram:altsyncram_component
-150. Parameter Settings for User Entity Instance: GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:1:CHAR_ROM_INST|altsyncram:altsyncram_component
-151. Parameter Settings for User Entity Instance: GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:2:CHAR_ROM_INST|altsyncram:altsyncram_component
-152. Parameter Settings for User Entity Instance: GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:3:CHAR_ROM_INST|altsyncram:altsyncram_component
-153. Parameter Settings for User Entity Instance: GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:4:CHAR_ROM_INST|altsyncram:altsyncram_component
-154. Parameter Settings for User Entity Instance: GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:5:CHAR_ROM_INST|altsyncram:altsyncram_component
-155. Parameter Settings for User Entity Instance: GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:6:CHAR_ROM_INST|altsyncram:altsyncram_component
-156. Parameter Settings for User Entity Instance: GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:7:CHAR_ROM_INST|altsyncram:altsyncram_component
-157. Parameter Settings for User Entity Instance: GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST|altsyncram:altsyncram_component
-158. Parameter Settings for User Entity Instance: GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:1:CHAR_ROM_INST|altsyncram:altsyncram_component
-159. Parameter Settings for User Entity Instance: GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:2:CHAR_ROM_INST|altsyncram:altsyncram_component
-160. Parameter Settings for User Entity Instance: GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:3:CHAR_ROM_INST|altsyncram:altsyncram_component
-161. Parameter Settings for User Entity Instance: GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:4:CHAR_ROM_INST|altsyncram:altsyncram_component
-162. Parameter Settings for User Entity Instance: GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:5:CHAR_ROM_INST|altsyncram:altsyncram_component
-163. Parameter Settings for User Entity Instance: GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:6:CHAR_ROM_INST|altsyncram:altsyncram_component
-164. Parameter Settings for User Entity Instance: GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:7:CHAR_ROM_INST|altsyncram:altsyncram_component
-165. Parameter Settings for User Entity Instance: GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:8:CHAR_ROM_INST|altsyncram:altsyncram_component
-166. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:0:CHAR_ROM_INST|altsyncram:altsyncram_component
-167. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:1:CHAR_ROM_INST|altsyncram:altsyncram_component
-168. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:2:CHAR_ROM_INST|altsyncram:altsyncram_component
-169. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:3:CHAR_ROM_INST|altsyncram:altsyncram_component
-170. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:4:CHAR_ROM_INST|altsyncram:altsyncram_component
-171. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:5:CHAR_ROM_INST|altsyncram:altsyncram_component
-172. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:6:CHAR_ROM_INST|altsyncram:altsyncram_component
-173. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:7:CHAR_ROM_INST|altsyncram:altsyncram_component
-174. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:8:CHAR_ROM_INST|altsyncram:altsyncram_component
-175. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:9:CHAR_ROM_INST|altsyncram:altsyncram_component
-176. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:10:CHAR_ROM_INST|altsyncram:altsyncram_component
-177. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:11:CHAR_ROM_INST|altsyncram:altsyncram_component
-178. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:12:CHAR_ROM_INST|altsyncram:altsyncram_component
-179. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:13:CHAR_ROM_INST|altsyncram:altsyncram_component
-180. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:0:mode_CHAR_ROM|altsyncram:altsyncram_component
-181. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:1:mode_CHAR_ROM|altsyncram:altsyncram_component
-182. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:2:mode_CHAR_ROM|altsyncram:altsyncram_component
-183. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:3:mode_CHAR_ROM|altsyncram:altsyncram_component
-184. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:4:mode_CHAR_ROM|altsyncram:altsyncram_component
-185. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:5:mode_CHAR_ROM|altsyncram:altsyncram_component
-186. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:6:mode_CHAR_ROM|altsyncram:altsyncram_component
-187. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:7:mode_CHAR_ROM|altsyncram:altsyncram_component
-188. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:8:mode_CHAR_ROM|altsyncram:altsyncram_component
-189. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:9:mode_CHAR_ROM|altsyncram:altsyncram_component
-190. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:10:mode_CHAR_ROM|altsyncram:altsyncram_component
-191. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:11:mode_CHAR_ROM|altsyncram:altsyncram_component
-192. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:12:mode_CHAR_ROM|altsyncram:altsyncram_component
-193. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:13:mode_CHAR_ROM|altsyncram:altsyncram_component
-194. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:14:mode_CHAR_ROM|altsyncram:altsyncram_component
-195. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:15:mode_CHAR_ROM|altsyncram:altsyncram_component
-196. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:16:mode_CHAR_ROM|altsyncram:altsyncram_component
-197. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:17:mode_CHAR_ROM|altsyncram:altsyncram_component
-198. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:18:mode_CHAR_ROM|altsyncram:altsyncram_component
-199. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:19:mode_CHAR_ROM|altsyncram:altsyncram_component
-200. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:20:mode_CHAR_ROM|altsyncram:altsyncram_component
-201. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:21:mode_CHAR_ROM|altsyncram:altsyncram_component
-202. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:22:mode_CHAR_ROM|altsyncram:altsyncram_component
-203. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:23:mode_CHAR_ROM|altsyncram:altsyncram_component
-204. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:24:mode_CHAR_ROM|altsyncram:altsyncram_component
-205. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:25:mode_CHAR_ROM|altsyncram:altsyncram_component
-206. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:26:mode_CHAR_ROM|altsyncram:altsyncram_component
-207. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:27:mode_CHAR_ROM|altsyncram:altsyncram_component
-208. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:28:mode_CHAR_ROM|altsyncram:altsyncram_component
-209. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:29:mode_CHAR_ROM|altsyncram:altsyncram_component
-210. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:30:mode_CHAR_ROM|altsyncram:altsyncram_component
-211. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:31:mode_CHAR_ROM|altsyncram:altsyncram_component
-212. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:32:mode_CHAR_ROM|altsyncram:altsyncram_component
-213. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:33:mode_CHAR_ROM|altsyncram:altsyncram_component
-214. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:34:mode_CHAR_ROM|altsyncram:altsyncram_component
-215. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:35:mode_CHAR_ROM|altsyncram:altsyncram_component
-216. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:36:mode_CHAR_ROM|altsyncram:altsyncram_component
-217. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:37:mode_CHAR_ROM|altsyncram:altsyncram_component
-218. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:38:mode_CHAR_ROM|altsyncram:altsyncram_component
-219. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:39:mode_CHAR_ROM|altsyncram:altsyncram_component
-220. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:40:mode_CHAR_ROM|altsyncram:altsyncram_component
-221. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:41:mode_CHAR_ROM|altsyncram:altsyncram_component
-222. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:42:mode_CHAR_ROM|altsyncram:altsyncram_component
-223. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:43:mode_CHAR_ROM|altsyncram:altsyncram_component
-224. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:44:mode_CHAR_ROM|altsyncram:altsyncram_component
-225. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:45:mode_CHAR_ROM|altsyncram:altsyncram_component
-226. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:46:mode_CHAR_ROM|altsyncram:altsyncram_component
-227. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:47:mode_CHAR_ROM|altsyncram:altsyncram_component
-228. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:48:mode_CHAR_ROM|altsyncram:altsyncram_component
-229. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:49:mode_CHAR_ROM|altsyncram:altsyncram_component
-230. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:50:mode_CHAR_ROM|altsyncram:altsyncram_component
-231. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:51:mode_CHAR_ROM|altsyncram:altsyncram_component
-232. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:0:start_CHAR_ROM|altsyncram:altsyncram_component
-233. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:1:start_CHAR_ROM|altsyncram:altsyncram_component
-234. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:2:start_CHAR_ROM|altsyncram:altsyncram_component
-235. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:3:start_CHAR_ROM|altsyncram:altsyncram_component
-236. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:4:start_CHAR_ROM|altsyncram:altsyncram_component
-237. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:5:start_CHAR_ROM|altsyncram:altsyncram_component
-238. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:6:start_CHAR_ROM|altsyncram:altsyncram_component
-239. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:7:start_CHAR_ROM|altsyncram:altsyncram_component
-240. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:8:start_CHAR_ROM|altsyncram:altsyncram_component
-241. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:9:start_CHAR_ROM|altsyncram:altsyncram_component
-242. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:10:start_CHAR_ROM|altsyncram:altsyncram_component
-243. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:11:start_CHAR_ROM|altsyncram:altsyncram_component
-244. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:12:start_CHAR_ROM|altsyncram:altsyncram_component
-245. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:13:start_CHAR_ROM|altsyncram:altsyncram_component
-246. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:14:start_CHAR_ROM|altsyncram:altsyncram_component
-247. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:15:start_CHAR_ROM|altsyncram:altsyncram_component
-248. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:16:start_CHAR_ROM|altsyncram:altsyncram_component
-249. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:17:start_CHAR_ROM|altsyncram:altsyncram_component
-250. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:18:start_CHAR_ROM|altsyncram:altsyncram_component
-251. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:19:start_CHAR_ROM|altsyncram:altsyncram_component
-252. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:20:start_CHAR_ROM|altsyncram:altsyncram_component
-253. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:21:start_CHAR_ROM|altsyncram:altsyncram_component
-254. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:22:start_CHAR_ROM|altsyncram:altsyncram_component
-255. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:23:start_CHAR_ROM|altsyncram:altsyncram_component
-256. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:24:start_CHAR_ROM|altsyncram:altsyncram_component
-257. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:25:start_CHAR_ROM|altsyncram:altsyncram_component
-258. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:26:start_CHAR_ROM|altsyncram:altsyncram_component
-259. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:27:start_CHAR_ROM|altsyncram:altsyncram_component
-260. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:28:start_CHAR_ROM|altsyncram:altsyncram_component
-261. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:29:start_CHAR_ROM|altsyncram:altsyncram_component
-262. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:30:start_CHAR_ROM|altsyncram:altsyncram_component
-263. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:31:start_CHAR_ROM|altsyncram:altsyncram_component
-264. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:32:start_CHAR_ROM|altsyncram:altsyncram_component
-265. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:33:start_CHAR_ROM|altsyncram:altsyncram_component
-266. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:34:start_CHAR_ROM|altsyncram:altsyncram_component
-267. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:35:start_CHAR_ROM|altsyncram:altsyncram_component
-268. Parameter Settings for User Entity Instance: lives:LIFE_DISPLAY|char_rom:HEART_ROM|altsyncram:altsyncram_component
-269. Parameter Settings for User Entity Instance: PIPES:PIPE_DISPLAY|pipe_top:TOP_ROM|altsyncram:altsyncram_component
-270. Parameter Settings for User Entity Instance: PIPES:PIPE_DISPLAY|pipestrip:STRIP_ROM|altsyncram:altsyncram_component
-271. Parameter Settings for User Entity Instance: bait:RANDOM_BAIT|bait_rom:BAIT_IMAGE|altsyncram:altsyncram_component
-272. Parameter Settings for User Entity Instance: score_text:SCORE_DISPLAY|char_rom:SCORE_ROM|altsyncram:altsyncram_component
-273. altsyncram Parameter Settings by Entity Instance
-274. Port Connectivity Checks: "position_to_BCD:sevenseg_display"
-275. Port Connectivity Checks: "lfsr:RANDOM_NUMBER"
-276. Port Connectivity Checks: "DOLPHIN_MOVEMENT:PLAYER_CHARACTER"
-277. Port Connectivity Checks: "lives:LIFE_DISPLAY|char_rom:HEART_ROM"
-278. Port Connectivity Checks: "LAYER:LAYER_RENDERER"
-279. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:35:start_CHAR_ROM"
-280. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:34:start_CHAR_ROM"
-281. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:33:start_CHAR_ROM"
-282. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:32:start_CHAR_ROM"
-283. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:31:start_CHAR_ROM"
-284. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:30:start_CHAR_ROM"
-285. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:29:start_CHAR_ROM"
-286. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:28:start_CHAR_ROM"
-287. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:27:start_CHAR_ROM"
-288. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:26:start_CHAR_ROM"
-289. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:25:start_CHAR_ROM"
-290. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:24:start_CHAR_ROM"
-291. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:23:start_CHAR_ROM"
-292. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:22:start_CHAR_ROM"
-293. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:21:start_CHAR_ROM"
-294. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:20:start_CHAR_ROM"
-295. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:19:start_CHAR_ROM"
-296. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:18:start_CHAR_ROM"
-297. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:17:start_CHAR_ROM"
-298. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:16:start_CHAR_ROM"
-299. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:15:start_CHAR_ROM"
-300. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:14:start_CHAR_ROM"
-301. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:13:start_CHAR_ROM"
-302. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:12:start_CHAR_ROM"
-303. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:11:start_CHAR_ROM"
-304. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:10:start_CHAR_ROM"
-305. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:9:start_CHAR_ROM"
-306. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:8:start_CHAR_ROM"
-307. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:7:start_CHAR_ROM"
-308. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:6:start_CHAR_ROM"
-309. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:5:start_CHAR_ROM"
-310. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:4:start_CHAR_ROM"
-311. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:3:start_CHAR_ROM"
-312. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:2:start_CHAR_ROM"
-313. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:1:start_CHAR_ROM"
-314. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:0:start_CHAR_ROM"
-315. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:51:mode_CHAR_ROM"
-316. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:50:mode_CHAR_ROM"
-317. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:49:mode_CHAR_ROM"
-318. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:48:mode_CHAR_ROM"
-319. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:47:mode_CHAR_ROM"
-320. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:46:mode_CHAR_ROM"
-321. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:45:mode_CHAR_ROM"
-322. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:44:mode_CHAR_ROM"
-323. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:43:mode_CHAR_ROM"
-324. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:42:mode_CHAR_ROM"
-325. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:41:mode_CHAR_ROM"
-326. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:40:mode_CHAR_ROM"
-327. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:39:mode_CHAR_ROM"
-328. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:38:mode_CHAR_ROM"
-329. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:37:mode_CHAR_ROM"
-330. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:36:mode_CHAR_ROM"
-331. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:35:mode_CHAR_ROM"
-332. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:34:mode_CHAR_ROM"
-333. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:33:mode_CHAR_ROM"
-334. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:32:mode_CHAR_ROM"
-335. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:31:mode_CHAR_ROM"
-336. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:30:mode_CHAR_ROM"
-337. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:29:mode_CHAR_ROM"
-338. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:28:mode_CHAR_ROM"
-339. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:27:mode_CHAR_ROM"
-340. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:26:mode_CHAR_ROM"
-341. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:25:mode_CHAR_ROM"
-342. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:24:mode_CHAR_ROM"
-343. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:23:mode_CHAR_ROM"
-344. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:22:mode_CHAR_ROM"
-345. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:21:mode_CHAR_ROM"
-346. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:20:mode_CHAR_ROM"
-347. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:19:mode_CHAR_ROM"
-348. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:18:mode_CHAR_ROM"
-349. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:17:mode_CHAR_ROM"
-350. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:16:mode_CHAR_ROM"
-351. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:15:mode_CHAR_ROM"
-352. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:14:mode_CHAR_ROM"
-353. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:13:mode_CHAR_ROM"
-354. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:12:mode_CHAR_ROM"
-355. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:11:mode_CHAR_ROM"
-356. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:10:mode_CHAR_ROM"
-357. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:9:mode_CHAR_ROM"
-358. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:8:mode_CHAR_ROM"
-359. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:7:mode_CHAR_ROM"
-360. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:6:mode_CHAR_ROM"
-361. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:5:mode_CHAR_ROM"
-362. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:4:mode_CHAR_ROM"
-363. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:3:mode_CHAR_ROM"
-364. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:2:mode_CHAR_ROM"
-365. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:1:mode_CHAR_ROM"
-366. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:0:mode_CHAR_ROM"
-367. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:13:CHAR_ROM_INST"
-368. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:12:CHAR_ROM_INST"
-369. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:11:CHAR_ROM_INST"
-370. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:10:CHAR_ROM_INST"
-371. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:9:CHAR_ROM_INST"
-372. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:8:CHAR_ROM_INST"
-373. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:7:CHAR_ROM_INST"
-374. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:6:CHAR_ROM_INST"
-375. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:5:CHAR_ROM_INST"
-376. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:4:CHAR_ROM_INST"
-377. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:3:CHAR_ROM_INST"
-378. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:2:CHAR_ROM_INST"
-379. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:1:CHAR_ROM_INST"
-380. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:0:CHAR_ROM_INST"
-381. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:8:CHAR_ROM_INST"
-382. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:7:CHAR_ROM_INST"
-383. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:6:CHAR_ROM_INST"
-384. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:5:CHAR_ROM_INST"
-385. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:4:CHAR_ROM_INST"
-386. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:3:CHAR_ROM_INST"
-387. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:2:CHAR_ROM_INST"
-388. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:1:CHAR_ROM_INST"
-389. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST"
-390. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:7:CHAR_ROM_INST"
-391. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:6:CHAR_ROM_INST"
-392. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:5:CHAR_ROM_INST"
-393. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:4:CHAR_ROM_INST"
-394. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:3:CHAR_ROM_INST"
-395. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:2:CHAR_ROM_INST"
-396. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:1:CHAR_ROM_INST"
-397. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST"
-398. Port Connectivity Checks: "pll:clock_divider"
-399. Post-Synthesis Netlist Statistics for Top Partition
-400. Elapsed Time Per Partition
-401. Analysis & Synthesis Messages
+145. Source assignments for BUBBLES:BUBBLE_LAYER|bubble_rom:BUBBLE_IMAGE|altsyncram:altsyncram_component|altsyncram_q224:auto_generated
+146. Parameter Settings for User Entity Instance: BACKGROUND:BG|background_index_rom:INDEX_ROM|altsyncram:ROM
+147. Parameter Settings for User Entity Instance: BACKGROUND:BG|background_palette_rom:PALETTE_ROM|altsyncram:ROM
+148. Parameter Settings for User Entity Instance: pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i
+149. Parameter Settings for User Entity Instance: dolphin_visual:DOLPHIN_SPRITE_INST|dolphin_rom:DOLPHIN|altsyncram:ROM
+150. Parameter Settings for User Entity Instance: GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST|altsyncram:altsyncram_component
+151. Parameter Settings for User Entity Instance: GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:1:CHAR_ROM_INST|altsyncram:altsyncram_component
+152. Parameter Settings for User Entity Instance: GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:2:CHAR_ROM_INST|altsyncram:altsyncram_component
+153. Parameter Settings for User Entity Instance: GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:3:CHAR_ROM_INST|altsyncram:altsyncram_component
+154. Parameter Settings for User Entity Instance: GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:4:CHAR_ROM_INST|altsyncram:altsyncram_component
+155. Parameter Settings for User Entity Instance: GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:5:CHAR_ROM_INST|altsyncram:altsyncram_component
+156. Parameter Settings for User Entity Instance: GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:6:CHAR_ROM_INST|altsyncram:altsyncram_component
+157. Parameter Settings for User Entity Instance: GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:7:CHAR_ROM_INST|altsyncram:altsyncram_component
+158. Parameter Settings for User Entity Instance: GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST|altsyncram:altsyncram_component
+159. Parameter Settings for User Entity Instance: GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:1:CHAR_ROM_INST|altsyncram:altsyncram_component
+160. Parameter Settings for User Entity Instance: GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:2:CHAR_ROM_INST|altsyncram:altsyncram_component
+161. Parameter Settings for User Entity Instance: GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:3:CHAR_ROM_INST|altsyncram:altsyncram_component
+162. Parameter Settings for User Entity Instance: GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:4:CHAR_ROM_INST|altsyncram:altsyncram_component
+163. Parameter Settings for User Entity Instance: GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:5:CHAR_ROM_INST|altsyncram:altsyncram_component
+164. Parameter Settings for User Entity Instance: GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:6:CHAR_ROM_INST|altsyncram:altsyncram_component
+165. Parameter Settings for User Entity Instance: GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:7:CHAR_ROM_INST|altsyncram:altsyncram_component
+166. Parameter Settings for User Entity Instance: GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:8:CHAR_ROM_INST|altsyncram:altsyncram_component
+167. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:0:CHAR_ROM_INST|altsyncram:altsyncram_component
+168. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:1:CHAR_ROM_INST|altsyncram:altsyncram_component
+169. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:2:CHAR_ROM_INST|altsyncram:altsyncram_component
+170. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:3:CHAR_ROM_INST|altsyncram:altsyncram_component
+171. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:4:CHAR_ROM_INST|altsyncram:altsyncram_component
+172. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:5:CHAR_ROM_INST|altsyncram:altsyncram_component
+173. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:6:CHAR_ROM_INST|altsyncram:altsyncram_component
+174. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:7:CHAR_ROM_INST|altsyncram:altsyncram_component
+175. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:8:CHAR_ROM_INST|altsyncram:altsyncram_component
+176. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:9:CHAR_ROM_INST|altsyncram:altsyncram_component
+177. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:10:CHAR_ROM_INST|altsyncram:altsyncram_component
+178. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:11:CHAR_ROM_INST|altsyncram:altsyncram_component
+179. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:12:CHAR_ROM_INST|altsyncram:altsyncram_component
+180. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:13:CHAR_ROM_INST|altsyncram:altsyncram_component
+181. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:0:mode_CHAR_ROM|altsyncram:altsyncram_component
+182. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:1:mode_CHAR_ROM|altsyncram:altsyncram_component
+183. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:2:mode_CHAR_ROM|altsyncram:altsyncram_component
+184. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:3:mode_CHAR_ROM|altsyncram:altsyncram_component
+185. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:4:mode_CHAR_ROM|altsyncram:altsyncram_component
+186. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:5:mode_CHAR_ROM|altsyncram:altsyncram_component
+187. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:6:mode_CHAR_ROM|altsyncram:altsyncram_component
+188. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:7:mode_CHAR_ROM|altsyncram:altsyncram_component
+189. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:8:mode_CHAR_ROM|altsyncram:altsyncram_component
+190. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:9:mode_CHAR_ROM|altsyncram:altsyncram_component
+191. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:10:mode_CHAR_ROM|altsyncram:altsyncram_component
+192. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:11:mode_CHAR_ROM|altsyncram:altsyncram_component
+193. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:12:mode_CHAR_ROM|altsyncram:altsyncram_component
+194. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:13:mode_CHAR_ROM|altsyncram:altsyncram_component
+195. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:14:mode_CHAR_ROM|altsyncram:altsyncram_component
+196. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:15:mode_CHAR_ROM|altsyncram:altsyncram_component
+197. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:16:mode_CHAR_ROM|altsyncram:altsyncram_component
+198. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:17:mode_CHAR_ROM|altsyncram:altsyncram_component
+199. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:18:mode_CHAR_ROM|altsyncram:altsyncram_component
+200. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:19:mode_CHAR_ROM|altsyncram:altsyncram_component
+201. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:20:mode_CHAR_ROM|altsyncram:altsyncram_component
+202. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:21:mode_CHAR_ROM|altsyncram:altsyncram_component
+203. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:22:mode_CHAR_ROM|altsyncram:altsyncram_component
+204. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:23:mode_CHAR_ROM|altsyncram:altsyncram_component
+205. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:24:mode_CHAR_ROM|altsyncram:altsyncram_component
+206. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:25:mode_CHAR_ROM|altsyncram:altsyncram_component
+207. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:26:mode_CHAR_ROM|altsyncram:altsyncram_component
+208. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:27:mode_CHAR_ROM|altsyncram:altsyncram_component
+209. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:28:mode_CHAR_ROM|altsyncram:altsyncram_component
+210. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:29:mode_CHAR_ROM|altsyncram:altsyncram_component
+211. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:30:mode_CHAR_ROM|altsyncram:altsyncram_component
+212. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:31:mode_CHAR_ROM|altsyncram:altsyncram_component
+213. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:32:mode_CHAR_ROM|altsyncram:altsyncram_component
+214. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:33:mode_CHAR_ROM|altsyncram:altsyncram_component
+215. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:34:mode_CHAR_ROM|altsyncram:altsyncram_component
+216. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:35:mode_CHAR_ROM|altsyncram:altsyncram_component
+217. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:36:mode_CHAR_ROM|altsyncram:altsyncram_component
+218. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:37:mode_CHAR_ROM|altsyncram:altsyncram_component
+219. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:38:mode_CHAR_ROM|altsyncram:altsyncram_component
+220. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:39:mode_CHAR_ROM|altsyncram:altsyncram_component
+221. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:40:mode_CHAR_ROM|altsyncram:altsyncram_component
+222. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:41:mode_CHAR_ROM|altsyncram:altsyncram_component
+223. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:42:mode_CHAR_ROM|altsyncram:altsyncram_component
+224. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:43:mode_CHAR_ROM|altsyncram:altsyncram_component
+225. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:44:mode_CHAR_ROM|altsyncram:altsyncram_component
+226. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:45:mode_CHAR_ROM|altsyncram:altsyncram_component
+227. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:46:mode_CHAR_ROM|altsyncram:altsyncram_component
+228. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:47:mode_CHAR_ROM|altsyncram:altsyncram_component
+229. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:48:mode_CHAR_ROM|altsyncram:altsyncram_component
+230. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:49:mode_CHAR_ROM|altsyncram:altsyncram_component
+231. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:50:mode_CHAR_ROM|altsyncram:altsyncram_component
+232. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:51:mode_CHAR_ROM|altsyncram:altsyncram_component
+233. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:0:start_CHAR_ROM|altsyncram:altsyncram_component
+234. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:1:start_CHAR_ROM|altsyncram:altsyncram_component
+235. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:2:start_CHAR_ROM|altsyncram:altsyncram_component
+236. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:3:start_CHAR_ROM|altsyncram:altsyncram_component
+237. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:4:start_CHAR_ROM|altsyncram:altsyncram_component
+238. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:5:start_CHAR_ROM|altsyncram:altsyncram_component
+239. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:6:start_CHAR_ROM|altsyncram:altsyncram_component
+240. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:7:start_CHAR_ROM|altsyncram:altsyncram_component
+241. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:8:start_CHAR_ROM|altsyncram:altsyncram_component
+242. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:9:start_CHAR_ROM|altsyncram:altsyncram_component
+243. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:10:start_CHAR_ROM|altsyncram:altsyncram_component
+244. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:11:start_CHAR_ROM|altsyncram:altsyncram_component
+245. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:12:start_CHAR_ROM|altsyncram:altsyncram_component
+246. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:13:start_CHAR_ROM|altsyncram:altsyncram_component
+247. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:14:start_CHAR_ROM|altsyncram:altsyncram_component
+248. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:15:start_CHAR_ROM|altsyncram:altsyncram_component
+249. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:16:start_CHAR_ROM|altsyncram:altsyncram_component
+250. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:17:start_CHAR_ROM|altsyncram:altsyncram_component
+251. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:18:start_CHAR_ROM|altsyncram:altsyncram_component
+252. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:19:start_CHAR_ROM|altsyncram:altsyncram_component
+253. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:20:start_CHAR_ROM|altsyncram:altsyncram_component
+254. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:21:start_CHAR_ROM|altsyncram:altsyncram_component
+255. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:22:start_CHAR_ROM|altsyncram:altsyncram_component
+256. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:23:start_CHAR_ROM|altsyncram:altsyncram_component
+257. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:24:start_CHAR_ROM|altsyncram:altsyncram_component
+258. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:25:start_CHAR_ROM|altsyncram:altsyncram_component
+259. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:26:start_CHAR_ROM|altsyncram:altsyncram_component
+260. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:27:start_CHAR_ROM|altsyncram:altsyncram_component
+261. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:28:start_CHAR_ROM|altsyncram:altsyncram_component
+262. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:29:start_CHAR_ROM|altsyncram:altsyncram_component
+263. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:30:start_CHAR_ROM|altsyncram:altsyncram_component
+264. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:31:start_CHAR_ROM|altsyncram:altsyncram_component
+265. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:32:start_CHAR_ROM|altsyncram:altsyncram_component
+266. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:33:start_CHAR_ROM|altsyncram:altsyncram_component
+267. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:34:start_CHAR_ROM|altsyncram:altsyncram_component
+268. Parameter Settings for User Entity Instance: HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:35:start_CHAR_ROM|altsyncram:altsyncram_component
+269. Parameter Settings for User Entity Instance: lives:LIFE_DISPLAY|char_rom:HEART_ROM|altsyncram:altsyncram_component
+270. Parameter Settings for User Entity Instance: PIPES:PIPE_DISPLAY|pipe_top:TOP_ROM|altsyncram:altsyncram_component
+271. Parameter Settings for User Entity Instance: PIPES:PIPE_DISPLAY|pipestrip:STRIP_ROM|altsyncram:altsyncram_component
+272. Parameter Settings for User Entity Instance: bait:RANDOM_BAIT|bait_rom:BAIT_IMAGE|altsyncram:altsyncram_component
+273. Parameter Settings for User Entity Instance: score_text:SCORE_DISPLAY|char_rom:SCORE_ROM|altsyncram:altsyncram_component
+274. Parameter Settings for User Entity Instance: BUBBLES:BUBBLE_LAYER|bubble_rom:BUBBLE_IMAGE|altsyncram:altsyncram_component
+275. altsyncram Parameter Settings by Entity Instance
+276. Port Connectivity Checks: "position_to_BCD:sevenseg_display"
+277. Port Connectivity Checks: "lfsr:RANDOM_NUMBER"
+278. Port Connectivity Checks: "DOLPHIN_MOVEMENT:PLAYER_CHARACTER"
+279. Port Connectivity Checks: "lives:LIFE_DISPLAY|char_rom:HEART_ROM"
+280. Port Connectivity Checks: "LAYER:LAYER_RENDERER"
+281. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:35:start_CHAR_ROM"
+282. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:34:start_CHAR_ROM"
+283. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:33:start_CHAR_ROM"
+284. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:32:start_CHAR_ROM"
+285. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:31:start_CHAR_ROM"
+286. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:30:start_CHAR_ROM"
+287. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:29:start_CHAR_ROM"
+288. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:28:start_CHAR_ROM"
+289. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:27:start_CHAR_ROM"
+290. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:26:start_CHAR_ROM"
+291. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:25:start_CHAR_ROM"
+292. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:24:start_CHAR_ROM"
+293. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:23:start_CHAR_ROM"
+294. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:22:start_CHAR_ROM"
+295. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:21:start_CHAR_ROM"
+296. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:20:start_CHAR_ROM"
+297. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:19:start_CHAR_ROM"
+298. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:18:start_CHAR_ROM"
+299. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:17:start_CHAR_ROM"
+300. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:16:start_CHAR_ROM"
+301. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:15:start_CHAR_ROM"
+302. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:14:start_CHAR_ROM"
+303. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:13:start_CHAR_ROM"
+304. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:12:start_CHAR_ROM"
+305. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:11:start_CHAR_ROM"
+306. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:10:start_CHAR_ROM"
+307. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:9:start_CHAR_ROM"
+308. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:8:start_CHAR_ROM"
+309. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:7:start_CHAR_ROM"
+310. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:6:start_CHAR_ROM"
+311. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:5:start_CHAR_ROM"
+312. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:4:start_CHAR_ROM"
+313. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:3:start_CHAR_ROM"
+314. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:2:start_CHAR_ROM"
+315. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:1:start_CHAR_ROM"
+316. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:0:start_CHAR_ROM"
+317. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:51:mode_CHAR_ROM"
+318. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:50:mode_CHAR_ROM"
+319. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:49:mode_CHAR_ROM"
+320. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:48:mode_CHAR_ROM"
+321. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:47:mode_CHAR_ROM"
+322. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:46:mode_CHAR_ROM"
+323. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:45:mode_CHAR_ROM"
+324. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:44:mode_CHAR_ROM"
+325. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:43:mode_CHAR_ROM"
+326. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:42:mode_CHAR_ROM"
+327. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:41:mode_CHAR_ROM"
+328. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:40:mode_CHAR_ROM"
+329. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:39:mode_CHAR_ROM"
+330. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:38:mode_CHAR_ROM"
+331. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:37:mode_CHAR_ROM"
+332. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:36:mode_CHAR_ROM"
+333. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:35:mode_CHAR_ROM"
+334. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:34:mode_CHAR_ROM"
+335. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:33:mode_CHAR_ROM"
+336. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:32:mode_CHAR_ROM"
+337. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:31:mode_CHAR_ROM"
+338. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:30:mode_CHAR_ROM"
+339. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:29:mode_CHAR_ROM"
+340. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:28:mode_CHAR_ROM"
+341. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:27:mode_CHAR_ROM"
+342. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:26:mode_CHAR_ROM"
+343. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:25:mode_CHAR_ROM"
+344. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:24:mode_CHAR_ROM"
+345. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:23:mode_CHAR_ROM"
+346. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:22:mode_CHAR_ROM"
+347. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:21:mode_CHAR_ROM"
+348. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:20:mode_CHAR_ROM"
+349. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:19:mode_CHAR_ROM"
+350. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:18:mode_CHAR_ROM"
+351. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:17:mode_CHAR_ROM"
+352. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:16:mode_CHAR_ROM"
+353. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:15:mode_CHAR_ROM"
+354. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:14:mode_CHAR_ROM"
+355. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:13:mode_CHAR_ROM"
+356. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:12:mode_CHAR_ROM"
+357. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:11:mode_CHAR_ROM"
+358. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:10:mode_CHAR_ROM"
+359. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:9:mode_CHAR_ROM"
+360. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:8:mode_CHAR_ROM"
+361. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:7:mode_CHAR_ROM"
+362. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:6:mode_CHAR_ROM"
+363. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:5:mode_CHAR_ROM"
+364. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:4:mode_CHAR_ROM"
+365. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:3:mode_CHAR_ROM"
+366. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:2:mode_CHAR_ROM"
+367. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:1:mode_CHAR_ROM"
+368. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:0:mode_CHAR_ROM"
+369. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:13:CHAR_ROM_INST"
+370. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:12:CHAR_ROM_INST"
+371. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:11:CHAR_ROM_INST"
+372. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:10:CHAR_ROM_INST"
+373. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:9:CHAR_ROM_INST"
+374. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:8:CHAR_ROM_INST"
+375. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:7:CHAR_ROM_INST"
+376. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:6:CHAR_ROM_INST"
+377. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:5:CHAR_ROM_INST"
+378. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:4:CHAR_ROM_INST"
+379. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:3:CHAR_ROM_INST"
+380. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:2:CHAR_ROM_INST"
+381. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:1:CHAR_ROM_INST"
+382. Port Connectivity Checks: "HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:0:CHAR_ROM_INST"
+383. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:8:CHAR_ROM_INST"
+384. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:7:CHAR_ROM_INST"
+385. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:6:CHAR_ROM_INST"
+386. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:5:CHAR_ROM_INST"
+387. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:4:CHAR_ROM_INST"
+388. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:3:CHAR_ROM_INST"
+389. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:2:CHAR_ROM_INST"
+390. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:1:CHAR_ROM_INST"
+391. Port Connectivity Checks: "GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST"
+392. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:7:CHAR_ROM_INST"
+393. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:6:CHAR_ROM_INST"
+394. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:5:CHAR_ROM_INST"
+395. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:4:CHAR_ROM_INST"
+396. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:3:CHAR_ROM_INST"
+397. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:2:CHAR_ROM_INST"
+398. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:1:CHAR_ROM_INST"
+399. Port Connectivity Checks: "GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST"
+400. Port Connectivity Checks: "pll:clock_divider"
+401. Post-Synthesis Netlist Statistics for Top Partition
+402. Elapsed Time Per Partition
+403. Analysis & Synthesis Messages
 
 
 
@@ -432,16 +434,16 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri May 29 11:25:09 2026       ;
+; Analysis & Synthesis Status     ; Successful - Fri May 29 12:29:22 2026       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; top_level                                   ;
 ; Top-level Entity Name           ; top_level                                   ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 513                                         ;
+; Total registers                 ; 564                                         ;
 ; Total pins                      ; 55                                          ;
 ; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 987,052                                     ;
+; Total block memory bits         ; 987,820                                     ;
 ; Total DSP Blocks                ; 0                                           ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
@@ -570,6 +572,7 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
 ; pipestrip.vhd                    ; yes             ; User Wizard-Generated File             ; C:/Users/User/COMPSYS_305_Mini_Project/pipestrip.vhd                         ;         ;
 ; pipe_top.vhd                     ; yes             ; User Wizard-Generated File             ; C:/Users/User/COMPSYS_305_Mini_Project/pipe_top.vhd                          ;         ;
+; bubble.vhd                       ; yes             ; User VHDL File                         ; C:/Users/User/COMPSYS_305_Mini_Project/bubble.vhd                            ;         ;
 ; background_palette_rom.vhd       ; yes             ; User VHDL File                         ; C:/Users/User/COMPSYS_305_Mini_Project/background_palette_rom.vhd            ;         ;
 ; background_index_rom.vhd         ; yes             ; User VHDL File                         ; C:/Users/User/COMPSYS_305_Mini_Project/background_index_rom.vhd              ;         ;
 ; background_palette_rgb444.mif    ; yes             ; User Memory Initialization File        ; C:/Users/User/COMPSYS_305_Mini_Project/background_palette_rgb444.mif         ;         ;
@@ -599,6 +602,7 @@ refer to the applicable agreement for further details.
 ; pll/pll_0002.v                   ; yes             ; User Verilog HDL File                  ; C:/Users/User/COMPSYS_305_Mini_Project/pll/pll_0002.v                        ; pll     ;
 ; BCD_to_7Seg.vhd                  ; yes             ; User VHDL File                         ; C:/Users/User/COMPSYS_305_Mini_Project/BCD_to_7Seg.vhd                       ;         ;
 ; bait_rom.vhd                     ; yes             ; User Wizard-Generated File             ; C:/Users/User/COMPSYS_305_Mini_Project/bait_rom.vhd                          ;         ;
+; bubble_rom.vhd                   ; yes             ; User Wizard-Generated File             ; C:/Users/User/COMPSYS_305_Mini_Project/bubble_rom.vhd                        ;         ;
 ; altsyncram.tdf                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
 ; stratix_ram_block.inc            ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
 ; lpm_mux.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
@@ -622,6 +626,8 @@ refer to the applicable agreement for further details.
 ; pipestrip.mif                    ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/User/COMPSYS_305_Mini_Project/pipestrip.mif                         ;         ;
 ; db/altsyncram_e714.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/User/COMPSYS_305_Mini_Project/db/altsyncram_e714.tdf                ;         ;
 ; bait.mif                         ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/User/COMPSYS_305_Mini_Project/bait.mif                              ;         ;
+; db/altsyncram_q224.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/User/COMPSYS_305_Mini_Project/db/altsyncram_q224.tdf                ;         ;
+; bubble.mif                       ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/User/COMPSYS_305_Mini_Project/bubble.mif                            ;         ;
 +----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
 
 
@@ -630,20 +636,20 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                      ;
 +---------------------------------------------+----------------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 1408                                                                       ;
+; Estimate of Logic utilization (ALMs needed) ; 1531                                                                       ;
 ;                                             ;                                                                            ;
-; Combinational ALUT usage for logic          ; 2305                                                                       ;
-;     -- 7 input functions                    ; 12                                                                         ;
-;     -- 6 input functions                    ; 479                                                                        ;
-;     -- 5 input functions                    ; 281                                                                        ;
-;     -- 4 input functions                    ; 292                                                                        ;
-;     -- <=3 input functions                  ; 1241                                                                       ;
+; Combinational ALUT usage for logic          ; 2526                                                                       ;
+;     -- 7 input functions                    ; 13                                                                         ;
+;     -- 6 input functions                    ; 500                                                                        ;
+;     -- 5 input functions                    ; 318                                                                        ;
+;     -- 4 input functions                    ; 332                                                                        ;
+;     -- <=3 input functions                  ; 1363                                                                       ;
 ;                                             ;                                                                            ;
-; Dedicated logic registers                   ; 513                                                                        ;
+; Dedicated logic registers                   ; 564                                                                        ;
 ;                                             ;                                                                            ;
 ; I/O pins                                    ; 55                                                                         ;
 ; Total MLAB memory bits                      ; 0                                                                          ;
-; Total block memory bits                     ; 987052                                                                     ;
+; Total block memory bits                     ; 987820                                                                     ;
 ;                                             ;                                                                            ;
 ; Total DSP Blocks                            ; 0                                                                          ;
 ;                                             ;                                                                            ;
@@ -651,9 +657,9 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1                                                                          ;
 ;                                             ;                                                                            ;
 ; Maximum fan-out node                        ; pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
-; Maximum fan-out                             ; 1619                                                                       ;
-; Total fan-out                               ; 15685                                                                      ;
-; Average fan-out                             ; 3.85                                                                       ;
+; Maximum fan-out                             ; 1682                                                                       ;
+; Total fan-out                               ; 16640                                                                      ;
+; Average fan-out                             ; 3.82                                                                       ;
 +---------------------------------------------+----------------------------------------------------------------------------+
 
 
@@ -662,7 +668,7 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node                          ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                      ; Entity Name            ; Library Name ;
 +-----------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; |top_level                                          ; 2305 (2)            ; 513 (18)                  ; 987052            ; 0          ; 55   ; 0            ; |top_level                                                                                                                                               ; top_level              ; work         ;
+; |top_level                                          ; 2526 (2)            ; 564 (18)                  ; 987820            ; 0          ; 55   ; 0            ; |top_level                                                                                                                                               ; top_level              ; work         ;
 ;    |BACKGROUND:BG|                                  ; 111 (25)            ; 37 (31)                   ; 921696            ; 0          ; 0    ; 0            ; |top_level|BACKGROUND:BG                                                                                                                                 ; BACKGROUND             ; work         ;
 ;       |background_index_rom:INDEX_ROM|              ; 86 (0)              ; 6 (0)                     ; 921600            ; 0          ; 0    ; 0            ; |top_level|BACKGROUND:BG|background_index_rom:INDEX_ROM                                                                                                  ; background_index_rom   ; work         ;
 ;          |altsyncram:ROM|                           ; 86 (0)              ; 6 (0)                     ; 921600            ; 0          ; 0    ; 0            ; |top_level|BACKGROUND:BG|background_index_rom:INDEX_ROM|altsyncram:ROM                                                                                   ; altsyncram             ; work         ;
@@ -674,7 +680,11 @@ refer to the applicable agreement for further details.
 ;             |altsyncram_cjv3:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 96                ; 0          ; 0    ; 0            ; |top_level|BACKGROUND:BG|background_palette_rom:PALETTE_ROM|altsyncram:ROM|altsyncram_cjv3:auto_generated                                                ; altsyncram_cjv3        ; work         ;
 ;    |BCD_to_SevenSeg:score_ones|                     ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|BCD_to_SevenSeg:score_ones                                                                                                                    ; BCD_to_SevenSeg        ; work         ;
 ;    |BCD_to_SevenSeg:score_tens|                     ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|BCD_to_SevenSeg:score_tens                                                                                                                    ; BCD_to_SevenSeg        ; work         ;
-;    |DOLPHIN_MOVEMENT:PLAYER_CHARACTER|              ; 56 (56)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|DOLPHIN_MOVEMENT:PLAYER_CHARACTER                                                                                                             ; DOLPHIN_MOVEMENT       ; work         ;
+;    |BUBBLES:BUBBLE_LAYER|                           ; 219 (219)           ; 39 (39)                   ; 768               ; 0          ; 0    ; 0            ; |top_level|BUBBLES:BUBBLE_LAYER                                                                                                                          ; BUBBLES                ; work         ;
+;       |bubble_rom:BUBBLE_IMAGE|                     ; 0 (0)               ; 0 (0)                     ; 768               ; 0          ; 0    ; 0            ; |top_level|BUBBLES:BUBBLE_LAYER|bubble_rom:BUBBLE_IMAGE                                                                                                  ; bubble_rom             ; work         ;
+;          |altsyncram:altsyncram_component|          ; 0 (0)               ; 0 (0)                     ; 768               ; 0          ; 0    ; 0            ; |top_level|BUBBLES:BUBBLE_LAYER|bubble_rom:BUBBLE_IMAGE|altsyncram:altsyncram_component                                                                  ; altsyncram             ; work         ;
+;             |altsyncram_q224:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 768               ; 0          ; 0    ; 0            ; |top_level|BUBBLES:BUBBLE_LAYER|bubble_rom:BUBBLE_IMAGE|altsyncram:altsyncram_component|altsyncram_q224:auto_generated                                   ; altsyncram_q224        ; work         ;
+;    |DOLPHIN_MOVEMENT:PLAYER_CHARACTER|              ; 57 (57)             ; 25 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|DOLPHIN_MOVEMENT:PLAYER_CHARACTER                                                                                                             ; DOLPHIN_MOVEMENT       ; work         ;
 ;    |FSM:FINITE_STATE_MACHINE|                       ; 34 (34)             ; 11 (11)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|FSM:FINITE_STATE_MACHINE                                                                                                                      ; FSM                    ; work         ;
 ;    |GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|         ; 65 (50)             ; 0 (0)                     ; 576               ; 0          ; 0    ; 0            ; |top_level|GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE                                                                                                        ; GAME_OVER_TEXT         ; work         ;
 ;       |char_rom:\GEN_CHARS:0:CHAR_ROM_INST|         ; 1 (1)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST                                                                    ; char_rom               ; work         ;
@@ -1036,9 +1046,9 @@ refer to the applicable agreement for further details.
 ;       |char_rom:\GEN_start_CHARS:9:start_CHAR_ROM|  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:9:start_CHAR_ROM                                                                 ; char_rom               ; work         ;
 ;          |altsyncram:altsyncram_component|          ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:9:start_CHAR_ROM|altsyncram:altsyncram_component                                 ; altsyncram             ; work         ;
 ;             |altsyncram_d5g1:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:9:start_CHAR_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated  ; altsyncram_d5g1        ; work         ;
-;    |LAYER:LAYER_RENDERER|                           ; 36 (36)             ; 70 (70)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|LAYER:LAYER_RENDERER                                                                                                                          ; LAYER                  ; work         ;
+;    |LAYER:LAYER_RENDERER|                           ; 37 (37)             ; 83 (83)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|LAYER:LAYER_RENDERER                                                                                                                          ; LAYER                  ; work         ;
 ;    |MOUSE:MOUSE_CONTROLS|                           ; 47 (47)             ; 65 (65)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|MOUSE:MOUSE_CONTROLS                                                                                                                          ; MOUSE                  ; work         ;
-;    |PIPES:PIPE_DISPLAY|                             ; 354 (354)           ; 147 (147)                 ; 38220             ; 0          ; 0    ; 0            ; |top_level|PIPES:PIPE_DISPLAY                                                                                                                            ; PIPES                  ; work         ;
+;    |PIPES:PIPE_DISPLAY|                             ; 355 (355)           ; 147 (147)                 ; 38220             ; 0          ; 0    ; 0            ; |top_level|PIPES:PIPE_DISPLAY                                                                                                                            ; PIPES                  ; work         ;
 ;       |pipe_top:TOP_ROM|                            ; 0 (0)               ; 0 (0)                     ; 37620             ; 0          ; 0    ; 0            ; |top_level|PIPES:PIPE_DISPLAY|pipe_top:TOP_ROM                                                                                                           ; pipe_top               ; work         ;
 ;          |altsyncram:altsyncram_component|          ; 0 (0)               ; 0 (0)                     ; 37620             ; 0          ; 0    ; 0            ; |top_level|PIPES:PIPE_DISPLAY|pipe_top:TOP_ROM|altsyncram:altsyncram_component                                                                           ; altsyncram             ; work         ;
 ;             |altsyncram_js14:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 37620             ; 0          ; 0    ; 0            ; |top_level|PIPES:PIPE_DISPLAY|pipe_top:TOP_ROM|altsyncram:altsyncram_component|altsyncram_js14:auto_generated                                            ; altsyncram_js14        ; work         ;
@@ -1046,24 +1056,24 @@ refer to the applicable agreement for further details.
 ;          |altsyncram:altsyncram_component|          ; 0 (0)               ; 0 (0)                     ; 600               ; 0          ; 0    ; 0            ; |top_level|PIPES:PIPE_DISPLAY|pipestrip:STRIP_ROM|altsyncram:altsyncram_component                                                                        ; altsyncram             ; work         ;
 ;             |altsyncram_vr14:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 600               ; 0          ; 0    ; 0            ; |top_level|PIPES:PIPE_DISPLAY|pipestrip:STRIP_ROM|altsyncram:altsyncram_component|altsyncram_vr14:auto_generated                                         ; altsyncram_vr14        ; work         ;
 ;    |VGA_SYNC:VGA_REFRESH|                           ; 41 (41)             ; 57 (57)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|VGA_SYNC:VGA_REFRESH                                                                                                                          ; VGA_SYNC               ; work         ;
-;    |bait:RANDOM_BAIT|                               ; 76 (76)             ; 11 (11)                   ; 3072              ; 0          ; 0    ; 0            ; |top_level|bait:RANDOM_BAIT                                                                                                                              ; bait                   ; work         ;
+;    |bait:RANDOM_BAIT|                               ; 87 (87)             ; 11 (11)                   ; 3072              ; 0          ; 0    ; 0            ; |top_level|bait:RANDOM_BAIT                                                                                                                              ; bait                   ; work         ;
 ;       |bait_rom:BAIT_IMAGE|                         ; 0 (0)               ; 0 (0)                     ; 3072              ; 0          ; 0    ; 0            ; |top_level|bait:RANDOM_BAIT|bait_rom:BAIT_IMAGE                                                                                                          ; bait_rom               ; work         ;
 ;          |altsyncram:altsyncram_component|          ; 0 (0)               ; 0 (0)                     ; 3072              ; 0          ; 0    ; 0            ; |top_level|bait:RANDOM_BAIT|bait_rom:BAIT_IMAGE|altsyncram:altsyncram_component                                                                          ; altsyncram             ; work         ;
 ;             |altsyncram_e714:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 3072              ; 0          ; 0    ; 0            ; |top_level|bait:RANDOM_BAIT|bait_rom:BAIT_IMAGE|altsyncram:altsyncram_component|altsyncram_e714:auto_generated                                           ; altsyncram_e714        ; work         ;
-;    |dolphin_visual:DOLPHIN_SPRITE_INST|             ; 24 (24)             ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |top_level|dolphin_visual:DOLPHIN_SPRITE_INST                                                                                                            ; dolphin_visual         ; work         ;
+;    |dolphin_visual:DOLPHIN_SPRITE_INST|             ; 25 (25)             ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |top_level|dolphin_visual:DOLPHIN_SPRITE_INST                                                                                                            ; dolphin_visual         ; work         ;
 ;       |dolphin_rom:DOLPHIN|                         ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |top_level|dolphin_visual:DOLPHIN_SPRITE_INST|dolphin_rom:DOLPHIN                                                                                        ; dolphin_rom            ; work         ;
 ;          |altsyncram:ROM|                           ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |top_level|dolphin_visual:DOLPHIN_SPRITE_INST|dolphin_rom:DOLPHIN|altsyncram:ROM                                                                         ; altsyncram             ; work         ;
 ;             |altsyncram_j3u3:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |top_level|dolphin_visual:DOLPHIN_SPRITE_INST|dolphin_rom:DOLPHIN|altsyncram:ROM|altsyncram_j3u3:auto_generated                                          ; altsyncram_j3u3        ; work         ;
-;    |game_logic:GAME_RULE|                           ; 115 (115)           ; 61 (61)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|game_logic:GAME_RULE                                                                                                                          ; game_logic             ; work         ;
+;    |game_logic:GAME_RULE|                           ; 114 (114)           ; 61 (61)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|game_logic:GAME_RULE                                                                                                                          ; game_logic             ; work         ;
 ;    |lfsr:RANDOM_NUMBER|                             ; 6 (6)               ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|lfsr:RANDOM_NUMBER                                                                                                                            ; lfsr                   ; work         ;
-;    |lives:LIFE_DISPLAY|                             ; 58 (56)             ; 1 (1)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY                                                                                                                            ; lives                  ; work         ;
+;    |lives:LIFE_DISPLAY|                             ; 56 (54)             ; 1 (1)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY                                                                                                                            ; lives                  ; work         ;
 ;       |char_rom:HEART_ROM|                          ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY|char_rom:HEART_ROM                                                                                                         ; char_rom               ; work         ;
 ;          |altsyncram:altsyncram_component|          ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY|char_rom:HEART_ROM|altsyncram:altsyncram_component                                                                         ; altsyncram             ; work         ;
 ;             |altsyncram_d5g1:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|lives:LIFE_DISPLAY|char_rom:HEART_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated                                          ; altsyncram_d5g1        ; work         ;
 ;    |pll:clock_divider|                              ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|pll:clock_divider                                                                                                                             ; pll                    ; pll          ;
 ;       |pll_0002:pll_inst|                           ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|pll:clock_divider|pll_0002:pll_inst                                                                                                           ; pll_0002               ; pll          ;
 ;          |altera_pll:altera_pll_i|                  ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|pll:clock_divider|pll_0002:pll_inst|altera_pll:altera_pll_i                                                                                   ; altera_pll             ; work         ;
-;    |score_text:SCORE_DISPLAY|                       ; 107 (105)           ; 1 (1)                     ; 4096              ; 0          ; 0    ; 0            ; |top_level|score_text:SCORE_DISPLAY                                                                                                                      ; score_text             ; work         ;
+;    |score_text:SCORE_DISPLAY|                       ; 97 (95)             ; 1 (1)                     ; 4096              ; 0          ; 0    ; 0            ; |top_level|score_text:SCORE_DISPLAY                                                                                                                      ; score_text             ; work         ;
 ;       |char_rom:SCORE_ROM|                          ; 2 (2)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |top_level|score_text:SCORE_DISPLAY|char_rom:SCORE_ROM                                                                                                   ; char_rom               ; work         ;
 ;          |altsyncram:altsyncram_component|          ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |top_level|score_text:SCORE_DISPLAY|char_rom:SCORE_ROM|altsyncram:altsyncram_component                                                                   ; altsyncram             ; work         ;
 ;             |altsyncram_d5g1:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |top_level|score_text:SCORE_DISPLAY|char_rom:SCORE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated                                    ; altsyncram_d5g1        ; work         ;
@@ -1078,6 +1088,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+-------------------------------+
 ; BACKGROUND:BG|background_index_rom:INDEX_ROM|altsyncram:ROM|altsyncram_bhv3:auto_generated|ALTSYNCRAM                                                    ; AUTO ; ROM  ; 307200       ; 3            ; --           ; --           ; 921600 ; background_index_3bit.mif     ;
 ; BACKGROUND:BG|background_palette_rom:PALETTE_ROM|altsyncram:ROM|altsyncram_cjv3:auto_generated|ALTSYNCRAM                                                ; AUTO ; ROM  ; 8            ; 12           ; --           ; --           ; 96     ; background_palette_rgb444.mif ;
+; BUBBLES:BUBBLE_LAYER|bubble_rom:BUBBLE_IMAGE|altsyncram:altsyncram_component|altsyncram_q224:auto_generated|ALTSYNCRAM                                   ; AUTO ; ROM  ; 64           ; 12           ; --           ; --           ; 768    ; bubble.mif                    ;
 ; GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM     ; AUTO ; ROM  ; 512          ; 8            ; --           ; --           ; 4096   ; tcgrom.mif                    ;
 ; GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:1:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM     ; AUTO ; ROM  ; 512          ; 8            ; --           ; --           ; 4096   ; tcgrom.mif                    ;
 ; GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:2:CHAR_ROM_INST|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM     ; AUTO ; ROM  ; 512          ; 8            ; --           ; --           ; 4096   ; tcgrom.mif                    ;
@@ -1206,14 +1217,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+-------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis IP Cores Summary                                                                                             ;
-+--------+--------------+---------+--------------+--------------+-------------------------------------------------+-----------------+
-; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                 ; IP Include File ;
-+--------+--------------+---------+--------------+--------------+-------------------------------------------------+-----------------+
-; Altera ; altera_pll   ; 18.1    ; N/A          ; N/A          ; |top_level|pll:clock_divider                    ; pll.vhd         ;
-; Altera ; ROM: 1-PORT  ; 18.1    ; N/A          ; N/A          ; |top_level|bait:RANDOM_BAIT|bait_rom:BAIT_IMAGE ; bait_rom.vhd    ;
-+--------+--------------+---------+--------------+--------------+-------------------------------------------------+-----------------+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                     ;
++--------+--------------+---------+--------------+--------------+---------------------------------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                         ; IP Include File ;
++--------+--------------+---------+--------------+--------------+---------------------------------------------------------+-----------------+
+; Altera ; ROM: 1-PORT  ; 18.1    ; N/A          ; N/A          ; |top_level|BUBBLES:BUBBLE_LAYER|bubble_rom:BUBBLE_IMAGE ; bubble_rom.vhd  ;
+; Altera ; altera_pll   ; 18.1    ; N/A          ; N/A          ; |top_level|pll:clock_divider                            ; pll.vhd         ;
+; Altera ; ROM: 1-PORT  ; 18.1    ; N/A          ; N/A          ; |top_level|bait:RANDOM_BAIT|bait_rom:BAIT_IMAGE         ; bait_rom.vhd    ;
++--------+--------------+---------+--------------+--------------+---------------------------------------------------------+-----------------+
 
 
 Encoding Type:  One-Hot
@@ -1261,91 +1273,90 @@ Encoding Type:  One-Hot
 +---------------------+-----------------+----------------+-------------+-----------------+---------------------+-------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                               ;
-+---------------------------------------------------+--------------------------------------------------------------+
-; Register name                                     ; Reason for Removal                                           ;
-+---------------------------------------------------+--------------------------------------------------------------+
-; lfsr:RANDOM_NUMBER|lfsr_reg[0]                    ; Stuck at GND due to stuck port data_in                       ;
-; LAYER:LAYER_RENDERER|reg_OVER_BLUE[0..3]          ; Stuck at GND due to stuck port data_in                       ;
-; LAYER:LAYER_RENDERER|reg_OVER_GREEN[0..3]         ; Stuck at GND due to stuck port data_in                       ;
-; LAYER:LAYER_RENDERER|reg_OVER_RED[0..2]           ; Stuck at GND due to stuck port data_in                       ;
-; LAYER:LAYER_RENDERER|reg_WON_BLUE[0..3]           ; Stuck at GND due to stuck port data_in                       ;
-; LAYER:LAYER_RENDERER|reg_WON_GREEN[0..2]          ; Stuck at GND due to stuck port data_in                       ;
-; LAYER:LAYER_RENDERER|reg_WON_RED[0..3]            ; Stuck at GND due to stuck port data_in                       ;
-; LAYER:LAYER_RENDERER|reg_LIVES_BLUE[0..3]         ; Stuck at GND due to stuck port data_in                       ;
-; LAYER:LAYER_RENDERER|reg_LIVES_GREEN[0..3]        ; Stuck at GND due to stuck port data_in                       ;
-; LAYER:LAYER_RENDERER|reg_LIVES_RED[0..2]          ; Stuck at GND due to stuck port data_in                       ;
-; LAYER:LAYER_RENDERER|reg_Pause_OUT                ; Stuck at GND due to stuck port data_in                       ;
-; HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|green[0..3]    ; Stuck at GND due to stuck port data_in                       ;
-; HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|blue[0..2]     ; Stuck at GND due to stuck port data_in                       ;
-; HOME_TEXT_GREEN_reg[0..3]                         ; Stuck at GND due to stuck port data_in                       ;
-; HOME_TEXT_BLUE_reg[0..2]                          ; Stuck at GND due to stuck port data_in                       ;
-; LAYER:LAYER_RENDERER|reg_HOME_BLUE[0..2]          ; Stuck at GND due to stuck port data_in                       ;
-; LAYER:LAYER_RENDERER|reg_HOME_GREEN[0..3]         ; Stuck at GND due to stuck port data_in                       ;
-; MOUSE:MOUSE_CONTROLS|CHAROUT[4..7]                ; Stuck at VCC due to stuck port data_in                       ;
-; MOUSE:MOUSE_CONTROLS|CHAROUT[3]                   ; Stuck at GND due to stuck port data_in                       ;
-; MOUSE:MOUSE_CONTROLS|CHAROUT[2]                   ; Stuck at VCC due to stuck port data_in                       ;
-; MOUSE:MOUSE_CONTROLS|CHAROUT[0,1]                 ; Stuck at GND due to stuck port data_in                       ;
-; MOUSE:MOUSE_CONTROLS|SHIFTOUT[10]                 ; Stuck at VCC due to stuck port data_in                       ;
-; LAYER:LAYER_RENDERER|reg_SPRITE_ON                ; Merged with SPRITE_ON_reg                                    ;
-; LAYER:LAYER_RENDERER|reg_BAIT_ON                  ; Merged with BAIT_ENABLE_SIG_reg                              ;
-; SCORE_RED_reg[0..2]                               ; Merged with SCORE_RED_reg[3]                                 ;
-; SCORE_GREEN_reg[0..2]                             ; Merged with SCORE_GREEN_reg[3]                               ;
-; SCORE_BLUE_reg[0..2]                              ; Merged with SCORE_BLUE_reg[3]                                ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_1_r[9]              ; Merged with bait:RANDOM_BAIT|pipe_x_pos_prev[9]              ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_1_r[8]              ; Merged with bait:RANDOM_BAIT|pipe_x_pos_prev[8]              ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_1_r[7]              ; Merged with bait:RANDOM_BAIT|pipe_x_pos_prev[7]              ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_1_r[6]              ; Merged with bait:RANDOM_BAIT|pipe_x_pos_prev[6]              ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_1_r[5]              ; Merged with bait:RANDOM_BAIT|pipe_x_pos_prev[5]              ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_1_r[4]              ; Merged with bait:RANDOM_BAIT|pipe_x_pos_prev[4]              ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_1_r[3]              ; Merged with bait:RANDOM_BAIT|pipe_x_pos_prev[3]              ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_1_r[2]              ; Merged with bait:RANDOM_BAIT|pipe_x_pos_prev[2]              ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_1_r[1]              ; Merged with bait:RANDOM_BAIT|pipe_x_pos_prev[1]              ;
-; PIPES:PIPE_DISPLAY|pipe_x_pos_1_r[0]              ; Merged with bait:RANDOM_BAIT|pipe_x_pos_prev[0]              ;
-; PIPES:PIPE_DISPLAY|vert_sync_prev                 ; Merged with DOLPHIN_MOVEMENT:PLAYER_CHARACTER|vert_sync_prev ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_1[8]           ; Merged with PIPES:PIPE_DISPLAY|pipe_top_height_1[9]          ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_2[1,8]         ; Merged with PIPES:PIPE_DISPLAY|pipe_top_height_2[9]          ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_3[8]           ; Merged with PIPES:PIPE_DISPLAY|pipe_top_height_3[9]          ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_3[5]           ; Merged with PIPES:PIPE_DISPLAY|pipe_top_height_3[6]          ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_1_r[8]         ; Merged with PIPES:PIPE_DISPLAY|pipe_top_height_1_r[9]        ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_2_r[1,8]       ; Merged with PIPES:PIPE_DISPLAY|pipe_top_height_2_r[9]        ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_3_r[8]         ; Merged with PIPES:PIPE_DISPLAY|pipe_top_height_3_r[9]        ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_3_r[5]         ; Merged with PIPES:PIPE_DISPLAY|pipe_top_height_3_r[6]        ;
-; LAYER:LAYER_RENDERER|reg_SCORE_BLUE[1..3]         ; Merged with LAYER:LAYER_RENDERER|reg_SCORE_BLUE[0]           ;
-; LAYER:LAYER_RENDERER|reg_SCORE_GREEN[1..3]        ; Merged with LAYER:LAYER_RENDERER|reg_SCORE_GREEN[0]          ;
-; LAYER:LAYER_RENDERER|reg_SCORE_RED[1..3]          ; Merged with LAYER:LAYER_RENDERER|reg_SCORE_RED[0]            ;
-; HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|blue[3]        ; Merged with HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|red[3]        ;
-; HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|red[0..2]      ; Merged with HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|red[3]        ;
-; HOME_TEXT_BLUE_reg[3]                             ; Merged with HOME_TEXT_RED_reg[3]                             ;
-; HOME_TEXT_RED_reg[0..2]                           ; Merged with HOME_TEXT_RED_reg[3]                             ;
-; LAYER:LAYER_RENDERER|reg_HOME_RED[0..3]           ; Merged with LAYER:LAYER_RENDERER|reg_HOME_BLUE[3]            ;
-; PIPE_ENABLE_SIG_reg                               ; Merged with LAYER:LAYER_RENDERER|reg_PIPE_ON                 ;
-; LAYER:LAYER_RENDERER|reg_SCORE_GREEN[0]           ; Merged with LAYER:LAYER_RENDERER|reg_SCORE_BLUE[0]           ;
-; LAYER:LAYER_RENDERER|reg_SCORE_ON                 ; Merged with LAYER:LAYER_RENDERER|reg_SCORE_BLUE[0]           ;
-; LAYER:LAYER_RENDERER|reg_SCORE_RED[0]             ; Merged with LAYER:LAYER_RENDERER|reg_SCORE_BLUE[0]           ;
-; LAYER:LAYER_RENDERER|reg_LIVES_RED[3]             ; Merged with LAYER:LAYER_RENDERER|reg_LIVES_ON                ;
-; SCORE_GREEN_reg[3]                                ; Merged with SCORE_BLUE_reg[3]                                ;
-; SCORE_ON_reg                                      ; Merged with SCORE_BLUE_reg[3]                                ;
-; SCORE_RED_reg[3]                                  ; Merged with SCORE_BLUE_reg[3]                                ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_1[9]           ; Stuck at GND due to stuck port data_in                       ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_2[9]           ; Stuck at GND due to stuck port data_in                       ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_3[9]           ; Stuck at GND due to stuck port data_in                       ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_1_r[9]         ; Stuck at GND due to stuck port data_in                       ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_2_r[9]         ; Stuck at GND due to stuck port data_in                       ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_3_r[9]         ; Stuck at GND due to stuck port data_in                       ;
-; PIPES:PIPE_DISPLAY|pipe_1_ready                   ; Stuck at VCC due to stuck port data_in                       ;
-; PIPES:PIPE_DISPLAY|pipe_2_ready                   ; Stuck at VCC due to stuck port data_in                       ;
-; PIPES:PIPE_DISPLAY|pipe_3_ready                   ; Stuck at VCC due to stuck port data_in                       ;
-; VGA_SYNC:VGA_REFRESH|pixel_row[9]                 ; Stuck at GND due to stuck port data_in                       ;
-; LAYER:LAYER_RENDERER|reg_BUBBLE_ON                ; Stuck at GND due to stuck port data_in                       ;
-; LAYER:LAYER_RENDERER|reg_BUBBLE_RED[0..3]         ; Stuck at GND due to stuck port data_in                       ;
-; LAYER:LAYER_RENDERER|reg_BUBBLE_GREEN[0..3]       ; Stuck at GND due to stuck port data_in                       ;
-; LAYER:LAYER_RENDERER|reg_BUBBLE_BLUE[0..3]        ; Stuck at GND due to stuck port data_in                       ;
-; FSM:FINITE_STATE_MACHINE|state_before_pause.Pause ; Stuck at GND due to stuck port data_in                       ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_3[7]           ; Merged with PIPES:PIPE_DISPLAY|pipe_top_height_3[6]          ;
-; Total Number of Removed Registers = 151           ;                                                              ;
-+---------------------------------------------------+--------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                        ;
++---------------------------------------------------+-------------------------------------------------------+
+; Register name                                     ; Reason for Removal                                    ;
++---------------------------------------------------+-------------------------------------------------------+
+; lfsr:RANDOM_NUMBER|lfsr_reg[0]                    ; Stuck at GND due to stuck port data_in                ;
+; LAYER:LAYER_RENDERER|reg_OVER_BLUE[0..3]          ; Stuck at GND due to stuck port data_in                ;
+; LAYER:LAYER_RENDERER|reg_OVER_GREEN[0..3]         ; Stuck at GND due to stuck port data_in                ;
+; LAYER:LAYER_RENDERER|reg_OVER_RED[0..2]           ; Stuck at GND due to stuck port data_in                ;
+; LAYER:LAYER_RENDERER|reg_WON_BLUE[0..3]           ; Stuck at GND due to stuck port data_in                ;
+; LAYER:LAYER_RENDERER|reg_WON_GREEN[0..2]          ; Stuck at GND due to stuck port data_in                ;
+; LAYER:LAYER_RENDERER|reg_WON_RED[0..3]            ; Stuck at GND due to stuck port data_in                ;
+; LAYER:LAYER_RENDERER|reg_LIVES_BLUE[0..3]         ; Stuck at GND due to stuck port data_in                ;
+; LAYER:LAYER_RENDERER|reg_LIVES_GREEN[0..3]        ; Stuck at GND due to stuck port data_in                ;
+; LAYER:LAYER_RENDERER|reg_LIVES_RED[0..2]          ; Stuck at GND due to stuck port data_in                ;
+; LAYER:LAYER_RENDERER|reg_Pause_OUT                ; Stuck at GND due to stuck port data_in                ;
+; HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|green[0..3]    ; Stuck at GND due to stuck port data_in                ;
+; HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|blue[0..2]     ; Stuck at GND due to stuck port data_in                ;
+; HOME_TEXT_GREEN_reg[0..3]                         ; Stuck at GND due to stuck port data_in                ;
+; HOME_TEXT_BLUE_reg[0..2]                          ; Stuck at GND due to stuck port data_in                ;
+; LAYER:LAYER_RENDERER|reg_HOME_BLUE[0..2]          ; Stuck at GND due to stuck port data_in                ;
+; LAYER:LAYER_RENDERER|reg_HOME_GREEN[0..3]         ; Stuck at GND due to stuck port data_in                ;
+; BUBBLES:BUBBLE_LAYER|bubble_y2[0]                 ; Stuck at GND due to stuck port data_in                ;
+; BUBBLES:BUBBLE_LAYER|bubble_y4[0]                 ; Stuck at GND due to stuck port data_in                ;
+; MOUSE:MOUSE_CONTROLS|CHAROUT[4..7]                ; Stuck at VCC due to stuck port data_in                ;
+; MOUSE:MOUSE_CONTROLS|CHAROUT[3]                   ; Stuck at GND due to stuck port data_in                ;
+; MOUSE:MOUSE_CONTROLS|CHAROUT[2]                   ; Stuck at VCC due to stuck port data_in                ;
+; MOUSE:MOUSE_CONTROLS|CHAROUT[0,1]                 ; Stuck at GND due to stuck port data_in                ;
+; MOUSE:MOUSE_CONTROLS|SHIFTOUT[10]                 ; Stuck at VCC due to stuck port data_in                ;
+; LAYER:LAYER_RENDERER|reg_SPRITE_ON                ; Merged with SPRITE_ON_reg                             ;
+; LAYER:LAYER_RENDERER|reg_BAIT_ON                  ; Merged with BAIT_ENABLE_SIG_reg                       ;
+; SCORE_RED_reg[0..2]                               ; Merged with SCORE_RED_reg[3]                          ;
+; SCORE_GREEN_reg[0..2]                             ; Merged with SCORE_GREEN_reg[3]                        ;
+; SCORE_BLUE_reg[0..2]                              ; Merged with SCORE_BLUE_reg[3]                         ;
+; PIPES:PIPE_DISPLAY|vert_sync_prev                 ; Merged with BUBBLES:BUBBLE_LAYER|vert_sync_prev       ;
+; DOLPHIN_MOVEMENT:PLAYER_CHARACTER|vert_sync_prev  ; Merged with BUBBLES:BUBBLE_LAYER|vert_sync_prev       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_1_r[9]              ; Merged with bait:RANDOM_BAIT|pipe_x_pos_prev[9]       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_1_r[8]              ; Merged with bait:RANDOM_BAIT|pipe_x_pos_prev[8]       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_1_r[7]              ; Merged with bait:RANDOM_BAIT|pipe_x_pos_prev[7]       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_1_r[6]              ; Merged with bait:RANDOM_BAIT|pipe_x_pos_prev[6]       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_1_r[5]              ; Merged with bait:RANDOM_BAIT|pipe_x_pos_prev[5]       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_1_r[4]              ; Merged with bait:RANDOM_BAIT|pipe_x_pos_prev[4]       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_1_r[3]              ; Merged with bait:RANDOM_BAIT|pipe_x_pos_prev[3]       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_1_r[2]              ; Merged with bait:RANDOM_BAIT|pipe_x_pos_prev[2]       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_1_r[1]              ; Merged with bait:RANDOM_BAIT|pipe_x_pos_prev[1]       ;
+; PIPES:PIPE_DISPLAY|pipe_x_pos_1_r[0]              ; Merged with bait:RANDOM_BAIT|pipe_x_pos_prev[0]       ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_1[8]           ; Merged with PIPES:PIPE_DISPLAY|pipe_top_height_1[9]   ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_2[1,8]         ; Merged with PIPES:PIPE_DISPLAY|pipe_top_height_2[9]   ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_3[8]           ; Merged with PIPES:PIPE_DISPLAY|pipe_top_height_3[9]   ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_3[5]           ; Merged with PIPES:PIPE_DISPLAY|pipe_top_height_3[6]   ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_1_r[8]         ; Merged with PIPES:PIPE_DISPLAY|pipe_top_height_1_r[9] ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_2_r[1,8]       ; Merged with PIPES:PIPE_DISPLAY|pipe_top_height_2_r[9] ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_3_r[8]         ; Merged with PIPES:PIPE_DISPLAY|pipe_top_height_3_r[9] ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_3_r[5]         ; Merged with PIPES:PIPE_DISPLAY|pipe_top_height_3_r[6] ;
+; LAYER:LAYER_RENDERER|reg_SCORE_BLUE[1..3]         ; Merged with LAYER:LAYER_RENDERER|reg_SCORE_BLUE[0]    ;
+; LAYER:LAYER_RENDERER|reg_SCORE_GREEN[1..3]        ; Merged with LAYER:LAYER_RENDERER|reg_SCORE_GREEN[0]   ;
+; LAYER:LAYER_RENDERER|reg_SCORE_RED[1..3]          ; Merged with LAYER:LAYER_RENDERER|reg_SCORE_RED[0]     ;
+; HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|blue[3]        ; Merged with HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|red[3] ;
+; HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|red[0..2]      ; Merged with HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|red[3] ;
+; HOME_TEXT_BLUE_reg[3]                             ; Merged with HOME_TEXT_RED_reg[3]                      ;
+; HOME_TEXT_RED_reg[0..2]                           ; Merged with HOME_TEXT_RED_reg[3]                      ;
+; LAYER:LAYER_RENDERER|reg_HOME_RED[0..3]           ; Merged with LAYER:LAYER_RENDERER|reg_HOME_BLUE[3]     ;
+; PIPE_ENABLE_SIG_reg                               ; Merged with LAYER:LAYER_RENDERER|reg_PIPE_ON          ;
+; LAYER:LAYER_RENDERER|reg_SCORE_GREEN[0]           ; Merged with LAYER:LAYER_RENDERER|reg_SCORE_BLUE[0]    ;
+; LAYER:LAYER_RENDERER|reg_SCORE_ON                 ; Merged with LAYER:LAYER_RENDERER|reg_SCORE_BLUE[0]    ;
+; LAYER:LAYER_RENDERER|reg_SCORE_RED[0]             ; Merged with LAYER:LAYER_RENDERER|reg_SCORE_BLUE[0]    ;
+; LAYER:LAYER_RENDERER|reg_LIVES_RED[3]             ; Merged with LAYER:LAYER_RENDERER|reg_LIVES_ON         ;
+; SCORE_GREEN_reg[3]                                ; Merged with SCORE_BLUE_reg[3]                         ;
+; SCORE_ON_reg                                      ; Merged with SCORE_BLUE_reg[3]                         ;
+; SCORE_RED_reg[3]                                  ; Merged with SCORE_BLUE_reg[3]                         ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_1[9]           ; Stuck at GND due to stuck port data_in                ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_2[9]           ; Stuck at GND due to stuck port data_in                ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_3[9]           ; Stuck at GND due to stuck port data_in                ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_1_r[9]         ; Stuck at GND due to stuck port data_in                ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_2_r[9]         ; Stuck at GND due to stuck port data_in                ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_3_r[9]         ; Stuck at GND due to stuck port data_in                ;
+; PIPES:PIPE_DISPLAY|pipe_1_ready                   ; Stuck at VCC due to stuck port data_in                ;
+; PIPES:PIPE_DISPLAY|pipe_2_ready                   ; Stuck at VCC due to stuck port data_in                ;
+; PIPES:PIPE_DISPLAY|pipe_3_ready                   ; Stuck at VCC due to stuck port data_in                ;
+; VGA_SYNC:VGA_REFRESH|pixel_row[9]                 ; Stuck at GND due to stuck port data_in                ;
+; FSM:FINITE_STATE_MACHINE|state_before_pause.Pause ; Stuck at GND due to stuck port data_in                ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_3[7]           ; Merged with PIPES:PIPE_DISPLAY|pipe_top_height_3[6]   ;
+; Total Number of Removed Registers = 141           ;                                                       ;
++---------------------------------------------------+-------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1381,12 +1392,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 513   ;
-; Number of registers using Synchronous Clear  ; 136   ;
+; Total registers                              ; 564   ;
+; Number of registers using Synchronous Clear  ; 148   ;
 ; Number of registers using Synchronous Load   ; 17    ;
 ; Number of registers using Asynchronous Clear ; 51    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 183   ;
+; Number of registers using Clock Enable       ; 221   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -1414,8 +1425,24 @@ Encoding Type:  One-Hot
 ; DOLPHIN_MOVEMENT:PLAYER_CHARACTER|dolphin_y_pos[4] ; 5       ;
 ; MOUSE:MOUSE_CONTROLS|send_char                     ; 3       ;
 ; PIPES:PIPE_DISPLAY|pipe_top_height_1[7]            ; 5       ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_1[6]            ; 4       ;
-; PIPES:PIPE_DISPLAY|pipe_top_height_1[3]            ; 9       ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_1[6]            ; 5       ;
+; PIPES:PIPE_DISPLAY|pipe_top_height_1[3]            ; 8       ;
+; BUBBLES:BUBBLE_LAYER|bubble_y4[2]                  ; 5       ;
+; BUBBLES:BUBBLE_LAYER|bubble_y4[1]                  ; 5       ;
+; BUBBLES:BUBBLE_LAYER|bubble_y4[8]                  ; 6       ;
+; BUBBLES:BUBBLE_LAYER|bubble_y4[7]                  ; 6       ;
+; BUBBLES:BUBBLE_LAYER|bubble_y1[2]                  ; 4       ;
+; BUBBLES:BUBBLE_LAYER|bubble_y1[5]                  ; 6       ;
+; BUBBLES:BUBBLE_LAYER|bubble_y1[8]                  ; 6       ;
+; BUBBLES:BUBBLE_LAYER|bubble_y1[7]                  ; 6       ;
+; BUBBLES:BUBBLE_LAYER|bubble_y3[1]                  ; 5       ;
+; BUBBLES:BUBBLE_LAYER|bubble_y3[8]                  ; 6       ;
+; BUBBLES:BUBBLE_LAYER|bubble_y3[7]                  ; 6       ;
+; BUBBLES:BUBBLE_LAYER|bubble_y3[6]                  ; 5       ;
+; BUBBLES:BUBBLE_LAYER|bubble_y2[3]                  ; 6       ;
+; BUBBLES:BUBBLE_LAYER|bubble_y2[8]                  ; 6       ;
+; BUBBLES:BUBBLE_LAYER|bubble_y2[6]                  ; 5       ;
+; BUBBLES:BUBBLE_LAYER|bubble_y2[5]                  ; 5       ;
 ; lfsr:RANDOM_NUMBER|lfsr_reg[7]                     ; 7       ;
 ; lfsr:RANDOM_NUMBER|lfsr_reg[5]                     ; 8       ;
 ; lfsr:RANDOM_NUMBER|lfsr_reg[3]                     ; 9       ;
@@ -1433,7 +1460,7 @@ Encoding Type:  One-Hot
 ; MOUSE:MOUSE_CONTROLS|SHIFTOUT[6]                   ; 1       ;
 ; MOUSE:MOUSE_CONTROLS|SHIFTOUT[7]                   ; 1       ;
 ; MOUSE:MOUSE_CONTROLS|SHIFTOUT[8]                   ; 1       ;
-; Total number of inverted registers = 37            ;         ;
+; Total number of inverted registers = 53            ;         ;
 +----------------------------------------------------+---------+
 
 
@@ -1442,59 +1469,62 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |top_level|VGA_SYNC:VGA_REFRESH|v_count[5]                                                                                              ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_top_height_1[5]                                                                                      ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_top_height_3[3]                                                                                      ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |top_level|VGA_SYNC:VGA_REFRESH|v_count[7]                                                                                              ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_top_height_1[1]                                                                                      ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_top_height_3[0]                                                                                      ;
 ; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|s1_local_x[5]                                                                                             ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|blue[3]                                                                                                   ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|strip_addr_reg[5]                                                                                         ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |top_level|game_logic:GAME_RULE|pipe_collision_prev                                                                                     ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|game_logic:GAME_RULE|score_tens_int[1]                                                                                       ;
-; 4:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |top_level|game_logic:GAME_RULE|speed_phase_count[6]                                                                                    ;
-; 4:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |top_level|game_logic:GAME_RULE|speed_timer_count[1]                                                                                    ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe3_visible                                                                                             ;
-; 4:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |top_level|LAYER:LAYER_RENDERER|reg_BAIT_BLUE[2]                                                                                        ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |top_level|game_logic:GAME_RULE|collision_cooldown[4]                                                                                   ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |top_level|game_logic:GAME_RULE|bait_cooldown[2]                                                                                        ;
-; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |top_level|game_logic:GAME_RULE|termination_state_count[4]                                                                              ;
-; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_x_pos_1[8]                                                                                           ;
-; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_x_pos_2[3]                                                                                           ;
-; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_x_pos_3[0]                                                                                           ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_level|game_logic:GAME_RULE|score_ones_int[0]                                                                                       ;
-; 6:1                ; 12 bits   ; 48 LEs        ; 36 LEs               ; 12 LEs                 ; Yes        ; |top_level|BACKGROUND:BG|red_int[2]                                                                                                     ;
-; 7:1                ; 6 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|s1_local_y[0]                                                                                             ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|red[3]                                                                                                    ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |top_level|LAYER:LAYER_RENDERER|reg_BUBBLE_RED[1]                                                                                       ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|strip_addr_reg[2]                                                                                         ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |top_level|game_logic:GAME_RULE|pipe_passed_prev                                                                                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|game_logic:GAME_RULE|score_tens_int[2]                                                                                       ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |top_level|game_logic:GAME_RULE|speed_phase_count[2]                                                                                    ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |top_level|game_logic:GAME_RULE|speed_timer_count[9]                                                                                    ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe2_visible                                                                                             ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |top_level|LAYER:LAYER_RENDERER|reg_BAIT_RED[0]                                                                                         ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |top_level|game_logic:GAME_RULE|collision_cooldown[3]                                                                                   ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |top_level|game_logic:GAME_RULE|bait_cooldown[3]                                                                                        ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |top_level|game_logic:GAME_RULE|termination_state_count[5]                                                                              ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_x_pos_1[6]                                                                                           ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_x_pos_2[1]                                                                                           ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_x_pos_3[9]                                                                                           ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_level|game_logic:GAME_RULE|score_ones_int[3]                                                                                       ;
+; 6:1                ; 12 bits   ; 48 LEs        ; 36 LEs               ; 12 LEs                 ; Yes        ; |top_level|BACKGROUND:BG|blue_int[3]                                                                                                    ;
+; 7:1                ; 6 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|s1_local_y[1]                                                                                             ;
 ; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |top_level|DOLPHIN_MOVEMENT:PLAYER_CHARACTER|dolphin_y_motion[3]                                                                        ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; Yes        ; |top_level|DOLPHIN_MOVEMENT:PLAYER_CHARACTER|dolphin_y_motion[2]                                                                        ;
-; 8:1                ; 6 bits    ; 30 LEs        ; 24 LEs               ; 6 LEs                  ; Yes        ; |top_level|DOLPHIN_MOVEMENT:PLAYER_CHARACTER|dolphin_y_pos[9]                                                                           ;
-; 13:1               ; 12 bits   ; 96 LEs        ; 72 LEs               ; 24 LEs                 ; Yes        ; |top_level|LAYER:LAYER_RENDERER|GREEN_OUT[0]                                                                                            ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_top_height_1[7]                                                                                      ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; Yes        ; |top_level|DOLPHIN_MOVEMENT:PLAYER_CHARACTER|dolphin_y_motion[4]                                                                        ;
+; 8:1                ; 6 bits    ; 30 LEs        ; 24 LEs               ; 6 LEs                  ; Yes        ; |top_level|DOLPHIN_MOVEMENT:PLAYER_CHARACTER|dolphin_y_pos[8]                                                                           ;
+; 13:1               ; 12 bits   ; 96 LEs        ; 72 LEs               ; 24 LEs                 ; Yes        ; |top_level|LAYER:LAYER_RENDERER|RED_OUT[3]                                                                                              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_top_height_1[3]                                                                                      ;
 ; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_top_height_2[7]                                                                                      ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_top_height_3[1]                                                                                      ;
-; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_x_pos_2[7]                                                                                           ;
-; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_x_pos_3[8]                                                                                           ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; Yes        ; |top_level|DOLPHIN_MOVEMENT:PLAYER_CHARACTER|dolphin_y_pos[7]                                                                           ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_top_height_3[4]                                                                                      ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_x_pos_2[4]                                                                                           ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |top_level|PIPES:PIPE_DISPLAY|pipe_x_pos_3[1]                                                                                           ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; Yes        ; |top_level|DOLPHIN_MOVEMENT:PLAYER_CHARACTER|dolphin_y_pos[6]                                                                           ;
 ; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|FSM:FINITE_STATE_MACHINE|state_before_pause                                                                                  ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |top_level|bait:RANDOM_BAIT|bait_address[5]                                                                                             ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |top_level|bait:RANDOM_BAIT|bait_address[1]                                                                                             ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |top_level|PIPES:PIPE_DISPLAY|sel_v                                                                                                     ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |top_level|PIPES:PIPE_DISPLAY|gap_y_i                                                                                                   ;
-; 8:1                ; 5 bits    ; 25 LEs        ; 25 LEs               ; 0 LEs                  ; No         ; |top_level|GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:0:CHAR_ROM_INST|Mux0                                              ;
+; 8:1                ; 5 bits    ; 25 LEs        ; 25 LEs               ; 0 LEs                  ; No         ; |top_level|GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:8:CHAR_ROM_INST|Mux0                                              ;
 ; 8:1                ; 4 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |top_level|GAME_OVER_TEXT:GAME_OVER_TEXT_INSTANCE|char_rom:\GEN_CHARS:3:CHAR_ROM_INST|Mux0                                              ;
-; 8:1                ; 11 bits   ; 55 LEs        ; 55 LEs               ; 0 LEs                  ; No         ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:13:CHAR_ROM_INST|Mux0                                                 ;
-; 8:1                ; 11 bits   ; 55 LEs        ; 55 LEs               ; 0 LEs                  ; No         ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:0:CHAR_ROM_INST|Mux0                                                  ;
-; 8:1                ; 44 bits   ; 220 LEs       ; 220 LEs              ; 0 LEs                  ; No         ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:38:mode_CHAR_ROM|Mux0                                            ;
-; 8:1                ; 44 bits   ; 220 LEs       ; 220 LEs              ; 0 LEs                  ; No         ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:3:start_CHAR_ROM|Mux0                                           ;
-; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |top_level|PIPES:PIPE_DISPLAY|gap_y_i                                                                                                   ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; No         ; |top_level|BACKGROUND:BG|background_index_rom:INDEX_ROM|altsyncram:ROM|altsyncram_bhv3:auto_generated|mux_ehb:mux2|l3_w2_n4_mux_dataout ;
+; 8:1                ; 11 bits   ; 55 LEs        ; 55 LEs               ; 0 LEs                  ; No         ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_CHARS:9:CHAR_ROM_INST|Mux0                                                  ;
+; 8:1                ; 11 bits   ; 55 LEs        ; 55 LEs               ; 0 LEs                  ; No         ; |top_level|GAME_WON_TEXT:GAME_WON_TEXT_INSTANCE|char_rom:\GEN_CHARS:3:CHAR_ROM_INST|Mux0                                                ;
+; 8:1                ; 44 bits   ; 220 LEs       ; 220 LEs              ; 0 LEs                  ; No         ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_MODE_CHARS:44:mode_CHAR_ROM|Mux0                                            ;
+; 8:1                ; 44 bits   ; 220 LEs       ; 220 LEs              ; 0 LEs                  ; No         ; |top_level|HOME_DISPLAY_TEXT:HOME_SCREEN_TEXT|char_rom:\GEN_start_CHARS:31:start_CHAR_ROM|Mux0                                          ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |top_level|PIPES:PIPE_DISPLAY|pipe_x_i                                                                                                  ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; No         ; |top_level|BACKGROUND:BG|background_index_rom:INDEX_ROM|altsyncram:ROM|altsyncram_bhv3:auto_generated|mux_ehb:mux2|l3_w0_n4_mux_dataout ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:score_ones|SevenSeg_out[5]                                                                                   ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:score_tens|SevenSeg_out[0]                                                                                   ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |top_level|lives:LIFE_DISPLAY|font_row_sel[1]                                                                                           ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; No         ; |top_level|lives:LIFE_DISPLAY|font_col_sel[2]                                                                                           ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top_level|BCD_to_SevenSeg:score_tens|SevenSeg_out[3]                                                                                   ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |top_level|lives:LIFE_DISPLAY|font_row_sel[2]                                                                                           ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; No         ; |top_level|lives:LIFE_DISPLAY|font_col_sel[0]                                                                                           ;
+; 6:1                ; 5 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |top_level|BUBBLES:BUBBLE_LAYER|local_y[2]                                                                                              ;
 ; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |top_level|score_text:SCORE_DISPLAY|char_addr[5]                                                                                        ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |top_level|BUBBLES:BUBBLE_LAYER|bubble_address[2]                                                                                       ;
 ; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |top_level|score_text:SCORE_DISPLAY|font_row_sel[2]                                                                                     ;
-; 9:1                ; 4 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |top_level|score_text:SCORE_DISPLAY|char_addr[0]                                                                                        ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |top_level|score_text:SCORE_DISPLAY|char_addr[3]                                                                                        ;
 ; 15:1               ; 3 bits    ; 30 LEs        ; 18 LEs               ; 12 LEs                 ; No         ; |top_level|FSM:FINITE_STATE_MACHINE|state                                                                                               ;
 ; 15:1               ; 2 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; No         ; |top_level|FSM:FINITE_STATE_MACHINE|state                                                                                               ;
-; 33:1               ; 3 bits    ; 66 LEs        ; 66 LEs               ; 0 LEs                  ; No         ; |top_level|BACKGROUND:BG|background_index_rom:INDEX_ROM|altsyncram:ROM|altsyncram_bhv3:auto_generated|mux_ehb:mux2|l6_w1_n0_mux_dataout ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 66 LEs               ; 0 LEs                  ; No         ; |top_level|BACKGROUND:BG|background_index_rom:INDEX_ROM|altsyncram:ROM|altsyncram_bhv3:auto_generated|mux_ehb:mux2|l6_w2_n0_mux_dataout ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -2639,6 +2669,15 @@ Encoding Type:  One-Hot
 +---------------------------------+--------------------+------+---------------------------------------------------------------------+
 ; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                   ;
 +---------------------------------+--------------------+------+---------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for BUBBLES:BUBBLE_LAYER|bubble_rom:BUBBLE_IMAGE|altsyncram:altsyncram_component|altsyncram_q224:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                   ;
++---------------------------------+--------------------+------+----------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                    ;
++---------------------------------+--------------------+------+----------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------+
@@ -10635,12 +10674,73 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++---------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUBBLES:BUBBLE_LAYER|bubble_rom:BUBBLE_IMAGE|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+---------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                          ;
++------------------------------------+----------------------+---------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                       ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                    ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                  ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                  ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                                ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                       ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                                       ;
+; WIDTH_A                            ; 12                   ; Signed Integer                                                ;
+; WIDTHAD_A                          ; 6                    ; Signed Integer                                                ;
+; NUMWORDS_A                         ; 64                   ; Signed Integer                                                ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                       ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                       ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                       ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                       ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                       ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                       ;
+; WIDTH_B                            ; 1                    ; Signed Integer                                                ;
+; WIDTHAD_B                          ; 1                    ; Signed Integer                                                ;
+; NUMWORDS_B                         ; 0                    ; Signed Integer                                                ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                       ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                       ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                       ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                       ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                       ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                       ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                       ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                       ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                       ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                       ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                       ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                       ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                                ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Signed Integer                                                ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                       ;
+; BYTE_SIZE                          ; 8                    ; Signed Integer                                                ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                       ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                       ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                       ;
+; INIT_FILE                          ; bubble.mif           ; Untyped                                                       ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                       ;
+; MAXIMUM_DEPTH                      ; 0                    ; Signed Integer                                                ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                       ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                       ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                       ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                       ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                       ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                       ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                       ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                       ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Signed Integer                                                ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                                       ;
+; CBXI_PARAMETER                     ; altsyncram_q224      ; Untyped                                                       ;
++------------------------------------+----------------------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; altsyncram Parameter Settings by Entity Instance                                                                                                           ;
 +-------------------------------------------+----------------------------------------------------------------------------------------------------------------+
 ; Name                                      ; Value                                                                                                          ;
 +-------------------------------------------+----------------------------------------------------------------------------------------------------------------+
-; Number of entity instances                ; 127                                                                                                            ;
+; Number of entity instances                ; 128                                                                                                            ;
 ; Entity Instance                           ; BACKGROUND:BG|background_index_rom:INDEX_ROM|altsyncram:ROM                                                    ;
 ;     -- OPERATION_MODE                     ; ROM                                                                                                            ;
 ;     -- WIDTH_A                            ; 3                                                                                                              ;
@@ -12034,6 +12134,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                                                   ;
 ;     -- WIDTH_B                            ; 1                                                                                                              ;
 ;     -- NUMWORDS_B                         ; 1                                                                                                              ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                                                         ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                                                   ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                                           ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                                                      ;
+; Entity Instance                           ; BUBBLES:BUBBLE_LAYER|bubble_rom:BUBBLE_IMAGE|altsyncram:altsyncram_component                                   ;
+;     -- OPERATION_MODE                     ; ROM                                                                                                            ;
+;     -- WIDTH_A                            ; 12                                                                                                             ;
+;     -- NUMWORDS_A                         ; 64                                                                                                             ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                                                   ;
+;     -- WIDTH_B                            ; 1                                                                                                              ;
+;     -- NUMWORDS_B                         ; 0                                                                                                              ;
 ;     -- ADDRESS_REG_B                      ; CLOCK1                                                                                                         ;
 ;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                                                   ;
 ;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                                           ;
@@ -13455,34 +13566,34 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 513                         ;
+; arriav_ff             ; 564                         ;
 ;     CLR               ; 18                          ;
-;     ENA               ; 92                          ;
+;     ENA               ; 130                         ;
 ;     ENA CLR           ; 33                          ;
 ;     ENA SCLR          ; 49                          ;
 ;     ENA SLD           ; 9                           ;
-;     SCLR              ; 79                          ;
+;     SCLR              ; 91                          ;
 ;     SCLR SLD          ; 8                           ;
-;     plain             ; 225                         ;
+;     plain             ; 226                         ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 2309                        ;
-;     arith             ; 974                         ;
-;         0 data inputs ; 83                          ;
-;         1 data inputs ; 809                         ;
-;         2 data inputs ; 71                          ;
+; arriav_lcell_comb     ; 2530                        ;
+;     arith             ; 1040                        ;
+;         0 data inputs ; 87                          ;
+;         1 data inputs ; 867                         ;
+;         2 data inputs ; 75                          ;
 ;         3 data inputs ; 4                           ;
 ;         4 data inputs ; 6                           ;
 ;         5 data inputs ; 1                           ;
-;     extend            ; 12                          ;
-;         7 data inputs ; 12                          ;
-;     normal            ; 1251                        ;
+;     extend            ; 13                          ;
+;         7 data inputs ; 13                          ;
+;     normal            ; 1405                        ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 39                          ;
-;         2 data inputs ; 73                          ;
-;         3 data inputs ; 95                          ;
-;         4 data inputs ; 284                         ;
-;         5 data inputs ; 280                         ;
-;         6 data inputs ; 479                         ;
+;         1 data inputs ; 40                          ;
+;         2 data inputs ; 122                         ;
+;         3 data inputs ; 101                         ;
+;         4 data inputs ; 324                         ;
+;         5 data inputs ; 317                         ;
+;         6 data inputs ; 500                         ;
 ;     shared            ; 72                          ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 29                          ;
@@ -13491,10 +13602,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         4 data inputs ; 2                           ;
 ; boundary_port         ; 55                          ;
 ; generic_pll           ; 1                           ;
-; stratixv_ram_block    ; 1142                        ;
+; stratixv_ram_block    ; 1154                        ;
 ;                       ;                             ;
 ; Max LUT depth         ; 11.80                       ;
-; Average LUT depth     ; 5.43                        ;
+; Average LUT depth     ; 5.40                        ;
 +-----------------------+-----------------------------+
 
 
@@ -13503,7 +13614,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -13513,7 +13624,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Fri May 29 11:24:55 2026
+    Info: Processing started: Fri May 29 12:29:05 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off group_27 -c top_level
 Warning (125092): Tcl Script File pipe_top.qip not found
     Info (125063): set_global_assignment -name QIP_FILE pipe_top.qip
@@ -13632,10 +13743,6 @@ Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(346): object "colu
 Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(346): object "column_tens" assigned a value but never read File: C:/Users/User/COMPSYS_305_Mini_Project/top_level.vhd Line: 346
 Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(346): object "column_ones" assigned a value but never read File: C:/Users/User/COMPSYS_305_Mini_Project/top_level.vhd Line: 346
 Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(363): object "DOLPHIN_ENABLE" assigned a value but never read File: C:/Users/User/COMPSYS_305_Mini_Project/top_level.vhd Line: 363
-Warning (10541): VHDL Signal Declaration warning at top_level.vhd(397): used implicit default value for signal "BUBBLE_RED" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/User/COMPSYS_305_Mini_Project/top_level.vhd Line: 397
-Warning (10541): VHDL Signal Declaration warning at top_level.vhd(397): used implicit default value for signal "BUBBLE_GREEN" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/User/COMPSYS_305_Mini_Project/top_level.vhd Line: 397
-Warning (10541): VHDL Signal Declaration warning at top_level.vhd(397): used implicit default value for signal "BUBBLE_BLUE" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/User/COMPSYS_305_Mini_Project/top_level.vhd Line: 397
-Warning (10541): VHDL Signal Declaration warning at top_level.vhd(398): used implicit default value for signal "BUBBLE_ON" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/User/COMPSYS_305_Mini_Project/top_level.vhd Line: 398
 Info (12128): Elaborating entity "BACKGROUND" for hierarchy "BACKGROUND:BG" File: C:/Users/User/COMPSYS_305_Mini_Project/top_level.vhd Line: 454
 Info (12128): Elaborating entity "background_index_rom" for hierarchy "BACKGROUND:BG|background_index_rom:INDEX_ROM" File: C:/Users/User/COMPSYS_305_Mini_Project/background.vhd Line: 58
 Info (12128): Elaborating entity "altsyncram" for hierarchy "BACKGROUND:BG|background_index_rom:INDEX_ROM|altsyncram:ROM" File: C:/Users/User/COMPSYS_305_Mini_Project/background_index_rom.vhd Line: 20
@@ -14095,6 +14202,64 @@ Info (12128): Elaborating entity "lfsr" for hierarchy "lfsr:RANDOM_NUMBER" File:
 Warning (10492): VHDL Process Statement warning at LFSR.vhd(28): signal "INITIAL_VALUE" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/User/COMPSYS_305_Mini_Project/LFSR.vhd Line: 28
 Info (12128): Elaborating entity "position_to_BCD" for hierarchy "position_to_BCD:sevenseg_display" File: C:/Users/User/COMPSYS_305_Mini_Project/top_level.vhd Line: 711
 Info (12128): Elaborating entity "score_text" for hierarchy "score_text:SCORE_DISPLAY" File: C:/Users/User/COMPSYS_305_Mini_Project/top_level.vhd Line: 722
+Info (12128): Elaborating entity "BUBBLES" for hierarchy "BUBBLES:BUBBLE_LAYER" File: C:/Users/User/COMPSYS_305_Mini_Project/top_level.vhd Line: 735
+Info (12128): Elaborating entity "bubble_rom" for hierarchy "BUBBLES:BUBBLE_LAYER|bubble_rom:BUBBLE_IMAGE" File: C:/Users/User/COMPSYS_305_Mini_Project/bubble.vhd Line: 47
+Info (12128): Elaborating entity "altsyncram" for hierarchy "BUBBLES:BUBBLE_LAYER|bubble_rom:BUBBLE_IMAGE|altsyncram:altsyncram_component" File: C:/Users/User/COMPSYS_305_Mini_Project/bubble_rom.vhd Line: 59
+Info (12130): Elaborated megafunction instantiation "BUBBLES:BUBBLE_LAYER|bubble_rom:BUBBLE_IMAGE|altsyncram:altsyncram_component" File: C:/Users/User/COMPSYS_305_Mini_Project/bubble_rom.vhd Line: 59
+Info (12133): Instantiated megafunction "BUBBLES:BUBBLE_LAYER|bubble_rom:BUBBLE_IMAGE|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/User/COMPSYS_305_Mini_Project/bubble_rom.vhd Line: 59
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "NORMAL"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = "bubble.mif"
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "64"
+    Info (12134): Parameter "numwords_b" = "0"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "12"
+    Info (12134): Parameter "width_b" = "1"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "6"
+    Info (12134): Parameter "widthad_b" = "1"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_q224.tdf
+    Info (12023): Found entity 1: altsyncram_q224 File: C:/Users/User/COMPSYS_305_Mini_Project/db/altsyncram_q224.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_q224" for hierarchy "BUBBLES:BUBBLE_LAYER|bubble_rom:BUBBLE_IMAGE|altsyncram:altsyncram_component|altsyncram_q224:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:VGA_REFRESH" File: C:/Users/User/COMPSYS_305_Mini_Project/top_level.vhd Line: 748
 Info (13000): Registers with preset signals will power-up high File: C:/Users/User/COMPSYS_305_Mini_Project/LFSR.vhd Line: 27
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
@@ -14477,17 +14642,17 @@ Warning (21074): Design contains 11 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/User/COMPSYS_305_Mini_Project/top_level.vhd Line: 9
     Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/User/COMPSYS_305_Mini_Project/top_level.vhd Line: 9
     Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/User/COMPSYS_305_Mini_Project/top_level.vhd Line: 9
-Info (21057): Implemented 3707 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3953 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 38 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 2509 logic cells
-    Info (21064): Implemented 1142 RAM segments
+    Info (21061): Implemented 2743 logic cells
+    Info (21064): Implemented 1154 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 278 warnings
-    Info: Peak virtual memory: 5029 megabytes
-    Info: Processing ended: Fri May 29 11:25:09 2026
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:23
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 274 warnings
+    Info: Peak virtual memory: 5024 megabytes
+    Info: Processing ended: Fri May 29 12:29:22 2026
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:25
 
 
